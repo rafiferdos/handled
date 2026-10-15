@@ -1,16 +1,26 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import type { VariantProps } from "class-variance-authority"
+import { buttonVariants } from "@/components/ui/button"
 
+type ButtonLinkProps = React.ComponentProps<typeof Link> &
+  VariantProps<typeof buttonVariants>
+
+/** Native link semantics, styled with the installed shadcn Button recipe. */
 export function ButtonLink({
   href,
   children,
+  variant,
+  size,
+  className,
   ...props
-}: Omit<React.ComponentProps<typeof Button>, "render" | "nativeButton"> & {
-  href: string
-}) {
+}: ButtonLinkProps) {
   return (
-    <Button render={<Link href={href} />} nativeButton={false} {...props}>
+    <Link
+      href={href}
+      className={buttonVariants({ variant, size, className })}
+      {...props}
+    >
       {children}
-    </Button>
+    </Link>
   )
 }
