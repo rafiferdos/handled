@@ -1,0 +1,136 @@
+"use client"
+
+import { useState } from "react"
+import { ArrowUpRight, BookOpen, FileText, Search } from "lucide-react"
+import { PageHeading } from "./page-heading"
+import { EmptyState } from "./data-state"
+import { useWorkspace } from "./workspace-provider"
+import { sampleTickets } from "@/lib/api/fixtures"
+import { Input } from "@/components/ui/input"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+export function KnowledgeLibrary() {
+  const [search, setSearch] = useState("")
+  const { workspace } = useWorkspace()
+  const policies = sampleTickets
+    .filter((ticket) => ticket.workspaceId === workspace.id)
+    .flatMap((ticket) =>
+      ticket.evidence.filter((source) => source.kind === "policy")
+    )
+    .filter((source) =>
+      `${source.title} ${source.reference}`
+        .toLowerCase()
+        .includes(search.trim().toLowerCase())
+    )
+  return (
+    <>
+      <PageHeading
+        eyebrow={`${workspace.name} / Knowledge`}
+        title="Start with a source you can trust."
+        description="Published sample policies for the three support scenarios. This library is an illustrative fixture, not a connected knowledge store."
+      />
+      <div className="relative mb-8 max-w-sm">
+        <Search className="pointer-events-none absolute top-3 left-3.5 size-4 text-muted-foreground" />
+        <Input
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          aria-label="Search knowledge"
+          placeholder="Search sample knowledge…"
+          className="h-10 rounded-xl pl-10"
+        />
+      </div>
+      {!policies.length ? (
+        <EmptyState
+          title="No sample policies here."
+          description={
+            search
+              ? "Try a different search."
+              : "Knowledge from other workspaces remains separate."
+          }
+        />
+      ) : (
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {policies.map((source) => (
+            <Card
+              key={source.reference}
+              className="flex h-full flex-col rounded-2xl shadow-none"
+            >
+              <CardHeader>
+                <div className="mb-7 flex items-center justify-between">
+                  <span className="flex size-11 items-center justify-center rounded-xl bg-muted">
+                    <BookOpen className="size-5 text-muted-foreground" />
+                  </span>
+                  <Badge
+                    variant="outline"
+                    className="border-success/20 bg-success-surface text-[8px] text-success"
+                  >
+                    Published sample
+                  </Badge>
+                </div>
+                <CardTitle className="font-heading text-xl leading-tight font-medium tracking-tight">
+                  {source.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="flex flex-1 flex-col">
+                <p className="flex-1 text-xs leading-relaxed text-muted-foreground">
+                  {source.detail}
+                </p>
+                <div className="mt-6 flex items-center justify-between border-t pt-4">
+                  <span className="font-mono text-[8px] text-muted-foreground">
+                    {source.reference}
+                  </span>
+                  <Dialog>
+                    <DialogTrigger
+                      render={
+                        <Button
+                          variant="ghost"
+                          size="icon-sm"
+                          aria-label={`Read ${source.title}`}
+                        />
+                      }
+                    >
+                      <ArrowUpRight className="size-4" />
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>{source.title}</DialogTitle>
+                        <DialogDescription>
+                          Published sample · {source.reference}
+                        </DialogDescription>
+                      </DialogHeader>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {source.detail}
+                      </p>
+                      <p className="rounded-xl bg-muted p-3 text-[10px] leading-relaxed text-muted-foreground">
+                        This is a local sample policy. Real documents need
+                        workspace-scoped retrieval, owner-reviewed publishing
+                        and version provenance.
+                      </p>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
+      <div className="mt-8 flex items-start gap-3 rounded-2xl border border-dashed p-5 text-xs leading-relaxed text-muted-foreground">
+        <FileText className="mt-0.5 size-4 shrink-0" />
+        <p>
+          Drafting, publishing and indexing will connect through the knowledge
+          owner&apos;s API. No document writes are enabled in this preview.
+        </p>
+      </div>
+    </>
+  )
+}

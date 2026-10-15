@@ -1,0 +1,109 @@
+"use client"
+
+import { useTheme } from "next-themes"
+import { Monitor, ShieldCheck } from "lucide-react"
+import { PageHeading } from "./page-heading"
+import { useWorkspace } from "./workspace-provider"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
+import { Badge } from "@/components/ui/badge"
+
+export function SettingsView() {
+  const { workspace } = useWorkspace()
+  const { theme, setTheme } = useTheme()
+  return (
+    <>
+      <PageHeading
+        eyebrow={`${workspace.name} / Settings`}
+        title="Make a little room for your way."
+        description="Appearance preferences work in this browser. Workspace administration remains read-only until authenticated APIs are connected."
+      />
+      <div className="grid items-start gap-6 xl:grid-cols-2">
+        <Card className="shadow-none">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 font-heading text-xl font-medium">
+              <Monitor className="size-4 text-muted-foreground" />
+              Appearance
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <Label id="theme-label">Color theme</Label>
+              <Select
+                value={theme ?? "system"}
+                onValueChange={(value) => value && setTheme(value)}
+                items={[
+                  { value: "system", label: "System preference" },
+                  { value: "light", label: "Light" },
+                  { value: "dark", label: "Dark" },
+                ]}
+              >
+                <SelectTrigger
+                  aria-labelledby="theme-label"
+                  className="h-10 w-full"
+                >
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent alignItemWithTrigger={false}>
+                  <SelectItem value="system">System preference</SelectItem>
+                  <SelectItem value="light">Light</SelectItem>
+                  <SelectItem value="dark">Dark</SelectItem>
+                </SelectContent>
+              </Select>
+              <p className="text-[11px] leading-relaxed text-muted-foreground">
+                Follows your device by default. Reduced-motion preferences are
+                always respected.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="shadow-none">
+          <CardHeader>
+            <CardTitle className="flex items-center justify-between font-heading text-xl font-medium">
+              Sample workspace
+              <Badge
+                variant="outline"
+                className="font-sans text-[8px] font-normal"
+              >
+                Read-only preview
+              </Badge>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-5">
+            <div className="space-y-2">
+              <Label htmlFor="workspace-name">Name</Label>
+              <Input
+                id="workspace-name"
+                value={workspace.name}
+                readOnly
+                className="h-10"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="workspace-slug">Slug</Label>
+              <Input
+                id="workspace-slug"
+                value={workspace.slug}
+                readOnly
+                className="h-10 font-mono text-xs"
+              />
+            </div>
+            <p className="flex items-start gap-2 text-[11px] leading-relaxed text-muted-foreground">
+              <ShieldCheck className="mt-0.5 size-4 shrink-0" />
+              Membership, invitations and role changes require verified sessions
+              and backend permissions. A preview is not an authenticated role.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </>
+  )
+}
