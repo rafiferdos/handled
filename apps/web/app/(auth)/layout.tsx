@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft, ShieldCheck } from "lucide-react"
+import { ArrowLeft, BookOpen, MessageSquare, ShieldCheck } from "lucide-react"
 import { Brand, BrandMark } from "@/components/shared/brand"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 
@@ -13,11 +13,30 @@ export default function AuthLayout({
 }) {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
-      <aside className="relative hidden overflow-hidden bg-[#182126] p-12 text-[#f0f3f3] lg:flex lg:flex-col">
+      <aside className="relative hidden overflow-hidden bg-[#182126] p-12 text-[#f0f3f3] lg:flex lg:flex-col xl:p-16">
         <Brand className="relative z-10" />
         <div className="surface-grid pointer-events-none absolute inset-0 opacity-[0.035]" />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-40 -right-40 size-[680px] rounded-full border border-white/5 shadow-[0_0_0_90px_rgb(255_255_255/0.015),0_0_0_180px_rgb(255_255_255/0.01)]"
+        />
+        <BrandMark
+          aria-hidden="true"
+          className="pointer-events-none absolute top-[20%] -right-20 size-[400px] rotate-[-12deg] text-white/[0.025]"
+        />
         <div className="relative my-auto py-16">
-          <BrandMark className="mb-12 size-24 text-[#87999f]" />
+          <div aria-hidden="true" className="mb-12 flex items-center gap-3">
+            {[MessageSquare, BookOpen, ShieldCheck].map((Icon, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <div
+                  className={`flex size-14 items-center justify-center rounded-2xl border ${index === 2 ? "border-[#90bba8]/30 bg-[#90bba8]/10 text-[#b6d9c8]" : "border-white/10 bg-white/4 text-[#aabac0]"}`}
+                >
+                  <Icon className="size-5" />
+                </div>
+                {index < 2 && <span className="h-px w-6 bg-white/15" />}
+              </div>
+            ))}
+          </div>
           <p className="eyebrow mb-6 text-[#9eafb5]">
             A little clarity goes a long way.
           </p>

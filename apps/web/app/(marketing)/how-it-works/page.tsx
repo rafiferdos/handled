@@ -1,5 +1,11 @@
 import type { Metadata } from "next"
-import { ArrowUpRight } from "lucide-react"
+import {
+  ArrowUpRight,
+  BookOpen,
+  FileCheck2,
+  MessageSquare,
+  ShieldCheck,
+} from "lucide-react"
 import { ButtonLink } from "@/components/shared/button-link"
 import { Reveal } from "@/components/motion/reveal"
 
@@ -9,21 +15,29 @@ const steps = [
     title: "Start with the customer’s question.",
     text: "A ticket is the starting point. The account and workspace establish the boundary for every piece of context that follows.",
     label: "01 / Intake",
+    icon: MessageSquare,
+    sample: "The question comes with its account and workspace.",
   },
   {
     title: "Bring the evidence together.",
-    text: "The intended investigation uses allowlisted, read-only account tools and published knowledge. Recorded steps and sources support the recommendation; hidden model reasoning is never presented as evidence.",
+    text: "Review account facts alongside published policies. Follow the source references and see what supports the recommendation, with uncertainty kept in view.",
     label: "02 / Investigate",
+    icon: BookOpen,
+    sample: "A published policy. A recorded payment. A source to check.",
   },
   {
     title: "Make a deliberate decision.",
-    text: "An authenticated agent reviews the proposal and sources, edits the reply, or rejects or escalates the case. Low or conflicting evidence calls for manual review.",
+    text: "A person reviews the proposal and its sources, adjusts the reply, or rejects or escalates the case. When evidence is incomplete or conflicting, manual review comes first.",
     label: "03 / Human review",
+    icon: ShieldCheck,
+    sample: "Your judgment stays between a suggestion and an action.",
   },
   {
     title: "Act safely. Keep the record.",
-    text: "The backend must verify permissions, proposal version, policy and idempotency before admitting a simulated action. Durable records and audit events establish the outcome. Real provider writes remain outside the MVP.",
-    label: "04 / Simulate & audit",
+    text: "The reviewed workflow is designed to keep the evidence, decision and outcome together. In this preview, decision rehearsals stay local; they do not create an account change or a durable activity record.",
+    label: "04 / Outcome & record",
+    icon: FileCheck2,
+    sample: "A clear record of what was reviewed and what came next.",
   },
 ]
 
@@ -47,13 +61,21 @@ export default function HowItWorksPage() {
         {steps.map((step) => (
           <Reveal key={step.label}>
             <section className="grid gap-5 border-t py-10 md:grid-cols-[0.6fr_1.4fr] md:py-14">
-              <p className="eyebrow text-muted-foreground">{step.label}</p>
+              <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-5">
+                <span className="flex size-14 items-center justify-center rounded-2xl border bg-muted/30">
+                  <step.icon className="size-5 text-muted-foreground" />
+                </span>
+                <p className="eyebrow text-muted-foreground">{step.label}</p>
+              </div>
               <div>
                 <h2 className="font-heading text-3xl font-medium tracking-tight">
                   {step.title}
                 </h2>
                 <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
                   {step.text}
+                </p>
+                <p className="mt-6 max-w-xl border-l-2 border-foreground/15 pl-4 font-mono text-[10px] leading-relaxed text-muted-foreground">
+                  {step.sample}
                 </p>
               </div>
             </section>
