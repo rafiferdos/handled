@@ -26,12 +26,19 @@ export function Overview() {
   const { workspace } = useWorkspace()
   const tickets = useTickets()
   const data = tickets.data?.data ?? []
+  const nextReview = data.find(
+    (ticket) => ticket.status === "AWAITING_APPROVAL"
+  )
   const stats = [
     {
       label: "Sample tickets",
       value: data.length,
       icon: Inbox,
-      note: "Three canonical support scenarios",
+      note: data.length
+        ? "Three canonical support scenarios"
+        : "No sample records in this workspace",
+      tone: "border-border",
+      iconTone: "border-border bg-muted/35 text-muted-foreground",
     },
     {
       label: "Ready for review",
@@ -39,12 +46,16 @@ export function Overview() {
         .length,
       icon: Clock3,
       note: "A human decision comes next",
+      tone: "border-success/20",
+      iconTone: "border-success/20 bg-success-surface/60 text-success",
     },
     {
       label: "Needs a closer look",
       value: data.filter((ticket) => ticket.status === "NEEDS_REVIEW").length,
       icon: CircleHelp,
       note: "Incomplete evidence stays in review",
+      tone: "border-warning/20",
+      iconTone: "border-warning/20 bg-warning-surface/60 text-warning",
     },
   ]
   return (
@@ -66,21 +77,28 @@ export function Overview() {
         <>
           <div className="grid gap-4 sm:grid-cols-3">
             {stats.map((stat) => (
-              <Card key={stat.label} className="rounded-2xl shadow-none">
+              <Card
+                key={stat.label}
+                className={`relative rounded-2xl border shadow-none ring-0 ${stat.tone}`}
+              >
                 <CardHeader className="flex flex-row items-center justify-between pb-3">
                   <CardTitle className="text-xs font-normal text-muted-foreground">
                     {stat.label}
                   </CardTitle>
-                  <stat.icon className="size-4 text-muted-foreground" />
+                  <span
+                    className={`flex size-8 items-center justify-center rounded-xl border ${stat.iconTone}`}
+                  >
+                    <stat.icon className="size-3.5" />
+                  </span>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-heading text-4xl font-medium tracking-tight">
+                  <p className="font-heading text-4xl font-medium tracking-tight tabular-nums">
                     {stat.value}
-                    <span className="ml-2 font-mono text-[9px] font-normal tracking-normal text-muted-foreground">
+                    <span className="ml-2 font-mono text-[10px] font-normal tracking-normal text-muted-foreground">
                       SAMPLE
                     </span>
                   </p>
-                  <p className="mt-3 text-[10px] leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
                     {stat.note}
                   </p>
                 </CardContent>
@@ -161,6 +179,15 @@ export function Overview() {
                     Review the source, check the recommendation, and make the
                     decision. In this preview, every outcome stays local.
                   </p>
+                  {nextReview && (
+                    <ButtonLink
+                      href={`/tickets/${nextReview.id}`}
+                      className="mt-5 h-10 w-full justify-between rounded-xl px-4 text-[11px]"
+                    >
+                      Review next sample
+                      <ArrowUpRight className="size-3.5" />
+                    </ButtonLink>
+                  )}
                   <ButtonLink
                     variant="outline"
                     href="/how-it-works"

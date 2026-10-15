@@ -1,5 +1,27 @@
 import { expect, test } from "@playwright/test"
 
+test("overview review entry follows the active workspace", async ({
+  page,
+  isMobile,
+}) => {
+  await page.goto("/dashboard")
+  await expect(
+    page.getByRole("link", { name: "Review next sample", exact: true })
+  ).toHaveAttribute("href", "/tickets/10000000-0000-4000-8000-000000001001")
+  if (isMobile)
+    await page
+      .getByRole("button", { name: "Open workspace navigation" })
+      .click()
+  await page.getByRole("combobox", { name: "Select preview workspace" }).click()
+  await page.getByRole("option", { name: "PixelDesk", exact: true }).click()
+  await expect(
+    page.getByRole("heading", { name: "This workspace is a clean slate." })
+  ).toBeVisible()
+  await expect(
+    page.getByRole("link", { name: "Review next sample", exact: true })
+  ).toHaveCount(0)
+})
+
 test("sample showcase supports keyboard case selection and correct case links", async ({
   page,
 }) => {
