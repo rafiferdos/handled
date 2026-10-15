@@ -214,9 +214,7 @@ test("low confidence cannot be approved and draft editing stays local", async ({
   ).toBeVisible()
 })
 
-test("theme preference works without affecting typed form content", async ({
-  page,
-}) => {
+test("theme selection updates the document preference", async ({ page }) => {
   await page.goto("/settings")
   await page.getByRole("combobox", { name: "Color theme" }).click()
   await page.getByRole("option", { name: "Dark", exact: true }).click()
@@ -224,4 +222,45 @@ test("theme preference works without affecting typed form content", async ({
   await page.getByRole("combobox", { name: "Color theme" }).click()
   await page.getByRole("option", { name: "Light", exact: true }).click()
   await expect(page.locator("html")).not.toHaveClass(/dark/)
+})
+
+test("short viewports keep sheet navigation and dialog actions reachable", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 667, height: 375 })
+  await page.goto("/tickets/10000000-0000-4000-8000-000000001001")
+  await page.getByRole("button", { name: "Open workspace navigation" }).click()
+  const sheet = page.getByRole("dialog", { name: "Workspace navigation" })
+  const settings = sheet.getByRole("link", { name: "Settings", exact: true })
+  await settings.scrollIntoViewIfNeeded()
+  const linkBounds = await settings.boundingBox()
+  expect(linkBounds!.y + linkBounds!.height).toBeLessThanOrEqual(375)
+  await page.keyboard.press("Escape")
+  await page.getByRole("button", { name: "Edit draft", exact: true }).click()
+  const dialog = page.getByRole("dialog", { name: "Edit sample reply" })
+  const bounds = await dialog.boundingBox()
+  expect(bounds!.y).toBeGreaterThanOrEqual(8)
+  expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(367)
+  const save = dialog.getByRole("button", { name: "Save local draft" })
+  await save.scrollIntoViewIfNeeded()
+  expect(
+    (await save.boundingBox())!.y + (await save.boundingBox())!.height
+  ).toBeLessThanOrEqual(375)
+})
+
+test("persisted theme hydrates the settings selector without React errors", async ({
+  page,
+}) => {
+  await page.addInitScript(() => localStorage.setItem("theme", "dark"))
+  const errors: string[] = []
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text())
+  })
+  page.on("pageerror", (error) => errors.push(error.message))
+  await page.goto("/settings")
+  await expect(page.getByRole("combobox", { name: "Color theme" })).toHaveText(
+    /Dark/
+  )
+  await expect(page.locator("html")).toHaveClass(/dark/)
+  expect(errors).toEqual([])
 })

@@ -1,5 +1,6 @@
 "use client"
 
+import { useSyncExternalStore } from "react"
 import { useTheme } from "next-themes"
 import { Monitor, ShieldCheck } from "lucide-react"
 import { PageHeading } from "./page-heading"
@@ -16,7 +17,16 @@ import {
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 
+const subscribeHydration = () => () => {}
+const hydratedSnapshot = () => true
+const serverSnapshot = () => false
+
 export function SettingsView() {
+  const hydrated = useSyncExternalStore(
+    subscribeHydration,
+    hydratedSnapshot,
+    serverSnapshot
+  )
   const { workspace } = useWorkspace()
   const { theme, setTheme } = useTheme()
   return (
@@ -38,7 +48,7 @@ export function SettingsView() {
             <div className="space-y-3">
               <Label id="theme-label">Color theme</Label>
               <Select
-                value={theme ?? "system"}
+                value={hydrated ? (theme ?? "system") : "system"}
                 onValueChange={(value) => value && setTheme(value)}
                 items={[
                   { value: "system", label: "System preference" },
