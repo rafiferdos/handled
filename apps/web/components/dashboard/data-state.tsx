@@ -26,14 +26,14 @@ export function EmptyState({
   action?: React.ReactNode
 }) {
   return (
-    <div className="flex min-h-64 flex-col items-center justify-center rounded-2xl border border-dashed px-6 py-12 text-center">
-      <span className="mb-4 flex size-12 items-center justify-center rounded-2xl bg-muted">
-        <Inbox className="size-5 text-muted-foreground" />
+    <div className="workspace-empty flex min-h-72 flex-col items-center justify-center rounded-2xl border border-dashed bg-card px-6 py-12 text-center">
+      <span className="mb-5 flex size-14 items-center justify-center rounded-2xl border border-signal/15 bg-signal-surface">
+        <Inbox className="size-5 text-signal" />
       </span>
       <h2 className="font-heading text-xl font-medium tracking-tight">
         {title}
       </h2>
-      <p className="mt-2 max-w-sm text-xs leading-relaxed text-muted-foreground">
+      <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
       {action && <div className="mt-5">{action}</div>}
@@ -50,14 +50,18 @@ export function ErrorState({
   return (
     <div
       role="alert"
-      className="flex min-h-64 flex-col items-center justify-center rounded-2xl border px-6 py-10 text-center"
+      className="workspace-panel flex min-h-72 flex-col items-center justify-center rounded-2xl border px-6 py-10 text-center"
     >
       <TriangleAlert className="mb-4 size-6 text-warning" />
       <h2 className="font-heading text-xl font-medium">{title}</h2>
-      <p className="mt-2 max-w-sm text-xs text-muted-foreground">
+      <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
         Please try again. No account data has been changed.
       </p>
-      <Button variant="outline" className="mt-5" onClick={retry}>
+      <Button
+        variant="outline"
+        className="mt-6 h-10 rounded-xl"
+        onClick={retry}
+      >
         <RefreshCw className="mr-2 size-3.5" />
         Try again
       </Button>

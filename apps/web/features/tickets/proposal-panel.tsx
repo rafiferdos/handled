@@ -73,7 +73,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
             <Sparkles className="size-4" />
             Sample proposal
           </span>
-          <Badge variant="outline" className="font-mono text-[8px]">
+          <Badge variant="outline" className="font-mono text-[11px]">
             v1 · SAMPLE
           </Badge>
         </div>
@@ -82,13 +82,13 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
             variant="outline"
             className={
               low
-                ? "border-warning/20 bg-warning-surface text-[9px] text-warning"
-                : "border-success/20 bg-success-surface text-[9px] text-success"
+                ? "border-warning/20 bg-warning-surface text-[11px] text-warning"
+                : "border-success/20 bg-success-surface text-[11px] text-success"
             }
           >
             {humanize(ticket.confidence)} confidence
           </Badge>
-          <span className="text-[9px] text-muted-foreground">
+          <span className="text-[11px] text-muted-foreground">
             Fixture assessment
           </span>
         </div>
@@ -111,7 +111,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-7 text-[10px]"
+                    className="h-7 text-[11px]"
                     onClick={() => setDraft(reply)}
                   />
                 }
@@ -135,7 +135,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
                     maxLength={4000}
                     className="min-h-44"
                   />
-                  <p className="text-[10px] text-muted-foreground">
+                  <p className="text-[11px] text-muted-foreground">
                     {draft.length} / 4000 characters
                   </p>
                 </div>
@@ -163,7 +163,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
             {reply}
           </blockquote>
         </div>
-        <div className="flex items-start gap-2 rounded-xl bg-muted/40 p-3 text-[10px] leading-relaxed text-muted-foreground">
+        <div className="flex items-start gap-2 rounded-xl bg-muted/40 p-3 text-[11px] leading-relaxed text-muted-foreground">
           <ShieldCheck className="mt-0.5 size-4 shrink-0" />
           <p>
             Preview controls rehearse a decision locally. Real decisions require
@@ -179,13 +179,13 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
               <Check className="size-4" />
               Local rehearsal: {recorded}
             </p>
-            <p className="mt-2 text-[10px] leading-relaxed text-success">
+            <p className="mt-2 text-[11px] leading-relaxed text-success">
               No payment, subscription or access changed. This is not a durable
               audit record.
             </p>
             <Button
               variant="link"
-              className="mt-3 h-auto p-0 text-[10px] text-success"
+              className="mt-3 h-auto p-0 text-[11px] text-success"
               onClick={() => {
                 setRecorded(null)
                 setReason("")
@@ -227,7 +227,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
               </AlertDialogContent>
             </AlertDialog>
             {low && (
-              <p className="-mt-3 text-[10px] text-warning">
+              <p className="-mt-3 text-[11px] text-warning">
                 Approval unavailable for low-confidence evidence.
               </p>
             )}

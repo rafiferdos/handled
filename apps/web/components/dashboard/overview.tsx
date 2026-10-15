@@ -65,7 +65,10 @@ export function Overview() {
         title="A clear view of what’s next."
         description="A little context for your day. Explore how evidence and human decisions fit together in this sample workspace."
       >
-        <ButtonLink href="/tickets" className="h-10 rounded-full px-5 text-xs">
+        <ButtonLink
+          href="/tickets"
+          className="signal-button h-11 rounded-xl px-5 text-xs"
+        >
           Open ticket inbox <ArrowUpRight className="ml-3 size-3.5" />
         </ButtonLink>
       </PageHeading>
@@ -79,22 +82,22 @@ export function Overview() {
             {stats.map((stat) => (
               <Card
                 key={stat.label}
-                className={`relative rounded-2xl border shadow-none ring-0 ${stat.tone}`}
+                className={`workspace-panel relative rounded-2xl border ring-0 ${stat.tone}`}
               >
-                <CardHeader className="flex flex-row items-center justify-between pb-3">
-                  <CardTitle className="text-xs font-normal text-muted-foreground">
+                <CardHeader className="flex flex-row items-center justify-between pb-4">
+                  <CardTitle className="text-[13px] font-normal text-muted-foreground">
                     {stat.label}
                   </CardTitle>
                   <span
-                    className={`flex size-8 items-center justify-center rounded-xl border ${stat.iconTone}`}
+                    className={`flex size-9 items-center justify-center rounded-xl border ${stat.iconTone}`}
                   >
                     <stat.icon className="size-3.5" />
                   </span>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-heading text-4xl font-medium tracking-tight tabular-nums">
+                  <p className="font-heading text-5xl font-medium tracking-[-0.045em] tabular-nums">
                     {stat.value}
-                    <span className="ml-2 font-mono text-[10px] font-normal tracking-normal text-muted-foreground">
+                    <span className="ml-2 font-mono text-[11px] font-normal tracking-normal text-muted-foreground">
                       SAMPLE
                     </span>
                   </p>
@@ -106,19 +109,19 @@ export function Overview() {
             ))}
           </div>
           <div className="mt-8 grid gap-6 xl:grid-cols-[1.5fr_0.8fr]">
-            <section className="min-w-0 rounded-2xl border">
-              <div className="flex items-center justify-between border-b px-5 py-5">
+            <section className="workspace-panel min-w-0 overflow-hidden rounded-2xl border">
+              <div className="flex items-center justify-between gap-4 border-b px-5 py-5 md:px-6">
                 <div>
-                  <h2 className="font-heading text-lg font-medium tracking-tight">
+                  <h2 className="font-heading text-xl font-medium tracking-tight">
                     The next conversation
                   </h2>
-                  <p className="mt-1 text-[10px] text-muted-foreground">
+                  <p className="mt-1 text-[11px] text-muted-foreground">
                     A sample of your support queue
                   </p>
                 </div>
                 <Link
                   href="/tickets"
-                  className="flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground"
+                  className="flex min-h-9 shrink-0 items-center gap-1 rounded-md px-1 text-xs text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2"
                 >
                   View all
                   <ArrowRight className="size-3" />
@@ -129,18 +132,18 @@ export function Overview() {
                   <Link
                     href={`/tickets/${ticket.id}`}
                     key={ticket.id}
-                    className="group flex flex-wrap items-center gap-3 border-b px-5 py-5 last:border-0 hover:bg-muted/40 focus-visible:outline-2"
+                    className="workspace-row group flex flex-wrap items-center gap-3 border-b px-5 py-5 last:border-0 focus-visible:outline-2 focus-visible:-outline-offset-2 md:px-6"
                   >
-                    <Avatar className="size-9">
-                      <AvatarFallback className="bg-muted text-[10px]">
+                    <Avatar className="size-10">
+                      <AvatarFallback className="bg-muted text-[11px]">
                         {ticket.customer.initials}
                       </AvatarFallback>
                     </Avatar>
                     <div className="min-w-0 flex-1">
-                      <p className="font-mono text-[8px] text-muted-foreground">
+                      <p className="text-[11px] leading-relaxed text-muted-foreground">
                         {ticket.reference} · {ticket.customer.name}
                       </p>
-                      <h3 className="mt-1.5 text-xs leading-relaxed font-medium">
+                      <h3 className="mt-1.5 text-sm leading-relaxed font-medium">
                         {ticket.subject}
                       </h3>
                     </div>
@@ -160,11 +163,11 @@ export function Overview() {
               )}
             </section>
             <aside className="flex flex-col gap-5">
-              <Card className="border-success/15 bg-success-surface/40 shadow-none">
+              <Card className="workspace-panel border-signal/20 bg-signal-surface/40">
                 <CardHeader>
                   <Badge
                     variant="outline"
-                    className="mb-3 w-fit border-success/20 bg-success-surface text-[9px] text-success"
+                    className="mb-3 w-fit border-signal/20 bg-signal-surface text-[11px] text-signal"
                   >
                     <ShieldCheck className="mr-1 size-3" />A deliberate pause
                   </Badge>
@@ -182,7 +185,7 @@ export function Overview() {
                   {nextReview && (
                     <ButtonLink
                       href={`/tickets/${nextReview.id}`}
-                      className="mt-5 h-10 w-full justify-between rounded-xl px-4 text-[11px]"
+                      className="signal-button mt-5 h-11 w-full justify-between rounded-xl px-4 text-xs"
                     >
                       Review next sample
                       <ArrowUpRight className="size-3.5" />
@@ -191,16 +194,16 @@ export function Overview() {
                   <ButtonLink
                     variant="outline"
                     href="/how-it-works"
-                    className="mt-5 h-9 rounded-full border-success/20 bg-transparent text-[11px]"
+                    className="mt-4 h-10 rounded-xl border-signal/20 bg-transparent text-xs"
                   >
                     Explore the process
                     <ArrowUpRight className="ml-3 size-3" />
                   </ButtonLink>
                 </CardContent>
               </Card>
-              <div className="rounded-2xl border p-5">
+              <div className="workspace-panel rounded-2xl border p-5">
                 <div className="flex items-center gap-2 text-xs font-medium">
-                  <BookOpen className="size-4 text-muted-foreground" />
+                  <BookOpen className="size-4 text-signal" />
                   Start with the source
                 </div>
                 <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
@@ -215,7 +218,7 @@ export function Overview() {
                   <ArrowDownRight className="size-3" />
                 </Link>
               </div>
-              <p className="flex items-start gap-2 px-2 text-[9px] leading-relaxed text-muted-foreground">
+              <p className="flex items-start gap-2 px-2 text-[11px] leading-relaxed text-muted-foreground">
                 <CheckCheck className="mt-0.5 size-3 shrink-0" />
                 Counts are calculated from sample records. They are not measured
                 product outcomes.

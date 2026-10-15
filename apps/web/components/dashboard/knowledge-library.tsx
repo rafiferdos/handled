@@ -40,13 +40,13 @@ export function KnowledgeLibrary() {
         description="Published sample policies for the three support scenarios. This library is an illustrative fixture, not a connected knowledge store."
       />
       <div className="relative mb-8 max-w-sm">
-        <Search className="pointer-events-none absolute top-3 left-3.5 size-4 text-muted-foreground" />
+        <Search className="pointer-events-none absolute top-3.5 left-3.5 size-4 text-muted-foreground" />
         <Input
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           aria-label="Search knowledge"
           placeholder="Search sample knowledge…"
-          className="h-10 rounded-xl pl-10"
+          className="workspace-control h-11 rounded-xl bg-card pl-10 text-sm"
         />
       </div>
       {!policies.length ? (
@@ -63,16 +63,16 @@ export function KnowledgeLibrary() {
           {policies.map((source) => (
             <Card
               key={source.reference}
-              className="flex h-full flex-col rounded-2xl shadow-none"
+              className="workspace-panel flex h-full flex-col rounded-2xl"
             >
               <CardHeader>
                 <div className="mb-7 flex items-center justify-between">
-                  <span className="flex size-11 items-center justify-center rounded-xl bg-muted">
-                    <BookOpen className="size-5 text-muted-foreground" />
+                  <span className="flex size-11 items-center justify-center rounded-xl border border-signal/15 bg-signal-surface">
+                    <BookOpen className="size-5 text-signal" />
                   </span>
                   <Badge
                     variant="outline"
-                    className="border-success/20 bg-success-surface text-[8px] text-success"
+                    className="border-success/20 bg-success-surface text-[11px] text-success"
                   >
                     Published sample
                   </Badge>
@@ -82,11 +82,11 @@ export function KnowledgeLibrary() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-1 flex-col">
-                <p className="flex-1 text-xs leading-relaxed text-muted-foreground">
+                <p className="flex-1 text-[13px] leading-[1.75] text-muted-foreground">
                   {source.detail}
                 </p>
                 <div className="mt-6 flex items-center justify-between border-t pt-4">
-                  <span className="font-mono text-[8px] text-muted-foreground">
+                  <span className="min-w-0 font-mono text-[11px] break-all text-muted-foreground">
                     {source.reference}
                   </span>
                   <Dialog>
@@ -94,7 +94,8 @@ export function KnowledgeLibrary() {
                       render={
                         <Button
                           variant="ghost"
-                          size="icon-sm"
+                          size="icon"
+                          className="shrink-0 rounded-xl text-signal"
                           aria-label={`Read ${source.title}`}
                         />
                       }
@@ -111,7 +112,7 @@ export function KnowledgeLibrary() {
                       <p className="text-sm leading-relaxed text-muted-foreground">
                         {source.detail}
                       </p>
-                      <p className="rounded-xl bg-muted p-3 text-[10px] leading-relaxed text-muted-foreground">
+                      <p className="rounded-xl bg-muted p-3 text-[11px] leading-relaxed text-muted-foreground">
                         This is a local sample policy. Real documents need
                         workspace-scoped retrieval, owner-reviewed publishing
                         and version provenance.
@@ -124,7 +125,7 @@ export function KnowledgeLibrary() {
           ))}
         </div>
       )}
-      <div className="mt-8 flex items-start gap-3 rounded-2xl border border-dashed p-5 text-xs leading-relaxed text-muted-foreground">
+      <div className="mt-8 flex items-start gap-3 rounded-2xl border border-dashed bg-muted/15 p-5 text-xs leading-relaxed text-muted-foreground">
         <FileText className="mt-0.5 size-4 shrink-0" />
         <p>
           Drafting, publishing and indexing will connect through the knowledge

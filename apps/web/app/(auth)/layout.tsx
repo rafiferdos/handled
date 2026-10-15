@@ -13,7 +13,7 @@ export default function AuthLayout({
 }) {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
-      <aside className="relative hidden overflow-hidden bg-[#182126] p-12 text-[#f0f3f3] lg:flex lg:flex-col xl:p-16">
+      <aside className="auth-composition relative hidden overflow-hidden p-12 text-[#f0f3f3] lg:flex lg:flex-col xl:p-16">
         <Brand className="relative z-10" />
         <div className="surface-grid pointer-events-none absolute inset-0 opacity-[0.035]" />
         <div
@@ -45,7 +45,7 @@ export default function AuthLayout({
             <br />
             starts with
             <br />
-            <span className="text-[#9eafb5]">understanding.</span>
+            <span className="text-[#bff5d4]">understanding.</span>
           </h2>
           <p className="mt-7 max-w-sm text-sm leading-relaxed text-[#9eafb5]">
             The question. The context. The thoughtful next step. All in good
@@ -70,7 +70,7 @@ export default function AuthLayout({
         </header>
         <main
           id="main-content"
-          className="mx-auto flex w-full max-w-[460px] flex-1 flex-col justify-center px-6 py-10 md:px-8"
+          className="mx-auto flex w-full max-w-[500px] flex-1 flex-col justify-center px-6 py-12 md:px-10"
         >
           {children}
         </main>

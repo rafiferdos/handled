@@ -37,10 +37,10 @@ export function SettingsView() {
         description="Appearance preferences work in this browser. Workspace administration remains read-only until authenticated APIs are connected."
       />
       <div className="grid items-start gap-6 xl:grid-cols-2">
-        <Card className="shadow-none">
+        <Card className="workspace-panel">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 font-heading text-xl font-medium">
-              <Monitor className="size-4 text-muted-foreground" />
+              <Monitor className="size-4 text-signal" />
               Appearance
             </CardTitle>
           </CardHeader>
@@ -58,7 +58,7 @@ export function SettingsView() {
               >
                 <SelectTrigger
                   aria-labelledby="theme-label"
-                  className="h-10 w-full"
+                  className="workspace-control h-11 w-full rounded-xl text-sm"
                 >
                   <SelectValue />
                 </SelectTrigger>
@@ -75,13 +75,13 @@ export function SettingsView() {
             </div>
           </CardContent>
         </Card>
-        <Card className="shadow-none">
+        <Card className="workspace-panel">
           <CardHeader>
-            <CardTitle className="flex items-center justify-between font-heading text-xl font-medium">
+            <CardTitle className="flex flex-wrap items-center justify-between gap-3 font-heading text-xl font-medium">
               Sample workspace
               <Badge
                 variant="outline"
-                className="font-sans text-[8px] font-normal"
+                className="font-sans text-[11px] font-normal"
               >
                 Read-only preview
               </Badge>
@@ -94,7 +94,7 @@ export function SettingsView() {
                 id="workspace-name"
                 value={workspace.name}
                 readOnly
-                className="h-10"
+                className="h-11 rounded-xl bg-muted/20 text-sm"
               />
             </div>
             <div className="space-y-2">
@@ -103,7 +103,7 @@ export function SettingsView() {
                 id="workspace-slug"
                 value={workspace.slug}
                 readOnly
-                className="h-10 font-mono text-xs"
+                className="h-11 rounded-xl bg-muted/20 font-mono text-xs"
               />
             </div>
             <p className="flex items-start gap-2 text-[11px] leading-relaxed text-muted-foreground">

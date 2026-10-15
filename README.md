@@ -51,6 +51,10 @@ There is one workspace lockfile. No Turborepo, Nx, WebGL or extra UI framework i
 pnpm --filter @handled/web exec shadcn add <component>
 ```
 
+## Design system
+
+See [the frontend design system](apps/web/DESIGN.md) for the approved graphite/mint direction, typography, surfaces, motion and accessibility/performance rules.
+
 ## What is connected
 
 The public product pages, navigation, theme preference, sample search/filtering, workspace switching, source dialogs and local review rehearsals work. Dashboard counts derive from the sample records and are explicitly labelled.

@@ -1,0 +1,276 @@
+/* Graphite, silver and a precise mint signal. Decorative motion is progressive. */
+.marketing-hero {
+  isolation: isolate;
+  view-timeline-name: --hero-progress;
+}
+.hero-headline {
+  position: relative;
+  z-index: 2;
+  width: max-content;
+  max-width: 112%;
+  font-size: clamp(3rem, 6.55vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.07em;
+}
+.hero-title-accent {
+  display: inline-block;
+}
+.hero-visual-column {
+  align-self: center;
+}
+.expressive-hero-stage {
+  overflow: visible;
+}
+.expressive-hero-stage::before {
+  display: none;
+}
+.hero-art-panel {
+  background: #141c19;
+  border: 1px solid #b5eed32b;
+}
+.hero-art-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 70% 20%, #93e6bb18, transparent 70%);
+}
+.hero-coordinate-grid {
+  background-image:
+    linear-gradient(#c1f0d30b 1px, transparent 1px),
+    linear-gradient(90deg, #c1f0d30b 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(180deg, #000, transparent);
+}
+.hero-signal-ring {
+  position: absolute;
+  width: 55%;
+  aspect-ratio: 1;
+  border: 1px solid #bdf3d43d;
+  border-radius: 50%;
+  top: 22%;
+  left: 22%;
+}
+.hero-art-panel .hero-orbit {
+  border-color: #bdf3d422;
+}
+.hero-art-panel .hero-orbit::after {
+  background: #bdf3d4;
+}
+.hero-human-label {
+  border: 1px solid #bdf3d444;
+  background: #15251d;
+  color: #d9f3e6;
+  box-shadow: 0 8px 24px #07160c20;
+}
+.hero-proof-card {
+  background: #edf7ef;
+  color: #1e3528;
+  border: 1px solid #bed9c7;
+  box-shadow: 0 15px 40px -18px #0008;
+}
+.hero-sculpture-layer {
+  transform-origin: 55% 50%;
+}
+.showcase-section {
+  border-block: 1px solid #b7e9d022;
+}
+.showcase-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 0 0, #8de6b611, transparent 50%);
+}
+.showcase-frame {
+  border-color: #b9f4d336;
+  box-shadow:
+    0 40px 90px -50px #000a,
+    inset 0 1px 0 #e4ffe343;
+}
+.sample-evidence-card {
+  transform-origin: left center;
+}
+.sample-decision-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #427458;
+}
+.sample-decision-card[data-evidence="incomplete"]::before {
+  background: #a48134;
+}
+.marketing-nav {
+  position: sticky;
+}
+.marketing-nav::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  inset-inline: 0;
+  height: 2px;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.closing-panel {
+  background: #14201a;
+  color: #eff7f1;
+  border-color: #bff5d42e;
+}
+.closing-panel .closing-orbit {
+  border-color: #bff5d426;
+  box-shadow:
+    0 0 0 4rem #bff5d408,
+    0 0 0 8rem #bff5d404;
+}
+.closing-panel .closing-subtitle {
+  color: #bff5d4;
+}
+.closing-panel .closing-caption {
+  color: #a0b4a8;
+}
+.closing-panel .signal-button {
+  background: #bff5d4;
+  color: #14261c;
+}
+.questions-section [data-slot="accordion-trigger"] {
+  transition: color 180ms var(--motion-ease);
+}
+.questions-section [data-slot="accordion-trigger"]:hover,
+.questions-section [data-slot="accordion-trigger"][data-panel-open] {
+  color: var(--signal);
+}
+@keyframes hero-scroll-depth {
+  from {
+    transform: translateY(0) rotate(0);
+  }
+  to {
+    transform: translateY(62px) rotate(-5deg);
+  }
+}
+@keyframes hero-card-depth {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-35px);
+  }
+}
+@keyframes document-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes evidence-settle {
+  from {
+    transform: translateX(-8px);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .case-panel .sample-evidence-card {
+    animation: evidence-settle 500ms var(--motion-ease) both;
+  }
+  .case-panel .sample-evidence-card:nth-child(2) {
+    animation-delay: 60ms;
+  }
+  .case-panel .sample-decision-card {
+    animation: evidence-settle 600ms var(--motion-ease) 100ms both;
+  }
+  @supports (animation-timeline: view()) {
+    .marketing-nav::after {
+      animation: document-progress linear;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  @supports (animation-timeline: view()) {
+    .hero-sculpture-layer {
+      animation: hero-scroll-depth linear both;
+      animation-timeline: --hero-progress;
+      animation-range: exit 0% exit 100%;
+    }
+    .hero-proof-card {
+      animation: hero-card-depth linear both;
+      animation-timeline: --hero-progress;
+      animation-range: exit 0% exit 100%;
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .hero-headline {
+    font-size: clamp(2.7rem, 6.2vw, 4.2rem);
+    max-width: 110%;
+  }
+  .marketing-nav nav {
+    gap: 1.2rem;
+  }
+  .hero-proof-card {
+    width: 210px;
+    padding: 1rem;
+  }
+}
+@media (max-width: 767px) {
+  .hero-headline {
+    width: auto;
+    max-width: 100%;
+    font-size: clamp(2.65rem, 11.2vw, 4.5rem);
+  }
+  .hero-proof-card {
+    bottom: 4%;
+    width: 236px;
+  }
+  .hero-art-panel {
+    inset-inline: 0;
+  }
+  .expressive-hero-stage {
+    max-width: 480px;
+  }
+  .showcase-frame {
+    border-radius: 1.15rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-sculpture-layer,
+  .hero-proof-card,
+  .sample-evidence-card,
+  .sample-decision-card {
+    animation: none !important;
+  }
+}
+
+/* Keep the signal action above the generated primitive variant utilities. */
+.signal-button {
+  border-color: transparent;
+  background: var(--signal);
+  color: var(--signal-foreground);
+  transition:
+    transform 220ms var(--motion-ease),
+    background-color 220ms var(--motion-ease);
+}
+.signal-button:hover {
+  background: color-mix(in oklch, var(--signal) 90%, var(--background));
+  color: var(--signal-foreground);
+  transform: translateY(-2px);
+}
+.signal-button:active {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .signal-button:hover {
+    transform: none;
+  }
+}

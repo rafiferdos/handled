@@ -56,7 +56,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
       </Link>
       <div className="mb-8">
         <div className="mb-4 flex flex-wrap items-center gap-3">
-          <span className="font-mono text-[10px] text-muted-foreground">
+          <span className="font-mono text-[11px] text-muted-foreground">
             {data.reference}
           </span>
           <StatusBadge status={data.status} />
@@ -89,7 +89,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
               <section className="rounded-2xl border p-5 md:p-6">
                 <div className="mb-6 flex items-center gap-3">
                   <Avatar className="size-9">
-                    <AvatarFallback className="text-[10px]">
+                    <AvatarFallback className="text-[11px]">
                       {data.customer.initials}
                     </AvatarFallback>
                   </Avatar>
@@ -97,7 +97,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                     <h2 className="text-xs font-medium">
                       {data.customer.name}
                     </h2>
-                    <p className="mt-1 text-[10px] text-muted-foreground">
+                    <p className="mt-1 text-[11px] text-muted-foreground">
                       Customer message · Sample
                     </p>
                   </div>
@@ -120,11 +120,11 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                 </h2>
                 <dl className="mt-5 grid gap-5 sm:grid-cols-2">
                   <div>
-                    <dt className="text-[10px] text-muted-foreground">Name</dt>
+                    <dt className="text-[11px] text-muted-foreground">Name</dt>
                     <dd className="mt-1.5 text-xs">{data.customer.name}</dd>
                   </div>
                   <div>
-                    <dt className="text-[10px] text-muted-foreground">
+                    <dt className="text-[11px] text-muted-foreground">
                       Sample email
                     </dt>
                     <dd className="mt-1.5 text-xs break-all">
@@ -132,13 +132,13 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[10px] text-muted-foreground">
+                    <dt className="text-[11px] text-muted-foreground">
                       Category
                     </dt>
                     <dd className="mt-1.5 text-xs">{data.category}</dd>
                   </div>
                   <div>
-                    <dt className="text-[10px] text-muted-foreground">
+                    <dt className="text-[11px] text-muted-foreground">
                       Account source
                     </dt>
                     <dd className="mt-1.5 text-xs">
@@ -176,7 +176,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                         </span>
                         <span className="min-w-0 flex-1">
                           <span className="block text-xs">{source.title}</span>
-                          <span className="mt-1 block font-mono text-[8px] font-normal text-muted-foreground">
+                          <span className="mt-1 block font-mono text-[11px] font-normal text-muted-foreground">
                             {source.reference}
                           </span>
                         </span>
@@ -192,7 +192,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                         <p className="text-sm leading-relaxed text-muted-foreground">
                           {source.detail}
                         </p>
-                        <div className="flex items-center gap-2 rounded-xl bg-muted p-3 text-[10px] text-muted-foreground">
+                        <div className="flex items-center gap-2 rounded-xl bg-muted p-3 text-[11px] text-muted-foreground">
                           <Link2 className="size-3.5" />
                           Illustrative record; no external account or provider
                           connected.
@@ -233,7 +233,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                     },
                   ].map((step, i) => (
                     <li key={step.title} className="flex gap-4">
-                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full border bg-muted font-mono text-[9px]">
+                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full border bg-muted font-mono text-[11px]">
                         {i < 3 ? <Check className="size-3" /> : "04"}
                       </span>
                       <div>
@@ -248,7 +248,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
               </section>
             </TabsContent>
           </Tabs>
-          <p className="mt-5 flex items-start gap-2 px-1 text-[9px] leading-relaxed text-muted-foreground">
+          <p className="mt-5 flex items-start gap-2 px-1 text-[11px] leading-relaxed text-muted-foreground">
             <ShieldCheck className="mt-0.5 size-3 shrink-0" />
             Only workspace-scoped records may support a real proposal. Evidence
             must be revalidated by the backend before execution.

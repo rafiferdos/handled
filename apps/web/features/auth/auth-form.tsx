@@ -83,14 +83,17 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
   const errors = form.formState.errors
   return (
     <>
-      <p className="eyebrow mb-4 text-muted-foreground">{copy.eyebrow}</p>
-      <h1 className="font-heading text-4xl leading-[1.08] font-medium tracking-[-0.045em]">
+      <p className="eyebrow mb-5 flex items-center gap-3 text-muted-foreground">
+        <span aria-hidden="true" className="h-px w-6 bg-signal" />
+        {copy.eyebrow}
+      </p>
+      <h1 className="font-heading text-[2.65rem] leading-[1.05] font-medium tracking-[-0.055em]">
         {copy.title}
       </h1>
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
         {copy.description}
       </p>
-      <Alert className="mt-7 border-border bg-muted/35">
+      <Alert className="mt-8 border-signal/15 bg-signal-surface/35">
         <Info className="size-4" />
         <AlertTitle className="text-xs">
           Account access is being connected
@@ -102,7 +105,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
       </Alert>
       <form
         noValidate
-        className="mt-7"
+        className="mt-8"
         onSubmit={form.handleSubmit(() => {
           setSubmitted(true)
           form.resetField("password")
@@ -146,7 +149,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
                 {mode === "login" && (
                   <Link
                     href="/forgot-password"
-                    className="text-[10px] text-muted-foreground underline-offset-4 hover:underline"
+                    className="text-[11px] text-muted-foreground underline-offset-4 hover:underline"
                   >
                     Forgot password?
                   </Link>

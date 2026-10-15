@@ -126,12 +126,12 @@ export function TicketInbox() {
         </div>
       </div>
       <div className="mb-3 flex items-center justify-between px-1">
-        <p className="text-[10px] text-muted-foreground" aria-live="polite">
+        <p className="text-[11px] text-muted-foreground" aria-live="polite">
           {tickets.data
             ? `${tickets.data.meta.total} sample ${tickets.data.meta.total === 1 ? "ticket" : "tickets"}`
             : "Loading sample tickets…"}
         </p>
-        <span className="font-mono text-[8px] tracking-wider text-muted-foreground">
+        <span className="font-mono text-[11px] tracking-wider text-muted-foreground">
           WORKSPACE-SCOPED VIEW
         </span>
       </div>
@@ -164,7 +164,7 @@ export function TicketInbox() {
           aria-label="Sample ticket list"
           className="overflow-hidden rounded-2xl border"
         >
-          <div className="hidden grid-cols-[2fr_0.8fr_0.6fr_24px] gap-5 border-b bg-muted/35 px-6 py-3 font-mono text-[8px] tracking-wider text-muted-foreground uppercase md:grid">
+          <div className="hidden grid-cols-[2fr_0.8fr_0.6fr_24px] gap-5 border-b bg-muted/35 px-6 py-3 font-mono text-[11px] tracking-wider text-muted-foreground uppercase md:grid">
             <span>Conversation</span>
             <span>Status</span>
             <span>Priority</span>
@@ -178,12 +178,12 @@ export function TicketInbox() {
             >
               <div className="flex min-w-0 items-start gap-3.5">
                 <Avatar className="size-9">
-                  <AvatarFallback className="bg-muted text-[10px]">
+                  <AvatarFallback className="bg-muted text-[11px]">
                     {ticket.customer.initials}
                   </AvatarFallback>
                 </Avatar>
                 <div className="min-w-0">
-                  <p className="font-mono text-[8px] text-muted-foreground">
+                  <p className="font-mono text-[11px] text-muted-foreground">
                     {ticket.reference}
                     <span className="mx-2">/</span>
                     {ticket.customer.name}
@@ -191,7 +191,7 @@ export function TicketInbox() {
                   <h2 className="mt-2 text-xs leading-relaxed font-medium">
                     {ticket.subject}
                   </h2>
-                  <p className="mt-2 text-[10px] text-muted-foreground">
+                  <p className="mt-2 text-[11px] text-muted-foreground">
                     {ticket.category} <span className="mx-1.5">·</span> 15 Oct ·
                     Sample
                   </p>

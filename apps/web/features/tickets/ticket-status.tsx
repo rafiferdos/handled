@@ -13,7 +13,7 @@ export function StatusBadge({ status }: { status: TicketStatus }) {
     <Badge
       variant="outline"
       className={cn(
-        "gap-1.5 text-[9px] font-normal",
+        "gap-1.5 text-[11px] font-normal",
         status === "AWAITING_APPROVAL"
           ? "border-success/20 bg-success-surface text-success"
           : status === "NEEDS_REVIEW" || status === "EXECUTION_FAILED"
@@ -30,7 +30,7 @@ export function PriorityBadge({ priority }: { priority: TicketPriority }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 text-[10px]",
+        "inline-flex items-center gap-1.5 text-[11px]",
         priority === "URGENT" || priority === "HIGH"
           ? "text-warning"
           : "text-muted-foreground"

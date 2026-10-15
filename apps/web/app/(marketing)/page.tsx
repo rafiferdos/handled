@@ -12,30 +12,34 @@ import { Reveal } from "@/components/motion/reveal"
 export default function HomePage() {
   return (
     <>
-      <section className="page-container relative grid items-center gap-2 pt-10 pb-0 md:min-h-[760px] md:grid-cols-[1.04fr_1fr] md:gap-0 md:py-10 lg:min-h-[780px]">
-        <div className="relative z-10 pt-3 md:pb-20">
-          <Reveal>
-            <p className="eyebrow mb-6 flex items-center gap-2.5 text-muted-foreground md:mb-7">
-              <span className="size-1.5 rounded-full bg-success" />A clearer way
-              to support
+      <section className="marketing-hero page-container relative grid items-center gap-2 pt-10 pb-0 md:min-h-[790px] md:grid-cols-[1.08fr_1fr] md:gap-0 md:py-14 lg:min-h-[850px]">
+        <div className="hero-editorial relative z-10 min-w-0 pt-3 md:pb-20">
+          <Reveal preset="rise">
+            <p className="eyebrow mb-7 flex items-center gap-2.5 text-muted-foreground md:mb-10">
+              <span className="flex size-5 items-center justify-center rounded-full border border-signal/25 bg-signal-surface">
+                <span className="size-1 rounded-full bg-signal" />
+              </span>
+              A clearer way to support
             </p>
-            <h1 className="max-w-[680px] font-heading text-[clamp(2.8rem,6.7vw,6.25rem)] leading-[0.98] font-medium tracking-[-0.065em]">
+            <h1 className="hero-headline font-heading font-medium">
               Every answer.
               <br />
-              <span className="text-muted-foreground">In good hands.</span>
+              <span className="hero-title-accent text-signal">
+                In good hands.
+              </span>
             </h1>
           </Reveal>
-          <Reveal delay={0.07}>
-            <p className="mt-6 max-w-[385px] text-sm leading-[1.85] text-muted-foreground md:mt-8 md:text-base">
+          <Reveal delay={0.09}>
+            <p className="mt-7 max-w-[375px] text-sm leading-[1.85] text-muted-foreground md:mt-9 md:text-base">
               AI-assisted customer support, with evidence behind every answer
               and a human behind every decision.
             </p>
           </Reveal>
-          <Reveal delay={0.14}>
-            <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 md:mt-9">
+          <Reveal delay={0.16}>
+            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 md:mt-9">
               <ButtonLink
                 href="/dashboard"
-                className="h-12 rounded-full px-6 text-xs"
+                className="signal-button h-12 rounded-full px-6 text-xs"
               >
                 Explore the workspace
                 <ArrowUpRight className="ml-4 size-4" />
@@ -54,43 +58,49 @@ export default function HomePage() {
             </p>
           </Reveal>
         </div>
-        <div className="relative -mx-2 mt-2 mb-4 md:mt-0 md:-mr-8 md:mb-0 lg:-mr-12">
+        <div className="hero-visual-column relative mt-5 mb-7 min-w-0 md:mt-0 md:mb-12">
           <HeroVisual />
         </div>
         <div className="flex justify-between gap-5 border-t py-5 md:absolute md:inset-x-0 md:bottom-0">
-          <p className="font-mono text-[10px] leading-relaxed tracking-wide text-muted-foreground">
+          <p className="font-mono text-[9px] leading-relaxed tracking-[0.16em] text-muted-foreground md:text-[10px]">
             BUILT FOR THE PEOPLE
             <br className="sm:hidden" /> BEHIND THE REPLY.
           </p>
           <a
             href="#workflow"
             aria-label="Discover the workflow"
-            className="flex items-center gap-3 rounded-md text-[11px] text-muted-foreground focus-visible:outline-2"
+            className="group flex shrink-0 items-center gap-3 rounded-md text-[10px] text-muted-foreground focus-visible:outline-2 md:text-[11px]"
           >
             A little less chaos
-            <ArrowDown className="size-3.5" />
+            <span className="flex size-7 items-center justify-center rounded-full border transition-colors group-hover:border-signal/40 group-hover:text-signal">
+              <ArrowDown className="size-3" />
+            </span>
           </a>
         </div>
       </section>
 
       <section
         id="workflow"
-        className="relative mt-3 overflow-hidden bg-[#182126] py-16 text-[#f0f3f3] md:mt-8 md:py-24"
+        className="showcase-section relative mt-3 overflow-hidden bg-[#151b1d] py-16 text-[#f0f3f3] md:mt-8 md:py-28"
       >
         <div className="surface-grid pointer-events-none absolute inset-0 opacity-[0.05]" />
         <div className="page-container relative">
-          <Reveal className="mb-9 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end">
+          <Reveal
+            preset="left"
+            className="mb-10 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end"
+          >
             <div>
-              <p className="eyebrow mb-5 text-[#a4b1b7]">
-                From a ticket to a thoughtful resolution
+              <p className="eyebrow mb-5 flex items-center gap-3 text-[#b7e9d0]">
+                <span className="h-px w-7 bg-[#b7e9d0]/60" /> From a ticket to a
+                thoughtful resolution
               </p>
-              <h2 className="max-w-xl font-heading text-4xl leading-[1.07] font-medium tracking-[-0.045em] md:text-6xl">
+              <h2 className="max-w-2xl font-heading text-[2.55rem] leading-[1.02] font-medium tracking-[-0.055em] md:text-[clamp(3rem,5.4vw,5rem)]">
                 Everything you need.
                 <br />
-                <span className="text-[#99a8af]">Nothing left to guess.</span>
+                <span className="text-[#91a29a]">Nothing left to guess.</span>
               </h2>
             </div>
-            <p className="max-w-[280px] text-sm leading-relaxed text-[#b5c1c7]">
+            <p className="max-w-[260px] border-l border-[#b7e9d0]/25 pl-5 text-sm leading-relaxed text-[#b5c1c7]">
               Three everyday questions. Explore the context behind each one, and
               what a careful next step looks like.
             </p>
@@ -104,8 +114,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="approach" className="page-container py-20 md:py-28">
-        <Reveal>
+      <section
+        id="approach"
+        className="approach-section page-container py-20 md:py-32"
+      >
+        <Reveal preset="left">
           <SectionHeading
             eyebrow="Thoughtfully assisted. Always human."
             title="Move the work forward. Keep the trust intact."
@@ -121,9 +134,9 @@ export default function HomePage() {
 
       <section
         id="questions"
-        className="page-container grid gap-10 py-20 md:grid-cols-[0.8fr_1.2fr] md:gap-20 md:py-28"
+        className="questions-section page-container grid gap-10 py-20 md:grid-cols-[0.8fr_1.2fr] md:gap-20 md:py-32"
       >
-        <Reveal>
+        <Reveal preset="left">
           <SectionHeading
             eyebrow="A few things, answered"
             title="Clarity starts here."
@@ -143,7 +156,7 @@ export default function HomePage() {
             </p>
           </div>
         </Reveal>
-        <Reveal delay={0.06}>
+        <Reveal preset="panel" delay={0.06}>
           <Faq />
         </Reveal>
       </section>

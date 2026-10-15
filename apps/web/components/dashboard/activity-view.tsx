@@ -19,7 +19,7 @@ export function ActivityView() {
         description="When the action and audit API is connected, workspace-scoped outcomes will appear here. Local decision rehearsals are never presented as durable events."
       />
       <section className="mt-10">
-        <p className="eyebrow mb-5 text-muted-foreground">
+        <p className="eyebrow mb-5 text-[11px] leading-relaxed text-muted-foreground">
           Illustrative event sequence / Not executed
         </p>
         <div className="grid gap-4 md:grid-cols-3">
@@ -42,18 +42,20 @@ export function ActivityView() {
           ].map((item, i) => (
             <div
               key={item.title}
-              className="relative rounded-2xl border bg-muted/20 p-6"
+              className="workspace-panel relative rounded-2xl border p-6"
             >
               <div className="mb-6 flex items-center justify-between">
-                <item.icon className="size-5 text-muted-foreground" />
-                <span className="font-mono text-[9px] text-muted-foreground">
+                <span className="flex size-10 items-center justify-center rounded-xl border border-signal/15 bg-signal-surface">
+                  <item.icon className="size-4 text-signal" />
+                </span>
+                <span className="font-mono text-[11px] text-muted-foreground">
                   0{i + 1}
                 </span>
               </div>
               <h2 className="font-heading text-lg font-medium tracking-tight">
                 {item.title}
               </h2>
-              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
                 {item.text}
               </p>
               {i < 2 && (

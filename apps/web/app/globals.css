@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "../styles/materials.css";
+@import "../styles/marketing-expressive.css";
+@import "../styles/story-expressive.css";
+@import "../styles/workspace-refinement.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -140,18 +143,27 @@
   --warning: oklch(0.46 0.09 73);
   --warning-surface: oklch(0.97 0.03 83);
   --page-width: 76rem;
+  --signal: oklch(0.4 0.105 166);
+  --signal-foreground: oklch(0.99 0.005 166);
+  --signal-surface: oklch(0.96 0.035 166);
 }
 .dark {
   --success: oklch(0.8 0.11 166);
   --success-surface: oklch(0.27 0.035 166);
   --warning: oklch(0.84 0.1 83);
   --warning-surface: oklch(0.28 0.035 73);
+  --signal: oklch(0.88 0.15 166);
+  --signal-foreground: oklch(0.19 0.035 166);
+  --signal-surface: oklch(0.24 0.035 166);
 }
 @theme inline {
   --color-success: var(--success);
   --color-success-surface: var(--success-surface);
   --color-warning: var(--warning);
   --color-warning-surface: var(--warning-surface);
+  --color-signal: var(--signal);
+  --color-signal-foreground: var(--signal-foreground);
+  --color-signal-surface: var(--signal-surface);
 }
 @layer base {
   html {
@@ -162,8 +174,8 @@
     min-width: 320px;
   }
   ::selection {
-    background: var(--foreground);
-    color: var(--background);
+    background: var(--signal);
+    color: var(--signal-foreground);
   }
   h1,
   h2,
@@ -184,7 +196,7 @@
   }
   .eyebrow {
     font-family: var(--font-mono), monospace;
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     line-height: 1.5;
     font-weight: 500;
     letter-spacing: 0.16em;

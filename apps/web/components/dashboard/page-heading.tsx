@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/reveal"
+
 export function PageHeading({
   eyebrow,
   title,
@@ -10,17 +12,23 @@ export function PageHeading({
   children?: React.ReactNode
 }) {
   return (
-    <div className="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-      <div>
-        <p className="eyebrow mb-3 text-muted-foreground">{eyebrow}</p>
-        <h1 className="font-heading text-3xl font-medium tracking-[-0.04em] md:text-4xl">
+    <Reveal
+      preset="rise"
+      className="workspace-page-heading mb-9 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"
+    >
+      <div className="min-w-0">
+        <p className="eyebrow mb-4 flex items-center gap-2.5 text-[11px] text-muted-foreground">
+          <span aria-hidden="true" className="h-px w-5 bg-signal" />
+          {eyebrow}
+        </p>
+        <h1 className="max-w-3xl font-heading text-[2rem] leading-[1.12] font-medium tracking-[-0.045em] md:text-[2.65rem]">
           {title}
         </h1>
-        <p className="mt-3 max-w-xl text-xs leading-relaxed text-muted-foreground md:text-sm">
+        <p className="mt-4 max-w-[40rem] text-sm leading-[1.75] text-muted-foreground">
           {description}
         </p>
       </div>
       {children && <div className="shrink-0">{children}</div>}
-    </div>
+    </Reveal>
   )
 }

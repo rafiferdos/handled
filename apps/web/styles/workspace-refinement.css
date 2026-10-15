@@ -1,0 +1,49 @@
+.workspace-shell {
+  --workspace-line: color-mix(in oklch, var(--signal) 12%, var(--border));
+}
+.workspace-rail {
+  border-color: var(--workspace-line);
+}
+.workspace-panel {
+  box-shadow: 0 3px 18px -12px
+    color-mix(in oklch, var(--foreground) 16%, transparent);
+}
+.workspace-nav-link[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 30%;
+  bottom: 30%;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--signal);
+}
+.workspace-picker {
+  border-color: var(--workspace-line);
+}
+.workspace-row {
+  transition: background-color 180ms var(--motion-ease);
+}
+.workspace-row:hover {
+  background: color-mix(in oklch, var(--signal-surface) 45%, var(--background));
+}
+@media (min-width: 768px) {
+  .workspace-shell input,
+  .workspace-shell textarea {
+    font-size: 0.8125rem;
+  }
+}
+.auth-composition {
+  background:
+    radial-gradient(ellipse at 70% 30%, #274d3638, transparent 70%), #14211a;
+}
+@media (max-width: 767px) {
+  .workspace-shell input,
+  .workspace-shell textarea {
+    font-size: 1rem;
+  }
+  .workspace-header {
+    background: var(--background);
+    backdrop-filter: none;
+  }
+}

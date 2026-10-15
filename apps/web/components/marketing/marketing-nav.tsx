@@ -27,8 +27,8 @@ export function MarketingNav() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
   return (
-    <header className="material-nav sticky top-0 z-40 border-b border-border/60">
-      <div className="page-container flex h-20 items-center justify-between gap-6">
+    <header className="marketing-nav material-nav sticky top-0 z-40 border-b border-border/60">
+      <div className="page-container flex h-20 items-center justify-between gap-4">
         <Brand />
         <nav
           aria-label="Main navigation"
@@ -55,7 +55,7 @@ export function MarketingNav() {
           </Link>
           <ButtonLink
             href="/dashboard"
-            className="hidden h-9 rounded-full px-5 text-xs sm:inline-flex"
+            className="signal-button hidden h-10 rounded-full px-5 text-xs sm:inline-flex"
           >
             Explore Handled <ArrowUpRight className="ml-2 size-3.5" />
           </ButtonLink>
