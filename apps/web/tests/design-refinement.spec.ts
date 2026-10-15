@@ -1,5 +1,24 @@
 import { expect, test } from "@playwright/test"
 
+test("marketing artwork stays contained across tablet breakpoints", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" })
+  await page.goto("/")
+  for (const width of [1024, 1200, 900, 1100, 768, 1440, 390]) {
+    await page.setViewportSize({ width, height: 900 })
+    await expect
+      .poll(
+        () =>
+          page.evaluate(
+            () => document.documentElement.scrollWidth - innerWidth
+          ),
+        { message: `No sideways scroll at ${width}px` }
+      )
+      .toBeLessThanOrEqual(0)
+  }
+})
+
 test("overview review entry follows the active workspace", async ({
   page,
   isMobile,

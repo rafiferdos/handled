@@ -59,6 +59,7 @@
 }
 .hero-stage {
   isolation: isolate;
+  overflow: clip;
 }
 .hero-stage::before {
   position: absolute;

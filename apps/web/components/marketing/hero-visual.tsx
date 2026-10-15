@@ -28,7 +28,7 @@ export function HeroVisual() {
         <span className="size-1.5 rounded-full bg-success" />
         Human in the loop
       </div>
-      <div className="glass-surface hero-annotation absolute bottom-[5%] left-1 w-[210px] rounded-2xl p-3.5 md:bottom-[13%] md:-left-2">
+      <div className="glass-surface hero-annotation absolute bottom-[5%] left-1 w-[210px] rounded-2xl p-3.5 md:bottom-[13%] md:left-2">
         <p className="mb-3 flex items-center gap-2 font-mono text-[9px] tracking-wider text-muted-foreground uppercase">
           <Layers3 className="size-3" /> Context, connected
         </p>
