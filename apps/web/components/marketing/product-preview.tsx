@@ -1,5 +1,9 @@
 import { sampleTickets } from "@/lib/api/fixtures"
-import { SampleShowcase, type ShowcaseCopy } from "./sample-showcase"
+import {
+  SampleShowcase,
+  type ShowcaseCase,
+  type ShowcaseCopy,
+} from "./sample-showcase"
 
 const copy: Record<string, ShowcaseCopy> = {
   "TKT-1001": {
@@ -39,8 +43,31 @@ const copy: Record<string, ShowcaseCopy> = {
 
 export function ProductPreview() {
   // Validate fixtures on the server; do not ship the schema runtime for a demo.
-  const cases = sampleTickets.flatMap((ticket) =>
-    copy[ticket.reference] ? [{ ticket, copy: copy[ticket.reference] }] : []
-  )
+  const cases: ShowcaseCase[] = sampleTickets.flatMap((ticket) => {
+    const presentation = copy[ticket.reference]
+    if (!presentation) return []
+    return [
+      {
+        ticket: {
+          id: ticket.id,
+          reference: ticket.reference,
+          subject: ticket.subject,
+          category: ticket.category,
+          confidence: ticket.confidence,
+          status: ticket.status,
+          customer: {
+            name: ticket.customer.name,
+            initials: ticket.customer.initials,
+          },
+          evidence: ticket.evidence.map(({ reference, title, kind }) => ({
+            reference,
+            title,
+            kind,
+          })),
+        },
+        copy: presentation,
+      },
+    ]
+  })
   return <SampleShowcase cases={cases} />
 }

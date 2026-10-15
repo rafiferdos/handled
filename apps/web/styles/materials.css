@@ -239,6 +239,9 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .precision-link:hover svg:last-child {
+    transform: none;
+  }
   .case-panel {
     animation: none;
   }

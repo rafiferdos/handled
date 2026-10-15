@@ -26,11 +26,20 @@ export type ShowcaseCopy = {
   signal: string
 }
 
-export function SampleShowcase({
-  cases,
-}: {
-  cases: { ticket: TicketPreview; copy: ShowcaseCopy }[]
-}) {
+type ShowcaseTicket = Pick<
+  TicketPreview,
+  "id" | "reference" | "subject" | "category" | "confidence" | "status"
+> & {
+  customer: Pick<TicketPreview["customer"], "name" | "initials">
+  evidence: Pick<
+    TicketPreview["evidence"][number],
+    "reference" | "title" | "kind"
+  >[]
+}
+
+export type ShowcaseCase = { ticket: ShowcaseTicket; copy: ShowcaseCopy }
+
+export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
   return (
     <Tabs
       defaultValue={cases[0]?.ticket.reference}
