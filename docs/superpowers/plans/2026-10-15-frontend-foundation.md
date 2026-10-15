@@ -64,5 +64,7 @@ Files: smoke tests, README, frontend handoff/proof, PR description.
 
 - [x] Run lint, typecheck, unit tests, production build and browser smoke checks.
 - [x] Fresh-context whole-branch review; fix significant findings and rerun affected checks.
-- [ ] Record exact proofs and integration blockers; update Jira with real commits and status.
-- [ ] Push feature branch and create PR to development if remote/credentials permit; merge only after checks and required peer review.
+- [x] Record exact proofs and integration blockers; update Jira with real commits and status.
+- [x] Push feature branch and create PR to development if remote/credentials permit; merge only after checks and required peer review.
+
+Delivery: [PR #1](https://github.com/rafiferdos/handled/pull/1) is open from `feat/frontend-foundation` to `development`. SCRUM-86 and SCRUM-87 are In Review with commit, PR, test and screenshot evidence. See the PR for live CI results. Merge remains gated by checks and the approved real-teammate review; no merge is claimed.

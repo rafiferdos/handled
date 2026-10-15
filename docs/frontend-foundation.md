@@ -53,3 +53,7 @@ The sandbox began with local `master` at `a29d35d` and no remote. After the user
 ## Visual evidence
 
 Production screenshots, captured with reduced motion for stable frames: [desktop landing](screenshots/landing-dark.png), [mobile landing](screenshots/landing-mobile.png), [workspace overview](screenshots/workspace-dark.png). Independent review found short-height overlays and persisted-theme hydration issues; both were reproduced before fixes and now pass in the production browser suite.
+
+## Delivery
+
+[PR #1](https://github.com/rafiferdos/handled/pull/1) targets `development`. SCRUM-86 and SCRUM-87 are In Review with the branch, test, screenshot and integration-blocker evidence. Local validation is complete; live CI results are on the PR. Merge remains pending the approved checks and real-teammate review gate.
