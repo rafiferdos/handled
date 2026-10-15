@@ -44,7 +44,7 @@ Observed baseline: original Next 16.4.0 starter had an unused-font lint warning 
 
 Current local proof: both applications pass lint and typecheck; 111 preserved API unit tests and 14 frontend transport/isolation tests pass; 37 API HTTP/contract tests pass; both production builds pass; desktop/mobile production browser suite passes 31 checks, with one desktop skip for the mobile-only menu case. Browser cases include public navigation, keyboard FAQ and showcase cases, reduced-motion hydration/visibility, mobile sheets, search/filter/empty/reset, workspace-switch cache isolation, scoped next-review navigation, honest auth, source dialogs, local decisions, low-confidence approval blocking, draft editing, theme selection, saved-theme hydration, short-height overlay scrolling and 390–1440px artwork containment.
 
-No production deployment is claimed. No real Supabase session, database-backed golden flow, provider operation or durable audit has been verified by this frontend task. PR checks and the approved teammate review gate must pass before merge; a fresh agent review is useful technical QA but does not replace the required teammate approval.
+Public sample deployments: [frontend](https://handled-rafiferdos.vercel.app/) and [API readiness](https://handled-api-zv4h.onrender.com/ready). The frontend uses fixtures and is not yet connected to the separately deployed API. No real Supabase session, database-backed golden flow, provider operation or durable audit has been verified by this frontend task. PR checks and the approved teammate review gate must pass before merge; a fresh agent review is useful technical QA but does not replace the required teammate approval.
 
 ## Git history
 
@@ -61,3 +61,27 @@ Material policy: small frosted overlays and desktop navigation, translucent prod
 ## Delivery
 
 [PR #1](https://github.com/rafiferdos/handled/pull/1) targets `development`. SCRUM-86 and SCRUM-87 are In Review with the branch, test, screenshot and integration-blocker evidence. Local validation is complete; live CI results are on the PR. Merge remains pending the approved checks and real-teammate review gate.
+
+## Expressive refinement — 16 October 2026
+
+The approved graphite + luminous mint direction is documented in [DESIGN.md](../apps/web/DESIGN.md). Public sections now use oversized typography, bounded graphite product scenes, asymmetric context panels, outlined workflow chapters and a shared closing composition. Product/process pages, identity forms, workspace navigation, ticket review, knowledge, activity and settings follow the same visual system. Sample records and business behavior remain unchanged.
+
+Section-specific reveals reuse the existing lazy Motion bundle. Native scroll timelines add progressive hero depth, context movement, workflow connection and navigation progress; unsupported browsers retain composed static content. Fine-pointer interaction is optional. Coarse-pointer hero art is static, reduced-motion changes stop decoration at runtime, and server-rendered content remains readable without JavaScript. No dependency or font was added.
+
+Final frontend verification: lint, typecheck, production build and 14 transport/isolation tests pass. Production Chromium desktop/mobile browser suite: **34 passed, two intentional project-specific skips**. Additional visual checks cover no-JavaScript content, light/dark layouts, mobile and intermediate widths. Independent review caught mobile input sizing and coarse-pointer native motion; both are corrected and rechecked.
+
+Three cold production loads on the same machine at 1440×960 with 4× CPU throttling, followed by a controlled 120-frame full-page scroll, observed:
+
+| Observation | Before | After |
+| --- | ---: | ---: |
+| Loaded encoded script bodies, including prefetch | 420,133 B | 415,910 B |
+| Median local LCP | 120 ms | 140 ms |
+| Median CLS | 0 | 0 |
+| Median long-task time above 50 ms per task | 35 ms | 36 ms |
+| Median scroll frame gaps above 34 ms | 0 | 0 |
+
+The small timing differences are local lab observations, not field performance or a claim that every device is faster. [Raw observations and limitations](evidence/expressive-performance.json) preserve all three runs.
+
+Final production screenshots: [landing](screenshots/expressive-landing-dark.png), [mobile](screenshots/expressive-landing-mobile.png), [context and human control](screenshots/expressive-trust.png), [sample showcase](screenshots/expressive-showcase.png), [product](screenshots/expressive-product.png), [process](screenshots/expressive-process.png), [identity](screenshots/expressive-auth.png), [workspace](screenshots/expressive-workspace.png).
+
+Vercel production follows `feat/frontend-foundation` in the existing free project. Publication does not merge the branch or complete the integration gates.
