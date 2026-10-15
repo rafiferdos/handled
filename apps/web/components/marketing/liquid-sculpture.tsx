@@ -1,13 +1,15 @@
 "use client"
 
 import { useRef } from "react"
-import { useInView, useSpring } from "motion/react"
+import { useInView, usePageInView, useSpring } from "motion/react"
 import * as m from "motion/react-m"
 import { SculptureArtwork } from "./sculpture-artwork"
 
 export default function LiquidSculpture() {
   const ref = useRef<HTMLDivElement>(null)
-  const active = useInView(ref, { margin: "80px" })
+  const inView = useInView(ref, { margin: "80px" })
+  const pageVisible = usePageInView()
+  const active = inView && pageVisible
   const rotateX = useSpring(0, { stiffness: 90, damping: 22 })
   const rotateY = useSpring(0, { stiffness: 90, damping: 22 })
   return (

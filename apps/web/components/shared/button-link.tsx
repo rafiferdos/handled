@@ -18,7 +18,11 @@ export function ButtonLink({
   return (
     <Link
       href={href}
-      className={cn(buttonVariants({ variant, size }), className)}
+      className={cn(
+        buttonVariants({ variant, size }),
+        "precision-link",
+        className
+      )}
       {...props}
     >
       {children}

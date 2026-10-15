@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { ArrowUpRight, Menu } from "lucide-react"
 import { Brand } from "@/components/shared/brand"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
@@ -24,8 +25,9 @@ const links = [
 
 export function MarketingNav() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
   return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-xl">
+    <header className="material-nav sticky top-0 z-40 border-b border-border/60">
       <div className="page-container flex h-20 items-center justify-between gap-6">
         <Brand />
         <nav
@@ -36,7 +38,8 @@ export function MarketingNav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+              aria-current={pathname === link.href ? "page" : undefined}
+              className="nav-link text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
             >
               {link.label}
             </Link>
@@ -88,6 +91,7 @@ export function MarketingNav() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    aria-current={pathname === link.href ? "page" : undefined}
                     onClick={() => setOpen(false)}
                     className="rounded-xl px-4 py-3 text-base hover:bg-muted focus-visible:outline-2"
                   >
