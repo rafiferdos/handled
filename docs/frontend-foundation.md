@@ -98,3 +98,16 @@ Validation: frontend lint/typecheck/build and 14 transport/isolation tests pass.
 Three cold local production probes with 4× CPU and a 120-frame full-page scroll observed script bodies 415,910→416,723 B (+813B), median local LCP 152→168 ms, CLS 0→0, median scroll gaps above 34 ms 0→0. Median long-task excess increased 30→54 ms under CPU throttling, reflecting added rendering work. These are bounded lab observations, not field performance or a universal no-slowdown claim. [All runs and limitations](evidence/glass-performance.json).
 
 [Continuous scroll video](videos/glass-scroll-story.webm) · [Glass hero](screenshots/glass-landing-dark.png) · [Mobile](screenshots/glass-landing-mobile.png) · [Question](screenshots/glass-story-question.png) · [Context](screenshots/glass-story-context.png) · [Human review](screenshots/glass-story-decision.png) · [Outcome](screenshots/glass-story-outcome.png) · [Workspace](screenshots/glass-workspace.png) · [Auth](screenshots/glass-auth.png).
+
+
+## Hero decision studio — 16 October 2026
+
+The hero right side now presents a focused support composition: a large frosted recommendation dossier, conversation and published-policy sheets, a human-review chip and a small cropped silver accent. The artwork stays explicitly illustrative and has no action controls. The main headline and navigation remain unchanged.
+
+Intrinsic grid rows replace percentage-based placement for reading cards. An initial overlap between policy and review content was reproduced at 320–1440px, then removed; the production browser regression now checks sheet clearance and stage containment at eight widths. Optional desktop pointer tilt affects the whole studio within 3 degrees; it pauses offscreen/in hidden tabs. Coarse/reduced-motion and no-JavaScript show the complete static composition. The scene stays mounted while pointer capabilities change, avoiding hydration replacement and preserving its reading layout.
+
+Frontend lint/typecheck/build, 14 transport tests and the full production browser suite pass: **37 passed, three intentional device-specific skips**. Independent visual review confirms readable cards and separate review/policy content at 320, 390, 768, 1024 and 1440px. The frost assertion polls the mounted surface; the final motion wrapper retains the scene DOM across hydration and live preference changes.
+
+Three cold production probes with 4× CPU throttling observed 415,312 B of loaded script bodies, CLS 0 and no scroll gaps above 34 ms. Compared with the recorded previous release, script bodies decreased 1,411 B; local median LCP was 168→180 ms and long-task excess 54→86 ms. The richer scene adds rendering work. These separate-session lab observations are not a field-performance claim. [Raw observations and comparison limits](evidence/hero-studio-performance.json).
+
+[Desktop hero](screenshots/hero-studio-desktop.png) · [Right-side detail](screenshots/hero-studio-detail.png) · [Mobile studio](screenshots/hero-studio-mobile.png).
