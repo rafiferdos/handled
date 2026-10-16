@@ -1,0 +1,245 @@
+{
+  "date": "2026-10-16",
+  "method": "Headless production Chromium; 320\u20131440px widths, dark/light screenshots, 390\u00d7450 short menu, route anchor and reduced-transparency checks.",
+  "observations": {
+    "widths": [
+      {
+        "width": 320,
+        "left": 10,
+        "right": 10,
+        "overflow": 0,
+        "minTarget": 44,
+        "targets": [
+          {
+            "label": "Handled home",
+            "height": 44
+          },
+          {
+            "label": "Toggle color theme",
+            "height": 44
+          },
+          {
+            "label": "Open navigation menu",
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 390,
+        "left": 10,
+        "right": 10,
+        "overflow": 0,
+        "minTarget": 44,
+        "targets": [
+          {
+            "label": "Handled home",
+            "height": 44
+          },
+          {
+            "label": "Toggle color theme",
+            "height": 44
+          },
+          {
+            "label": "Open navigation menu",
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 640,
+        "left": 10,
+        "right": 10,
+        "overflow": 0,
+        "minTarget": 44,
+        "targets": [
+          {
+            "label": "Handled home",
+            "height": 44
+          },
+          {
+            "label": "Toggle color theme",
+            "height": 44
+          },
+          {
+            "label": "Explore Handled",
+            "height": 44
+          },
+          {
+            "label": "Open navigation menu",
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 768,
+        "left": 16,
+        "right": 16,
+        "overflow": 0,
+        "minTarget": 44,
+        "targets": [
+          {
+            "label": "Handled home",
+            "height": 44
+          },
+          {
+            "label": "Toggle color theme",
+            "height": 44
+          },
+          {
+            "label": "Explore Handled",
+            "height": 44
+          },
+          {
+            "label": "Open navigation menu",
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 900,
+        "left": 16,
+        "right": 16,
+        "overflow": 0,
+        "minTarget": 44,
+        "targets": [
+          {
+            "label": "Handled home",
+            "height": 44
+          },
+          {
+            "label": "Toggle color theme",
+            "height": 44
+          },
+          {
+            "label": "Explore Handled",
+            "height": 44
+          },
+          {
+            "label": "Open navigation menu",
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 1024,
+        "left": 16,
+        "right": 16,
+        "overflow": 0,
+        "minTarget": 44,
+        "targets": [
+          {
+            "label": "Handled home",
+            "height": 44
+          },
+          {
+            "label": "Product",
+            "height": 44
+          },
+          {
+            "label": "How it works",
+            "height": 44
+          },
+          {
+            "label": "Our approach",
+            "height": 44
+          },
+          {
+            "label": "Log in",
+            "height": 44
+          },
+          {
+            "label": "Toggle color theme",
+            "height": 44
+          },
+          {
+            "label": "Explore Handled",
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 1200,
+        "left": 16,
+        "right": 16,
+        "overflow": 0,
+        "minTarget": 44,
+        "targets": [
+          {
+            "label": "Handled home",
+            "height": 44
+          },
+          {
+            "label": "Product",
+            "height": 44
+          },
+          {
+            "label": "How it works",
+            "height": 44
+          },
+          {
+            "label": "Our approach",
+            "height": 44
+          },
+          {
+            "label": "Log in",
+            "height": 44
+          },
+          {
+            "label": "Toggle color theme",
+            "height": 44
+          },
+          {
+            "label": "Explore Handled",
+            "height": 44
+          }
+        ]
+      },
+      {
+        "width": 1440,
+        "left": 88,
+        "right": 88,
+        "overflow": 0,
+        "minTarget": 44,
+        "targets": [
+          {
+            "label": "Handled home",
+            "height": 44
+          },
+          {
+            "label": "Product",
+            "height": 44
+          },
+          {
+            "label": "How it works",
+            "height": 44
+          },
+          {
+            "label": "Our approach",
+            "height": 44
+          },
+          {
+            "label": "Log in",
+            "height": 44
+          },
+          {
+            "label": "Toggle color theme",
+            "height": 44
+          },
+          {
+            "label": "Explore Handled",
+            "height": 44
+          }
+        ]
+      }
+    ],
+    "anchor": {
+      "headingTop": 388.484375,
+      "headerBottom": 80
+    },
+    "reducedTransparency": {
+      "filter": "none",
+      "fill": "lab(2.93655 -0.435196 -0.608262)"
+    },
+    "pageErrors": []
+  }
+}

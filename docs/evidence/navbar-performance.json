@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-16",
+  "baselineCommit": "f65ab93f852b39d85f3582520f2e1f26a410e85d",
+  "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+  "before": {
+    "label": "navbar-before",
+    "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+    "runs": [
+      {
+        "lcp": 224,
+        "cls": 0,
+        "longTaskMs": 85,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 33,
+        "scriptEncodedBytes": 415419,
+        "externalResources": []
+      },
+      {
+        "lcp": 196,
+        "cls": 0,
+        "longTaskMs": 93,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 33,
+        "scriptEncodedBytes": 415419,
+        "externalResources": []
+      },
+      {
+        "lcp": 196,
+        "cls": 0,
+        "longTaskMs": 77,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 33,
+        "scriptEncodedBytes": 415419,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 196,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 415419,
+    "medianLongTaskMs": 85,
+    "medianScrollFrameGapsOver34Ms": 0
+  },
+  "after": {
+    "label": "navbar-after",
+    "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+    "runs": [
+      {
+        "lcp": 220,
+        "cls": 0,
+        "longTaskMs": 86,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 32,
+        "scriptEncodedBytes": 415098,
+        "externalResources": []
+      },
+      {
+        "lcp": 188,
+        "cls": 0,
+        "longTaskMs": 75,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 32,
+        "scriptEncodedBytes": 415098,
+        "externalResources": []
+      },
+      {
+        "lcp": 196,
+        "cls": 0,
+        "longTaskMs": 69,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 32,
+        "scriptEncodedBytes": 415098,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 196,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 415098,
+    "medianLongTaskMs": 75,
+    "medianScrollFrameGapsOver34Ms": 0
+  },
+  "observedDelta": {
+    "medianLcpMs": 0,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": -321,
+    "medianLongTaskMs": -10,
+    "medianScrollFrameGapsOver34Ms": 0
+  },
+  "limits": [
+    "Three same-session local production samples per version; timings vary and are not field-performance guarantees.",
+    "No network throttling; localhost omits real latency and Vercel runtime behavior.",
+    "Loaded encoded script resources include prefetch and do not represent the navbar module size.",
+    "Long-task excess is the sum of max(duration minus 50ms, 0).",
+    "Controlled scroll gaps do not establish smoothness on every device."
+  ]
+}

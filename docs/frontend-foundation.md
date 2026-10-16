@@ -137,3 +137,18 @@ Final frontend lint, typecheck, production build and 14 transport tests pass. Pr
 Fresh before/after probes under4×CPU observed encoded loaded scripts416,181→415,419B (−762B), median local LCP164→196ms, CLS0→0, long-task excess83→60ms and scroll gaps above34ms0→0. Native CSS removed the preview effect module and avoids an extra scroll observer. These are local lab observations, not field-performance guarantees. [All runs and limits](evidence/home-premium-performance.json).
 
 [Showcase](screenshots/home-premium-showcase.png) · [Trust](screenshots/home-premium-trust.png) · [Workflow](screenshots/home-premium-workflow.png) · [Context stage](screenshots/home-premium-story-032.png) · [Decision](screenshots/home-premium-story-058.png) · [Outcome](screenshots/home-premium-story-1.png) · [FAQ](screenshots/home-premium-questions.png) · [Closing](screenshots/home-premium-closing.png) · [Mobile trust](screenshots/home-premium-mobile-trust.png) · [Mobile FAQ](screenshots/home-premium-mobile-questions.png).
+
+
+## Floating marketing navigation — 16 October 2026
+
+The public pages now use a floating frosted shell, centered desktop destinations, a clear current-page pill and one mint **Explore Handled** action. Below 1024px, a labeled **Menu** opens a spacious panel with descriptive destination rows, login and the same primary action. Every visible navigation control is at least 44px high. The panel close control stays visible in short windows; Escape restores trigger focus, route/history navigation closes the sheet, and resizing to desktop dismisses it. Home anchors clear the sticky header.
+
+[Research and design decisions](../apps/web/DESIGN.md#marketing-navigation--16-october-2026) compare the current floating-shell pattern with discoverability guidance. The implementation retains the existing Base UI sheet, links and theme control, adds no dependency, and uses no continuous scroll listener or animated dimensions. Reduced transparency uses solid chrome; reduced motion and forced colors preserve access.
+
+Final frontend lint, typecheck, production build and 14 transport/isolation tests pass. The full production desktop/mobile browser suite passes **47 checks with seven intentional device-specific skips**. A tablet-menu regression failed on the previous implementation and passes now. New coverage verifies current-page semantics, keyboard routing, Escape/focus restoration, short-height menu access, desktop resize and cross-page anchor navigation. Independent source and screenshot review found no blocker after the visible Menu label was included in its accessible name.
+
+Separate headless checks cover eight widths from 320–1440px, no horizontal overflow, 44px minimum targets, light/dark surfaces, a 390×450 menu, anchor clearance, zero page errors and reduced-transparency filter removal. [Layout observations](evidence/navbar-layout.json). No Chrome control was used.
+
+Three fresh baseline/final production probes under 4× CPU observed encoded loaded scripts 415,419→415,098 B (−321 B), median local LCP 196→196 ms, CLS 0→0, long-task excess 85→75 ms and median scroll gaps above 34 ms 0→0. These same-session local observations include prefetch; they are not field-performance guarantees. [All runs and limits](evidence/navbar-performance.json).
+
+[Desktop](screenshots/navbar-desktop.png) · [Header detail](screenshots/navbar-detail.png) · [Current page](screenshots/navbar-active.png) · [Light theme](screenshots/navbar-light.png) · [Mobile](screenshots/navbar-mobile.png) · [Mobile menu](screenshots/navbar-mobile-menu.png).
