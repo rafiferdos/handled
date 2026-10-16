@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "4cf0d8d8062c853c408fd38ce08c033e9ea41c9a",
+  "comparison": "Open luminous aperture replaces the enclosed hero decision board",
+  "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+  "limits": [
+    "Fresh baseline and final production build measured in this session with the same script and environment.",
+    "Local lab observations only, not field Web Vitals or universal device performance. Script body totals include prefetch.",
+    "Loaded encoded script bodies increased869bytes, median long-task excess increased10ms under4xCPU; no layout shift or scroll gaps over34ms observed.",
+    "No new dependency, WebGL runtime, external artwork request or JavaScript frame loop. Small CSS/SVG decoration is gated by viewport/page visibility and pointer/motion preferences."
+  ],
+  "before": {
+    "label": "aperture-before",
+    "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+    "runs": [
+      {
+        "lcp": 204,
+        "cls": 0,
+        "longTaskMs": 96,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415312,
+        "externalResources": []
+      },
+      {
+        "lcp": 176,
+        "cls": 0,
+        "longTaskMs": 80,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415312,
+        "externalResources": []
+      },
+      {
+        "lcp": 176,
+        "cls": 0,
+        "longTaskMs": 81,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415312,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 176,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 415312,
+    "medianLongTaskMs": 81,
+    "medianScrollFrameGapsOver34Ms": 0
+  },
+  "after": {
+    "label": "aperture-after",
+    "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+    "runs": [
+      {
+        "lcp": 188,
+        "cls": 0,
+        "longTaskMs": 101,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 416181,
+        "externalResources": []
+      },
+      {
+        "lcp": 168,
+        "cls": 0,
+        "longTaskMs": 91,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 416181,
+        "externalResources": []
+      },
+      {
+        "lcp": 172,
+        "cls": 0,
+        "longTaskMs": 80,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 416181,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 172,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 416181,
+    "medianLongTaskMs": 91,
+    "medianScrollFrameGapsOver34Ms": 0
+  }
+}

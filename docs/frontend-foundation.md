@@ -13,7 +13,7 @@ The current frontend implements reusable UI and explicit sample workflows. It do
 - `components/ui`: official shadcn Base UI primitives generated with the original `base-rhea`/Mist configuration. Do not reinitialize the preset.
 - `components/shared`: brand, button-styled native links, theme control and section headings.
 - `components/motion`: async `LazyMotion` DOM features, visible-by-default reveals and short route entry transitions. The external-store media query prevents reduced-motion hydration differences.
-- `components/marketing`: static SVG sculpture plus desktop-only lazy interaction, static mobile/reduced-motion fallback, scroll fold with a content-preserving loading fallback. No WebGL or frame-based render loop.
+- `components/marketing`: original static SVG aperture with optional desktop pointer/depth motion, static mobile/reduced-motion fallback, and a scroll fold with a content-preserving loading fallback. No WebGL or frame-based render loop.
 - `components/dashboard`: responsive shell, workspace picker, headings and loading/error/empty states.
 - `features/auth`: React Hook Form/Zod and shadcn Field examples. Valid submissions explicitly report that no session/account/email was created. Password input is cleared; no credentials are logged, sent or persisted.
 - `features/tickets`: scoped reads, filters, sample detail/evidence and decision rehearsal. Approval is unavailable for the low-confidence case; the local rehearsal is never a durable audit.
@@ -111,3 +111,16 @@ Frontend lint/typecheck/build, 14 transport tests and the full production browse
 Three cold production probes with 4× CPU throttling observed 415,312 B of loaded script bodies, CLS 0 and no scroll gaps above 34 ms. Compared with the recorded previous release, script bodies decreased 1,411 B; local median LCP was 168→180 ms and long-task excess 54→86 ms. The richer scene adds rendering work. These separate-session lab observations are not a field-performance claim. [Raw observations and comparison limits](evidence/hero-studio-performance.json).
 
 [Desktop hero](screenshots/hero-studio-desktop.png) · [Right-side detail](screenshots/hero-studio-detail.png) · [Mobile studio](screenshots/hero-studio-mobile.png).
+
+
+## Open aperture hero — 16 October 2026
+
+The enclosed card board has been replaced by an original sculptural glass aperture. A beveled silver/mint rim, internal reflections and a smoked lens hold the Handled mark. Unboxed conversation and published-knowledge stations feed the center; a compact frosted strip states that the decision stays human. Light/dark palettes keep source labels readable, and the strip uses 84% smoked fill for small-text contrast. This visual remains explicitly a sample workflow.
+
+The design research compared React Bits Light Rays, Aceternity Lamp/Hub heroes and Magic UI Animated Beam. [Reference decisions](../apps/web/DESIGN.md#hero-reference-study--16-october-2026) explain the original SVG/CSS implementation. No component code, paid asset, new library or WebGL shader was copied or installed. Entrance, short converging beams, pointer depth and separate scroll transforms for the outer rim and inner lens reuse existing motion infrastructure. Coarse pointers and reduced motion show the finished static drawing; changing preferences preserves content.
+
+Final lint, explicit typecheck, 14 transport tests and production build pass. The production desktop/mobile suite passes **37 checks with three intentional device-specific skips**. Existing layout checks now verify all three reading annotations stay contained and do not overlap at eight widths from 320 to 1440px. A separate final-build probe confirms no-JavaScript content, actual scroll-transform progression, live reduced-motion shutdown and no page errors. Independent source/screenshot review found no blocker; its light-theme contrast recommendation is included. No Chrome control was used.
+
+Fresh before/after production measurements in the same session observed loaded encoded script bodies 415,312→416,181 B (+869 B), median local LCP 176→172 ms, CLS 0→0, median long-task excess 81→91 ms and median scroll gaps above 34 ms 0→0 under 4× CPU. These are bounded local observations, not a field-performance guarantee. [All runs and limitations](evidence/aperture-performance.json).
+
+[Desktop](screenshots/aperture-hero-desktop.png) · [Aperture detail](screenshots/aperture-hero-detail.png) · [Mobile](screenshots/aperture-hero-mobile.png).
