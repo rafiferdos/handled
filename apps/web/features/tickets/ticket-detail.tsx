@@ -34,7 +34,11 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
   if (ticket.isError)
     return (
       <>
-        <ButtonLink href="/tickets" variant="ghost" className="mb-5 text-xs">
+        <ButtonLink
+          href="/tickets"
+          variant="ghost"
+          className="mb-5 h-11 text-[13px]"
+        >
           <ArrowLeft className="mr-2 size-3.5" />
           Ticket inbox
         </ButtonLink>
@@ -49,14 +53,14 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
     <>
       <Link
         href="/tickets"
-        className="mb-7 inline-flex items-center gap-2 rounded-md text-[11px] text-muted-foreground hover:text-foreground focus-visible:outline-2"
+        className="mb-4 inline-flex min-h-11 items-center gap-2 rounded-md text-[13px] text-muted-foreground hover:text-foreground focus-visible:outline-2"
       >
         <ArrowLeft className="size-3.5" />
         Back to inbox
       </Link>
-      <div className="mb-8">
+      <div className="mb-7">
         <div className="mb-4 flex flex-wrap items-center gap-3">
-          <span className="font-mono text-[11px] text-muted-foreground">
+          <span className="font-mono text-xs text-muted-foreground">
             {data.reference}
           </span>
           <StatusBadge status={data.status} />
@@ -65,23 +69,23 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
         <h1 className="max-w-3xl font-heading text-3xl leading-tight font-medium tracking-[-0.04em] md:text-4xl">
           {data.subject}
         </h1>
-        <p className="mt-3 text-xs text-muted-foreground">
+        <p className="mt-3 text-[13px] text-muted-foreground">
           {data.customer.name} <span className="mx-2">/</span>
           {data.category}
           <span className="mx-2">/</span>Support case
         </p>
       </div>
-      <div className="grid items-start gap-7 xl:grid-cols-[1.25fr_0.9fr]">
+      <div className="ticket-review-layout grid items-start gap-7">
         <div className="min-w-0">
           <Tabs defaultValue="conversation">
-            <TabsList className="mb-5 h-10">
-              <TabsTrigger value="conversation" className="text-xs">
+            <TabsList className="mb-4 group-data-horizontal/tabs:h-13">
+              <TabsTrigger value="conversation" className="px-2.5 text-[13px]">
                 Conversation
               </TabsTrigger>
-              <TabsTrigger value="evidence" className="text-xs">
+              <TabsTrigger value="evidence" className="px-2.5 text-[13px]">
                 Evidence
               </TabsTrigger>
-              <TabsTrigger value="timeline" className="text-xs">
+              <TabsTrigger value="timeline" className="px-2.5 text-[13px]">
                 Timeline
               </TabsTrigger>
             </TabsList>
@@ -89,15 +93,15 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
               <section className="rounded-2xl border p-5 md:p-6">
                 <div className="mb-6 flex items-center gap-3">
                   <Avatar className="size-9">
-                    <AvatarFallback className="text-[11px]">
+                    <AvatarFallback className="text-xs">
                       {data.customer.initials}
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <h2 className="text-xs font-medium">
+                    <h2 className="text-[13px] font-medium">
                       {data.customer.name}
                     </h2>
-                    <p className="mt-1 text-[11px] text-muted-foreground">
+                    <p className="mt-1 text-xs text-muted-foreground">
                       Customer message
                     </p>
                   </div>
@@ -106,40 +110,40 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                   {data.message}
                 </p>
                 <div className="mt-8 border-t pt-5">
-                  <p className="eyebrow text-muted-foreground">Reply channel</p>
-                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                  <p className="eyebrow text-xs text-muted-foreground">
+                    Reply channel
+                  </p>
+                  <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
                     Reply sending is not connected. You can edit the draft in
                     the proposal panel.
                   </p>
                 </div>
               </section>
               <section className="mt-5 rounded-2xl border p-5">
-                <h2 className="flex items-center gap-2 text-xs font-medium">
+                <h2 className="flex items-center gap-2 text-[13px] font-medium">
                   <User className="size-4 text-muted-foreground" />
                   Customer context
                 </h2>
                 <dl className="mt-5 grid gap-5 sm:grid-cols-2">
                   <div>
-                    <dt className="text-[11px] text-muted-foreground">Name</dt>
-                    <dd className="mt-1.5 text-xs">{data.customer.name}</dd>
+                    <dt className="text-xs text-muted-foreground">Name</dt>
+                    <dd className="mt-1.5 text-[13px]">{data.customer.name}</dd>
                   </div>
                   <div>
-                    <dt className="text-[11px] text-muted-foreground">Email</dt>
-                    <dd className="mt-1.5 text-xs break-all">
+                    <dt className="text-xs text-muted-foreground">Email</dt>
+                    <dd className="mt-1.5 text-[13px] break-all">
                       {data.customer.email}
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[11px] text-muted-foreground">
-                      Category
-                    </dt>
-                    <dd className="mt-1.5 text-xs">{data.category}</dd>
+                    <dt className="text-xs text-muted-foreground">Category</dt>
+                    <dd className="mt-1.5 text-[13px]">{data.category}</dd>
                   </div>
                   <div>
-                    <dt className="text-[11px] text-muted-foreground">
+                    <dt className="text-xs text-muted-foreground">
                       Account source
                     </dt>
-                    <dd className="mt-1.5 text-xs">Workspace preview</dd>
+                    <dd className="mt-1.5 text-[13px]">Workspace preview</dd>
                   </div>
                 </dl>
               </section>
@@ -149,7 +153,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                 <h2 className="font-heading text-xl font-medium tracking-tight">
                   The sources behind the suggestion
                 </h2>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">
                   Review the records and policy behind this recommendation.
                 </p>
                 <div className="mt-5 space-y-3">
@@ -171,8 +175,10 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                           )}
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block text-xs">{source.title}</span>
-                          <span className="mt-1 block font-mono text-[11px] font-normal text-muted-foreground">
+                          <span className="block text-[13px]">
+                            {source.title}
+                          </span>
+                          <span className="mt-1 block font-mono text-xs font-normal text-muted-foreground">
                             {source.reference}
                           </span>
                         </span>
@@ -188,7 +194,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                         <p className="text-sm leading-relaxed text-muted-foreground">
                           {source.detail}
                         </p>
-                        <div className="flex items-center gap-2 rounded-xl bg-muted p-3 text-[11px] text-muted-foreground">
+                        <div className="flex items-center gap-2 rounded-xl bg-muted p-3 text-xs text-muted-foreground">
                           <Link2 className="size-3.5" />
                           Example record. No external account is connected.
                         </div>
@@ -203,7 +209,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                 <h2 className="font-heading text-xl font-medium tracking-tight">
                   An investigation, made visible.
                 </h2>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">
                   Example investigation stages. No live tools were run.
                 </p>
                 <ol className="mt-7 space-y-7">
@@ -226,12 +232,14 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                     },
                   ].map((step, i) => (
                     <li key={step.title} className="flex gap-4">
-                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full border bg-muted font-mono text-[11px]">
+                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full border bg-muted font-mono text-xs">
                         {i < 3 ? <Check className="size-3" /> : "04"}
                       </span>
                       <div>
-                        <h3 className="text-xs font-medium">{step.title}</h3>
-                        <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
+                        <h3 className="text-[13px] font-medium">
+                          {step.title}
+                        </h3>
+                        <p className="mt-1.5 text-[13px] leading-relaxed text-muted-foreground">
                           {step.detail}
                         </p>
                       </div>
@@ -241,7 +249,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
               </section>
             </TabsContent>
           </Tabs>
-          <p className="mt-5 flex items-start gap-2 px-1 text-[11px] leading-relaxed text-muted-foreground">
+          <p className="mt-5 flex items-start gap-2 px-1 text-xs leading-relaxed text-muted-foreground">
             <ShieldCheck className="mt-0.5 size-3 shrink-0" />
             Review the evidence before deciding on a next step.
           </p>

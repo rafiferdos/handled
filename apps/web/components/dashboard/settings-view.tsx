@@ -58,17 +58,23 @@ export function SettingsView() {
               >
                 <SelectTrigger
                   aria-labelledby="theme-label"
-                  className="workspace-control h-11 w-full rounded-xl text-sm"
+                  className="workspace-control w-full rounded-xl text-sm data-[size=default]:h-11"
                 >
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent alignItemWithTrigger={false}>
-                  <SelectItem value="system">System preference</SelectItem>
-                  <SelectItem value="light">Light</SelectItem>
-                  <SelectItem value="dark">Dark</SelectItem>
+                  <SelectItem value="system" className="min-h-11">
+                    System preference
+                  </SelectItem>
+                  <SelectItem value="light" className="min-h-11">
+                    Light
+                  </SelectItem>
+                  <SelectItem value="dark" className="min-h-11">
+                    Dark
+                  </SelectItem>
                 </SelectContent>
               </Select>
-              <p className="text-[11px] leading-relaxed text-muted-foreground">
+              <p className="text-xs leading-relaxed text-muted-foreground">
                 Follows your device by default. Reduced-motion preferences are
                 always respected.
               </p>
@@ -81,7 +87,7 @@ export function SettingsView() {
               Workspace details
               <Badge
                 variant="outline"
-                className="font-sans text-[11px] font-normal"
+                className="font-sans text-xs font-normal"
               >
                 Read-only
               </Badge>
@@ -106,7 +112,7 @@ export function SettingsView() {
                 className="h-11 rounded-xl bg-muted/20 font-mono text-xs"
               />
             </div>
-            <p className="flex items-start gap-2 text-[11px] leading-relaxed text-muted-foreground">
+            <p className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
               <ShieldCheck className="mt-0.5 size-4 shrink-0" />
               Member invitations and role changes are not available yet.
             </p>

@@ -16,10 +16,10 @@ export function ActivityView() {
       />
       <EmptyState
         title="No connected activity yet."
-        description="When the action and audit API is connected, workspace-scoped outcomes will appear here. Local decision rehearsals are never presented as durable events."
+        description="Completed actions and their results will appear here when account connections are available. Decisions you try in this preview stay on the page and do not create activity records."
       />
       <section className="mt-10">
-        <p className="eyebrow mb-5 text-[11px] leading-relaxed text-muted-foreground">
+        <p className="eyebrow mb-5 text-xs leading-relaxed text-muted-foreground">
           Example sequence · No actions executed
         </p>
         <div className="grid gap-4 md:grid-cols-3">
@@ -27,17 +27,17 @@ export function ActivityView() {
             {
               icon: FileSearch,
               title: "Context gathered",
-              text: "Recorded read-only tool outcomes and source references.",
+              text: "See the account records and policy used to review the case.",
             },
             {
               icon: ShieldCheck,
               title: "Human decision recorded",
-              text: "An authenticated actor and immutable proposal version.",
+              text: "See who reviewed the recommendation and what they decided.",
             },
             {
               icon: CircleCheck,
               title: "Action outcome verified",
-              text: "A durable, idempotent simulated result with an audit reference.",
+              text: "Check whether the action completed and what changed in the account.",
             },
           ].map((item, i) => (
             <div
@@ -48,7 +48,7 @@ export function ActivityView() {
                 <span className="flex size-10 items-center justify-center rounded-xl border border-signal/15 bg-signal-surface">
                   <item.icon className="size-4 text-signal" />
                 </span>
-                <span className="font-mono text-[11px] text-muted-foreground">
+                <span className="font-mono text-xs text-muted-foreground">
                   0{i + 1}
                 </span>
               </div>

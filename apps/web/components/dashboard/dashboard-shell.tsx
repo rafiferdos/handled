@@ -62,7 +62,7 @@ function WorkspacePicker() {
         aria-label="Select workspace"
       >
         <div className="flex items-center gap-2.5">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-signal-surface text-[11px] font-semibold text-signal">
+          <span className="flex size-8 items-center justify-center rounded-lg bg-signal-surface text-xs font-semibold text-signal">
             {workspace.initials}
           </span>
           <SelectValue />
@@ -70,7 +70,7 @@ function WorkspacePicker() {
       </SelectTrigger>
       <SelectContent alignItemWithTrigger={false}>
         {sampleWorkspaces.map((item) => (
-          <SelectItem key={item.id} value={item.id}>
+          <SelectItem key={item.id} value={item.id} className="min-h-11">
             {item.name}
           </SelectItem>
         ))}
@@ -82,10 +82,10 @@ function WorkspacePicker() {
 function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname()
   return (
-    <div className="flex h-full flex-col px-5 py-7">
-      <Brand className="mb-10 px-2" />
+    <div className="flex h-full flex-col overflow-y-auto px-5 py-6">
+      <Brand className="mb-8 px-2" />
       <WorkspacePicker />
-      <p className="eyebrow mt-9 mb-3 px-3 text-[11px] text-muted-foreground">
+      <p className="eyebrow mt-7 mb-3 px-3 text-xs text-muted-foreground">
         Workspace
       </p>
       <nav aria-label="Workspace navigation" className="space-y-1.5">
@@ -107,33 +107,28 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
             >
               <item.icon className={cn("size-4", active && "text-signal")} />
               {item.label}
-              {item.href === "/tickets" && (
-                <span className="ml-auto font-mono text-[11px] opacity-60">
-                  ↗
-                </span>
-              )}
             </Link>
           )
         })}
       </nav>
-      <div className="mt-auto pt-10">
+      <div className="mt-auto pt-6">
         <div className="glass-inset rounded-xl border bg-background p-4">
           <ShieldCheck className="mb-3 size-4 text-signal" />
-          <p className="text-xs font-medium">Human decisions, by design.</p>
-          <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
+          <p className="text-[13px] font-medium">Human decisions, by design.</p>
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
             Keep the evidence in view and the next step in your hands.
           </p>
         </div>
         <Separator className="my-5" />
         <div className="flex items-center gap-3 px-2">
           <Avatar className="size-8">
-            <AvatarFallback className="bg-foreground text-[11px] text-background">
+            <AvatarFallback className="bg-foreground text-xs text-background">
               P
             </AvatarFallback>
           </Avatar>
           <div>
-            <p className="text-xs font-medium">Workspace visitor</p>
-            <p className="mt-0.5 text-[11px] text-muted-foreground">
+            <p className="text-[13px] font-medium">Workspace visitor</p>
+            <p className="mt-0.5 text-xs text-muted-foreground">
               Browsing without sign-in
             </p>
           </div>
@@ -164,7 +159,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
                   <Button
                     size="icon"
                     variant="ghost"
-                    className="lg:hidden"
+                    className="size-11 lg:hidden"
                     aria-label="Open workspace navigation"
                   />
                 }
@@ -195,14 +190,14 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
             <Link
               href="/"
               aria-label="Back to public website"
-              className="flex items-center gap-2 rounded-md p-2 text-[11px] text-muted-foreground hover:text-foreground focus-visible:outline-2"
+              className="flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md p-2 text-xs text-muted-foreground hover:text-foreground focus-visible:outline-2"
             >
               <span className="hidden sm:inline">Back to website</span>
               <ArrowUpRight className="size-4" />
             </Link>
           </div>
         </header>
-        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b bg-muted/25 px-5 py-3 text-[11px] leading-relaxed text-muted-foreground md:px-8">
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b bg-muted/25 px-5 py-2.5 text-xs leading-relaxed text-muted-foreground md:px-8">
           <p>
             <span className="font-medium text-foreground">
               Workspace preview
@@ -216,7 +211,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         </div>
         <main
           id="main-content"
-          className="mx-auto max-w-[1440px] px-5 py-8 md:px-8 md:py-11 lg:px-10 xl:px-12"
+          className="mx-auto max-w-[1440px] px-5 py-6 md:px-8 md:py-8 lg:px-10 xl:px-12"
         >
           {children}
         </main>

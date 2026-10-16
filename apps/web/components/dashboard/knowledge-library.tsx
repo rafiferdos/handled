@@ -72,7 +72,7 @@ export function KnowledgeLibrary() {
                   </span>
                   <Badge
                     variant="outline"
-                    className="border-success/20 bg-success-surface text-[11px] text-success"
+                    className="border-success/20 bg-success-surface text-xs text-success"
                   >
                     Published
                   </Badge>
@@ -85,8 +85,8 @@ export function KnowledgeLibrary() {
                 <p className="flex-1 text-[13px] leading-[1.75] text-muted-foreground">
                   {source.detail}
                 </p>
-                <div className="mt-6 flex items-center justify-between border-t pt-4">
-                  <span className="min-w-0 font-mono text-[11px] break-all text-muted-foreground">
+                <div className="mt-6 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 border-t pt-3">
+                  <span className="min-w-0 font-mono text-xs break-all text-muted-foreground">
                     {source.reference}
                   </span>
                   <Dialog>
@@ -94,13 +94,12 @@ export function KnowledgeLibrary() {
                       render={
                         <Button
                           variant="ghost"
-                          size="icon"
-                          className="shrink-0 rounded-xl text-signal"
+                          className="h-11 shrink-0 rounded-xl px-2 text-[13px] text-signal"
                           aria-label={`Read ${source.title}`}
                         />
                       }
                     >
-                      <ArrowUpRight className="size-4" />
+                      Read policy <ArrowUpRight className="ml-1 size-3.5" />
                     </DialogTrigger>
                     <DialogContent>
                       <DialogHeader>
@@ -112,7 +111,7 @@ export function KnowledgeLibrary() {
                       <p className="text-sm leading-relaxed text-muted-foreground">
                         {source.detail}
                       </p>
-                      <p className="rounded-xl bg-muted p-3 text-[11px] leading-relaxed text-muted-foreground">
+                      <p className="rounded-xl bg-muted p-3 text-xs leading-relaxed text-muted-foreground">
                         This policy belongs to the workspace preview. Document
                         publishing is not available yet.
                       </p>
@@ -124,7 +123,7 @@ export function KnowledgeLibrary() {
           ))}
         </div>
       )}
-      <div className="mt-8 flex items-start gap-3 rounded-2xl border border-dashed bg-muted/15 p-5 text-xs leading-relaxed text-muted-foreground">
+      <div className="mt-8 flex items-start gap-3 rounded-2xl border border-dashed bg-muted/15 p-5 text-[13px] leading-relaxed text-muted-foreground">
         <FileText className="mt-0.5 size-4 shrink-0" />
         <p>Document editing and publishing are not available yet.</p>
       </div>

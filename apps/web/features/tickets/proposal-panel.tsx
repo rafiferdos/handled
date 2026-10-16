@@ -65,37 +65,37 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
   return (
     <section
       aria-label="Recommendation"
-      className="overflow-hidden rounded-2xl border"
+      className="min-w-0 overflow-hidden rounded-2xl border"
     >
       <div className="border-b bg-muted/35 p-5">
         <div className="mb-5 flex items-center justify-between">
-          <span className="flex items-center gap-2 text-xs font-medium">
+          <span className="flex items-center gap-2 text-[13px] font-medium">
             <Sparkles className="size-4" />
             Recommendation
           </span>
-          <Badge variant="outline" className="font-mono text-[11px]">
+          <Badge variant="outline" className="font-mono text-xs">
             v1
           </Badge>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Badge
             variant="outline"
             className={
               low
-                ? "border-warning/20 bg-warning-surface text-[11px] text-warning"
-                : "border-success/20 bg-success-surface text-[11px] text-success"
+                ? "border-warning/20 bg-warning-surface text-xs text-warning"
+                : "border-success/20 bg-success-surface text-xs text-success"
             }
           >
             {humanize(ticket.confidence)} confidence
           </Badge>
-          <span className="text-[11px] text-muted-foreground">
+          <span className="text-xs text-muted-foreground">
             Evidence assessment
           </span>
         </div>
         <h2 className="mt-4 font-heading text-2xl leading-tight font-medium tracking-tight">
           {ticket.recommendation}
         </h2>
-        <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
+        <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
           {low
             ? "Verify the missing product mapping before any action. Low confidence blocks approval."
             : "Account records and a published policy support this suggestion. A human review is still required."}
@@ -104,14 +104,14 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
       <div className="space-y-5 p-5">
         <div>
           <div className="mb-3 flex items-center justify-between">
-            <h3 className="text-xs font-medium">Suggested reply</h3>
+            <h3 className="text-[13px] font-medium">Suggested reply</h3>
             <Dialog open={editOpen} onOpenChange={setEditOpen}>
               <DialogTrigger
                 render={
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="h-7 text-[11px]"
+                    className="h-11 text-[13px]"
                     onClick={() => setDraft(reply)}
                   />
                 }
@@ -135,15 +135,20 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
                     maxLength={4000}
                     className="min-h-44"
                   />
-                  <p className="text-[11px] text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     {draft.length} / 4000 characters
                   </p>
                 </div>
                 <DialogFooter>
-                  <Button variant="outline" onClick={() => setEditOpen(false)}>
+                  <Button
+                    variant="outline"
+                    className="h-11"
+                    onClick={() => setEditOpen(false)}
+                  >
                     Cancel
                   </Button>
                   <Button
+                    className="h-11"
                     disabled={!draft.trim()}
                     onClick={() => {
                       setReply(draft.trim())
@@ -157,11 +162,11 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
               </DialogContent>
             </Dialog>
           </div>
-          <blockquote className="rounded-xl border bg-muted/20 p-4 text-xs leading-relaxed text-muted-foreground">
+          <blockquote className="rounded-xl border bg-muted/20 p-4 text-sm leading-relaxed text-muted-foreground">
             {reply}
           </blockquote>
         </div>
-        <div className="flex items-start gap-2 rounded-xl bg-muted/40 p-3 text-[11px] leading-relaxed text-muted-foreground">
+        <div className="flex items-start gap-2 rounded-xl bg-muted/40 p-3 text-[13px] leading-relaxed text-muted-foreground">
           <ShieldCheck className="mt-0.5 size-4 shrink-0" />
           <p>
             Try a decision locally. No payment, subscription or access will
@@ -173,17 +178,17 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
             role="status"
             className="rounded-xl border border-success/20 bg-success-surface p-4"
           >
-            <p className="flex items-center gap-2 text-xs font-medium text-success">
+            <p className="flex items-center gap-2 text-[13px] font-medium text-success">
               <Check className="size-4" />
               Local rehearsal: {recorded}
             </p>
-            <p className="mt-2 text-[11px] leading-relaxed text-success">
+            <p className="mt-2 text-xs leading-relaxed text-success">
               No payment, subscription or access changed. This is not a durable
               audit record.
             </p>
             <Button
               variant="link"
-              className="mt-3 h-auto p-0 text-[11px] text-success"
+              className="mt-2 h-11 px-0 text-[13px] text-success"
               onClick={() => {
                 setRecorded(null)
                 setReason("")
@@ -197,7 +202,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
             <AlertDialog>
               <AlertDialogTrigger
                 render={
-                  <Button className="h-10 w-full text-xs" disabled={low} />
+                  <Button className="h-11 w-full text-[13px]" disabled={low} />
                 }
               >
                 <Check className="mr-2 size-3.5" />
@@ -212,8 +217,11 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Keep reviewing</AlertDialogCancel>
+                  <AlertDialogCancel className="h-11">
+                    Keep reviewing
+                  </AlertDialogCancel>
                   <AlertDialogAction
+                    className="h-11"
                     onClick={() => record("approval reviewed")}
                   >
                     Confirm local rehearsal
@@ -222,14 +230,17 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
               </AlertDialogContent>
             </AlertDialog>
             {low && (
-              <p className="-mt-3 text-[11px] text-warning">
+              <p className="-mt-3 text-xs text-warning">
                 Approval unavailable for low-confidence evidence.
               </p>
             )}
             <Dialog open={decisionOpen} onOpenChange={setDecisionOpen}>
               <DialogTrigger
                 render={
-                  <Button variant="outline" className="h-10 w-full text-xs" />
+                  <Button
+                    variant="outline"
+                    className="h-11 w-full text-[13px]"
+                  />
                 }
               >
                 <GitBranch className="mr-2 size-3.5" />
@@ -256,15 +267,15 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
                     >
                       <SelectTrigger
                         aria-labelledby="decision-label"
-                        className="w-full"
+                        className="w-full data-[size=default]:h-11"
                       >
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="escalate">
+                        <SelectItem value="escalate" className="min-h-11">
                           Escalate for review
                         </SelectItem>
-                        <SelectItem value="reject">
+                        <SelectItem value="reject" className="min-h-11">
                           Reject recommendation
                         </SelectItem>
                       </SelectContent>
@@ -287,12 +298,14 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
                 <DialogFooter>
                   <Button
                     variant="outline"
+                    className="h-11"
                     onClick={() => setDecisionOpen(false)}
                   >
                     <X className="mr-1 size-3" />
                     Cancel
                   </Button>
                   <Button
+                    className="h-11"
                     disabled={!reason.trim()}
                     onClick={() =>
                       record(

@@ -50,13 +50,13 @@ export function TicketInbox() {
       />
       <div className="mb-6 flex flex-col justify-between gap-3 rounded-2xl border bg-card p-3 sm:flex-row">
         <div className="relative sm:w-80">
-          <Search className="pointer-events-none absolute top-3 left-3.5 size-4 text-muted-foreground" />
+          <Search className="pointer-events-none absolute top-3.5 left-3.5 size-4 text-muted-foreground" />
           <Input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
             aria-label="Search tickets"
             placeholder="Search tickets or customers…"
-            className="h-10 rounded-xl border-transparent bg-muted/45 pl-10"
+            className="workspace-control h-11 rounded-xl border-transparent bg-muted/45 pl-10"
           />
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -74,14 +74,16 @@ export function TicketInbox() {
           >
             <SelectTrigger
               aria-label="Filter by status"
-              className="h-10 min-w-36 rounded-xl"
+              className="min-w-36 flex-1 rounded-xl data-[size=default]:h-11 sm:flex-none"
             >
               <SelectValue />
             </SelectTrigger>
             <SelectContent alignItemWithTrigger={false}>
-              <SelectItem value="ALL">All statuses</SelectItem>
+              <SelectItem value="ALL" className="min-h-11">
+                All statuses
+              </SelectItem>
               {ticketStatuses.map((value) => (
-                <SelectItem key={value} value={value}>
+                <SelectItem key={value} value={value} className="min-h-11">
                   {humanize(value)}
                 </SelectItem>
               ))}
@@ -100,14 +102,16 @@ export function TicketInbox() {
           >
             <SelectTrigger
               aria-label="Filter by priority"
-              className="h-10 min-w-32 rounded-xl"
+              className="min-w-32 flex-1 rounded-xl data-[size=default]:h-11 sm:flex-none"
             >
               <SelectValue />
             </SelectTrigger>
             <SelectContent alignItemWithTrigger={false}>
-              <SelectItem value="ALL">All priorities</SelectItem>
+              <SelectItem value="ALL" className="min-h-11">
+                All priorities
+              </SelectItem>
               {ticketPriorities.map((value) => (
-                <SelectItem key={value} value={value}>
+                <SelectItem key={value} value={value} className="min-h-11">
                   {humanize(value)}
                 </SelectItem>
               ))}
@@ -117,6 +121,7 @@ export function TicketInbox() {
             <Button
               variant="ghost"
               size="icon"
+              className="size-11"
               aria-label="Clear ticket filters"
               onClick={reset}
             >
@@ -126,14 +131,12 @@ export function TicketInbox() {
         </div>
       </div>
       <div className="mb-3 flex items-center justify-between px-1">
-        <p className="text-[11px] text-muted-foreground" aria-live="polite">
+        <p className="text-xs text-muted-foreground" aria-live="polite">
           {tickets.data
             ? `${tickets.data.meta.total} ${tickets.data.meta.total === 1 ? "ticket" : "tickets"}`
             : "Loading tickets…"}
         </p>
-        <span className="font-mono text-[11px] tracking-wider text-muted-foreground">
-          WORKSPACE-SCOPED VIEW
-        </span>
+        <span className="text-xs text-muted-foreground">Workspace queue</span>
       </div>
       {tickets.isPending ? (
         <LoadingState />
@@ -153,7 +156,7 @@ export function TicketInbox() {
           }
           action={
             filtered ? (
-              <Button variant="outline" onClick={reset}>
+              <Button variant="outline" className="h-11" onClick={reset}>
                 Clear filters
               </Button>
             ) : undefined
@@ -164,7 +167,7 @@ export function TicketInbox() {
           aria-label="Ticket list"
           className="overflow-hidden rounded-2xl border"
         >
-          <div className="hidden grid-cols-[2fr_0.8fr_0.6fr_24px] gap-5 border-b bg-muted/35 px-6 py-3 font-mono text-[11px] tracking-wider text-muted-foreground uppercase md:grid">
+          <div className="hidden grid-cols-[2fr_0.8fr_0.6fr_24px] gap-5 border-b bg-muted/35 px-6 py-3 font-mono text-xs tracking-wider text-muted-foreground uppercase md:grid">
             <span>Conversation</span>
             <span>Status</span>
             <span>Priority</span>
@@ -178,20 +181,20 @@ export function TicketInbox() {
             >
               <div className="flex min-w-0 items-start gap-3.5">
                 <Avatar className="size-9">
-                  <AvatarFallback className="bg-muted text-[11px]">
+                  <AvatarFallback className="bg-muted text-xs">
                     {ticket.customer.initials}
                   </AvatarFallback>
                 </Avatar>
                 <div className="min-w-0">
-                  <p className="font-mono text-[11px] text-muted-foreground">
+                  <p className="font-mono text-xs text-muted-foreground">
                     {ticket.reference}
                     <span className="mx-2">/</span>
                     {ticket.customer.name}
                   </p>
-                  <h2 className="mt-2 text-xs leading-relaxed font-medium">
+                  <h2 className="mt-2 text-sm leading-relaxed font-medium">
                     {ticket.subject}
                   </h2>
-                  <p className="mt-2 text-[11px] text-muted-foreground">
+                  <p className="mt-2 text-xs text-muted-foreground">
                     {ticket.category} <span className="mx-1.5">·</span> 15 Oct
                   </p>
                 </div>

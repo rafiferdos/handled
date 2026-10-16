@@ -59,7 +59,7 @@ export function ErrorState({
       </p>
       <Button
         variant="outline"
-        className="mt-6 h-10 rounded-xl"
+        className="mt-6 h-11 rounded-xl"
         onClick={retry}
       >
         <RefreshCw className="mr-2 size-3.5" />
