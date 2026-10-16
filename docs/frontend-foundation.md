@@ -85,3 +85,16 @@ The small timing differences are local lab observations, not field performance o
 Final production screenshots: [landing](screenshots/expressive-landing-dark.png), [mobile](screenshots/expressive-landing-mobile.png), [context and human control](screenshots/expressive-trust.png), [sample showcase](screenshots/expressive-showcase.png), [product](screenshots/expressive-product.png), [process](screenshots/expressive-process.png), [identity](screenshots/expressive-auth.png), [workspace](screenshots/expressive-workspace.png).
 
 Vercel production follows `feat/frontend-foundation` in the existing free project. Publication does not merge the branch or complete the integration gates.
+
+
+## Glass and continuous scroll correction — 16 October 2026
+
+The follow-up restores the earlier professional glass depth throughout the visual system. Hero annotations are smoked frosted glass over the silver artwork. Navigation/header use small frosted surfaces, broad marketing/workspace/auth panels use filter-free translucent sheets, and nested diagrams use clear high-fill insets. Dense content keeps reliable contrast. Reduced transparency and forced colors have solid fallbacks. Research and component decisions are recorded in [DESIGN.md](../apps/web/DESIGN.md).
+
+Scroll now changes a sustained scene: four semantic workflow chapters accompany a native sticky illustration. A ticket moves back, payment/policy cards unfold, human review comes forward, then a connected outcome appears. Selected headings have masked word entrances and desktop scroll lighting. Showcase perspective/scale is stronger. Mobile uses short text entrances and a normal four-step reading layout; no JavaScript retains headings, cases and all workflow text. There are no new dependencies or per-frame React state updates.
+
+Validation: frontend lint/typecheck/build and 14 transport/isolation tests pass. Production desktop/mobile browser suite: **37 passed, three intentional project-specific skips**. New regression checks failed on the old production build (opaque hero card and absent scroll story), then passed after implementation. Existing reduced-motion checks caught a 450ms inherited word-opacity transition; the zero-duration correction passes runtime preference switching. Independent review verified 320px auth/home containment, 1024×700 sticky geometry, solid reduced-transparency chrome and the composed lazy-loading fallback.
+
+Three cold local production probes with 4× CPU and a 120-frame full-page scroll observed script bodies 415,910→416,723 B (+813B), median local LCP 152→168 ms, CLS 0→0, median scroll gaps above 34 ms 0→0. Median long-task excess increased 30→54 ms under CPU throttling, reflecting added rendering work. These are bounded lab observations, not field performance or a universal no-slowdown claim. [All runs and limitations](evidence/glass-performance.json).
+
+[Continuous scroll video](videos/glass-scroll-story.webm) · [Glass hero](screenshots/glass-landing-dark.png) · [Mobile](screenshots/glass-landing-mobile.png) · [Question](screenshots/glass-story-question.png) · [Context](screenshots/glass-story-context.png) · [Human review](screenshots/glass-story-decision.png) · [Outcome](screenshots/glass-story-outcome.png) · [Workspace](screenshots/glass-workspace.png) · [Auth](screenshots/glass-auth.png).
