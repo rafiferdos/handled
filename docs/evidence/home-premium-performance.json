@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "a6fa3eb0ec7d3dfe2cc6e9172c46abd03f7769c0",
+  "comparison": "Premium remaining home sections with native preview unfold, source choreography and refined sticky story",
+  "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+  "limits": [
+    "Fresh baseline and final build measured in the same session with the same Chromium/viewport/CPU/network/cache/scroll procedure.",
+    "Local lab results including prefetch; not field Web Vitals or a universal speed guarantee.",
+    "Final script bodies decreased 762 bytes; median long-task excess decreased 23 ms. Median LCP increased 32 ms under 4x CPU. No median CLS or scroll frame gaps above34ms observed.",
+    "No new dependencies, shaders, external artwork requests, per-frame React state updates or global smooth-scroll library. Preview/source/FAQ/footer decoration uses native progressive CSS timelines; unsupported browsers remain static."
+  ],
+  "before": {
+    "label": "home-before",
+    "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+    "runs": [
+      {
+        "lcp": 192,
+        "cls": 2.4645746490101757e-05,
+        "longTaskMs": 100,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 416181,
+        "externalResources": []
+      },
+      {
+        "lcp": 164,
+        "cls": 0,
+        "longTaskMs": 72,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 416181,
+        "externalResources": []
+      },
+      {
+        "lcp": 164,
+        "cls": 0,
+        "longTaskMs": 83,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 416181,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 164,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 416181,
+    "medianLongTaskMs": 83,
+    "medianScrollFrameGapsOver34Ms": 0
+  },
+  "after": {
+    "label": "home-after",
+    "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+    "runs": [
+      {
+        "lcp": 212,
+        "cls": 0,
+        "longTaskMs": 87,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 33,
+        "scriptEncodedBytes": 415419,
+        "externalResources": []
+      },
+      {
+        "lcp": 192,
+        "cls": 0,
+        "longTaskMs": 57,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 33,
+        "scriptEncodedBytes": 415419,
+        "externalResources": []
+      },
+      {
+        "lcp": 196,
+        "cls": 0,
+        "longTaskMs": 60,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 33,
+        "scriptEncodedBytes": 415419,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 196,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 415419,
+    "medianLongTaskMs": 60,
+    "medianScrollFrameGapsOver34Ms": 0
+  }
+}
