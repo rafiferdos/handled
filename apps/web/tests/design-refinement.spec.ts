@@ -157,3 +157,30 @@ test("reduced motion keeps case exploration readable and static", async ({
   ).toBe(true)
   expect(errors).toEqual([])
 })
+
+test("changing reduced motion preserves the focused sample-case link", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "Touch preview already uses a static surface")
+  await page.emulateMedia({ reducedMotion: "no-preference" })
+  await page.goto("/#workflow")
+  await page.getByRole("tab", { name: "Cancellation", exact: true }).click()
+  const link = page
+    .getByRole("tabpanel")
+    .getByRole("link", { name: "Inspect sample case" })
+  await link.focus()
+  await expect(link).toBeFocused()
+  await page.emulateMedia({ reducedMotion: "reduce" })
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+      )
+  )
+  await expect(link).toBeFocused()
+  await expect(link).toHaveAttribute(
+    "href",
+    "/tickets/10000000-0000-4000-8000-000000001002"
+  )
+})

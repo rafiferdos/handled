@@ -71,22 +71,22 @@ export function WorkflowMap() {
           <ol className="workflow-steps">
             {stages.map((stage) => (
               <li key={stage.n} className="workflow-step">
-                <div className="workflow-step-card glass-panel">
-                  <div className="mb-7 flex items-start justify-between gap-4">
-                    <span className="story-chapter-number font-heading text-[4rem] leading-none font-medium tracking-[-0.08em]">
+                <div className="workflow-step-card">
+                  <div className="workflow-chapter-heading">
+                    <span className="story-chapter-number workflow-chapter-number">
                       {stage.n}
                     </span>
-                    <span className="glass-inset flex size-11 items-center justify-center rounded-xl text-signal">
+                    <span className="workflow-chapter-icon glass-inset">
                       <stage.icon className="size-5" />
                     </span>
                   </div>
-                  <p className="eyebrow mb-4 text-signal">{stage.detail}</p>
-                  <h3 className="font-heading text-3xl font-medium tracking-[-0.04em] lg:text-[2.6rem]">
-                    {stage.title}
-                  </h3>
-                  <p className="mt-4 max-w-sm text-base leading-relaxed text-muted-foreground">
-                    {stage.copy}
-                  </p>
+                  <p className="workflow-chapter-detail">{stage.detail}</p>
+                  <h3 className="workflow-chapter-title">{stage.title}</h3>
+                  <p className="workflow-chapter-copy">{stage.copy}</p>
+                  <div className="workflow-chapter-footer" aria-hidden="true">
+                    <span />
+                    {stage.n} / 04
+                  </div>
                 </div>
               </li>
             ))}

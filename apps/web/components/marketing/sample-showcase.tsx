@@ -43,9 +43,9 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
   return (
     <Tabs
       defaultValue={cases[0]?.ticket.reference}
-      className="sample-tabs expressive-sample gap-6"
+      className="sample-tabs expressive-sample premium-showcase gap-6"
     >
-      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+      <div className="showcase-controls flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div className="flex items-center gap-3">
           <span
             aria-hidden="true"
@@ -74,8 +74,8 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
       </div>
       <GlassFold>
         <div className="case-stage showcase-frame p-2 sm:p-3.5">
-          <div className="overflow-hidden rounded-[1.2rem] border border-white/15 bg-[#f3f5f2] text-[#1d282e]">
-            <div className="flex h-12 items-center justify-between gap-3 border-b border-black/8 bg-white/80 px-3 sm:px-5">
+          <div className="showcase-window overflow-hidden rounded-[1.2rem] border border-white/15 bg-[#f3f5f2] text-[#1d282e]">
+            <div className="showcase-window-bar flex h-12 items-center justify-between gap-3 border-b border-black/8 bg-white/80 px-3 sm:px-5">
               <div className="flex gap-1.5" aria-hidden="true">
                 {[0, 1, 2].map((dot) => (
                   <span

@@ -18,9 +18,11 @@ export type WorkflowLayerStyles = Partial<Record<Layer, MotionStyle>>
 export function WorkflowArtwork({
   layers = {},
   progress,
+  phases,
 }: {
   layers?: WorkflowLayerStyles
   progress?: MotionStyle
+  phases?: MotionStyle[]
 }) {
   return (
     <div
@@ -36,6 +38,33 @@ export function WorkflowArtwork({
         <span>THE SUPPORT LOOP</span>
         <span>ILLUSTRATIVE / NOT A LIVE ACTION</span>
       </div>
+      <div className="workflow-scene-phases">
+        {[
+          "01 / A QUESTION, HEARD.",
+          "02 / THE PIECES, CONNECTED.",
+          "03 / A MOMENT FOR JUDGMENT.",
+          "04 / THE WHOLE STORY, KEPT.",
+        ].map((phase, index) => (
+          <m.span
+            initial={false}
+            style={phases?.[index]}
+            className="workflow-scene-phase"
+            key={phase}
+          >
+            <i /> {phase}
+          </m.span>
+        ))}
+      </div>
+      <svg
+        className="workflow-scene-connections"
+        viewBox="0 0 500 500"
+        fill="none"
+        preserveAspectRatio="none"
+      >
+        <path d="M410 130H310Q290 130 290 150V325Q290 345 270 345H90" />
+        <circle cx="410" cy="130" r="3" />
+        <circle cx="90" cy="345" r="3" />
+      </svg>
       <m.div
         initial={false}
         style={layers.ticket}
@@ -45,12 +74,13 @@ export function WorkflowArtwork({
         <p className="workflow-art-label">
           <MessageSquare className="size-3.5" /> THE QUESTION <span>01</span>
         </p>
-        <p className="mt-6 font-heading text-[2rem] leading-[1.1] tracking-[-0.04em]">
+        <p className="workflow-ticket-question">
           “I was charged twice
           <br />
           for my Pro plan.”
         </p>
-        <p className="mt-5 text-xs text-muted-foreground">
+        <p className="workflow-ticket-person">
+          <span>MR</span>
           Maya Rahman · Sample conversation
         </p>
       </m.div>
@@ -63,7 +93,7 @@ export function WorkflowArtwork({
         <p className="workflow-art-label">
           <Fingerprint className="size-3.5" /> ACCOUNT CONTEXT
         </p>
-        <div className="mt-5 space-y-3 font-mono text-[11px]">
+        <div className="workflow-payment-records">
           <p className="flex justify-between">
             PAY-9001{" "}
             <span>
@@ -77,7 +107,7 @@ export function WorkflowArtwork({
             </span>
           </p>
         </div>
-        <p className="mt-4 border-t pt-3 text-[10px] text-muted-foreground">
+        <p className="workflow-record-note">
           Two settled payments. One billing period.
         </p>
       </m.div>
@@ -90,11 +120,11 @@ export function WorkflowArtwork({
         <p className="workflow-art-label">
           <BookOpen className="size-3.5" /> PUBLISHED KNOWLEDGE
         </p>
-        <p className="mt-4 text-sm font-medium">Duplicate-charge policy</p>
+        <p className="workflow-knowledge-title">Duplicate-charge policy</p>
         <p className="mt-2 font-mono text-[10px] text-muted-foreground">
           KB-REFUND · version 1
         </p>
-        <span className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-signal/20 px-2 py-1 text-[9px] text-signal">
+        <span className="workflow-source-status">
           <Check className="size-3" /> Source attached
         </span>
       </m.div>
@@ -108,7 +138,7 @@ export function WorkflowArtwork({
           <ShieldCheck className="size-3.5" /> THE HUMAN CHECKPOINT{" "}
           <span>03</span>
         </p>
-        <p className="mt-6 font-heading text-[2.1rem] leading-[1.05] tracking-[-0.04em]">
+        <p className="workflow-decision-title">
           A recommendation.
           <br />
           <span className="text-signal">Still your decision.</span>
@@ -118,7 +148,7 @@ export function WorkflowArtwork({
           <br />
           Evidence attached. Human judgment required.
         </p>
-        <div className="mt-6 flex gap-2 text-[10px]">
+        <div className="workflow-decision-options">
           <span className="rounded-lg bg-signal px-4 py-2.5 text-signal-foreground">
             Review
           </span>
@@ -132,18 +162,16 @@ export function WorkflowArtwork({
         className="workflow-layer workflow-receipt"
         data-workflow-layer="receipt"
       >
-        <span className="mb-7 flex size-12 items-center justify-center rounded-full border border-current/15">
+        <span className="workflow-receipt-mark">
           <Check className="size-5" />
         </span>
-        <p className="font-mono text-[9px] tracking-[0.12em]">
-          THE CONNECTED RECORD / 04
-        </p>
-        <p className="mt-4 font-heading text-[2.35rem] leading-none tracking-[-0.05em]">
+        <p className="workflow-receipt-label">THE CONNECTED RECORD / 04</p>
+        <p className="workflow-receipt-title">
           Clarity, all the
           <br />
           way through.
         </p>
-        <div className="mt-7 space-y-3 border-t border-current/15 pt-5 text-xs">
+        <div className="workflow-receipt-record">
           <p>
             Evidence reviewed <Check className="float-right size-3.5" />
           </p>
@@ -155,7 +183,7 @@ export function WorkflowArtwork({
             <ArrowUpRight className="float-right size-3.5" />
           </p>
         </div>
-        <p className="mt-6 text-[9px] opacity-70">
+        <p className="workflow-receipt-note">
           Illustrative outcome. No real account action.
         </p>
       </m.div>

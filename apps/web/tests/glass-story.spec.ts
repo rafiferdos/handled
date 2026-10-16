@@ -65,3 +65,76 @@ test("the scroll story reaches a visible outcome and becomes a normal reading fl
     story.getByRole("heading", { name: "Your decision", exact: true })
   ).toBeVisible()
 })
+
+test("the product preview visibly unfolds with scrolling and rests immediately for reduced motion", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "Mobile keeps the product preview flat")
+  await page.emulateMedia({ reducedMotion: "no-preference" })
+  await page.goto("/")
+  const fold = page.locator(".showcase-fold")
+  await expect(fold).toHaveAttribute("data-fold-enhanced", "true")
+  const bounds = await fold.evaluate((element) => ({
+    top: element.getBoundingClientRect().top + scrollY,
+    viewport: innerHeight,
+  }))
+  await page.evaluate(
+    ({ top, viewport }) => scrollTo(0, top - viewport * 0.95),
+    bounds
+  )
+  const displacement = () =>
+    page
+      .locator(".showcase-fold-surface")
+      .evaluate(
+        (element) =>
+          new DOMMatrixReadOnly(getComputedStyle(element).transform).m42
+      )
+  await expect.poll(displacement).toBeGreaterThan(60)
+  await page.evaluate(
+    ({ top, viewport }) => scrollTo(0, top - viewport * 0.18),
+    bounds
+  )
+  await expect.poll(displacement).toBeLessThan(5)
+  await page.emulateMedia({ reducedMotion: "reduce" })
+  await expect(fold).not.toHaveAttribute("data-fold-enhanced", "true")
+  await expect(page.locator(".showcase-fold-surface")).toHaveCSS(
+    "transform",
+    "none"
+  )
+  await expect(
+    page.getByRole("tablist", { name: "Explore sample support cases" })
+  ).toBeVisible()
+})
+
+test("trust sources move with document scrolling and settle into their connected view", async ({
+  page,
+  isMobile,
+}) => {
+  test.skip(isMobile, "Mobile source diagrams stay static")
+  await page.emulateMedia({ reducedMotion: "no-preference" })
+  await page.goto("/")
+  const bounds = await page
+    .locator(".trust-source-scene")
+    .evaluate((element) => ({
+      top: element.getBoundingClientRect().top + scrollY,
+      viewport: innerHeight,
+    }))
+  const displacement = () =>
+    page
+      .locator(".trust-source-question")
+      .evaluate(
+        (element) =>
+          new DOMMatrixReadOnly(getComputedStyle(element).transform).m42
+      )
+  await page.evaluate(
+    ({ top, viewport }) => scrollTo(0, top - viewport * 0.98),
+    bounds
+  )
+  await expect.poll(displacement).toBeGreaterThan(20)
+  await page.evaluate(
+    ({ top, viewport }) => scrollTo(0, top - viewport * 0.25),
+    bounds
+  )
+  await expect.poll(displacement).toBeLessThan(4)
+})

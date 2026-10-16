@@ -37,12 +37,16 @@ const questions = [
 
 export function Faq() {
   return (
-    <Accordion className="rounded-none border-x-0 border-t-0">
+    <Accordion className="premium-faq rounded-none border-0">
       {questions.map((item, index) => (
-        <AccordionItem key={item.question} value={String(index)}>
-          <AccordionTrigger className="gap-4 px-0 py-7 text-sm hover:no-underline md:text-base">
+        <AccordionItem
+          key={item.question}
+          value={String(index)}
+          className="premium-faq-item"
+        >
+          <AccordionTrigger className="premium-faq-trigger gap-4 px-0 py-7 text-sm hover:no-underline md:text-base">
             <span className="flex gap-4 md:gap-6">
-              <span className="font-mono text-[11px] leading-6 text-signal">
+              <span className="faq-number font-mono text-[11px] leading-6 text-signal">
                 0{index + 1}
               </span>
               {item.question}

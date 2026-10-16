@@ -7,24 +7,71 @@ import { ScrollHeading } from "@/components/motion/scroll-heading"
 
 export function MarketingFooter() {
   return (
-    <footer className="border-t">
+    <footer className="premium-footer border-t">
       <div className="page-container pt-8 pb-10 md:pt-10 md:pb-12">
         <Reveal
           preset="panel"
           className="closing-panel material-panel relative flex flex-col justify-between gap-10 p-7 sm:p-10 md:min-h-[420px] md:flex-row md:items-end md:p-14"
         >
-          <div className="closing-orbit" aria-hidden="true" />
-          <BrandMark
-            className="pointer-events-none absolute top-9 right-9 hidden size-16 text-foreground/8 md:block"
-            aria-hidden="true"
-          />
+          <div className="closing-lightscape" aria-hidden="true">
+            <div className="closing-light-column" />
+            <svg
+              viewBox="0 0 600 480"
+              fill="none"
+              className="closing-aperture-lines"
+            >
+              <defs>
+                <linearGradient
+                  id="closing-rim"
+                  x1="100"
+                  y1="50"
+                  x2="430"
+                  y2="450"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="#e7fff3" stopOpacity=".7" />
+                  <stop offset=".35" stopColor="#9aefc0" stopOpacity=".04" />
+                  <stop offset=".8" stopColor="#a6f1cb" stopOpacity=".55" />
+                  <stop offset="1" stopColor="#e7fff3" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+              <g transform="rotate(-24 300 240)">
+                <ellipse
+                  cx="300"
+                  cy="240"
+                  rx="186"
+                  ry="226"
+                  stroke="url(#closing-rim)"
+                  strokeWidth="1"
+                />
+                <ellipse
+                  cx="300"
+                  cy="240"
+                  rx="166"
+                  ry="203"
+                  stroke="url(#closing-rim)"
+                  strokeWidth=".5"
+                />
+                <ellipse
+                  cx="300"
+                  cy="240"
+                  rx="224"
+                  ry="94"
+                  stroke="url(#closing-rim)"
+                  strokeWidth=".7"
+                />
+              </g>
+            </svg>
+            <BrandMark className="closing-brand-echo" />
+          </div>
+
           <div>
-            <p className="closing-caption eyebrow mb-7">
+            <p className="closing-caption closing-kicker eyebrow mb-7">
               Bring a little clarity to your queue
             </p>
             <ScrollHeading
               mode="highlight"
-              className="max-w-2xl font-heading text-[clamp(2.7rem,6vw,5.6rem)] leading-[0.98] font-medium tracking-[-0.065em]"
+              className="closing-heading max-w-2xl font-heading text-[clamp(2.7rem,6vw,5.6rem)] leading-[0.98] font-medium tracking-[-0.065em]"
               text={[
                 { text: "Better support." },
                 { text: "Still your call.", className: "closing-subtitle" },

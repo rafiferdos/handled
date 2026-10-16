@@ -86,18 +86,20 @@ export default function HomePage() {
 
       <section
         id="workflow"
-        className="showcase-section relative mt-3 overflow-hidden bg-[#151b1d] py-16 text-[#f0f3f3] md:mt-8 md:py-28"
+        className="showcase-section home-showcase relative mt-3 overflow-hidden bg-[#151b1d] py-16 text-[#f0f3f3] md:mt-8 md:py-28"
       >
         <div className="surface-grid pointer-events-none absolute inset-0 opacity-[0.05]" />
         <div className="page-container relative">
           <Reveal
             preset="left"
-            className="mb-10 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end"
+            className="home-showcase-heading mb-10 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end"
           >
             <div>
-              <p className="eyebrow mb-5 flex items-center gap-3 text-[#b7e9d0]">
-                <span className="h-px w-7 bg-[#b7e9d0]/60" /> From a ticket to a
-                thoughtful resolution
+              <p className="eyebrow home-section-label mb-5 flex items-center gap-3 text-[#b7e9d0]">
+                <span className="home-section-number" aria-hidden="true">
+                  01
+                </span>{" "}
+                From a ticket to a thoughtful resolution
               </p>
               <ScrollHeading
                 mode="highlight"
@@ -106,16 +108,23 @@ export default function HomePage() {
                   { text: "Everything you need." },
                   {
                     text: "Nothing left to guess.",
-                    className: "text-[#91a29a]",
+                    className: "text-[#b4daca]",
                   },
                 ]}
               />
             </div>
-            <p className="max-w-[260px] border-l border-[#b7e9d0]/25 pl-5 text-sm leading-relaxed text-[#b5c1c7]">
+            <p className="home-showcase-intro max-w-[280px] border-l border-[#b7e9d0]/25 pl-5 text-sm leading-relaxed text-[#b5c1c7]">
               Three everyday questions. Explore the context behind each one, and
               what a careful next step looks like.
             </p>
           </Reveal>
+          <div className="showcase-pedestal" aria-hidden="true">
+            <span>THE QUESTION</span>
+            <i />
+            <span>THE EVIDENCE</span>
+            <i />
+            <span>YOUR CALL</span>
+          </div>
           <ProductPreview />
           <p className="mt-7 flex items-center gap-2.5 text-[11px] leading-relaxed text-[#a4b1b7]">
             <ShieldCheck className="size-3.5 shrink-0" />
@@ -127,9 +136,9 @@ export default function HomePage() {
 
       <section
         id="approach"
-        className="approach-section page-container py-20 md:py-32"
+        className="approach-section home-approach page-container py-20 md:py-32"
       >
-        <Reveal preset="left">
+        <Reveal preset="left" className="home-approach-heading">
           <SectionHeading
             eyebrow="Thoughtfully assisted. Always human."
             title="Move the work forward. Keep the trust intact."
@@ -145,9 +154,12 @@ export default function HomePage() {
 
       <section
         id="questions"
-        className="questions-section page-container grid gap-10 py-20 md:grid-cols-[0.8fr_1.2fr] md:gap-20 md:py-32"
+        className="questions-section premium-questions page-container grid gap-10 py-20 md:grid-cols-[0.8fr_1.2fr] md:gap-20 md:py-32"
       >
-        <Reveal preset="left">
+        <Reveal preset="left" className="faq-intro">
+          <p className="home-section-label mb-7" aria-hidden="true">
+            <span className="home-section-number">04</span> THE FINER DETAILS
+          </p>
           <SectionHeading
             eyebrow="A few things, answered"
             title="Clarity starts here."
@@ -156,7 +168,7 @@ export default function HomePage() {
             What the product does, what you can try today, and the decisions
             that stay yours.
           </p>
-          <div className="mt-8 flex items-center gap-3 border-t pt-5">
+          <div className="faq-assurance glass-inset mt-8 flex items-center gap-3 rounded-2xl border p-5">
             <span className="flex size-9 items-center justify-center rounded-full border bg-muted/40">
               <ShieldCheck className="size-4 text-muted-foreground" />
             </span>
@@ -167,7 +179,7 @@ export default function HomePage() {
             </p>
           </div>
         </Reveal>
-        <Reveal preset="panel" delay={0.06}>
+        <Reveal preset="panel" delay={0.06} className="faq-surface">
           <Faq />
         </Reveal>
       </section>

@@ -9,6 +9,8 @@
 @import "../styles/scroll-typography.css";
 @import "../styles/glass-system.css";
 @import "../styles/hero-aperture.css";
+@import "../styles/home-premium.css";
+@import "../styles/trust-premium.css";
 
 @custom-variant dark (&:is(.dark *));
 
