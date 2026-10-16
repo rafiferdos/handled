@@ -28,7 +28,7 @@
   gap: 12px;
   margin-inline: 3%;
   font:
-    8px var(--font-mono),
+    10px var(--font-mono),
     monospace;
   letter-spacing: 0.12em;
   color: var(--aperture-muted);
@@ -151,7 +151,7 @@
 .hero-source-station p {
   margin-bottom: 7px;
   font:
-    8px var(--font-mono),
+    10px var(--font-mono),
     monospace;
   letter-spacing: 0.09em;
   color: var(--aperture-muted);
@@ -169,7 +169,7 @@
   align-items: center;
   gap: 4px;
   margin-top: 7px;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--aperture-muted);
 }
 .hero-station-reference svg {
@@ -187,9 +187,9 @@
   gap: 4px;
   text-align: center;
   font:
-    7px var(--font-mono),
+    10px var(--font-mono),
     monospace;
-  letter-spacing: 0.27em;
+  letter-spacing: 0.08em;
   color: #c2e7d2;
   transform: none;
 }
@@ -202,7 +202,7 @@
   bottom: 19%;
   color: var(--aperture-muted);
   font:
-    8px var(--font-mono),
+    10px var(--font-mono),
     monospace;
   letter-spacing: 0.12em;
   writing-mode: vertical-rl;
@@ -246,7 +246,7 @@
 }
 .hero-review-eyebrow {
   font:
-    7px var(--font-mono),
+    10px var(--font-mono),
     monospace;
   letter-spacing: 0.1em;
   color: #b8d6c6;
@@ -256,7 +256,7 @@
   letter-spacing: -0.045em;
 }
 .hero-review-detail {
-  font-size: 10px;
+  font-size: 11px;
   color: #b5cfc1;
 }
 .hero-review-arrow {
@@ -273,7 +273,7 @@
   gap: 16px;
   margin: 22px 0 0;
   font:
-    7px var(--font-mono),
+    10px var(--font-mono),
     monospace;
   letter-spacing: 0.1em;
   color: var(--aperture-muted);
@@ -399,8 +399,11 @@
   }
 }
 @container aperture (max-width: 440px) {
+  .hero-aperture-field {
+    margin-top: 8px;
+  }
   .hero-aperture-caption {
-    font-size: 6px;
+    font-size: 10px;
     letter-spacing: 0.08em;
     margin-inline: 0;
     gap: 6px;
@@ -409,12 +412,12 @@
     gap: 7px;
   }
   .hero-source-station p {
-    font-size: 6px;
+    font-size: 10px;
     letter-spacing: 0.04em;
     margin-bottom: 5px;
   }
   .hero-source-station strong {
-    font-size: 13px;
+    font-size: 14px;
   }
   .hero-station-icon {
     width: 27px;
@@ -426,48 +429,63 @@
     height: 12px;
   }
   .hero-source-conversation {
-    top: 3%;
+    top: 0;
   }
   .hero-source-knowledge {
-    bottom: 5%;
+    bottom: 2%;
   }
   .hero-station-reference {
-    font-size: 8px;
+    font-size: 11px;
     margin-top: 5px;
   }
   .hero-lens-label {
-    font-size: 5px;
+    font-size: 10px;
   }
   .hero-aperture .hero-review-strip {
     width: 100%;
     padding: 16px;
     gap: 11px;
-    margin-top: 14px;
+    margin-top: 10px;
   }
   .hero-review-avatar {
     width: 34px;
     height: 34px;
   }
   .hero-review-eyebrow {
-    font-size: 6px;
+    font-size: 10px;
     letter-spacing: 0.05em;
   }
   .hero-review-copy strong {
     font-size: 20px;
   }
   .hero-review-detail {
-    font-size: 9px;
+    font-size: 11px;
   }
   .hero-aperture-footnote {
     margin-top: 18px;
     gap: 9px;
-    font-size: 6px;
+    font-size: 10px;
   }
 }
 @media (max-width: 767px) {
+  .hero-aperture-field {
+    height: clamp(296px, 81cqw, 356px);
+  }
   .hero-aperture {
-    margin-top: 28px;
+    margin-top: 12px;
     max-width: 440px;
+  }
+}
+@media (max-width: 359px) {
+  .hero-review-arrow {
+    display: none;
+  }
+  .hero-review-copy strong {
+    font-size: 19px;
+  }
+  .hero-aperture-caption {
+    gap: 8px;
+    font-size: 9px;
   }
 }
 @media (prefers-reduced-motion: reduce), (pointer: coarse) {

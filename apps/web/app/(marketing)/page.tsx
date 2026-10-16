@@ -13,10 +13,10 @@ import { ScrollHeading } from "@/components/motion/scroll-heading"
 export default function HomePage() {
   return (
     <>
-      <section className="marketing-hero page-container relative grid items-center gap-2 pt-10 pb-0 md:min-h-[790px] md:grid-cols-[1.08fr_1fr] md:gap-0 md:py-14 lg:min-h-[850px]">
-        <div className="hero-editorial relative z-10 min-w-0 pt-3 md:pb-20">
+      <section className="marketing-hero page-container relative grid items-center gap-2 pt-8 pb-0 md:min-h-[790px] md:grid-cols-[1.08fr_1fr] md:gap-0 md:py-14 lg:min-h-[850px]">
+        <div className="hero-editorial relative z-10 min-w-0 pt-2 md:pb-20">
           <Reveal preset="rise">
-            <p className="eyebrow mb-7 flex items-center gap-2.5 text-muted-foreground md:mb-10">
+            <p className="eyebrow mb-6 flex items-center gap-2.5 text-muted-foreground md:mb-10">
               <span className="flex size-5 items-center justify-center rounded-full border border-signal/25 bg-signal-surface">
                 <span className="size-1 rounded-full bg-signal" />
               </span>
@@ -35,13 +35,13 @@ export default function HomePage() {
             ]}
           />
           <Reveal delay={0.09}>
-            <p className="mt-7 max-w-[375px] text-sm leading-[1.85] text-muted-foreground md:mt-9 md:text-base">
+            <p className="mt-6 max-w-[375px] text-sm leading-[1.85] text-muted-foreground md:mt-9 md:text-base">
               AI-assisted customer support, with evidence behind every answer
               and a human behind every decision.
             </p>
           </Reveal>
           <Reveal delay={0.16}>
-            <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 md:mt-9">
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 md:mt-9">
               <ButtonLink
                 href="/dashboard"
                 className="signal-button h-12 rounded-full px-6 text-xs"
@@ -57,16 +57,16 @@ export default function HomePage() {
                 <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
-            <p className="mt-4 flex items-center gap-2 text-[10px] text-muted-foreground">
+            <p className="mt-4 flex items-center gap-2 text-[11px] text-muted-foreground">
               <ShieldCheck className="size-3 shrink-0" />
               Explore at your own pace. No sign-in needed.
             </p>
           </Reveal>
         </div>
-        <div className="hero-visual-column relative mt-5 mb-7 min-w-0 md:mt-0 md:mb-12">
+        <div className="hero-visual-column relative mt-2 mb-5 min-w-0 md:mt-0 md:mb-12">
           <HeroVisual />
         </div>
-        <div className="flex justify-between gap-5 border-t py-5 md:absolute md:inset-x-0 md:bottom-0">
+        <div className="flex justify-between gap-5 border-t py-4 md:absolute md:inset-x-0 md:bottom-0">
           <p className="font-mono text-[9px] leading-relaxed tracking-[0.16em] text-muted-foreground md:text-[10px]">
             BUILT FOR THE PEOPLE
             <br className="sm:hidden" /> BEHIND THE REPLY.
@@ -92,7 +92,7 @@ export default function HomePage() {
         <div className="page-container relative">
           <Reveal
             preset="left"
-            className="home-showcase-heading mb-10 flex flex-col justify-between gap-6 md:mb-16 md:flex-row md:items-end"
+            className="home-showcase-heading mb-8 flex flex-col justify-between gap-6 md:mb-10 md:flex-row md:items-end"
           >
             <div>
               <p className="eyebrow home-section-label mb-5 flex items-center gap-3 text-[#b7e9d0]">
@@ -163,16 +163,10 @@ export default function HomePage() {
             What the product does, what you can try today, and the decisions
             that stay yours.
           </p>
-          <div className="faq-assurance glass-inset mt-8 flex items-center gap-3 rounded-2xl border p-5">
-            <span className="flex size-9 items-center justify-center rounded-full border bg-muted/40">
-              <ShieldCheck className="size-4 text-muted-foreground" />
-            </span>
-            <p className="max-w-[200px] text-xs leading-relaxed text-muted-foreground">
-              Explore the workspace.
-              <br />
-              No sign-in needed.
-            </p>
-          </div>
+          <p className="faq-assurance mt-7 flex items-center gap-2.5 text-xs leading-relaxed text-muted-foreground">
+            <ShieldCheck className="size-4 shrink-0 text-signal" />
+            Explore the workspace. No sign-in needed.
+          </p>
         </Reveal>
         <Reveal preset="panel" delay={0.06} className="faq-surface">
           <Faq />

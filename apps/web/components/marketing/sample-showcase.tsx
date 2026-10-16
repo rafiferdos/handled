@@ -49,11 +49,11 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
         <div className="flex items-center gap-3">
           <span
             aria-hidden="true"
-            className="flex size-8 items-center justify-center rounded-full border border-[#b7e9d0]/20 font-mono text-[9px] text-[#b7e9d0]"
+            className="flex size-8 items-center justify-center rounded-full border border-[#b7e9d0]/20 font-mono text-[11px] text-[#b7e9d0]"
           >
             01—03
           </span>
-          <p className="font-mono text-[10px] tracking-wider text-[#b5c1c7] uppercase">
+          <p className="font-mono text-[11px] tracking-wider text-[#b5c1c7] uppercase">
             Choose a case
           </p>
         </div>
@@ -65,7 +65,7 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
             <TabsTrigger
               key={ticket.reference}
               value={ticket.reference}
-              className="min-h-11 min-w-0 rounded-xl px-3 py-2 text-[10px] whitespace-normal sm:rounded-full sm:px-5 sm:text-[11px]"
+              className="min-h-11 min-w-0 rounded-xl px-3 py-2 text-[11px] whitespace-normal sm:rounded-full sm:px-5 sm:text-[12px]"
             >
               {copy.label}
             </TabsTrigger>
@@ -84,7 +84,7 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                   />
                 ))}
               </div>
-              <span className="min-w-0 truncate font-mono text-[8px] text-[#62727a] sm:text-[9px]">
+              <span className="min-w-0 truncate font-mono text-[10px] text-[#62727a] sm:text-[11px]">
                 handled / acme-cloud
               </span>
               <ShieldCheck
@@ -109,17 +109,17 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className={`mb-1 flex items-center gap-2 rounded-lg px-2.5 py-2.5 text-[11px] ${item.active ? "bg-[#c1f0d3] font-medium text-[#1b3426]" : "text-[#adc3b6]"}`}
+                    className={`mb-1 flex items-center gap-2 rounded-lg px-2.5 py-2.5 text-[12px] ${item.active ? "bg-[#c1f0d3] font-medium text-[#1b3426]" : "text-[#adc3b6]"}`}
                   >
                     <item.icon className="size-3.5" />
                     {item.label}
                     {item.active && (
-                      <span className="ml-auto text-[9px]">3</span>
+                      <span className="ml-auto text-[11px]">3</span>
                     )}
                   </div>
                 ))}
                 <div className="mt-auto pt-10">
-                  <div className="rounded-xl border border-white/12 bg-white/4 p-3 text-[10px] leading-relaxed text-[#adc3b6]">
+                  <div className="rounded-xl border border-white/12 bg-white/4 p-3 text-[11px] leading-relaxed text-[#adc3b6]">
                     <ShieldCheck className="mb-2 size-4 text-[#c1f0d3]" />
                     Your workspace.
                     <br />
@@ -139,7 +139,7 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                       className="case-panel m-0 min-h-[560px] p-5 sm:min-h-[490px] sm:p-7 lg:p-9"
                     >
                       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-                        <p className="font-mono text-[10px] text-[#62727a]">
+                        <p className="font-mono text-[11px] break-words text-[#62727a]">
                           {ticket.reference}{" "}
                           <span className="mx-2 text-[#9aa7ad]">/</span> Support
                           workflow
@@ -148,8 +148,8 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                           variant="outline"
                           className={
                             incomplete
-                              ? "border-[#dfd1b0] bg-[#f3eddf] text-[10px] text-[#71571f]"
-                              : "border-[#ccdad2] bg-[#e6eee8] text-[10px] text-[#375c4e]"
+                              ? "border-[#dfd1b0] bg-[#f3eddf] text-[11px] text-[#71571f]"
+                              : "border-[#ccdad2] bg-[#e6eee8] text-[11px] text-[#375c4e]"
                           }
                         >
                           {incomplete
@@ -162,12 +162,12 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                       <div className="flex items-start gap-3">
                         <span
                           aria-hidden="true"
-                          className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full border border-black/7 bg-white text-[10px] font-medium text-[#62727a]"
+                          className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full border border-black/7 bg-white text-[11px] font-medium text-[#62727a]"
                         >
                           {ticket.customer.initials}
                         </span>
                         <div>
-                          <p className="mb-2 text-[10px] text-[#62727a]">
+                          <p className="mb-2 text-[11px] text-[#62727a]">
                             {ticket.customer.name}{" "}
                             <span className="mx-1.5">·</span> {ticket.category}
                           </p>
@@ -178,7 +178,7 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                       </div>
                       <div className="mt-7 grid gap-4 lg:grid-cols-[1fr_0.9fr]">
                         <div>
-                          <p className="mb-4 flex items-center gap-2 text-[11px] font-medium">
+                          <p className="mb-4 flex items-center gap-2 text-[12px] font-medium">
                             <Layers3 className="size-3.5" />
                             The context behind the answer
                           </p>
@@ -188,7 +188,7 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                                 key={source.reference}
                                 className="sample-evidence-card rounded-xl border border-black/8 bg-white p-3.5 lg:p-4"
                               >
-                                <div className="flex items-center gap-2 text-[11px] font-medium">
+                                <div className="flex items-center gap-2 text-[12px] font-medium">
                                   {source.kind === "policy" ? (
                                     <BookOpen className="size-3.5 shrink-0 text-[#4c7465]" />
                                   ) : (
@@ -196,10 +196,10 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                                   )}
                                   {source.title}
                                 </div>
-                                <p className="mt-2 text-[11px] leading-relaxed text-[#62727a]">
+                                <p className="mt-2 text-[12px] leading-relaxed text-[#62727a]">
                                   {copy.evidenceNotes[index]}
                                 </p>
-                                <p className="mt-2 font-mono text-[9px] text-[#62727a]">
+                                <p className="mt-2 font-mono text-[11px] break-words text-[#62727a]">
                                   {source.reference}
                                 </p>
                               </div>
@@ -210,7 +210,7 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                           data-evidence={incomplete ? "incomplete" : "complete"}
                           className={`sample-decision-card relative flex flex-col overflow-hidden rounded-xl border p-4 sm:p-5 ${incomplete ? "border-[#dfd1b0] bg-[#f3eddf]" : "border-[#c0d7c8] bg-[#e0ede3]"}`}
                         >
-                          <p className="flex items-center gap-2 text-[11px] font-medium">
+                          <p className="flex items-center gap-2 text-[12px] font-medium">
                             {incomplete ? (
                               <CircleHelp className="size-3.5" />
                             ) : (
@@ -221,10 +221,10 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                           <p className="mt-4 max-w-[265px] font-heading text-[1.65rem] leading-[1.12] tracking-[-0.035em]">
                             {copy.outcome}
                           </p>
-                          <p className="mt-3 text-[11px] leading-relaxed text-[#53675c]">
+                          <p className="mt-3 text-[12px] leading-relaxed text-[#53675c]">
                             {copy.explanation}
                           </p>
-                          <p className="mt-5 flex items-start gap-1.5 text-[10px] leading-relaxed">
+                          <p className="mt-5 flex items-start gap-1.5 text-[11px] leading-relaxed">
                             {incomplete ? (
                               <CircleHelp className="mt-0.5 size-3 shrink-0" />
                             ) : (
@@ -234,14 +234,14 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                           </p>
                           <ButtonLink
                             href={`/tickets/${ticket.id}`}
-                            className="mt-5 h-11 w-full justify-between rounded-lg bg-[#233d33] px-3.5 text-[11px] text-white hover:bg-[#345345]"
+                            className="mt-5 h-11 w-full justify-between rounded-lg bg-[#233d33] px-3.5 text-[12px] text-white hover:bg-[#345345]"
                           >
                             Inspect case
                             <ArrowUpRight className="size-3.5" />
                           </ButtonLink>
                         </div>
                       </div>
-                      <p className="mt-5 flex items-center gap-2 text-[10px] text-[#62727a]">
+                      <p className="mt-5 flex items-center gap-2 text-[11px] text-[#62727a]">
                         <ShieldCheck className="size-3 shrink-0" />
                         Example data. No account changes.
                       </p>

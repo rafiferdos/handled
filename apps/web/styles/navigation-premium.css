@@ -71,9 +71,9 @@
   align-items: center;
   gap: 3px;
   padding: 3px;
-  border: 1px solid var(--nav-line);
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: var(--nav-hover);
+  background: transparent;
 }
 .nav-destination {
   position: relative;
@@ -85,7 +85,7 @@
   padding: 0 16px;
   border: 1px solid transparent;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted-foreground);
   white-space: nowrap;
   transition:
@@ -125,7 +125,7 @@
   justify-content: center;
   min-height: 44px;
   padding-inline: 12px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted-foreground);
   border-radius: 999px;
   transition:
@@ -169,7 +169,7 @@
   min-width: 153px;
   padding-inline: 18px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 12px;
   box-shadow: inset 0 1px 0 #ffffff40;
 }
 .nav-desktop-action svg {
@@ -183,10 +183,10 @@
   gap: 9px;
   height: 44px;
   padding-inline: 13px;
-  border: 1px solid var(--nav-line);
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: var(--nav-hover);
-  font-size: 11px;
+  background: transparent;
+  font-size: 12px;
   font-weight: 500;
 }
 .nav-menu-trigger svg {
@@ -250,7 +250,7 @@
 }
 .mobile-nav-heading [data-slot="sheet-description"] {
   margin-top: 4px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted-foreground);
 }
 .mobile-nav-close {
@@ -315,7 +315,7 @@
   letter-spacing: -0.035em;
 }
 .mobile-nav-copy small {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.5;
   color: var(--muted-foreground);
 }
@@ -345,7 +345,7 @@
   min-height: 46px;
   padding-inline: 14px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   white-space: nowrap;
 }

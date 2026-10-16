@@ -17,9 +17,9 @@ function ContextAperture() {
     <div className="hero-aperture-composition">
       <div className="hero-aperture-caption">
         <span>
-          <i /> A LITTLE CLARITY, CONNECTED.
+          <i /> CLARITY, CONNECTED.
         </span>
-        <span>CONTEXT TO CLARITY</span>
+        <span>EVIDENCE TO JUDGMENT</span>
       </div>
       <div className="hero-aperture-field">
         <div className="hero-aperture-atmosphere" />
@@ -54,7 +54,7 @@ function ContextAperture() {
             <MessageSquare />
           </span>
           <div>
-            <p>01 / THE CONVERSATION</p>
+            <p>01 / CONVERSATION</p>
             <strong>“I was charged twice.”</strong>
           </div>
         </div>
@@ -63,7 +63,7 @@ function ContextAperture() {
             <BookOpen />
           </span>
           <div>
-            <p>02 / PUBLISHED KNOWLEDGE</p>
+            <p>02 / KNOWLEDGE</p>
             <strong>Duplicate-charge policy</strong>
             <span className="hero-station-reference">
               <Check /> Source connected
@@ -81,12 +81,10 @@ function ContextAperture() {
           <ShieldCheck />
         </span>
         <div className="hero-review-copy">
-          <span className="hero-review-eyebrow">
-            THE INTELLIGENCE IS ASSISTED.
-          </span>
+          <span className="hero-review-eyebrow">ASSISTED INTELLIGENCE</span>
           <strong>The decision is yours.</strong>
           <span className="hero-review-detail">
-            Two sources. One clearer next step.
+            Two sources. One clearer step.
           </span>
         </div>
         <ArrowUpRight className="hero-review-arrow" />

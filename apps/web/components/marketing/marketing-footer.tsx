@@ -90,11 +90,11 @@ export function MarketingFooter() {
             </p>
           </div>
         </Reveal>
-        <div className="mt-10 flex flex-col justify-between gap-8 pt-4 md:flex-row md:items-center">
+        <div className="footer-wayfinding mt-10 flex flex-col justify-between gap-8 pt-4 md:flex-row md:items-center">
           <Brand />
           <nav
             aria-label="Footer navigation"
-            className="flex flex-wrap gap-x-6 gap-y-3 text-xs text-muted-foreground"
+            className="footer-links text-xs text-muted-foreground"
           >
             <Link href="/product" className="hover:text-foreground">
               Product
@@ -109,7 +109,7 @@ export function MarketingFooter() {
               Create an account
             </Link>
           </nav>
-          <p className="font-mono text-[10px] text-muted-foreground">
+          <p className="font-mono text-[11px] text-muted-foreground">
             © 2026 Handled · Built with intention.
           </p>
         </div>
