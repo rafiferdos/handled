@@ -1,0 +1,250 @@
+{
+  "checks": [
+    {
+      "route": "/dashboard",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "route": "/dashboard",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "route": "/dashboard",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "route": "/dashboard",
+      "width": 900,
+      "overflow": 0
+    },
+    {
+      "route": "/dashboard",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "route": "/dashboard",
+      "width": 1200,
+      "overflow": 0
+    },
+    {
+      "route": "/dashboard",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "route": "/company",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "route": "/company",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "route": "/company",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "route": "/company",
+      "width": 900,
+      "overflow": 0
+    },
+    {
+      "route": "/company",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "route": "/company",
+      "width": 1200,
+      "overflow": 0
+    },
+    {
+      "route": "/company",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets",
+      "width": 900,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets",
+      "width": 1200,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 900,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 1200,
+      "overflow": 0
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "route": "/knowledge",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "route": "/knowledge",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "route": "/knowledge",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "route": "/knowledge",
+      "width": 900,
+      "overflow": 0
+    },
+    {
+      "route": "/knowledge",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "route": "/knowledge",
+      "width": 1200,
+      "overflow": 0
+    },
+    {
+      "route": "/knowledge",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "route": "/activity",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "route": "/activity",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "route": "/activity",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "route": "/activity",
+      "width": 900,
+      "overflow": 0
+    },
+    {
+      "route": "/activity",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "route": "/activity",
+      "width": 1200,
+      "overflow": 0
+    },
+    {
+      "route": "/activity",
+      "width": 1440,
+      "overflow": 0
+    },
+    {
+      "route": "/settings",
+      "width": 320,
+      "overflow": 0
+    },
+    {
+      "route": "/settings",
+      "width": 390,
+      "overflow": 0
+    },
+    {
+      "route": "/settings",
+      "width": 768,
+      "overflow": 0
+    },
+    {
+      "route": "/settings",
+      "width": 900,
+      "overflow": 0
+    },
+    {
+      "route": "/settings",
+      "width": 1024,
+      "overflow": 0
+    },
+    {
+      "route": "/settings",
+      "width": 1200,
+      "overflow": 0
+    },
+    {
+      "route": "/settings",
+      "width": 1440,
+      "overflow": 0
+    }
+  ],
+  "errors": []
+}

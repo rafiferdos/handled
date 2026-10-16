@@ -83,3 +83,9 @@ Use ordinary product labels for headings, navigation and calls to action. Avoid 
 Operational reading uses 13–14px, important metadata 12px, 36px desktop page headings and rendered 44px controls. Enforce actual variant sizing rather than assuming a utility overrides the primitive. Narrow overview metrics use 64px summary rows; desktop metrics remain around 160px. At 1200px, case review keeps a 350px minimum recommendation alongside the conversation and allows normal page scrolling.
 
 Public sections vary their evidence rather than repeating one card motif. Product features have distinct static artifacts; process chapters show a concrete case. Simplify mobile diagrams before shrinking meaningful labels. Keep mobile hero/closing pacing compact, footer destinations intentionally arranged and status copy near relevant interactions. Preserve all reduced-motion, coarse-pointer, keyboard and no-JavaScript behavior.
+
+## Company workspace identity — 16 October 2026
+
+Handled remains the product brand; the active company's name/logo identifies the workspace. Keep that company context visible in the compact mobile/desktop header and selector. Company profile is the home for identity and support details; Settings retains personal appearance preferences. Stable workspace IDs, not editable names, define data scope.
+
+Keep forms on readable solid surfaces with 44px controls. Company identity can use a bounded static mint surface; avoid decorative motion beside editing fields. Contain long company names, file names and industry text at 320px. Display disconnected setup states honestly; entering a website or support contact does not activate a connection or subscription. Preview edits stay local and reset on reload until authenticated backend persistence exists.
