@@ -1,15 +1,24 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ArrowUpRight, Menu } from "lucide-react"
-import { Brand } from "@/components/shared/brand"
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Layers3,
+  Menu,
+  ShieldCheck,
+  Workflow,
+  X,
+} from "lucide-react"
+import { Brand, BrandMark } from "@/components/shared/brand"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { ButtonLink } from "@/components/shared/button-link"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -18,87 +27,169 @@ import {
 } from "@/components/ui/sheet"
 
 const links = [
-  { label: "Product", href: "/product" },
-  { label: "How it works", href: "/how-it-works" },
-  { label: "Our approach", href: "/#approach" },
+  {
+    label: "Product",
+    href: "/product",
+    description: "The whole support picture, in one place.",
+    icon: Layers3,
+  },
+  {
+    label: "How it works",
+    href: "/how-it-works",
+    description: "From a question to a thoughtful next step.",
+    icon: Workflow,
+  },
+  {
+    label: "Our approach",
+    href: "/#approach",
+    description: "Evidence first. A person in control.",
+    icon: ShieldCheck,
+  },
 ]
 
 export function MarketingNav() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)")
+    const closeAtDesktop = () => {
+      if (desktop.matches) setOpen(false)
+    }
+    const closeOnHistory = () => setOpen(false)
+    desktop.addEventListener("change", closeAtDesktop)
+    window.addEventListener("popstate", closeOnHistory)
+    return () => {
+      desktop.removeEventListener("change", closeAtDesktop)
+      window.removeEventListener("popstate", closeOnHistory)
+    }
+  }, [])
+
   return (
-    <header className="marketing-nav material-nav sticky top-0 z-40 border-b border-border/60">
-      <div className="page-container flex h-20 items-center justify-between gap-4">
-        <Brand />
-        <nav
-          aria-label="Main navigation"
-          className="hidden items-center gap-8 md:flex"
-        >
+    <header className="marketing-nav premium-nav sticky top-0 z-40">
+      <div className="nav-shell">
+        <div className="nav-brand">
+          <Brand />
+        </div>
+        <nav aria-label="Main navigation" className="nav-destinations">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               aria-current={pathname === link.href ? "page" : undefined}
-              className="nav-link text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
+              className="nav-destination"
             >
+              <span className="nav-active-dot" aria-hidden="true" />
               {link.label}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-2 md:gap-4">
-          <ThemeToggle />
-          <Link
-            href="/login"
-            className="hidden text-xs text-muted-foreground hover:text-foreground md:block"
-          >
+        <div className="nav-utilities">
+          <Link href="/login" className="nav-login">
             Log in
           </Link>
+          <div className="nav-theme">
+            <ThemeToggle />
+          </div>
+          <span className="nav-utility-divider" aria-hidden="true" />
           <ButtonLink
             href="/dashboard"
-            className="signal-button hidden h-10 rounded-full px-5 text-xs sm:inline-flex"
+            className="signal-button nav-desktop-action"
           >
-            Explore Handled <ArrowUpRight className="ml-2 size-3.5" />
+            Explore Handled <ArrowUpRight aria-hidden="true" />
           </ButtonLink>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               render={
                 <Button
                   variant="ghost"
-                  size="icon"
-                  className="md:hidden"
-                  aria-label="Open navigation"
+                  className="nav-menu-trigger"
+                  aria-label="Open navigation menu"
                 />
               }
             >
-              <Menu />
+              <span>Menu</span>
+              <Menu aria-hidden="true" />
             </SheetTrigger>
-            <SheetContent className="p-2">
-              <SheetHeader>
-                <SheetTitle>Explore Handled</SheetTitle>
-                <SheetDescription>
-                  Evidence-first support, with people in control.
-                </SheetDescription>
+            <SheetContent
+              side="top"
+              showCloseButton={false}
+              className="mobile-nav-panel"
+            >
+              <SheetHeader className="mobile-nav-header">
+                <div className="mobile-nav-heading">
+                  <BrandMark className="mobile-nav-brand-mark" />
+                  <div>
+                    <SheetTitle>Explore Handled</SheetTitle>
+                    <SheetDescription>
+                      A clearer way to support.
+                    </SheetDescription>
+                  </div>
+                </div>
+                <SheetClose
+                  render={
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="mobile-nav-close"
+                      aria-label="Close navigation"
+                    />
+                  }
+                >
+                  <X aria-hidden="true" />
+                </SheetClose>
               </SheetHeader>
               <nav
                 aria-label="Mobile navigation"
-                className="flex flex-col gap-1 px-4"
+                className="mobile-nav-destinations"
               >
-                {[
-                  ...links,
-                  { label: "Log in", href: "/login" },
-                  { label: "Preview workspace", href: "/dashboard" },
-                ].map((link) => (
+                {links.map((link, index) => (
                   <Link
                     key={link.href}
                     href={link.href}
+                    aria-label={link.label}
+                    aria-describedby={`mobile-nav-description-${index}`}
                     aria-current={pathname === link.href ? "page" : undefined}
                     onClick={() => setOpen(false)}
-                    className="rounded-xl px-4 py-3 text-base hover:bg-muted focus-visible:outline-2"
+                    className="mobile-nav-destination"
                   >
-                    {link.label}
+                    <span className="mobile-nav-icon" aria-hidden="true">
+                      <link.icon />
+                    </span>
+                    <span className="mobile-nav-copy">
+                      <strong>{link.label}</strong>
+                      <small id={`mobile-nav-description-${index}`}>
+                        {link.description}
+                      </small>
+                    </span>
+                    <ArrowRight
+                      className="mobile-nav-link-arrow"
+                      aria-hidden="true"
+                    />
                   </Link>
                 ))}
               </nav>
+              <div className="mobile-nav-footer">
+                <div className="mobile-nav-actions">
+                  <Link
+                    href="/login"
+                    onClick={() => setOpen(false)}
+                    className="mobile-nav-login"
+                  >
+                    Log in <ArrowUpRight aria-hidden="true" />
+                  </Link>
+                  <ButtonLink
+                    href="/dashboard"
+                    onClick={() => setOpen(false)}
+                    className="signal-button mobile-nav-primary"
+                  >
+                    Explore Handled <ArrowUpRight aria-hidden="true" />
+                  </ButtonLink>
+                </div>
+                <p>
+                  <span /> Interactive preview. Sample data.
+                </p>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
