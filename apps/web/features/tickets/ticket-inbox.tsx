@@ -33,8 +33,18 @@ export function TicketInbox() {
   const [search, setSearch] = useState("")
   const [status, setStatus] = useState<TicketStatus | "ALL">("ALL")
   const [priority, setPriority] = useState<TicketPriority | "ALL">("ALL")
-  const { workspace } = useWorkspace()
+  const { workspace, profile } = useWorkspace()
   const tickets = useTickets({ search, status, priority })
+  const shortDate = new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    timeZone: profile.timeZone,
+  })
+  const fullDate = new Intl.DateTimeFormat("en", {
+    dateStyle: "full",
+    timeStyle: "short",
+    timeZone: profile.timeZone,
+  })
   const filtered = search || status !== "ALL" || priority !== "ALL"
   const reset = () => {
     setSearch("")
@@ -46,7 +56,7 @@ export function TicketInbox() {
       <PageHeading
         eyebrow={`${workspace.name} / Tickets`}
         title="One queue. The whole picture."
-        description="Explore the three golden support cases. These records illustrate the workflow and do not come from a live account."
+        description="Find conversations, review their status and choose the next case for this workspace."
       />
       <div className="mb-6 flex flex-col justify-between gap-3 rounded-2xl border bg-card p-3 sm:flex-row">
         <div className="relative sm:w-80">
@@ -195,7 +205,13 @@ export function TicketInbox() {
                     {ticket.subject}
                   </h2>
                   <p className="mt-2 text-xs text-muted-foreground">
-                    {ticket.category} <span className="mx-1.5">·</span> 15 Oct
+                    {ticket.category} <span className="mx-1.5">·</span>{" "}
+                    <time
+                      dateTime={ticket.createdAt}
+                      title={`${fullDate.format(new Date(ticket.createdAt))} (${profile.timeZone})`}
+                    >
+                      {shortDate.format(new Date(ticket.createdAt))}
+                    </time>
                   </p>
                 </div>
               </div>

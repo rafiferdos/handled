@@ -171,7 +171,37 @@ test("knowledge policies expose a visible reading action", async ({ page }) => {
   await expect(read).toContainText("Read policy")
   expect((await read.boundingBox())!.height).toBeGreaterThanOrEqual(44)
   await read.click()
-  await expect(page.getByRole("dialog")).toContainText(
-    "Published duplicate-charge policy"
-  )
+  const dialog = page.getByRole("dialog")
+  await expect(dialog).toContainText("Published duplicate-charge policy")
+  const close = dialog.getByRole("button", { name: "Close", exact: true })
+  await expect
+    .poll(async () => (await close.boundingBox())!.width)
+    .toBeGreaterThanOrEqual(44)
+  await expect
+    .poll(async () => (await close.boundingBox())!.height)
+    .toBeGreaterThanOrEqual(44)
+  await close.click()
+  await expect(dialog).not.toBeVisible()
+})
+
+test("mobile workspace navigation has a reachable close target", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto("/dashboard")
+  await page.getByRole("button", { name: "Open workspace navigation" }).click()
+  const navigation = page.getByRole("dialog", { name: "Workspace navigation" })
+  const close = navigation.getByRole("button", {
+    name: "Close",
+    exact: true,
+  })
+  await expect(close).toBeInViewport()
+  await expect
+    .poll(async () => (await close.boundingBox())!.width)
+    .toBeGreaterThanOrEqual(44)
+  await expect
+    .poll(async () => (await close.boundingBox())!.height)
+    .toBeGreaterThanOrEqual(44)
+  await close.click()
+  await expect(navigation).not.toBeVisible()
 })

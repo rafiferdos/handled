@@ -37,7 +37,7 @@ export function KnowledgeLibrary() {
       <PageHeading
         eyebrow={`${workspace.name} / Knowledge`}
         title="Start with a source you can trust."
-        description="Policies and source references for the three support cases."
+        description="Review policies and source references for this workspace’s support cases."
       />
       <div className="relative mb-8 max-w-sm">
         <Search className="pointer-events-none absolute top-3.5 left-3.5 size-4 text-muted-foreground" />
