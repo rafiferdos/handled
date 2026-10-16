@@ -16,29 +16,53 @@ test("marketing artwork stays contained across tablet breakpoints", async ({
         { message: `No sideways scroll at ${width}px` }
       )
       .toBeLessThanOrEqual(0)
-    const sheets = await page.evaluate(() => {
+    const annotations = await page.evaluate(() => {
       const stage = document
         .querySelector(".hero-visual")!
         .getBoundingClientRect()
-      const dossier = document
-        .querySelector(".hero-proof-card")!
-        .getBoundingClientRect()
-      const policy = document
-        .querySelector(".hero-policy-sheet")!
-        .getBoundingClientRect()
-      return {
-        gap: policy.top - dossier.bottom,
-        bottom: stage.bottom - policy.bottom,
-      }
+      return [
+        ...document.querySelectorAll(
+          ".hero-source-station, .hero-review-strip"
+        ),
+      ].map((element) => {
+        const box = element.getBoundingClientRect()
+        return {
+          left: box.left - stage.left,
+          right: stage.right - box.right,
+          top: box.top - stage.top,
+          bottom: stage.bottom - box.bottom,
+          x: box.left,
+          y: box.top,
+          width: box.width,
+          height: box.height,
+        }
+      })
     })
-    expect(
-      sheets.gap,
-      `Policy clears the review card at ${width}px`
-    ).toBeGreaterThan(8)
-    expect(
-      sheets.bottom,
-      `Policy stays inside the stage at ${width}px`
-    ).toBeGreaterThanOrEqual(0)
+    expect(annotations).toHaveLength(3)
+    for (const annotation of annotations) {
+      expect(
+        Math.min(
+          annotation.left,
+          annotation.right,
+          annotation.top,
+          annotation.bottom
+        ),
+        `Readable annotation stays within the scene at ${width}px`
+      ).toBeGreaterThanOrEqual(-1)
+    }
+    for (let i = 0; i < annotations.length; i++) {
+      for (let j = i + 1; j < annotations.length; j++) {
+        const a = annotations[i]
+        const b = annotations[j]
+        expect(
+          a.x < b.x + b.width &&
+            a.x + a.width > b.x &&
+            a.y < b.y + b.height &&
+            a.y + a.height > b.y,
+          `Reading surfaces do not overlap at ${width}px`
+        ).toBe(false)
+      }
+    }
   }
 })
 

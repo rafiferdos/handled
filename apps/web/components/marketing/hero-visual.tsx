@@ -1,113 +1,100 @@
 "use client"
 
 import {
+  ArrowDown,
   ArrowUpRight,
   BookOpen,
   Check,
-  Layers3,
   MessageSquare,
   ShieldCheck,
 } from "lucide-react"
 import { usePointerMotion } from "@/hooks/use-enhanced-motion"
-import { BrandMark } from "@/components/shared/brand"
-import { SculptureArtwork } from "./sculpture-artwork"
+import { ApertureArtwork } from "./aperture-artwork"
 import StudioMotion from "./liquid-sculpture"
 
-function DecisionStudio() {
+function ContextAperture() {
   return (
-    <div className="hero-studio-composition">
-      <div className="hero-studio-backdrop" aria-hidden="true">
-        <div className="hero-art-panel glass-scene-panel" />
-        <div className="hero-studio-halo" />
-        <div className="hero-studio-lens" />
-        <div className="hero-sculpture-layer">
-          <SculptureArtwork />
+    <div className="hero-aperture-composition">
+      <div className="hero-aperture-caption">
+        <span>
+          <i /> A LITTLE CLARITY, CONNECTED.
+        </span>
+        <span>SAMPLE WORKFLOW</span>
+      </div>
+      <div className="hero-aperture-field">
+        <div className="hero-aperture-atmosphere" />
+        <div className="hero-aperture-light" />
+        <div className="hero-aperture-horizon" />
+        <div className="hero-aperture-object">
+          <ApertureArtwork />
         </div>
         <svg
-          className="hero-studio-links"
-          viewBox="0 0 620 660"
-          preserveAspectRatio="none"
+          className="hero-source-paths"
+          viewBox="0 0 600 520"
           fill="none"
+          preserveAspectRatio="none"
         >
-          <path d="M140 150V210Q140 238 170 238H230M150 565V510Q150 480 190 480H245" />
-          <circle cx="140" cy="150" r="4" />
-          <circle cx="150" cy="565" r="4" />
+          <path d="M102 108H172Q196 108 210 132L252 205" />
+          <path d="M500 400H439Q417 400 403 377L353 306" />
+          <path
+            className="hero-source-beam hero-source-beam-first"
+            d="M102 108H172Q196 108 210 132L252 205"
+            pathLength="1"
+          />
+          <path
+            className="hero-source-beam hero-source-beam-second"
+            d="M500 400H439Q417 400 403 377L353 306"
+            pathLength="1"
+          />
+          <circle cx="102" cy="108" r="3" />
+          <circle cx="500" cy="400" r="3" />
         </svg>
-      </div>
-      <div className="hero-studio-caption">
-        <span>SUPPORT, BROUGHT TOGETHER.</span>
-        <span>01 / 03</span>
-      </div>
-      <div className="hero-question-sheet hero-source-sheet glass-inset glass-on-ink">
-        <div className="hero-source-label">
-          <MessageSquare />
-          <span>Customer conversation</span>
-          <span className="hero-source-number">01</span>
-        </div>
-        <div className="hero-question-body">
-          <span className="hero-customer-avatar">MR</span>
-          <p>“I was charged twice.”</p>
-        </div>
-      </div>
-      <div className="hero-human-label glass-surface glass-smoked">
-        <span className="hero-human-dot" />
-        <span>Human in the loop</span>
-        <ArrowUpRight />
-      </div>
-      <div className="hero-proof-card glass-surface glass-smoked">
-        <div className="hero-dossier-header">
-          <span className="hero-dossier-brand">
-            <BrandMark />
-            <span>handled</span>
+        <div className="hero-source-station hero-source-conversation">
+          <span className="hero-station-icon">
+            <MessageSquare />
           </span>
-          <span className="hero-sample-label">Sample investigation</span>
+          <div>
+            <p>01 / THE CONVERSATION</p>
+            <strong>“I was charged twice.”</strong>
+          </div>
         </div>
-        <div className="hero-dossier-copy">
-          <p className="hero-dossier-eyebrow">
-            <Layers3 />
-            Context, connected
-          </p>
-          <h2>
-            A clearer
-            <br />
-            <span>next step.</span>
-          </h2>
-        </div>
-        <div className="hero-dossier-evidence">
-          <span>
-            <Check />
-            Two source references
+        <div className="hero-source-station hero-source-knowledge">
+          <span className="hero-station-icon">
+            <BookOpen />
           </span>
-          <span className="hero-dossier-version">v1</span>
+          <div>
+            <p>02 / PUBLISHED KNOWLEDGE</p>
+            <strong>Duplicate-charge policy</strong>
+            <span className="hero-station-reference">
+              <Check /> Source connected
+            </span>
+          </div>
         </div>
-        <div className="hero-review-bar">
-          <span className="hero-review-icon">
-            <ShieldCheck />
-          </span>
-          <span>
-            <strong>Ready for your review</strong>
-            <small>One thoughtful decision. Yours.</small>
-          </span>
-          <ArrowUpRight className="hero-review-arrow" />
+        <div className="hero-lens-label">
+          <span>CONTEXT</span>
+          <span>CONNECTED</span>
         </div>
+        <div className="hero-aperture-coordinate">H / 01</div>
       </div>
-      <div className="hero-policy-sheet hero-source-sheet glass-inset glass-on-ink">
-        <span className="hero-policy-icon">
-          <BookOpen />
+      <div className="hero-review-strip glass-surface glass-smoked">
+        <span className="hero-review-avatar">
+          <ShieldCheck />
         </span>
-        <div>
-          <p className="hero-source-label">Published knowledge</p>
-          <p className="hero-policy-title">Duplicate-charge policy</p>
-          <span className="hero-policy-reference">KB-REFUND / version 1</span>
+        <div className="hero-review-copy">
+          <span className="hero-review-eyebrow">
+            THE INTELLIGENCE IS ASSISTED.
+          </span>
+          <strong>The decision is yours.</strong>
+          <span className="hero-review-detail">
+            Two sources. One clearer next step.
+          </span>
         </div>
-        <Check className="hero-policy-check" />
+        <ArrowUpRight className="hero-review-arrow" />
       </div>
-      <div className="hero-studio-footnote">
-        <span>QUESTION</span>
-        <i />
-        <span>CONTEXT</span>
-        <i />
-        <span>YOUR CALL</span>
+      <div className="hero-aperture-footnote">
+        <span>EVIDENCE IN.</span>
+        <ArrowDown />
+        <span>HUMAN JUDGMENT OUT.</span>
       </div>
     </div>
   )
@@ -117,11 +104,11 @@ export function HeroVisual() {
   const enhanced = usePointerMotion()
   return (
     <div
-      className="hero-visual hero-stage expressive-hero-stage hero-studio relative mx-auto w-full max-w-[620px]"
+      className="hero-visual hero-stage hero-aperture relative mx-auto w-full max-w-[640px]"
       aria-hidden="true"
     >
       <StudioMotion enabled={enhanced}>
-        <DecisionStudio />
+        <ContextAperture />
       </StudioMotion>
     </div>
   )

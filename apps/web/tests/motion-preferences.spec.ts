@@ -16,11 +16,11 @@ test("coarse-pointer tablets keep the static hero artwork", async ({
     await page.evaluate(() => matchMedia("(pointer: coarse)").matches)
   ).toBe(true)
   await expect(page.locator("[data-liquid-interactive]")).toHaveCount(0)
-  await expect(page.locator(".hero-sculpture-layer")).toHaveCSS(
+  await expect(page.locator(".hero-aperture-outer")).toHaveCSS(
     "animation-name",
     "none"
   )
-  await expect(page.locator(".hero-proof-card")).toHaveCSS(
+  await expect(page.locator(".hero-review-strip")).toHaveCSS(
     "animation-name",
     "none"
   )

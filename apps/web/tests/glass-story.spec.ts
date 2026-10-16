@@ -5,14 +5,14 @@ test("hero annotations retain frosted transparency", async ({ page }) => {
   await expect
     .poll(() =>
       page
-        .locator(".hero-proof-card")
+        .locator(".hero-review-strip")
         .evaluate((element) => getComputedStyle(element).backdropFilter)
     )
     .toContain("blur(")
   await expect
     .poll(() =>
       page
-        .locator(".hero-proof-card")
+        .locator(".hero-review-strip")
         .evaluate((element) => getComputedStyle(element).backgroundColor)
     )
     .toMatch(/\/\s*0?\.\d+\)/)
