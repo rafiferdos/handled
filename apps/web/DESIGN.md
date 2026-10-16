@@ -77,3 +77,9 @@ Navigation glass uses a bounded, static 16px frost and high-fill light/dark surf
 ## Public copy and environment status
 
 Use ordinary product labels for headings, navigation and calls to action. Avoid repeating Sample, Preview or implementation disclaimers on every card. Place one concise environment status around an interactive example and one shared status in the workspace. Keep action-specific facts where they help a person decide: sign-in is unavailable, replies are not sent and local decision rehearsals do not change accounts. Never replace those facts with a success claim. Technical architecture belongs in documentation rather than product reading flows.
+
+## Readable, compact refinement — 16 October 2026
+
+Operational reading uses 13–14px, important metadata 12px, 36px desktop page headings and rendered 44px controls. Enforce actual variant sizing rather than assuming a utility overrides the primitive. Narrow overview metrics use 64px summary rows; desktop metrics remain around 160px. At 1200px, case review keeps a 350px minimum recommendation alongside the conversation and allows normal page scrolling.
+
+Public sections vary their evidence rather than repeating one card motif. Product features have distinct static artifacts; process chapters show a concrete case. Simplify mobile diagrams before shrinking meaningful labels. Keep mobile hero/closing pacing compact, footer destinations intentionally arranged and status copy near relevant interactions. Preserve all reduced-motion, coarse-pointer, keyboard and no-JavaScript behavior.

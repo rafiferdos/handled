@@ -1,5 +1,7 @@
 # Handled visual design review — 16 October 2026
 
+Baseline snapshot before the approved refinement pass. The recommendations below are implemented in the [UI refinement release](ui-refinement-2026-10-16.md); retain these scores and screenshots as the before-state record.
+
 **Overall judgment: approximately 8.0/10. Homepage: 8.2/10.** The identity is coherent and distinctive. The largest remaining gains are readable small text, more purposeful mobile density and greater variation between chapters. Extra animation is a lower priority than these improvements.
 
 Scores are subjective editorial judgments, not instrument measurements, user-study findings or integration-readiness scores. A difference of 0.2 should be read as a small preference, not scientific precision. Working authentication, account connections and durable activity are assessed separately from visual quality.
