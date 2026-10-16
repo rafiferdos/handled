@@ -37,7 +37,7 @@ export function KnowledgeLibrary() {
       <PageHeading
         eyebrow={`${workspace.name} / Knowledge`}
         title="Start with a source you can trust."
-        description="Published sample policies for the three support scenarios. This library is an illustrative fixture, not a connected knowledge store."
+        description="Policies and source references for the three support cases."
       />
       <div className="relative mb-8 max-w-sm">
         <Search className="pointer-events-none absolute top-3.5 left-3.5 size-4 text-muted-foreground" />
@@ -45,13 +45,13 @@ export function KnowledgeLibrary() {
           value={search}
           onChange={(event) => setSearch(event.target.value)}
           aria-label="Search knowledge"
-          placeholder="Search sample knowledge…"
+          placeholder="Search knowledge…"
           className="workspace-control h-11 rounded-xl bg-card pl-10 text-sm"
         />
       </div>
       {!policies.length ? (
         <EmptyState
-          title="No sample policies here."
+          title="No policies here."
           description={
             search
               ? "Try a different search."
@@ -74,7 +74,7 @@ export function KnowledgeLibrary() {
                     variant="outline"
                     className="border-success/20 bg-success-surface text-[11px] text-success"
                   >
-                    Published sample
+                    Published
                   </Badge>
                 </div>
                 <CardTitle className="font-heading text-xl leading-tight font-medium tracking-tight">
@@ -106,16 +106,15 @@ export function KnowledgeLibrary() {
                       <DialogHeader>
                         <DialogTitle>{source.title}</DialogTitle>
                         <DialogDescription>
-                          Published sample · {source.reference}
+                          Published · {source.reference}
                         </DialogDescription>
                       </DialogHeader>
                       <p className="text-sm leading-relaxed text-muted-foreground">
                         {source.detail}
                       </p>
                       <p className="rounded-xl bg-muted p-3 text-[11px] leading-relaxed text-muted-foreground">
-                        This is a local sample policy. Real documents need
-                        workspace-scoped retrieval, owner-reviewed publishing
-                        and version provenance.
+                        This policy belongs to the workspace preview. Document
+                        publishing is not available yet.
                       </p>
                     </DialogContent>
                   </Dialog>
@@ -127,10 +126,7 @@ export function KnowledgeLibrary() {
       )}
       <div className="mt-8 flex items-start gap-3 rounded-2xl border border-dashed bg-muted/15 p-5 text-xs leading-relaxed text-muted-foreground">
         <FileText className="mt-0.5 size-4 shrink-0" />
-        <p>
-          Drafting, publishing and indexing will connect through the knowledge
-          owner&apos;s API. No document writes are enabled in this preview.
-        </p>
+        <p>Document editing and publishing are not available yet.</p>
       </div>
     </>
   )

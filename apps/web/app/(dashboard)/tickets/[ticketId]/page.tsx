@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { TicketDetail } from "@/features/tickets/ticket-detail"
-export const metadata: Metadata = { title: "Review sample ticket" }
+export const metadata: Metadata = { title: "Review ticket" }
 export default async function TicketPage({
   params,
 }: {

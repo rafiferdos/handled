@@ -31,12 +31,12 @@ export function Overview() {
   )
   const stats = [
     {
-      label: "Sample tickets",
+      label: "Tickets",
       value: data.length,
       icon: Inbox,
       note: data.length
-        ? "Three canonical support scenarios"
-        : "No sample records in this workspace",
+        ? "Three support scenarios"
+        : "No records in this workspace",
       tone: "border-border",
       iconTone: "border-border bg-muted/35 text-muted-foreground",
     },
@@ -63,7 +63,7 @@ export function Overview() {
       <PageHeading
         eyebrow={`${workspace.name} / Overview`}
         title="A clear view of what’s next."
-        description="A little context for your day. Explore how evidence and human decisions fit together in this sample workspace."
+        description="A little context for your day. Explore how evidence and human decisions fit together in this workspace."
       >
         <ButtonLink
           href="/tickets"
@@ -97,9 +97,6 @@ export function Overview() {
                 <CardContent>
                   <p className="font-heading text-5xl font-medium tracking-[-0.045em] tabular-nums">
                     {stat.value}
-                    <span className="ml-2 font-mono text-[11px] font-normal tracking-normal text-muted-foreground">
-                      SAMPLE
-                    </span>
                   </p>
                   <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
                     {stat.note}
@@ -116,7 +113,7 @@ export function Overview() {
                     The next conversation
                   </h2>
                   <p className="mt-1 text-[11px] text-muted-foreground">
-                    A sample of your support queue
+                    Conversations that need attention
                   </p>
                 </div>
                 <Link
@@ -157,7 +154,7 @@ export function Overview() {
                 <div className="p-5">
                   <EmptyState
                     title="This workspace is a clean slate."
-                    description="PixelDesk has no sample records. Switching workspaces does not carry AcmeCloud data across."
+                    description="PixelDesk has no records. Each workspace keeps its own queue."
                   />
                 </div>
               )}
@@ -180,14 +177,14 @@ export function Overview() {
                 <CardContent>
                   <p className="text-xs leading-relaxed text-muted-foreground">
                     Review the source, check the recommendation, and make the
-                    decision. In this preview, every outcome stays local.
+                    decision.
                   </p>
                   {nextReview && (
                     <ButtonLink
                       href={`/tickets/${nextReview.id}`}
                       className="signal-button mt-5 h-11 w-full justify-between rounded-xl px-4 text-xs"
                     >
-                      Review next sample
+                      Review next case
                       <ArrowUpRight className="size-3.5" />
                     </ButtonLink>
                   )}
@@ -207,8 +204,8 @@ export function Overview() {
                   Start with the source
                 </div>
                 <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
-                  The knowledge library holds three published sample policies
-                  for the golden cases.
+                  The knowledge library holds three policies for the support
+                  cases.
                 </p>
                 <Link
                   href="/knowledge"
@@ -220,8 +217,7 @@ export function Overview() {
               </div>
               <p className="flex items-start gap-2 px-2 text-[11px] leading-relaxed text-muted-foreground">
                 <CheckCheck className="mt-0.5 size-3 shrink-0" />
-                Counts are calculated from sample records. They are not measured
-                product outcomes.
+                Counts reflect the records in this workspace.
               </p>
             </aside>
           </div>

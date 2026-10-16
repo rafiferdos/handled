@@ -7,7 +7,6 @@ import {
   Activity,
   ArrowUpRight,
   BookOpen,
-  Box,
   ChevronRight,
   Inbox,
   LayoutDashboard,
@@ -18,7 +17,6 @@ import {
 import { Brand } from "@/components/shared/brand"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import {
   Select,
   SelectContent,
@@ -61,7 +59,7 @@ function WorkspacePicker() {
     >
       <SelectTrigger
         className="workspace-picker glass-inset w-full rounded-xl border bg-background px-3 text-sm data-[size=default]:h-13"
-        aria-label="Select preview workspace"
+        aria-label="Select workspace"
       >
         <div className="flex items-center gap-2.5">
           <span className="flex size-8 items-center justify-center rounded-lg bg-signal-surface text-[11px] font-semibold text-signal">
@@ -123,7 +121,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
           <ShieldCheck className="mb-3 size-4 text-signal" />
           <p className="text-xs font-medium">Human decisions, by design.</p>
           <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
-            Explore sample cases. Your data and accounts are not connected.
+            Keep the evidence in view and the next step in your hands.
           </p>
         </div>
         <Separator className="my-5" />
@@ -134,9 +132,9 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
             </AvatarFallback>
           </Avatar>
           <div>
-            <p className="text-xs font-medium">Preview visitor</p>
+            <p className="text-xs font-medium">Workspace visitor</p>
             <p className="mt-0.5 text-[11px] text-muted-foreground">
-              Sample workspace access
+              Browsing without sign-in
             </p>
           </div>
         </div>
@@ -180,7 +178,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
                 <SheetHeader className="sr-only">
                   <SheetTitle>Workspace navigation</SheetTitle>
                   <SheetDescription>
-                    Switch preview workspace or navigate the sample product.
+                    Switch workspace or explore the product.
                   </SheetDescription>
                 </SheetHeader>
                 <SidebarContent onNavigate={() => setOpen(false)} />
@@ -193,13 +191,6 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
             <span className="truncate text-[13px] font-medium">{page}</span>
           </div>
           <div className="flex items-center gap-2 sm:gap-4">
-            <Badge
-              variant="outline"
-              className="gap-1.5 border-warning/20 bg-warning-surface px-2.5 py-1 text-[11px] text-warning"
-            >
-              <Box className="size-3" />
-              Preview
-            </Badge>
             <ThemeToggle />
             <Link
               href="/"
@@ -214,10 +205,10 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b bg-muted/25 px-5 py-3 text-[11px] leading-relaxed text-muted-foreground md:px-8">
           <p>
             <span className="font-medium text-foreground">
-              Preview workspace
+              Workspace preview
             </span>
-            <span className="mx-2">/</span>Sample data. No connected accounts or
-            real actions.
+            <span className="mx-2">/</span>Example data. Accounts are not
+            connected and actions stay local.
           </p>
           <Link href="/how-it-works" className="underline underline-offset-3">
             How it works

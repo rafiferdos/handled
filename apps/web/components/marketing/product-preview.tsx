@@ -21,7 +21,7 @@ const copy: Record<string, ShowcaseCopy> = {
     label: "Cancellation",
     outcome: "Keep access through the paid period.",
     explanation:
-      "The sample subscription runs through October 31. Review a period-end cancellation that respects the time already paid for.",
+      "The subscription runs through October 31. Review a period-end cancellation that respects the time already paid for.",
     evidenceNotes: [
       "Team plan active through October 31",
       "Access continues until the paid period ends",

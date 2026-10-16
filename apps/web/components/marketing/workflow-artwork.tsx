@@ -36,7 +36,7 @@ export function WorkflowArtwork({
       </div>
       <div className="workflow-scene-caption">
         <span>THE SUPPORT LOOP</span>
-        <span>ILLUSTRATIVE / NOT A LIVE ACTION</span>
+        <span>QUESTION TO RESOLUTION</span>
       </div>
       <div className="workflow-scene-phases">
         {[
@@ -81,7 +81,7 @@ export function WorkflowArtwork({
         </p>
         <p className="workflow-ticket-person">
           <span>MR</span>
-          Maya Rahman · Sample conversation
+          Maya Rahman · Customer conversation
         </p>
       </m.div>
       <m.div
@@ -144,7 +144,7 @@ export function WorkflowArtwork({
           <span className="text-signal">Still your decision.</span>
         </p>
         <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-          Review a sample $29.00 duplicate refund.
+          Review a $29.00 duplicate refund.
           <br />
           Evidence attached. Human judgment required.
         </p>
@@ -184,7 +184,7 @@ export function WorkflowArtwork({
           </p>
         </div>
         <p className="workflow-receipt-note">
-          Illustrative outcome. No real account action.
+          Evidence, decision and outcome. Together.
         </p>
       </m.div>
       <div className="workflow-scene-progress">

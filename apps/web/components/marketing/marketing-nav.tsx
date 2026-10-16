@@ -187,7 +187,7 @@ export function MarketingNav() {
                   </ButtonLink>
                 </div>
                 <p>
-                  <span /> Interactive preview. Sample data.
+                  <span /> No sign-in required.
                 </p>
               </div>
             </SheetContent>

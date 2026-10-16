@@ -59,7 +59,7 @@ export default function HomePage() {
             </div>
             <p className="mt-4 flex items-center gap-2 text-[10px] text-muted-foreground">
               <ShieldCheck className="size-3 shrink-0" />
-              Interactive preview. Sample data. Your call.
+              Explore at your own pace. No sign-in needed.
             </p>
           </Reveal>
         </div>
@@ -126,11 +126,6 @@ export default function HomePage() {
             <span>YOUR CALL</span>
           </div>
           <ProductPreview />
-          <p className="mt-7 flex items-center gap-2.5 text-[11px] leading-relaxed text-[#a4b1b7]">
-            <ShieldCheck className="size-3.5 shrink-0" />
-            Designed for evidence first, a human decision next. This preview
-            never changes an account.
-          </p>
         </div>
       </section>
 
@@ -173,7 +168,7 @@ export default function HomePage() {
               <ShieldCheck className="size-4 text-muted-foreground" />
             </span>
             <p className="max-w-[200px] text-xs leading-relaxed text-muted-foreground">
-              Explore the sample workspace.
+              Explore the workspace.
               <br />
               No sign-in needed.
             </p>

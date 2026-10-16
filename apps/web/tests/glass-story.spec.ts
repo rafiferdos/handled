@@ -103,7 +103,7 @@ test("the product preview visibly unfolds with scrolling and rests immediately f
     "none"
   )
   await expect(
-    page.getByRole("tablist", { name: "Explore sample support cases" })
+    page.getByRole("tablist", { name: "Explore support cases" })
   ).toBeVisible()
 })
 

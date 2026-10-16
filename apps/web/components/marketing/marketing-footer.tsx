@@ -86,7 +86,7 @@ export function MarketingFooter() {
               Explore the workspace <ArrowUpRight className="ml-3 size-4" />
             </ButtonLink>
             <p className="closing-caption mt-4 text-center text-[11px]">
-              Sample workspace · No sign-in required
+              No sign-in required
             </p>
           </div>
         </Reveal>

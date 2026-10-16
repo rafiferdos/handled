@@ -19,7 +19,7 @@ function ContextAperture() {
         <span>
           <i /> A LITTLE CLARITY, CONNECTED.
         </span>
-        <span>SAMPLE WORKFLOW</span>
+        <span>CONTEXT TO CLARITY</span>
       </div>
       <div className="hero-aperture-field">
         <div className="hero-aperture-atmosphere" />

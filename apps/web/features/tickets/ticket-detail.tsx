@@ -68,7 +68,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
         <p className="mt-3 text-xs text-muted-foreground">
           {data.customer.name} <span className="mx-2">/</span>
           {data.category}
-          <span className="mx-2">/</span>Sample case
+          <span className="mx-2">/</span>Support case
         </p>
       </div>
       <div className="grid items-start gap-7 xl:grid-cols-[1.25fr_0.9fr]">
@@ -98,7 +98,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                       {data.customer.name}
                     </h2>
                     <p className="mt-1 text-[11px] text-muted-foreground">
-                      Customer message · Sample
+                      Customer message
                     </p>
                   </div>
                 </div>
@@ -108,15 +108,15 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                 <div className="mt-8 border-t pt-5">
                   <p className="eyebrow text-muted-foreground">Reply channel</p>
                   <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-                    Reply sending is not connected. You can edit the sample
-                    draft in the proposal panel.
+                    Reply sending is not connected. You can edit the draft in
+                    the proposal panel.
                   </p>
                 </div>
               </section>
               <section className="mt-5 rounded-2xl border p-5">
                 <h2 className="flex items-center gap-2 text-xs font-medium">
                   <User className="size-4 text-muted-foreground" />
-                  Sample customer context
+                  Customer context
                 </h2>
                 <dl className="mt-5 grid gap-5 sm:grid-cols-2">
                   <div>
@@ -124,9 +124,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                     <dd className="mt-1.5 text-xs">{data.customer.name}</dd>
                   </div>
                   <div>
-                    <dt className="text-[11px] text-muted-foreground">
-                      Sample email
-                    </dt>
+                    <dt className="text-[11px] text-muted-foreground">Email</dt>
                     <dd className="mt-1.5 text-xs break-all">
                       {data.customer.email}
                     </dd>
@@ -141,9 +139,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                     <dt className="text-[11px] text-muted-foreground">
                       Account source
                     </dt>
-                    <dd className="mt-1.5 text-xs">
-                      Local illustrative fixture
-                    </dd>
+                    <dd className="mt-1.5 text-xs">Workspace preview</dd>
                   </div>
                 </dl>
               </section>
@@ -154,7 +150,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                   The sources behind the suggestion
                 </h2>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  These are sample source records, not live retrieval results.
+                  Review the records and policy behind this recommendation.
                 </p>
                 <div className="mt-5 space-y-3">
                   {data.evidence.map((source) => (
@@ -186,7 +182,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                         <DialogHeader>
                           <DialogTitle>{source.title}</DialogTitle>
                           <DialogDescription>
-                            Sample source reference · {source.reference}
+                            Source reference · {source.reference}
                           </DialogDescription>
                         </DialogHeader>
                         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -194,8 +190,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                         </p>
                         <div className="flex items-center gap-2 rounded-xl bg-muted p-3 text-[11px] text-muted-foreground">
                           <Link2 className="size-3.5" />
-                          Illustrative record; no external account or provider
-                          connected.
+                          Example record. No external account is connected.
                         </div>
                       </DialogContent>
                     </Dialog>
@@ -209,27 +204,25 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
                   An investigation, made visible.
                 </h2>
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Illustrative stages. These are not executed tool calls or
-                  durable audit events.
+                  Example investigation stages. No live tools were run.
                 </p>
                 <ol className="mt-7 space-y-7">
                   {[
                     {
                       title: "Ticket received",
-                      detail: "Sample question scoped to its workspace.",
+                      detail: "Question linked to its workspace.",
                     },
                     {
                       title: "Account context gathered",
-                      detail:
-                        "Illustrative account records attached to the case.",
+                      detail: "Account records attached to the case.",
                     },
                     {
                       title: "Published policy referenced",
-                      detail: "Versioned sample knowledge source linked.",
+                      detail: "Versioned knowledge source linked.",
                     },
                     {
                       title: "Recommendation prepared",
-                      detail: `${data.confidence.toLowerCase()} confidence in this fixture. Human review remains required.`,
+                      detail: `${data.confidence.toLowerCase()} confidence in this example. Human review remains required.`,
                     },
                   ].map((step, i) => (
                     <li key={step.title} className="flex gap-4">
@@ -250,8 +243,7 @@ export function TicketDetail({ ticketId }: { ticketId: string }) {
           </Tabs>
           <p className="mt-5 flex items-start gap-2 px-1 text-[11px] leading-relaxed text-muted-foreground">
             <ShieldCheck className="mt-0.5 size-3 shrink-0" />
-            Only workspace-scoped records may support a real proposal. Evidence
-            must be revalidated by the backend before execution.
+            Review the evidence before deciding on a next step.
           </p>
         </div>
         <ProposalPanel key={data.id} ticket={data} />

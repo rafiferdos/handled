@@ -72,19 +72,19 @@ test("overview review entry follows the active workspace", async ({
 }) => {
   await page.goto("/dashboard")
   await expect(
-    page.getByRole("link", { name: "Review next sample", exact: true })
+    page.getByRole("link", { name: "Review next case", exact: true })
   ).toHaveAttribute("href", "/tickets/10000000-0000-4000-8000-000000001001")
   if (isMobile)
     await page
       .getByRole("button", { name: "Open workspace navigation" })
       .click()
-  await page.getByRole("combobox", { name: "Select preview workspace" }).click()
+  await page.getByRole("combobox", { name: "Select workspace" }).click()
   await page.getByRole("option", { name: "PixelDesk", exact: true }).click()
   await expect(
     page.getByRole("heading", { name: "This workspace is a clean slate." })
   ).toBeVisible()
   await expect(
-    page.getByRole("link", { name: "Review next sample", exact: true })
+    page.getByRole("link", { name: "Review next case", exact: true })
   ).toHaveCount(0)
 })
 
@@ -98,7 +98,7 @@ test("sample showcase supports keyboard case selection and correct case links", 
   })
   await page.goto("/#workflow")
   const cases = page.getByRole("tablist", {
-    name: "Explore sample support cases",
+    name: "Explore support cases",
   })
   await expect(cases).toBeVisible()
   await cases
@@ -110,14 +110,14 @@ test("sample showcase supports keyboard case selection and correct case links", 
   await expect(panel).toContainText("TKT-1002")
   await expect(panel).toContainText("Keep access through the paid period.")
   await expect(
-    panel.getByRole("link", { name: "Inspect sample case" })
+    panel.getByRole("link", { name: "Inspect case" })
   ).toHaveAttribute("href", "/tickets/10000000-0000-4000-8000-000000001002")
   await cases.getByRole("tab", { name: "Missing access", exact: true }).click()
   await expect(panel).toContainText("TKT-1003")
   await expect(panel).toContainText("Manual review comes first.")
   await expect(panel).toContainText("Account mapping is unverified")
   await expect(
-    panel.getByRole("link", { name: "Inspect sample case" })
+    panel.getByRole("link", { name: "Inspect case" })
   ).toHaveAttribute("href", "/tickets/10000000-0000-4000-8000-000000001003")
   await expect(
     panel.getByRole("button", { name: /approve|execute|refund/i })
@@ -168,7 +168,7 @@ test("changing reduced motion preserves the focused sample-case link", async ({
   await page.getByRole("tab", { name: "Cancellation", exact: true }).click()
   const link = page
     .getByRole("tabpanel")
-    .getByRole("link", { name: "Inspect sample case" })
+    .getByRole("link", { name: "Inspect case" })
   await link.focus()
   await expect(link).toBeFocused()
   await page.emulateMedia({ reducedMotion: "reduce" })

@@ -30,7 +30,7 @@ export default function NotFound() {
             variant="outline"
             className="h-11 rounded-full px-5"
           >
-            Preview workspace
+            Explore the workspace
             <ArrowUpRight className="ml-3 size-3.5" />
           </ButtonLink>
         </div>

@@ -73,7 +73,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
         context.addIssue({
           code: "custom",
           path: ["password"],
-          message: "Use at least 8 characters for this sample form.",
+          message: "Use at least 8 characters.",
         })
     })
   const form = useForm({
@@ -99,7 +99,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
           Account access is being connected
         </AlertTitle>
         <AlertDescription className="text-[11px] leading-relaxed">
-          This is a preview form. Use sample details only, or explore the
+          Sign-in is not available yet. Use test details only, or explore the
           workspace without signing in.
         </AlertDescription>
       </Alert>
@@ -191,7 +191,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
           role="status"
           className="mt-4 rounded-xl border border-warning/20 bg-warning-surface p-3 text-xs leading-relaxed text-warning"
         >
-          {copy.result} You can explore the sample workspace below.
+          {copy.result} You can explore the workspace below.
         </p>
       )}
       <p className="mt-6 text-center text-xs text-muted-foreground">
@@ -223,7 +223,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
           variant="outline"
           className="h-11 w-full rounded-xl text-xs"
         >
-          Explore preview workspace
+          Explore the workspace
           <ArrowUpRight className="ml-auto size-3.5" />
         </ButtonLink>
       </div>

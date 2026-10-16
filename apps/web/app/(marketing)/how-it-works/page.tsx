@@ -35,7 +35,7 @@ const steps = [
   },
   {
     title: "Act safely. Keep the record.",
-    text: "The reviewed workflow is designed to keep the evidence, decision and outcome together. In this preview, decision rehearsals stay local; they do not create an account change or a durable activity record.",
+    text: "The workflow is designed to keep the evidence, decision and outcome together, so the reasoning behind a next step stays clear.",
     label: "04 / Outcome & record",
     icon: FileCheck2,
     sample: "A clear record of what was reviewed and what came next.",
@@ -107,11 +107,9 @@ export default function HowItWorksPage() {
       </div>
       <div className="mt-12 flex flex-col justify-between gap-6 rounded-2xl border border-signal/20 bg-signal-surface p-7 md:flex-row md:items-center md:p-9">
         <div>
-          <h2 className="font-heading text-xl font-medium">
-            Follow a sample case.
-          </h2>
+          <h2 className="font-heading text-xl font-medium">Follow a case.</h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            The current preview uses sample data. No real account is connected.
+            Explore the case, its evidence and the review steps.
           </p>
         </div>
         <ButtonLink

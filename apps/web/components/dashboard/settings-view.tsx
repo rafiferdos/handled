@@ -34,7 +34,7 @@ export function SettingsView() {
       <PageHeading
         eyebrow={`${workspace.name} / Settings`}
         title="Make a little room for your way."
-        description="Appearance preferences work in this browser. Workspace administration remains read-only until authenticated APIs are connected."
+        description="Choose an appearance for this browser. Workspace details are read-only."
       />
       <div className="grid items-start gap-6 xl:grid-cols-2">
         <Card className="workspace-panel">
@@ -78,12 +78,12 @@ export function SettingsView() {
         <Card className="workspace-panel">
           <CardHeader>
             <CardTitle className="flex flex-wrap items-center justify-between gap-3 font-heading text-xl font-medium">
-              Sample workspace
+              Workspace details
               <Badge
                 variant="outline"
                 className="font-sans text-[11px] font-normal"
               >
-                Read-only preview
+                Read-only
               </Badge>
             </CardTitle>
           </CardHeader>
@@ -108,8 +108,7 @@ export function SettingsView() {
             </div>
             <p className="flex items-start gap-2 text-[11px] leading-relaxed text-muted-foreground">
               <ShieldCheck className="mt-0.5 size-4 shrink-0" />
-              Membership, invitations and role changes require verified sessions
-              and backend permissions. A preview is not an authenticated role.
+              Member invitations and role changes are not available yet.
             </p>
           </CardContent>
         </Card>

@@ -64,17 +64,17 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
   }
   return (
     <section
-      aria-label="Sample recommendation"
+      aria-label="Recommendation"
       className="overflow-hidden rounded-2xl border"
     >
       <div className="border-b bg-muted/35 p-5">
         <div className="mb-5 flex items-center justify-between">
           <span className="flex items-center gap-2 text-xs font-medium">
             <Sparkles className="size-4" />
-            Sample proposal
+            Recommendation
           </span>
           <Badge variant="outline" className="font-mono text-[11px]">
-            v1 · SAMPLE
+            v1
           </Badge>
         </div>
         <div className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
             {humanize(ticket.confidence)} confidence
           </Badge>
           <span className="text-[11px] text-muted-foreground">
-            Fixture assessment
+            Evidence assessment
           </span>
         </div>
         <h2 className="mt-4 font-heading text-2xl leading-tight font-medium tracking-tight">
@@ -98,7 +98,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
         <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
           {low
             ? "Verify the missing product mapping before any action. Low confidence blocks approval."
-            : "Account records and a published policy support this sample suggestion. A human review is still required."}
+            : "Account records and a published policy support this suggestion. A human review is still required."}
         </p>
       </div>
       <div className="space-y-5 p-5">
@@ -121,7 +121,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>Edit sample reply</DialogTitle>
+                  <DialogTitle>Edit reply</DialogTitle>
                   <DialogDescription>
                     Edits stay in this page. No reply will be sent.
                   </DialogDescription>
@@ -148,9 +148,7 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
                     onClick={() => {
                       setReply(draft.trim())
                       setEditOpen(false)
-                      toast.info(
-                        "Sample draft updated locally. No message was sent."
-                      )
+                      toast.info("Draft updated locally. No message was sent.")
                     }}
                   >
                     Save local draft
@@ -166,8 +164,8 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
         <div className="flex items-start gap-2 rounded-xl bg-muted/40 p-3 text-[11px] leading-relaxed text-muted-foreground">
           <ShieldCheck className="mt-0.5 size-4 shrink-0" />
           <p>
-            Preview controls rehearse a decision locally. Real decisions require
-            authenticated, versioned API validation.
+            Try a decision locally. No payment, subscription or access will
+            change.
           </p>
         </div>
         {recorded ? (
@@ -209,11 +207,8 @@ export function ProposalPanel({ ticket }: { ticket: TicketPreview }) {
                 <AlertDialogHeader>
                   <AlertDialogTitle>Rehearse this approval?</AlertDialogTitle>
                   <AlertDialogDescription>
-                    This records a local preview decision for {ticket.reference}
-                    . No API request, real refund, subscription change or
-                    product access update will occur. The real workflow must
-                    recheck evidence, role, latest version and idempotency on
-                    the server.
+                    Try an approval for {ticket.reference} in this browser. No
+                    payment, subscription or product access will change.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>

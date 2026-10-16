@@ -54,11 +54,11 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
             01—03
           </span>
           <p className="font-mono text-[10px] tracking-wider text-[#b5c1c7] uppercase">
-            Choose a sample case
+            Choose a case
           </p>
         </div>
         <TabsList
-          aria-label="Explore sample support cases"
+          aria-label="Explore support cases"
           className="grid w-full grid-cols-3 gap-1 rounded-2xl border border-white/10 bg-white/5 p-1 group-data-horizontal/tabs:h-auto sm:w-auto sm:rounded-full"
         >
           {cases.map(({ ticket, copy }) => (
@@ -85,7 +85,7 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                 ))}
               </div>
               <span className="min-w-0 truncate font-mono text-[8px] text-[#62727a] sm:text-[9px]">
-                handled / acme-cloud / sample workspace
+                handled / acme-cloud
               </span>
               <ShieldCheck
                 aria-hidden="true"
@@ -141,8 +141,8 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
                         <p className="font-mono text-[10px] text-[#62727a]">
                           {ticket.reference}{" "}
-                          <span className="mx-2 text-[#9aa7ad]">/</span>{" "}
-                          Illustrative workflow
+                          <span className="mx-2 text-[#9aa7ad]">/</span> Support
+                          workflow
                         </p>
                         <Badge
                           variant="outline"
@@ -236,14 +236,14 @@ export function SampleShowcase({ cases }: { cases: ShowcaseCase[] }) {
                             href={`/tickets/${ticket.id}`}
                             className="mt-5 h-11 w-full justify-between rounded-lg bg-[#233d33] px-3.5 text-[11px] text-white hover:bg-[#345345]"
                           >
-                            Inspect sample case
+                            Inspect case
                             <ArrowUpRight className="size-3.5" />
                           </ButtonLink>
                         </div>
                       </div>
                       <p className="mt-5 flex items-center gap-2 text-[10px] text-[#62727a]">
                         <ShieldCheck className="size-3 shrink-0" />
-                        Sample evidence. No account changes or real actions.
+                        Example data. No account changes.
                       </p>
                     </TabsContent>
                   )

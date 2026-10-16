@@ -18,7 +18,7 @@ export function LoadingState() {
 }
 export function EmptyState({
   title = "A little breathing room.",
-  description = "No sample tickets match this view.",
+  description = "No tickets match this view.",
   action,
 }: {
   title?: string

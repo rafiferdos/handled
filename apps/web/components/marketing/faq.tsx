@@ -11,17 +11,17 @@ const questions = [
   {
     question: "Can the AI take actions on its own?",
     answer:
-      "Every action requires an authenticated human decision. AI gathers context and suggests a next step; the backend validates permissions, evidence, proposal version and policy before admitting a simulated action.",
+      "Handled is designed around a human checkpoint: AI gathers context and suggests a next step, while a person reviews the evidence and decides what happens next.",
   },
   {
-    question: "What can I explore in this preview?",
+    question: "What can I explore today?",
     answer:
-      "Three sample support cases: a duplicate charge, a cancellation at period end, and missing product access. Explore the workspace, inspect evidence and try the local review interaction. This preview does not connect to real accounts or execute refunds.",
+      "Three support cases: a duplicate charge, a cancellation at period end, and missing product access. Explore the workspace, inspect evidence and try the review interaction. Actions stay local; your accounts are not connected.",
   },
   {
     question: "Where do the answers come from?",
     answer:
-      "The product is designed to combine workspace-scoped account records with published knowledge. Each recommendation carries source references so an agent can check the evidence. The current preview uses clearly labelled sample records.",
+      "The product is designed to combine workspace-scoped account records with published knowledge. Each recommendation carries source references so an agent can check the evidence.",
   },
   {
     question: "What happens when the evidence is incomplete?",
@@ -31,7 +31,7 @@ const questions = [
   {
     question: "Can I connect my support tools today?",
     answer:
-      "Provider connections and live authentication are still being built. This foundation is an interactive product preview, not an active provider integration. Commercial billing and production payment writes are outside the current MVP.",
+      "Account connections and sign-in are still being built. You can explore the workspace today without connecting your tools. Live account changes and payments are not available yet.",
   },
 ]
 

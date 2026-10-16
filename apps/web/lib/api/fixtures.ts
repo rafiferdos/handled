@@ -38,7 +38,7 @@ export const sampleTickets = ticketPreviewSchema.array().parse([
     recommendation: "Review a $29.00 duplicate refund for PAY-9002.",
     action: "REFUND_DUPLICATE_PAYMENT",
     replyDraft:
-      "Hi Maya, the sample account records show two settled $29.00 payments for your October Pro subscription. The published duplicate-charge policy supports reviewing the extra payment for a refund. An agent needs to review and approve the next step.",
+      "Hi Maya, the account records show two settled $29.00 payments for your October Pro subscription. The published duplicate-charge policy supports reviewing the extra payment for a refund. An agent needs to review and approve the next step.",
     evidence: [
       {
         reference: "PAY-9001 / PAY-9002",
@@ -77,13 +77,13 @@ export const sampleTickets = ticketPreviewSchema.array().parse([
       "Review cancellation at the end of the current billing period.",
     action: "CANCEL_AT_PERIOD_END",
     replyDraft:
-      "Hi Daniel, your sample Team subscription is active through October 31. An agent can review a cancellation at period end, preserving access through that date. No subscription has been changed in this preview.",
+      "Hi Daniel, your Team subscription is active through October 31. An agent can review a cancellation at period end, preserving access through that date. No subscription has been changed in this preview.",
     evidence: [
       {
         reference: "SUB-1002",
         title: "Active Team subscription",
         detail:
-          "currentPeriodEnd is 2026-10-31 and cancelAtPeriodEnd is false in the sample account.",
+          "currentPeriodEnd is 2026-10-31 and cancelAtPeriodEnd is false in the account.",
         kind: "account",
       },
       {
@@ -116,13 +116,13 @@ export const sampleTickets = ticketPreviewSchema.array().parse([
       "Review the payment and product mapping before restoring access.",
     action: "RESTORE_PRODUCT_ACCESS",
     replyDraft:
-      "Hi Sofia, your sample account shows a settled payment and a revoked access record. An agent needs to verify the exact product mapping and account evidence before deciding the next step. No access has been changed.",
+      "Hi Sofia, your account shows a settled payment and a revoked access record. An agent needs to verify the exact product mapping and account evidence before deciding the next step. No access has been changed.",
     evidence: [
       {
         reference: "PAY-9003 / ACCESS-1003",
         title: "Payment and access mismatch",
         detail:
-          "A 1900 minor-unit USD settled payment and REVOKED access with SYNC_ERROR. The product mapping requires agent review in this fixture.",
+          "A 1900 minor-unit USD settled payment and REVOKED access with SYNC_ERROR. The product mapping requires agent review.",
         kind: "account",
       },
       {

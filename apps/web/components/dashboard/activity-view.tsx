@@ -12,7 +12,7 @@ export function ActivityView() {
       <PageHeading
         eyebrow={`${workspace.name} / Activity`}
         title="A record of what really happened."
-        description="Durable activity must come from the backend. The current preview does not create or display real audit records."
+        description="Explore how evidence, decisions and outcomes fit into one activity record."
       />
       <EmptyState
         title="No connected activity yet."
@@ -20,7 +20,7 @@ export function ActivityView() {
       />
       <section className="mt-10">
         <p className="eyebrow mb-5 text-[11px] leading-relaxed text-muted-foreground">
-          Illustrative event sequence / Not executed
+          Example sequence · No actions executed
         </p>
         <div className="grid gap-4 md:grid-cols-3">
           {[

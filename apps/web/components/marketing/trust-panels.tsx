@@ -40,7 +40,7 @@ function ContextDiagram() {
           <span>01</span>
         </div>
         <p className="trust-source-quote">“I was charged twice.”</p>
-        <p className="trust-source-id">TKT-1001 / SAMPLE</p>
+        <p className="trust-source-id">TKT-1001 / TWO SOURCES</p>
       </div>
       <div className="trust-source-sheet trust-source-record">
         <div className="trust-source-sheet-label">
@@ -206,7 +206,7 @@ export function TrustPanels() {
                 </span>
                 <div className="trust-evidence-title">
                   <p>Duplicate-charge policy</p>
-                  <span>KB-REFUND-v1 / Published sample</span>
+                  <span>KB-REFUND-v1 / Published policy</span>
                 </div>
                 <Badge variant="outline" className="trust-evidence-badge">
                   <Check />

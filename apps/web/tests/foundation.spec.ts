@@ -15,7 +15,7 @@ test("public product story and preview CTA are honest and navigable", async ({
     .click()
   await expect(page).toHaveURL(/\/dashboard/)
   await expect(
-    page.getByText("Preview workspace", { exact: true }).first()
+    page.getByText("Workspace preview", { exact: true }).first()
   ).toBeVisible()
   expect(errors).toEqual([])
 })
@@ -28,7 +28,7 @@ test("FAQ supports keyboard activation", async ({ page }) => {
   await question.focus()
   await page.keyboard.press("Enter")
   await expect(
-    page.getByText("Every action requires an authenticated human decision.", {
+    page.getByText("Handled is designed around a human checkpoint:", {
       exact: false,
     })
   ).toBeVisible()
@@ -99,7 +99,7 @@ test("workspace switching clears sample records and keeps navigation scoped", as
     await page
       .getByRole("button", { name: "Open workspace navigation" })
       .click()
-  await page.getByRole("combobox", { name: "Select preview workspace" }).click()
+  await page.getByRole("combobox", { name: "Select workspace" }).click()
   await page.getByRole("option", { name: "PixelDesk", exact: true }).click()
   if (isMobile)
     await expect(
@@ -192,7 +192,7 @@ test("low confidence cannot be approved and draft editing stays local", async ({
     page.getByRole("button", { name: "Rehearse approval" })
   ).toBeDisabled()
   await page.getByRole("button", { name: "Edit draft" }).click()
-  const dialog = page.getByRole("dialog", { name: "Edit sample reply" })
+  const dialog = page.getByRole("dialog", { name: "Edit reply" })
   await dialog
     .getByRole("textbox", { name: "Reply draft" })
     .fill("A sample reply for manual review.")
@@ -237,7 +237,7 @@ test("short viewports keep sheet navigation and dialog actions reachable", async
   expect(linkBounds!.y + linkBounds!.height).toBeLessThanOrEqual(375)
   await page.keyboard.press("Escape")
   await page.getByRole("button", { name: "Edit draft", exact: true }).click()
-  const dialog = page.getByRole("dialog", { name: "Edit sample reply" })
+  const dialog = page.getByRole("dialog", { name: "Edit reply" })
   const bounds = await dialog.boundingBox()
   expect(bounds!.y).toBeGreaterThanOrEqual(8)
   expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(367)

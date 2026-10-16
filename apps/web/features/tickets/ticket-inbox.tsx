@@ -128,8 +128,8 @@ export function TicketInbox() {
       <div className="mb-3 flex items-center justify-between px-1">
         <p className="text-[11px] text-muted-foreground" aria-live="polite">
           {tickets.data
-            ? `${tickets.data.meta.total} sample ${tickets.data.meta.total === 1 ? "ticket" : "tickets"}`
-            : "Loading sample tickets…"}
+            ? `${tickets.data.meta.total} ${tickets.data.meta.total === 1 ? "ticket" : "tickets"}`
+            : "Loading tickets…"}
         </p>
         <span className="font-mono text-[11px] tracking-wider text-muted-foreground">
           WORKSPACE-SCOPED VIEW
@@ -148,8 +148,8 @@ export function TicketInbox() {
           }
           description={
             filtered
-              ? "Try another search or clear the filters to see the sample cases."
-              : "There are no sample tickets in this workspace. Other workspaces’ records stay separate."
+              ? "Try another search or clear the filters to see all cases."
+              : "There are no tickets in this workspace. Each workspace keeps its own queue."
           }
           action={
             filtered ? (
@@ -161,7 +161,7 @@ export function TicketInbox() {
         />
       ) : (
         <section
-          aria-label="Sample ticket list"
+          aria-label="Ticket list"
           className="overflow-hidden rounded-2xl border"
         >
           <div className="hidden grid-cols-[2fr_0.8fr_0.6fr_24px] gap-5 border-b bg-muted/35 px-6 py-3 font-mono text-[11px] tracking-wider text-muted-foreground uppercase md:grid">
@@ -192,8 +192,7 @@ export function TicketInbox() {
                     {ticket.subject}
                   </h2>
                   <p className="mt-2 text-[11px] text-muted-foreground">
-                    {ticket.category} <span className="mx-1.5">·</span> 15 Oct ·
-                    Sample
+                    {ticket.category} <span className="mx-1.5">·</span> 15 Oct
                   </p>
                 </div>
               </div>

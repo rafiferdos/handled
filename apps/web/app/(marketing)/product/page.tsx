@@ -13,7 +13,6 @@ import { ProductPreview } from "@/components/marketing/product-preview"
 import { Reveal } from "@/components/motion/reveal"
 import { ScrollHeading } from "@/components/motion/scroll-heading"
 import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 
 export const metadata: Metadata = { title: "The product" }
 
@@ -21,8 +20,9 @@ const features = [
   {
     icon: Inbox,
     title: "An inbox with perspective",
-    body: "Search sample tickets, filter by status and priority, and move from a question to its account context.",
+    body: "Search tickets, filter by status and priority, and move from a question to its account context.",
     href: "/tickets",
+    action: "Open ticket inbox",
     label: "The starting point",
     detail: [
       "TKT-1001 · Duplicate payment",
@@ -33,8 +33,9 @@ const features = [
   {
     icon: Sparkles,
     title: "A reviewable recommendation",
-    body: "Inspect a sample proposal, its confidence and its supporting sources before a human decision.",
+    body: "Inspect a proposal, its confidence and its supporting sources before a human decision.",
     href: "/tickets/10000000-0000-4000-8000-000000001001",
+    action: "Review proposal",
     label: "The human checkpoint",
     detail: [
       "Source references attached",
@@ -47,6 +48,7 @@ const features = [
     title: "Knowledge with provenance",
     body: "Find the published policy behind a recommendation. Source and version references make the answer easier to check.",
     href: "/knowledge",
+    action: "Browse knowledge",
     label: "The source of truth",
     detail: [
       "Duplicate charges / v1",
@@ -57,8 +59,9 @@ const features = [
   {
     icon: Fingerprint,
     title: "Outcomes with a record",
-    body: "See how evidence, a human decision and the next step should stay connected. Preview events are illustrative and remain local.",
+    body: "Follow the relationship between evidence, a human decision and the next step.",
     href: "/activity",
+    action: "View activity",
     label: "The connected record",
     detail: ["Evidence reviewed", "Decision explained", "Outcome traceable"],
   },
@@ -81,9 +84,6 @@ function FeaturePreview({
           <feature.icon className="size-3 text-signal" />
           {feature.label}
         </p>
-        <Badge variant="outline" className="text-[8px] text-muted-foreground">
-          Sample
-        </Badge>
       </div>
       <div className={index === 3 ? "relative space-y-0 p-4" : "space-y-2 p-3"}>
         {feature.detail.map((detail, detailIndex) => (
@@ -187,7 +187,7 @@ export default function ProductPage() {
             <span>THE WORKSPACE / A CLOSER LOOK</span>
             <span className="flex items-center gap-2">
               <span className="story-mint-dot size-1.5 rounded-full" />
-              SAMPLE PREVIEW
+              THREE SUPPORT CASES
             </span>
           </div>
           <ProductPreview />
@@ -245,7 +245,7 @@ export default function ProductPage() {
                     variant="link"
                     className="mt-6 h-auto p-0 text-xs"
                   >
-                    Explore sample{" "}
+                    {feature.action}{" "}
                     <ArrowUpRight className="ml-3 size-3.5 text-signal" />
                   </ButtonLink>
                 </CardContent>
