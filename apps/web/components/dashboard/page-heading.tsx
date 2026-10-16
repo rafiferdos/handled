@@ -18,8 +18,10 @@ export function PageHeading({
     >
       <div className="min-w-0">
         <p className="eyebrow mb-3 flex items-center gap-2.5 text-xs text-muted-foreground">
-          <span aria-hidden="true" className="h-px w-5 bg-signal" />
-          {eyebrow}
+          <span aria-hidden="true" className="h-px w-5 shrink-0 bg-signal" />
+          <span className="min-w-0 truncate" title={eyebrow}>
+            {eyebrow}
+          </span>
         </p>
         <h1 className="max-w-3xl font-heading text-[1.875rem] leading-[1.12] font-medium tracking-[-0.045em] md:text-4xl">
           {title}

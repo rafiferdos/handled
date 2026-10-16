@@ -1,0 +1,148 @@
+.company-page {
+  min-width: 0;
+}
+
+.company-identity {
+  position: relative;
+  isolation: isolate;
+  border-color: var(--workspace-line);
+  background:
+    radial-gradient(
+      ellipse at 100% 0%,
+      color-mix(in oklch, var(--signal) 10%, transparent),
+      transparent 60%
+    ),
+    color-mix(in oklch, var(--card) 96%, transparent);
+}
+
+.company-identity-mark {
+  width: 4.5rem;
+  height: 4.5rem;
+  flex-shrink: 0;
+  border-radius: 1.25rem;
+  font-size: 1.375rem;
+  box-shadow: 0 5px 15px -10px
+    color-mix(in oklch, var(--foreground) 35%, transparent);
+}
+
+.company-identity-name,
+.company-industry,
+.company-filename {
+  overflow-wrap: anywhere;
+}
+
+.company-identity-address {
+  border-color: color-mix(in oklch, var(--signal) 9%, var(--border));
+  background: color-mix(in oklch, var(--background) 65%, transparent);
+}
+
+.company-logo-editor {
+  border-color: color-mix(in oklch, var(--signal) 9%, var(--border));
+  background: color-mix(in oklch, var(--background) 65%, transparent);
+}
+
+.company-logo-preview {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+.company-page .company-input,
+.company-page .company-button {
+  min-height: 2.75rem;
+}
+
+.company-page .company-input {
+  border-color: var(--border);
+  background: color-mix(in oklch, var(--background) 92%, transparent);
+  padding-inline: 0.75rem;
+}
+
+.company-page .company-input[aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.company-page .company-logo-input {
+  height: auto;
+  padding: 0;
+  padding-right: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 2.75rem;
+}
+
+.company-page .company-logo-input::file-selector-button {
+  min-height: 2.75rem;
+  margin-right: 0.75rem;
+  padding-inline: 0.875rem;
+  border-right: 1px solid var(--border);
+  border-radius: 0;
+  background: color-mix(in oklch, var(--muted) 75%, transparent);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.company-setup-list > li + li {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.company-handoff {
+  border-color: var(--workspace-line);
+  background: color-mix(in oklch, var(--signal-surface) 20%, var(--card));
+}
+
+.company-resource-link {
+  transition:
+    color 160ms var(--motion-ease),
+    background-color 160ms var(--motion-ease);
+}
+
+.company-resource-link:hover {
+  color: var(--signal);
+}
+
+.company-resource-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+@media (min-width: 1200px) {
+  .company-page-grid {
+    grid-template-columns: minmax(0, 1fr) 19rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .company-identity-address {
+    width: 100%;
+  }
+
+  .company-form-actions > button {
+    flex: 1 1 8rem;
+  }
+
+  .company-page .company-logo-input {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .company-page *,
+  .company-page *::before,
+  .company-page *::after {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .company-identity,
+  .company-identity-address,
+  .company-logo-editor,
+  .company-handoff {
+    background: Canvas;
+    border-color: CanvasText;
+  }
+}

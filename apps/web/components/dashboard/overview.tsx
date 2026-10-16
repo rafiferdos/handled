@@ -10,20 +10,20 @@ import {
   CircleHelp,
   Clock3,
   Inbox,
-  ShieldCheck,
+  Building2,
 } from "lucide-react"
+import { CompanyMark } from "./company-mark"
 import { useWorkspace } from "./workspace-provider"
 import { PageHeading } from "./page-heading"
 import { EmptyState, ErrorState, LoadingState } from "./data-state"
 import { ButtonLink } from "@/components/shared/button-link"
-import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { useTickets } from "@/features/tickets/use-tickets"
 import { StatusBadge } from "@/features/tickets/ticket-status"
 
 export function Overview() {
-  const { workspace } = useWorkspace()
+  const { workspace, profile } = useWorkspace()
   const tickets = useTickets()
   const data = tickets.data?.data ?? []
   const nextReview = data.find(
@@ -35,7 +35,7 @@ export function Overview() {
       value: data.length,
       icon: Inbox,
       note: data.length
-        ? "Three support scenarios"
+        ? "Conversations in this workspace"
         : "No records in this workspace",
       tone: "border-border",
       iconTone: "border-border bg-muted/35 text-muted-foreground",
@@ -157,7 +157,7 @@ export function Overview() {
                 <div className="p-5">
                   <EmptyState
                     title="This workspace is a clean slate."
-                    description="PixelDesk has no records. Each workspace keeps its own queue."
+                    description="This workspace has no records. Each workspace keeps its own queue."
                   />
                 </div>
               )}
@@ -165,23 +165,37 @@ export function Overview() {
             <aside className="flex flex-col gap-5">
               <Card className="workspace-panel border-signal/20 bg-signal-surface/40">
                 <CardHeader>
-                  <Badge
-                    variant="outline"
-                    className="mb-3 w-fit border-signal/20 bg-signal-surface text-xs text-signal"
-                  >
-                    <ShieldCheck className="mr-1 size-3" />A deliberate pause
-                  </Badge>
-                  <CardTitle className="font-heading text-2xl leading-tight font-medium tracking-tight">
-                    Good judgment
-                    <br />
-                    is part of the workflow.
-                  </CardTitle>
+                  <div className="mb-4 flex items-center gap-3">
+                    <CompanyMark
+                      profile={profile}
+                      className="size-11 rounded-xl"
+                    />
+                    <div className="min-w-0">
+                      <p className="text-xs text-muted-foreground">
+                        Your company workspace
+                      </p>
+                      <CardTitle
+                        className="mt-1 truncate font-heading text-xl font-medium"
+                        title={workspace.name}
+                      >
+                        {workspace.name}
+                      </CardTitle>
+                    </div>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-[13px] leading-relaxed text-muted-foreground">
-                    Review the source, check the recommendation, and make the
-                    decision.
+                    Keep your company identity and support details together.
+                    Connections and subscriptions are not active yet.
                   </p>
+                  <ButtonLink
+                    variant="outline"
+                    href="/company"
+                    prefetch={false}
+                    className="mt-4 h-11 w-full justify-between rounded-xl bg-transparent text-[13px]"
+                  >
+                    Company profile <Building2 className="size-3.5" />
+                  </ButtonLink>
                   {nextReview && (
                     <ButtonLink
                       href={`/tickets/${nextReview.id}`}
@@ -207,8 +221,17 @@ export function Overview() {
                   Start with the source
                 </div>
                 <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-                  The knowledge library holds three policies for the support
-                  cases.
+                  {
+                    new Set(
+                      data.flatMap((ticket) =>
+                        ticket.evidence
+                          .filter((source) => source.kind === "policy")
+                          .map((source) => source.reference)
+                      )
+                    ).size
+                  }{" "}
+                  policies available in this workspace. Review the source before
+                  making a decision.
                 </p>
                 <Link
                   href="/knowledge"

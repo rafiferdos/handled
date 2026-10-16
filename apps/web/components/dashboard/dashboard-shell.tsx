@@ -1,13 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {
   Activity,
   ArrowUpRight,
   BookOpen,
-  ChevronRight,
+  Building2,
   Inbox,
   LayoutDashboard,
   Menu,
@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
-import { sampleWorkspaces } from "@/lib/api/sample-adapter"
+import { CompanyMark } from "./company-mark"
 import { useWorkspace } from "./workspace-provider"
 import { cn } from "@/lib/utils"
 
@@ -43,16 +43,17 @@ const navigation = [
   { label: "Ticket inbox", href: "/tickets", icon: Inbox },
   { label: "Knowledge", href: "/knowledge", icon: BookOpen },
   { label: "Activity", href: "/activity", icon: Activity },
+  { label: "Company", href: "/company", icon: Building2 },
   { label: "Settings", href: "/settings", icon: Settings2 },
 ]
 
 function WorkspacePicker() {
-  const { workspace, switchWorkspace } = useWorkspace()
+  const { workspace, workspaces, profile, switchWorkspace } = useWorkspace()
   return (
     <Select
       value={workspace.id}
       onValueChange={(value) => value && switchWorkspace(value)}
-      items={sampleWorkspaces.map((item) => ({
+      items={workspaces.map((item) => ({
         value: item.id,
         label: item.name,
       }))}
@@ -61,17 +62,19 @@ function WorkspacePicker() {
         className="workspace-picker glass-inset w-full rounded-xl border bg-background px-3 text-sm data-[size=default]:h-13"
         aria-label="Select workspace"
       >
-        <div className="flex items-center gap-2.5">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-signal-surface text-xs font-semibold text-signal">
-            {workspace.initials}
-          </span>
-          <SelectValue />
+        <div className="flex min-w-0 items-center gap-2.5">
+          <CompanyMark profile={profile} />
+          <SelectValue className="truncate" />
         </div>
       </SelectTrigger>
       <SelectContent alignItemWithTrigger={false}>
-        {sampleWorkspaces.map((item) => (
-          <SelectItem key={item.id} value={item.id} className="min-h-11">
-            {item.name}
+        {workspaces.map((item) => (
+          <SelectItem
+            key={item.id}
+            value={item.id}
+            className="min-h-11 max-w-72"
+          >
+            <span className="truncate">{item.name}</span>
           </SelectItem>
         ))}
       </SelectContent>
@@ -96,6 +99,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
             <Link
               key={item.href}
               href={item.href}
+              prefetch={item.href === "/company" ? false : undefined}
               onClick={onNavigate}
               aria-current={active ? "page" : undefined}
               className={cn(
@@ -141,6 +145,20 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 export function DashboardShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
+  const { workspace } = useWorkspace()
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1024px)")
+    const closeOnDesktop = () => {
+      if (desktop.matches) setOpen(false)
+    }
+    const close = () => setOpen(false)
+    desktop.addEventListener("change", closeOnDesktop)
+    window.addEventListener("popstate", close)
+    return () => {
+      desktop.removeEventListener("change", closeOnDesktop)
+      window.removeEventListener("popstate", close)
+    }
+  }, [])
   const page =
     navigation.find(
       (item) => pathname === item.href || pathname.startsWith(`${item.href}/`)
@@ -179,13 +197,18 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
                 <SidebarContent onNavigate={() => setOpen(false)} />
               </SheetContent>
             </Sheet>
-            <span className="hidden text-[13px] text-muted-foreground sm:inline">
-              Workspace
-            </span>
-            <ChevronRight className="hidden size-3 text-muted-foreground sm:block" />
-            <span className="truncate text-[13px] font-medium">{page}</span>
+            <div className="min-w-0">
+              <p
+                data-company-name
+                className="max-w-[15rem] truncate text-[13px] font-semibold"
+                title={workspace.name}
+              >
+                {workspace.name}
+              </p>
+              <p className="mt-0.5 text-xs text-muted-foreground">{page}</p>
+            </div>
           </div>
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-4">
             <ThemeToggle />
             <Link
               href="/"

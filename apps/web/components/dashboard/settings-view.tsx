@@ -2,7 +2,8 @@
 
 import { useSyncExternalStore } from "react"
 import { useTheme } from "next-themes"
-import { Monitor, ShieldCheck } from "lucide-react"
+import { ArrowUpRight, Monitor, ShieldCheck } from "lucide-react"
+import { ButtonLink } from "@/components/shared/button-link"
 import { PageHeading } from "./page-heading"
 import { useWorkspace } from "./workspace-provider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -34,7 +35,7 @@ export function SettingsView() {
       <PageHeading
         eyebrow={`${workspace.name} / Settings`}
         title="Make a little room for your way."
-        description="Choose an appearance for this browser. Workspace details are read-only."
+        description="Choose an appearance for this browser and find your company profile."
       />
       <div className="grid items-start gap-6 xl:grid-cols-2">
         <Card className="workspace-panel">
@@ -112,6 +113,14 @@ export function SettingsView() {
                 className="h-11 rounded-xl bg-muted/20 font-mono text-xs"
               />
             </div>
+            <ButtonLink
+              href="/company"
+              prefetch={false}
+              variant="outline"
+              className="h-11 w-full justify-between rounded-xl text-sm"
+            >
+              Edit company profile <ArrowUpRight className="size-4" />
+            </ButtonLink>
             <p className="flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
               <ShieldCheck className="mt-0.5 size-4 shrink-0" />
               Member invitations and role changes are not available yet.
