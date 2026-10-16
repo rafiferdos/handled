@@ -121,7 +121,7 @@ export function WorkflowArtwork({
           <BookOpen className="size-3.5" /> PUBLISHED KNOWLEDGE
         </p>
         <p className="workflow-knowledge-title">Duplicate-charge policy</p>
-        <p className="mt-2 font-mono text-[10px] text-muted-foreground">
+        <p className="workflow-knowledge-version mt-2 font-mono text-[11px] text-muted-foreground">
           KB-REFUND · version 1
         </p>
         <span className="workflow-source-status">

@@ -40,7 +40,7 @@ function ContextDiagram() {
           <span>01</span>
         </div>
         <p className="trust-source-quote">“I was charged twice.”</p>
-        <p className="trust-source-id">TKT-1001 / TWO SOURCES</p>
+        <p className="trust-source-id">TKT-1001</p>
       </div>
       <div className="trust-source-sheet trust-source-record">
         <div className="trust-source-sheet-label">

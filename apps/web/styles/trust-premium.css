@@ -46,7 +46,7 @@
   color: var(--muted-foreground);
 }
 .trust-premium .trust-chapter-header .eyebrow {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.14em;
 }
 .trust-premium .trust-chapter-index {
@@ -155,7 +155,7 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.4;
   font-weight: 500;
 }
@@ -185,7 +185,7 @@
   border-top: 1px solid var(--trust-line);
   color: var(--muted-foreground);
   font:
-    8px var(--font-mono),
+    11px / 1.5 var(--font-mono),
     monospace;
 }
 .trust-premium .trust-source-payments {
@@ -194,7 +194,7 @@
   margin-top: 17px;
   color: var(--muted-foreground);
   font:
-    9px var(--font-mono),
+    11px / 1.5 var(--font-mono),
     monospace;
 }
 .trust-premium .trust-source-payments > p {
@@ -240,7 +240,7 @@
   background: var(--glass-solid);
   color: var(--muted-foreground);
   font:
-    8px var(--font-mono),
+    11px / 1.5 var(--font-mono),
     monospace;
   letter-spacing: 0.04em;
 }
@@ -269,7 +269,7 @@
   height: 15px;
 }
 .trust-premium .trust-source-knowledge > div > p {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
 }
 .trust-premium .trust-source-knowledge > div > span {
@@ -277,7 +277,7 @@
   margin-top: 7px;
   color: var(--muted-foreground);
   font:
-    8px var(--font-mono),
+    11px / 1.5 var(--font-mono),
     monospace;
 }
 .trust-premium .trust-source-status {
@@ -295,7 +295,7 @@
   margin-top: 32px;
   color: var(--muted-foreground);
   font:
-    8px var(--font-mono),
+    11px / 1.5 var(--font-mono),
     monospace;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -385,7 +385,7 @@
   display: block;
   margin-top: 6px;
   color: #b5c6bc;
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.5;
 }
 .trust-premium .trust-recommendation-check {
@@ -424,7 +424,7 @@
   gap: 8px;
   color: #c5f4d8;
   font:
-    8px var(--font-mono),
+    11px / 1.5 var(--font-mono),
     monospace;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -464,7 +464,7 @@
   border: 1px solid #deffec21;
   border-radius: 8px;
   color: #c4d5ca;
-  font-size: 9px;
+  font-size: 11px;
 }
 .trust-premium .trust-decision-option-active {
   background: #bff5d4;
@@ -479,7 +479,7 @@
   margin-top: 23px;
   color: #b5c6bc;
   font:
-    8px var(--font-mono),
+    11px / 1.5 var(--font-mono),
     monospace;
   letter-spacing: 0.12em;
   text-align: center;
@@ -487,9 +487,11 @@
 }
 .trust-premium .trust-provenance-panel {
   padding-block: 32px;
-  background:
-    radial-gradient(ellipse at 100% 0%, var(--glass-ambient), transparent 60%),
-    var(--glass-sheet);
+  border-inline: 0;
+  border-bottom: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 .trust-premium .trust-provenance-content {
   display: grid;
@@ -499,23 +501,19 @@
 }
 .trust-premium .trust-provenance-heading {
   display: flex;
-  align-items: center;
-  gap: 22px;
+  align-items: flex-start;
+  gap: 16px;
   min-width: 0;
 }
 .trust-premium .trust-provenance-number {
-  color: transparent;
-  -webkit-text-stroke: 1px color-mix(in oklch, var(--signal) 38%, transparent);
-  font-family: var(--font-heading);
-  font-size: 76px;
-  line-height: 1;
-  font-weight: 500;
-  letter-spacing: -0.08em;
+  margin-top: 1px;
+  color: var(--signal);
+  font: 11px / 1.5 var(--font-mono), monospace;
 }
 .trust-premium .trust-provenance-heading .eyebrow {
   margin-bottom: 14px;
   color: var(--muted-foreground);
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.12em;
 }
 .trust-premium .trust-provenance-heading h3 {
@@ -563,7 +561,7 @@
   min-width: 0;
 }
 .trust-premium .trust-evidence-title > p {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
 }
 .trust-premium .trust-evidence-title > span {
@@ -571,7 +569,7 @@
   margin-top: 7px;
   color: var(--muted-foreground);
   font:
-    8px / 1.5 var(--font-mono),
+    11px / 1.5 var(--font-mono),
     monospace;
 }
 .trust-premium .trust-evidence-badge {
@@ -580,7 +578,7 @@
   border-color: var(--trust-line);
   padding: 5px 7px;
   color: var(--signal);
-  font-size: 8px;
+  font-size: 11px;
 }
 .trust-premium .trust-evidence-badge > svg {
   width: 11px;
@@ -673,74 +671,128 @@
     font-size: clamp(30px, 8.3vw, 42px);
   }
   .trust-premium .trust-panel-description {
-    font-size: 12px;
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.65;
   }
   .trust-premium .trust-source-scene {
-    margin-top: 25px;
-    padding-inline: 1px;
-    gap: 19px 10px;
+    margin-top: 22px;
+    padding: 0;
+    gap: 12px 10px;
+  }
+  .trust-premium .trust-source-grid,
+  .trust-premium .trust-source-orbit,
+  .trust-premium .trust-source-connectors,
+  .trust-premium .trust-source-center {
+    display: none;
   }
   .trust-premium .trust-source-sheet {
-    padding: 13px 11px;
-    border-radius: 13px;
+    padding: 14px 11px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+  .trust-premium .trust-source-question,
+  .trust-premium .trust-source-record {
+    align-self: stretch;
+    margin-top: 0;
+    transform: none;
   }
   .trust-premium .trust-source-sheet-label {
     gap: 5px;
-    font-size: 9px;
+    align-items: flex-start;
+    font-size: 11px;
+  }
+  .trust-premium .trust-source-sheet-label > svg {
+    margin-top: 1px;
   }
   .trust-premium .trust-source-sheet-label > span {
     display: none;
   }
   .trust-premium .trust-source-id {
-    font-size: 7px;
+    margin-top: 12px;
+    padding-top: 8px;
   }
   .trust-premium .trust-source-quote {
+    margin-top: 12px;
     font-size: 16px;
   }
+  .trust-premium .trust-source-payments {
+    gap: 8px;
+    margin-top: 14px;
+  }
   .trust-premium .trust-source-knowledge {
-    width: 94%;
+    width: 100%;
     gap: 9px;
-    padding: 14px;
+    padding: 12px 11px;
+    margin-top: 0;
   }
   .trust-premium .trust-source-knowledge-icon {
     width: 29px;
     height: 34px;
   }
   .trust-premium .trust-source-knowledge > div > p {
-    font-size: 9px;
+    font-size: 12px;
   }
   .trust-premium .trust-source-knowledge > div > span {
-    font-size: 7px;
-  }
-  .trust-premium .trust-source-orbit {
-    width: 170px;
+    margin-top: 4px;
+    font-size: 11px;
   }
   .trust-premium .trust-context-caption {
-    margin-top: 26px;
-    font-size: 7px;
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 0;
   }
   .trust-premium .trust-decision-scene {
-    margin-top: 32px;
+    margin-top: 24px;
+  }
+  .trust-premium .trust-decision-halo,
+  .trust-premium .trust-decision-bridge,
+  .trust-premium .trust-decision-caption {
+    display: none;
+  }
+  .trust-premium .trust-recommendation {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+  .trust-premium .trust-recommendation > div > span {
+    margin-top: 4px;
   }
   .trust-premium .trust-decision-card {
-    padding: 21px;
+    padding: 18px;
+    border-radius: 16px;
   }
   .trust-premium .trust-decision-title {
-    font-size: 35px;
+    margin-top: 14px;
+    font-size: 30px;
+  }
+  .trust-premium .trust-decision-options {
+    margin-top: 18px;
+  }
+  .trust-premium .trust-provenance-panel {
+    padding: 22px 0 0;
+    border-radius: 0;
+  }
+  .trust-premium .trust-provenance-content {
+    gap: 22px;
   }
   .trust-premium .trust-provenance-heading {
     align-items: flex-start;
     gap: 14px;
   }
   .trust-premium .trust-provenance-number {
-    font-size: 53px;
+    font-size: 11px;
   }
   .trust-premium .trust-provenance-heading h3 {
     font-size: clamp(22px, 5.5vw, 29px);
   }
   .trust-premium .trust-provenance-heading .eyebrow {
-    margin-top: 3px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   .trust-premium .trust-evidence-document {
     gap: 10px;
@@ -751,10 +803,10 @@
     height: 38px;
   }
   .trust-premium .trust-evidence-title > p {
-    font-size: 10px;
+    font-size: 12px;
   }
   .trust-premium .trust-evidence-title > span {
-    font-size: 7px;
+    font-size: 11px;
   }
   .trust-premium .trust-evidence-badge {
     padding: 5px;

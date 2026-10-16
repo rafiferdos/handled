@@ -83,16 +83,12 @@ export function WorkflowMap() {
                   <p className="workflow-chapter-detail">{stage.detail}</p>
                   <h3 className="workflow-chapter-title">{stage.title}</h3>
                   <p className="workflow-chapter-copy">{stage.copy}</p>
-                  <div className="workflow-chapter-footer" aria-hidden="true">
-                    <span />
-                    {stage.n} / 04
-                  </div>
                 </div>
               </li>
             ))}
           </ol>
         </WorkflowStory>
-        <p className="mt-6 flex items-center justify-between gap-5 border-t pt-5 font-mono text-[9px] text-muted-foreground">
+        <p className="workflow-section-note mt-6 flex items-center justify-between gap-5 border-t pt-5 font-mono text-[11px] text-muted-foreground">
           <span>CONTEXT → EVIDENCE → JUDGMENT → OUTCOME</span>
           <span className="hidden items-center gap-2 sm:flex">
             <span className="size-1.5 rounded-full bg-signal" />
