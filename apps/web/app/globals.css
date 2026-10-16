@@ -8,6 +8,7 @@
 @import "../styles/workflow-story.css";
 @import "../styles/scroll-typography.css";
 @import "../styles/glass-system.css";
+@import "../styles/hero-studio.css";
 
 @custom-variant dark (&:is(.dark *));
 

@@ -2,14 +2,20 @@ import { expect, test } from "@playwright/test"
 
 test("hero annotations retain frosted transparency", async ({ page }) => {
   await page.goto("/")
-  const material = await page
-    .locator(".hero-proof-card")
-    .evaluate((element) => {
-      const style = getComputedStyle(element)
-      return { fill: style.backgroundColor, filter: style.backdropFilter }
-    })
-  expect(material.filter).toContain("blur(")
-  expect(material.fill).toMatch(/\/\s*0?\.\d+\)/)
+  await expect
+    .poll(() =>
+      page
+        .locator(".hero-proof-card")
+        .evaluate((element) => getComputedStyle(element).backdropFilter)
+    )
+    .toContain("blur(")
+  await expect
+    .poll(() =>
+      page
+        .locator(".hero-proof-card")
+        .evaluate((element) => getComputedStyle(element).backgroundColor)
+    )
+    .toMatch(/\/\s*0?\.\d+\)/)
 })
 
 test("the scroll story reaches a visible outcome and becomes a normal reading flow with reduced motion", async ({

@@ -5,7 +5,7 @@ test("marketing artwork stays contained across tablet breakpoints", async ({
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" })
   await page.goto("/")
-  for (const width of [1024, 1200, 900, 1100, 768, 1440, 390]) {
+  for (const width of [1024, 1200, 900, 1100, 768, 1440, 390, 320]) {
     await page.setViewportSize({ width, height: 900 })
     await expect
       .poll(
@@ -16,6 +16,29 @@ test("marketing artwork stays contained across tablet breakpoints", async ({
         { message: `No sideways scroll at ${width}px` }
       )
       .toBeLessThanOrEqual(0)
+    const sheets = await page.evaluate(() => {
+      const stage = document
+        .querySelector(".hero-visual")!
+        .getBoundingClientRect()
+      const dossier = document
+        .querySelector(".hero-proof-card")!
+        .getBoundingClientRect()
+      const policy = document
+        .querySelector(".hero-policy-sheet")!
+        .getBoundingClientRect()
+      return {
+        gap: policy.top - dossier.bottom,
+        bottom: stage.bottom - policy.bottom,
+      }
+    })
+    expect(
+      sheets.gap,
+      `Policy clears the review card at ${width}px`
+    ).toBeGreaterThan(8)
+    expect(
+      sheets.bottom,
+      `Policy stays inside the stage at ${width}px`
+    ).toBeGreaterThanOrEqual(0)
   }
 })
 
