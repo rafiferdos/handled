@@ -152,3 +152,9 @@ Separate headless checks cover eight widths from 320–1440px, no horizontal ove
 Three fresh baseline/final production probes under 4× CPU observed encoded loaded scripts 415,419→415,098 B (−321 B), median local LCP 196→196 ms, CLS 0→0, long-task excess 85→75 ms and median scroll gaps above 34 ms 0→0. These same-session local observations include prefetch; they are not field-performance guarantees. [All runs and limits](evidence/navbar-performance.json).
 
 [Desktop](screenshots/navbar-desktop.png) · [Header detail](screenshots/navbar-detail.png) · [Current page](screenshots/navbar-active.png) · [Light theme](screenshots/navbar-light.png) · [Mobile](screenshots/navbar-mobile.png) · [Mobile menu](screenshots/navbar-mobile-menu.png).
+
+## Copy clarity and design review — 16 October 2026
+
+Repeated Sample badges, decorative workflow labels, KPI markers and generic sample CTAs now use normal product copy. The interactive showcase and shared workspace retain concise example/local-action status. Authentication results, unsent replies and decision rehearsals still state their actual outcomes. Data adapters, isolation, API integration and action behavior remain unchanged.
+
+Final frontend lint, typecheck, 14 transport/isolation tests and production build pass. Production browser suite: **47 passed, seven intentional device-specific skips**. Fresh default-state layout checks cover 12 routes at 390, 900 and 1440px with no horizontal overflow, page errors or visible Sample wording. Desktop/mobile screenshots support a detailed editorial design review, including a separate 1200px recommendation layout observation. [Review, ratings and proposed refinements](design-review-2026-10-16.md) · [Layout evidence](evidence/design-audit-layout.json). The proposed geometry refinements are not implemented as part of the copy release.

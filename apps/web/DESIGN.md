@@ -73,3 +73,7 @@ Use a floating frosted shell with a clear brand, visible direct destinations and
 Show desktop navigation from 1024px. Smaller widths use a visible **Menu** label and a spacious sheet with icon/description rows, login and the same **Explore Handled** action. All navigation targets are at least 44px high. Keep the close control visible in short windows, restore trigger focus on Escape, close on destination/history changes and close the sheet when resizing to desktop. Clear anchor destinations below the sticky header.
 
 Navigation glass uses a bounded, static 16px frost and high-fill light/dark surfaces. Mobile reading panels use solid contrast. Reduced transparency removes the filter, reduced motion removes transitions, and forced colors use system surfaces. Focus rings and concise accessible names remain explicit. No dependency or scroll-driven React state is introduced.
+
+## Public copy and environment status
+
+Use ordinary product labels for headings, navigation and calls to action. Avoid repeating Sample, Preview or implementation disclaimers on every card. Place one concise environment status around an interactive example and one shared status in the workspace. Keep action-specific facts where they help a person decide: sign-in is unavailable, replies are not sent and local decision rehearsals do not change accounts. Never replace those facts with a success claim. Technical architecture belongs in documentation rather than product reading flows.
