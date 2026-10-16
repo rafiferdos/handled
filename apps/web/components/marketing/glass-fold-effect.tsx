@@ -12,13 +12,14 @@ export default function GlassFoldEffect({
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center center"],
+    offset: ["start end", "start 12%"],
   })
-  const rotateX = useTransform(scrollYProgress, [0, 1], [9, 0])
-  const y = useTransform(scrollYProgress, [0, 1], [32, 0])
+  const rotateX = useTransform(scrollYProgress, [0, 1], [16, 0])
+  const y = useTransform(scrollYProgress, [0, 1], [72, 0])
+  const scale = useTransform(scrollYProgress, [0, 1], [0.92, 1])
   return (
     <div ref={ref} style={{ perspective: 1400 }}>
-      <m.div style={{ rotateX, y, transformOrigin: "center bottom" }}>
+      <m.div style={{ rotateX, y, scale, transformOrigin: "center bottom" }}>
         {children}
       </m.div>
     </div>

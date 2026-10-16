@@ -1,5 +1,4 @@
 import {
-  ArrowDownRight,
   ArrowUpRight,
   BookOpen,
   FileCheck2,
@@ -7,7 +6,8 @@ import {
   ShieldCheck,
 } from "lucide-react"
 import { ButtonLink } from "@/components/shared/button-link"
-import { Reveal } from "@/components/motion/reveal"
+import { ScrollHeading } from "@/components/motion/scroll-heading"
+import { WorkflowStory } from "./workflow-story"
 
 const stages = [
   {
@@ -42,68 +42,57 @@ const stages = [
 
 export function WorkflowMap() {
   return (
-    <section className="story-workflow relative overflow-hidden border-y py-20 md:py-28">
+    <section className="story-workflow workflow-section relative border-y py-20 md:py-28">
+      <div className="workflow-ambient" aria-hidden="true" />
       <div className="page-container relative">
-        <Reveal
-          preset="rise"
-          className="grid gap-7 md:grid-cols-[1fr_auto] md:items-end"
-        >
+        <div className="grid gap-7 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="eyebrow mb-5 flex items-center gap-3 text-muted-foreground">
               <span className="h-px w-7 bg-signal" />
               One workspace. Fewer loose ends.
             </p>
-            <h2 className="max-w-2xl font-heading text-[2.6rem] leading-[1.04] font-medium tracking-[-0.05em] md:text-6xl">
-              A better rhythm
-              <br />
-              for the actual work.
-            </h2>
+            <ScrollHeading
+              as="h2"
+              text="A better rhythm for the actual work."
+              mode="highlight"
+              className="max-w-2xl font-heading text-[2.6rem] leading-[1.04] font-medium tracking-[-0.05em] md:text-6xl"
+            />
           </div>
           <ButtonLink
             variant="outline"
             href="/how-it-works"
-            className="h-11 w-fit rounded-full border-foreground/20 bg-transparent px-5 text-xs"
+            className="glass-inset h-11 w-fit rounded-full px-5 text-xs"
           >
             Follow the process
             <ArrowUpRight className="ml-5 size-3.5" />
           </ButtonLink>
-        </Reveal>
-        <Reveal preset="panel" className="mt-12 md:mt-16">
-          <ol className="story-workflow-rail grid gap-px overflow-hidden rounded-2xl border bg-border sm:grid-cols-2 lg:grid-cols-4">
-            {stages.map((stage, index) => (
-              <li
-                key={stage.n}
-                className={
-                  index === 2
-                    ? "story-workflow-decision relative flex min-h-[310px] flex-col bg-signal-surface p-6 md:min-h-[340px] md:p-7"
-                    : "relative flex min-h-[310px] flex-col bg-background p-6 md:min-h-[340px] md:p-7"
-                }
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <span className="story-chapter-number font-heading text-[4.5rem] leading-none font-medium tracking-[-0.08em]">
-                    {stage.n}
-                  </span>
-                  <stage.icon className="mt-2 size-5 text-signal" />
-                </div>
-                <div className="mt-8">
-                  <h3 className="font-heading text-[1.65rem] leading-tight font-medium tracking-[-0.035em]">
+        </div>
+        <WorkflowStory>
+          <ol className="workflow-steps">
+            {stages.map((stage) => (
+              <li key={stage.n} className="workflow-step">
+                <div className="workflow-step-card glass-panel">
+                  <div className="mb-7 flex items-start justify-between gap-4">
+                    <span className="story-chapter-number font-heading text-[4rem] leading-none font-medium tracking-[-0.08em]">
+                      {stage.n}
+                    </span>
+                    <span className="glass-inset flex size-11 items-center justify-center rounded-xl text-signal">
+                      <stage.icon className="size-5" />
+                    </span>
+                  </div>
+                  <p className="eyebrow mb-4 text-signal">{stage.detail}</p>
+                  <h3 className="font-heading text-3xl font-medium tracking-[-0.04em] lg:text-[2.6rem]">
                     {stage.title}
                   </h3>
-                  <p className="mt-3 max-w-[245px] text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-4 max-w-sm text-base leading-relaxed text-muted-foreground">
                     {stage.copy}
                   </p>
-                </div>
-                <div className="mt-auto flex items-center justify-between gap-3 border-t pt-5 text-signal">
-                  <p className="mt-5 font-mono text-[8px] tracking-[0.05em] uppercase">
-                    {stage.detail}
-                  </p>
-                  <ArrowDownRight className="mt-5 size-4 shrink-0" />
                 </div>
               </li>
             ))}
           </ol>
-        </Reveal>
-        <p className="mt-5 flex items-center justify-between gap-5 font-mono text-[9px] text-muted-foreground">
+        </WorkflowStory>
+        <p className="mt-6 flex items-center justify-between gap-5 border-t pt-5 font-mono text-[9px] text-muted-foreground">
           <span>CONTEXT → EVIDENCE → JUDGMENT → OUTCOME</span>
           <span className="hidden items-center gap-2 sm:flex">
             <span className="size-1.5 rounded-full bg-signal" />

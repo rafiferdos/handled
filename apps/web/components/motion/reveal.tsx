@@ -1,7 +1,7 @@
 "use client"
 
 import * as m from "motion/react-m"
-import { useEnhancedMotion } from "@/hooks/use-enhanced-motion"
+import { useMotionAllowed } from "@/hooks/use-enhanced-motion"
 
 const entrances = {
   rise: { y: [14, 0], opacity: [0.65, 1] },
@@ -22,7 +22,7 @@ export function Reveal({
   delay?: number
   preset?: keyof typeof entrances
 }) {
-  const enhanced = useEnhancedMotion()
+  const enhanced = useMotionAllowed()
   return (
     <m.div
       className={className}
@@ -42,11 +42,13 @@ export function Reveal({
 }
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
-  const enhanced = useEnhancedMotion()
+  const enhanced = useMotionAllowed()
   return (
     <m.div
       initial={false}
-      animate={!enhanced ? { y: 0, opacity: 1 } : { y: [6, 0], opacity: [0.7, 1] }}
+      animate={
+        !enhanced ? { y: 0, opacity: 1 } : { y: [6, 0], opacity: [0.7, 1] }
+      }
       transition={{ duration: enhanced ? 0.25 : 0 }}
     >
       {children}

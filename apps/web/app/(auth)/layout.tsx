@@ -12,7 +12,7 @@ export default function AuthLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="grid min-h-svh lg:grid-cols-2">
+    <div className="auth-shell grid min-h-svh lg:grid-cols-2">
       <aside className="auth-composition relative hidden overflow-hidden p-12 text-[#f0f3f3] lg:flex lg:flex-col xl:p-16">
         <Brand className="relative z-10" />
         <div className="surface-grid pointer-events-none absolute inset-0 opacity-[0.035]" />
@@ -29,7 +29,7 @@ export default function AuthLayout({
             {[MessageSquare, BookOpen, ShieldCheck].map((Icon, index) => (
               <div key={index} className="flex items-center gap-3">
                 <div
-                  className={`flex size-14 items-center justify-center rounded-2xl border ${index === 2 ? "border-[#90bba8]/30 bg-[#90bba8]/10 text-[#b6d9c8]" : "border-white/10 bg-white/4 text-[#aabac0]"}`}
+                  className={`glass-inset glass-on-ink flex size-14 items-center justify-center rounded-2xl border ${index === 2 ? "border-[#90bba8]/30 bg-[#90bba8]/10 text-[#b6d9c8]" : "border-white/10 bg-white/4 text-[#aabac0]"}`}
                 >
                   <Icon className="size-5" />
                 </div>
@@ -57,7 +57,7 @@ export default function AuthLayout({
           Evidence-first. Human-controlled.
         </p>
       </aside>
-      <div className="flex min-h-svh flex-col">
+      <div className="auth-form-scene relative flex min-h-svh flex-col">
         <header className="flex items-center justify-between px-6 py-6 md:px-10">
           <Link
             href="/"
@@ -70,9 +70,11 @@ export default function AuthLayout({
         </header>
         <main
           id="main-content"
-          className="mx-auto flex w-full max-w-[500px] flex-1 flex-col justify-center px-6 py-12 md:px-10"
+          className="mx-auto flex w-full max-w-[548px] flex-1 flex-col justify-center px-3 py-12 sm:px-6 md:px-10"
         >
-          {children}
+          <div className="auth-glass-panel glass-panel rounded-[1.75rem] border p-6 sm:p-8">
+            {children}
+          </div>
         </main>
         <footer className="px-6 py-6 text-center text-[10px] text-muted-foreground">
           © 2026 Handled · Your next step, thoughtfully considered.

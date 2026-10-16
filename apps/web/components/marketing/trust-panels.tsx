@@ -25,7 +25,7 @@ function ContextDiagram() {
       <div className="absolute top-[37%] left-1/2 flex size-20 -translate-x-1/2 items-center justify-center rounded-full border border-signal/25 bg-signal-surface ring-8 ring-background/70">
         <BrandMark className="size-8 text-signal" />
       </div>
-      <div className="story-context-question absolute top-2 left-0 w-[48%] rounded-xl border bg-background p-3.5 sm:w-[44%] sm:p-4">
+      <div className="story-context-question glass-inset absolute top-2 left-0 w-[48%] rounded-xl border bg-background p-3.5 sm:w-[44%] sm:p-4">
         <p className="flex items-center gap-2 text-[11px] font-medium">
           <MessageSquare className="size-3.5 text-signal" />
           The question
@@ -38,7 +38,7 @@ function ContextDiagram() {
           TKT-1001 / SAMPLE
         </p>
       </div>
-      <div className="story-context-record absolute top-7 right-0 w-[46%] rounded-xl border bg-background p-3.5 sm:w-[42%] sm:p-4">
+      <div className="story-context-record glass-inset absolute top-7 right-0 w-[46%] rounded-xl border bg-background p-3.5 sm:w-[42%] sm:p-4">
         <p className="flex items-center gap-2 text-[11px] font-medium">
           <FileCheck2 className="size-3.5 text-signal" />
           Account context
@@ -52,7 +52,7 @@ function ContextDiagram() {
           </p>
         </div>
       </div>
-      <div className="absolute bottom-0 left-[15%] w-[70%] rounded-xl border bg-background p-4 sm:left-[20%] sm:w-[60%]">
+      <div className="glass-inset absolute bottom-0 left-[15%] w-[70%] rounded-xl border bg-background p-4 sm:left-[20%] sm:w-[60%]">
         <p className="flex items-center gap-2 text-[11px] font-medium">
           <BookOpen className="size-3.5 text-signal" />
           Published knowledge
@@ -74,7 +74,7 @@ function DecisionDiagram() {
       aria-hidden="true"
       className="mx-auto flex h-[270px] w-full max-w-[330px] flex-col items-center justify-center sm:h-[290px]"
     >
-      <div className="flex w-[90%] items-center gap-3 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3.5">
+      <div className="glass-inset glass-on-ink flex w-[90%] items-center gap-3 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3.5">
         <Sparkles className="story-signal-on-ink size-4" />
         <div className="flex-1">
           <p className="text-[11px] font-medium">A recommendation</p>
@@ -87,7 +87,7 @@ function DecisionDiagram() {
       <div className="flex h-10 items-center border-x border-dashed border-white/15 px-5">
         <ArrowDown className="size-3.5 text-white/45" />
       </div>
-      <div className="relative w-full rounded-2xl border border-white/20 bg-white/[0.06] p-4 sm:p-5">
+      <div className="glass-inset glass-on-ink relative w-full rounded-2xl border border-white/20 bg-white/[0.06] p-4 sm:p-5">
         <span className="story-signal-on-ink story-chip-on-ink absolute -top-2.5 right-4 rounded-full border px-2.5 py-1 font-mono text-[8px] uppercase">
           Human decision
         </span>
@@ -121,7 +121,7 @@ export function TrustPanels() {
   return (
     <div className="mt-12 grid gap-4 md:mt-16 md:grid-cols-12 md:gap-5">
       <Reveal preset="panel" className="min-w-0 md:col-span-7">
-        <Card className="story-trust-context material-panel relative h-full gap-0 p-6 shadow-none ring-0 sm:p-9">
+        <Card className="story-trust-context material-panel glass-panel relative h-full gap-0 p-6 shadow-none ring-0 sm:p-9">
           <CardContent className="relative p-0">
             <div className="mb-8 flex items-center justify-between border-b pb-4">
               <span className="eyebrow text-muted-foreground">
@@ -149,7 +149,7 @@ export function TrustPanels() {
         </Card>
       </Reveal>
       <Reveal preset="panel" delay={0.08} className="min-w-0 md:col-span-5">
-        <Card className="story-ink relative h-full gap-0 border p-6 shadow-none ring-0 sm:p-9">
+        <Card className="story-ink glass-dark-panel relative h-full gap-0 border p-6 shadow-none ring-0 sm:p-9">
           <CardContent className="p-0">
             <div className="mb-8 flex items-center justify-between border-b border-white/15 pb-4">
               <span className="eyebrow text-white/55">Deliberate control</span>
@@ -172,7 +172,7 @@ export function TrustPanels() {
         </Card>
       </Reveal>
       <Reveal preset="rise" className="md:col-span-12">
-        <Card className="material-panel gap-0 p-6 shadow-none ring-0 sm:p-9">
+        <Card className="material-panel glass-panel gap-0 p-6 shadow-none ring-0 sm:p-9">
           <CardContent className="grid items-center gap-8 p-0 md:grid-cols-[0.95fr_1.05fr] md:gap-16">
             <div className="flex items-start gap-5 sm:gap-7">
               <span

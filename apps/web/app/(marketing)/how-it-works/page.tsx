@@ -8,6 +8,7 @@ import {
 } from "lucide-react"
 import { ButtonLink } from "@/components/shared/button-link"
 import { Reveal } from "@/components/motion/reveal"
+import { ScrollHeading } from "@/components/motion/scroll-heading"
 
 export const metadata: Metadata = { title: "How it works" }
 const steps = [
@@ -52,11 +53,16 @@ export default function HowItWorksPage() {
           />
           How it works / Context to clarity
         </p>
-        <h1 className="max-w-5xl font-heading text-[clamp(2.8rem,6.6vw,6.4rem)] leading-[1.02] font-medium tracking-[-0.06em]">
-          From “what happened?”
-          <br />
-          <span className="text-signal">to a thoughtful next step.</span>
-        </h1>
+      </Reveal>
+      <ScrollHeading
+        as="h1"
+        className="max-w-5xl font-heading text-[clamp(2.8rem,6.6vw,6.4rem)] leading-[1.02] font-medium tracking-[-0.06em]"
+        text={[
+          { text: "From “what happened?”" },
+          { text: "to a thoughtful next step.", className: "text-signal" },
+        ]}
+      />
+      <Reveal delay={0.12}>
         <p className="mt-7 max-w-lg text-base leading-relaxed text-muted-foreground">
           Four connected stages. Clear evidence. A human decision at the center.
         </p>
@@ -78,9 +84,11 @@ export default function HowItWorksPage() {
                 </p>
               </div>
               <div>
-                <h2 className="max-w-xl font-heading text-[2rem] leading-[1.1] font-medium tracking-[-0.04em] md:text-[2.75rem]">
-                  {step.title}
-                </h2>
+                <ScrollHeading
+                  text={step.title}
+                  mode="highlight"
+                  className="max-w-xl font-heading text-[2rem] leading-[1.1] font-medium tracking-[-0.04em] md:text-[2.75rem]"
+                />
                 <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
                   {step.text}
                 </p>

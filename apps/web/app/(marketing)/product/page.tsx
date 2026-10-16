@@ -11,6 +11,7 @@ import { SectionHeading } from "@/components/shared/section-heading"
 import { ButtonLink } from "@/components/shared/button-link"
 import { ProductPreview } from "@/components/marketing/product-preview"
 import { Reveal } from "@/components/motion/reveal"
+import { ScrollHeading } from "@/components/motion/scroll-heading"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
@@ -130,14 +131,19 @@ export default function ProductPage() {
               <span className="size-1.5 rounded-full bg-signal" />
               The product / One connected workspace
             </p>
-            <h1 className="max-w-5xl font-heading text-[3.1rem] leading-[1.02] font-medium tracking-[-0.055em] sm:text-6xl md:text-[5.5rem] lg:text-[6.4rem]">
-              Less searching
-              <br />
-              for context.
-              <br />
-              <span className="text-muted-foreground">More room to help.</span>
-            </h1>
           </Reveal>
+          <ScrollHeading
+            as="h1"
+            className="max-w-5xl font-heading text-[3.1rem] leading-[1.02] font-medium tracking-[-0.055em] sm:text-6xl md:text-[5.5rem] lg:text-[6.4rem]"
+            text={[
+              { text: "Less searching" },
+              { text: "for context." },
+              {
+                text: "More room to help.",
+                className: "text-muted-foreground",
+              },
+            ]}
+          />
           <div className="mt-10 grid gap-9 md:mt-12 md:grid-cols-[1.05fr_0.95fr] md:gap-20">
             <Reveal preset="rise" delay={0.08}>
               <p className="max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -225,9 +231,11 @@ export default function ProductPage() {
                   <p className="eyebrow mb-3 text-muted-foreground">
                     {feature.label}
                   </p>
-                  <h3 className="max-w-md font-heading text-[1.9rem] leading-[1.08] font-medium tracking-[-0.04em] sm:text-4xl md:text-[clamp(1.7rem,2.8vw,2.25rem)]">
-                    {feature.title}
-                  </h3>
+                  <ScrollHeading
+                    as="h3"
+                    text={feature.title}
+                    className="max-w-md font-heading text-[1.9rem] leading-[1.08] font-medium tracking-[-0.04em] sm:text-4xl md:text-[clamp(1.7rem,2.8vw,2.25rem)]"
+                  />
                   <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
                     {feature.body}
                   </p>

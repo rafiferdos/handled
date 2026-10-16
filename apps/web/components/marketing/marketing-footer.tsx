@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react"
 import { Brand, BrandMark } from "@/components/shared/brand"
 import { ButtonLink } from "@/components/shared/button-link"
 import { Reveal } from "@/components/motion/reveal"
+import { ScrollHeading } from "@/components/motion/scroll-heading"
 
 export function MarketingFooter() {
   return (
@@ -21,11 +22,14 @@ export function MarketingFooter() {
             <p className="closing-caption eyebrow mb-7">
               Bring a little clarity to your queue
             </p>
-            <h2 className="max-w-2xl font-heading text-[clamp(2.7rem,6vw,5.6rem)] leading-[0.98] font-medium tracking-[-0.065em]">
-              Better support.
-              <br />
-              <span className="closing-subtitle">Still your call.</span>
-            </h2>
+            <ScrollHeading
+              mode="highlight"
+              className="max-w-2xl font-heading text-[clamp(2.7rem,6vw,5.6rem)] leading-[0.98] font-medium tracking-[-0.065em]"
+              text={[
+                { text: "Better support." },
+                { text: "Still your call.", className: "closing-subtitle" },
+              ]}
+            />
           </div>
           <div className="relative w-fit shrink-0">
             <ButtonLink

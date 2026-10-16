@@ -1,0 +1,249 @@
+.workflow-section {
+  isolation: isolate;
+}
+.workflow-ambient {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at 80% 45%,
+    color-mix(in oklch, var(--signal) 11%, transparent),
+    transparent 50%
+  );
+}
+.workflow-story {
+  margin-top: 3rem;
+}
+.workflow-steps {
+  display: grid;
+  gap: 1rem;
+}
+.workflow-step-card {
+  height: 100%;
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+}
+.workflow-scene-shell {
+  display: none;
+}
+.workflow-scene {
+  height: 100%;
+  border-radius: 2rem;
+  overflow: clip;
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(
+    ellipse at 80% 25%,
+    color-mix(in oklch, var(--signal) 18%, var(--background)),
+    var(--background) 70%
+  );
+}
+.workflow-scene-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--glass-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--glass-line) 1px, transparent 1px);
+  background-size: 52px 52px;
+  opacity: 0.25;
+  mask-image: linear-gradient(#000, transparent);
+}
+.workflow-scene-orbit {
+  position: absolute;
+  inset: 17% 10%;
+  border: 1px solid var(--glass-line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--signal);
+  opacity: 0.25;
+  transform: rotate(-25deg);
+  box-shadow:
+    0 0 0 3rem color-mix(in oklch, var(--signal) 4%, transparent),
+    0 0 0 6rem color-mix(in oklch, var(--signal) 2%, transparent);
+}
+.workflow-scene-caption {
+  position: absolute;
+  inset: 25px 25px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted-foreground);
+  font:
+    8px var(--font-mono),
+    monospace;
+  letter-spacing: 0.08em;
+}
+.workflow-layer {
+  --glass-inset-fill: color-mix(in oklab, var(--glass-solid) 96%, transparent);
+  --glass-sheet: color-mix(in oklab, var(--glass-solid) 98%, transparent);
+  position: absolute;
+  padding: 1.4rem;
+  border-radius: 1.25rem;
+  box-shadow:
+    inset 0 1px 0 var(--glass-glint),
+    0 22px 44px -32px #0008;
+}
+.workflow-art-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font:
+    9px var(--font-mono),
+    monospace;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+}
+.workflow-art-label span:last-child {
+  margin-left: auto;
+}
+.workflow-ticket {
+  left: 12%;
+  top: 22%;
+  width: 76%;
+  z-index: 1;
+}
+.workflow-records {
+  top: 12%;
+  right: 4%;
+  width: 58%;
+  z-index: 2;
+}
+.workflow-knowledge {
+  top: 54%;
+  left: 3%;
+  width: 58%;
+  z-index: 2;
+}
+.workflow-decision {
+  left: 9%;
+  top: 31%;
+  width: 82%;
+  z-index: 3;
+  border: 1px solid color-mix(in oklch, var(--signal) 36%, var(--border));
+}
+.workflow-receipt {
+  left: 16%;
+  top: 16%;
+  width: 72%;
+  z-index: 4;
+  background: linear-gradient(135deg, #d9fce8fc, #bff5d4fc);
+  border: 1px solid #f4fff7;
+  color: #153322;
+  padding: 1.75rem;
+  box-shadow:
+    inset 0 1px 0 white,
+    0 30px 65px -30px #0007;
+}
+.workflow-scene-progress {
+  position: absolute;
+  bottom: 55px;
+  inset-inline: 28px;
+  height: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+.workflow-scene-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--signal);
+  transform-origin: left;
+}
+.workflow-scene-footnote {
+  position: absolute;
+  inset: auto 28px 23px;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font:
+    8px var(--font-mono),
+    monospace;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+}
+.workflow-scene-footnote span {
+  color: var(--signal);
+}
+@media (min-width: 640px) {
+  .workflow-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) and (min-height: 700px) and (hover: hover) and (pointer: fine) {
+  .workflow-story {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 5rem);
+    margin-top: 4rem;
+  }
+  .workflow-steps {
+    display: block;
+  }
+  .workflow-step {
+    display: flex;
+    align-items: center;
+    min-height: 52svh;
+    padding-block: 2rem;
+  }
+  .workflow-step:first-child {
+    padding-top: 0;
+  }
+  .workflow-step:last-child {
+    padding-bottom: 0;
+  }
+  .workflow-step-card {
+    width: 100%;
+    height: auto;
+    padding: 2rem;
+  }
+  .workflow-scene-shell {
+    display: block;
+    position: sticky;
+    top: 112px;
+    height: min(640px, calc(100svh - 144px));
+  }
+  .workflow-scene[data-scene-static] .workflow-ticket {
+    transform: translate(-35px, -65px) rotate(-8deg) scale(0.86);
+    opacity: 0.5;
+  }
+  .workflow-scene[data-scene-static] .workflow-records {
+    transform: translate(0, -20px) rotate(3deg);
+    opacity: 0.65;
+  }
+  .workflow-scene[data-scene-static] .workflow-knowledge {
+    transform: translate(0, -15px) rotate(-4deg);
+    opacity: 0.65;
+  }
+  .workflow-scene[data-scene-static] .workflow-receipt {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .workflow-story {
+    display: block;
+  }
+  .workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .workflow-step {
+    min-height: 0;
+    padding: 0;
+  }
+  .workflow-step-card {
+    height: 100%;
+  }
+  .workflow-scene-shell {
+    display: none;
+  }
+}
+@media (max-width: 639px) {
+  .workflow-steps {
+    grid-template-columns: 1fr;
+  }
+}

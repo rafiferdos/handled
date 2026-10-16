@@ -8,6 +8,7 @@ import { TrustPanels } from "@/components/marketing/trust-panels"
 import { WorkflowMap } from "@/components/marketing/workflow-map"
 import { Faq } from "@/components/marketing/faq"
 import { Reveal } from "@/components/motion/reveal"
+import { ScrollHeading } from "@/components/motion/scroll-heading"
 
 export default function HomePage() {
   return (
@@ -21,14 +22,18 @@ export default function HomePage() {
               </span>
               A clearer way to support
             </p>
-            <h1 className="hero-headline font-heading font-medium">
-              Every answer.
-              <br />
-              <span className="hero-title-accent text-signal">
-                In good hands.
-              </span>
-            </h1>
           </Reveal>
+          <ScrollHeading
+            as="h1"
+            className="hero-headline font-heading font-medium"
+            text={[
+              { text: "Every answer." },
+              {
+                text: "In good hands.",
+                className: "hero-title-accent text-signal",
+              },
+            ]}
+          />
           <Reveal delay={0.09}>
             <p className="mt-7 max-w-[375px] text-sm leading-[1.85] text-muted-foreground md:mt-9 md:text-base">
               AI-assisted customer support, with evidence behind every answer
@@ -94,11 +99,17 @@ export default function HomePage() {
                 <span className="h-px w-7 bg-[#b7e9d0]/60" /> From a ticket to a
                 thoughtful resolution
               </p>
-              <h2 className="max-w-2xl font-heading text-[2.55rem] leading-[1.02] font-medium tracking-[-0.055em] md:text-[clamp(3rem,5.4vw,5rem)]">
-                Everything you need.
-                <br />
-                <span className="text-[#91a29a]">Nothing left to guess.</span>
-              </h2>
+              <ScrollHeading
+                mode="highlight"
+                className="max-w-2xl font-heading text-[2.55rem] leading-[1.02] font-medium tracking-[-0.055em] md:text-[clamp(3rem,5.4vw,5rem)]"
+                text={[
+                  { text: "Everything you need." },
+                  {
+                    text: "Nothing left to guess.",
+                    className: "text-[#91a29a]",
+                  },
+                ]}
+              />
             </div>
             <p className="max-w-[260px] border-l border-[#b7e9d0]/25 pl-5 text-sm leading-relaxed text-[#b5c1c7]">
               Three everyday questions. Explore the context behind each one, and

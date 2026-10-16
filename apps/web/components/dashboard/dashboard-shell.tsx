@@ -60,7 +60,7 @@ function WorkspacePicker() {
       }))}
     >
       <SelectTrigger
-        className="workspace-picker w-full rounded-xl border bg-background px-3 text-sm data-[size=default]:h-13"
+        className="workspace-picker glass-inset w-full rounded-xl border bg-background px-3 text-sm data-[size=default]:h-13"
         aria-label="Select preview workspace"
       >
         <div className="flex items-center gap-2.5">
@@ -119,7 +119,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
         })}
       </nav>
       <div className="mt-auto pt-10">
-        <div className="rounded-xl border bg-background p-4">
+        <div className="glass-inset rounded-xl border bg-background p-4">
           <ShieldCheck className="mb-3 size-4 text-signal" />
           <p className="text-xs font-medium">Human decisions, by design.</p>
           <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground">
@@ -154,11 +154,11 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
     )?.label ?? "Workspace"
   return (
     <div className="workspace-shell min-h-svh bg-background">
-      <aside className="workspace-rail fixed inset-y-0 left-0 z-30 hidden w-64 border-r bg-sidebar lg:block">
+      <aside className="workspace-rail glass-rail fixed inset-y-0 left-0 z-30 hidden w-64 border-r bg-sidebar lg:block">
         <SidebarContent />
       </aside>
       <div className="min-w-0 lg:pl-64">
-        <header className="workspace-header sticky top-0 z-20 flex h-18 items-center justify-between gap-3 border-b bg-background px-5 md:px-8">
+        <header className="workspace-header glass-chrome sticky top-0 z-20 flex h-18 items-center justify-between gap-3 border-b bg-background px-5 md:px-8">
           <div className="flex min-w-0 items-center gap-3">
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger
@@ -175,7 +175,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
               </SheetTrigger>
               <SheetContent
                 side="left"
-                className="workspace-rail w-[280px] bg-sidebar p-0"
+                className="workspace-rail glass-rail w-[280px] bg-sidebar p-0"
               >
                 <SheetHeader className="sr-only">
                   <SheetTitle>Workspace navigation</SheetTitle>
