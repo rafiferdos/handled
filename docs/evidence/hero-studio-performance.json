@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "9234b83ac2d7d440d2e27e23f1a9253838b9f095",
+  "comparison": "Hero decision studio with stable scene DOM and bounded whole-scene pointer tilt",
+  "method": "Three cold local production loads plus a 120-frame full-page scroll, Chromium desktop1440x960,4x CPU, no network throttling. Local observations only; script resources include prefetch.",
+  "baselineSource": "Recorded previous release observations from docs/evidence/glass-performance.json after; not freshly rerun for this change. Timing comparisons may include environment variation.",
+  "limits": [
+    "Local lab observations, not field Web Vitals or universal device performance.",
+    "Recorded baseline and new observations use the same documented Chromium, viewport, CPU-throttle and scroll procedure, but were captured in separate sessions.",
+    "Median long-task excess is 86ms versus the recorded 54ms; the richer composition adds rendering work. No observed layout shift or scroll gaps above 34ms in the three new runs.",
+    "No new dependency. Loaded encoded script bodies decreased 1411 bytes compared with the recorded baseline; script totals include prefetch."
+  ],
+  "before": {
+    "label": "glass-after",
+    "method": "Three cold local production loads plus a 120-frame full-page scroll, Chromium desktop1440x960,4x CPU, no network throttling. Local observations only; script resources include prefetch.",
+    "runs": [
+      {
+        "lcp": 168,
+        "cls": 0,
+        "longTaskMs": 58,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 36,
+        "scriptEncodedBytes": 416723,
+        "externalResources": []
+      },
+      {
+        "lcp": 160,
+        "cls": 0,
+        "longTaskMs": 54,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 36,
+        "scriptEncodedBytes": 416723,
+        "externalResources": []
+      },
+      {
+        "lcp": 180,
+        "cls": 0,
+        "longTaskMs": 36,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 36,
+        "scriptEncodedBytes": 416723,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 168,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 416723,
+    "medianLongTaskMs": 54,
+    "medianScrollFrameGapsOver34Ms": 0
+  },
+  "after": {
+    "label": "hero-studio-after",
+    "method": "Three cold local production loads plus a 120-frame full-page scroll, Chromium desktop1440x960,4x CPU, no network throttling. Local observations only; script resources include prefetch.",
+    "runs": [
+      {
+        "lcp": 196,
+        "cls": 0,
+        "longTaskMs": 69,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415312,
+        "externalResources": []
+      },
+      {
+        "lcp": 180,
+        "cls": 0,
+        "longTaskMs": 95,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415312,
+        "externalResources": []
+      },
+      {
+        "lcp": 180,
+        "cls": 0,
+        "longTaskMs": 86,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415312,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 180,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 415312,
+    "medianLongTaskMs": 86,
+    "medianScrollFrameGapsOver34Ms": 0
+  }
+}

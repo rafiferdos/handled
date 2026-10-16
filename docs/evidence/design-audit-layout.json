@@ -1,0 +1,1670 @@
+{
+  "date": "2026-10-16",
+  "method": "Local production Chromium; reduced-motion static screenshots except explicit workflow .8 motion sample; dark/light; widths390,900,1440; source/CSS review supplements visual inspection.",
+  "observations": [
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "Every answer. In good hands.Every answer.In good hands.",
+        "fontSize": "43.68px",
+        "lineHeight": "42.8064px",
+        "x": 24,
+        "y": 180,
+        "width": 342,
+        "height": 86
+      },
+      "sections": [],
+      "smallText": [
+        {
+          "text": "CONTEXT TO CLARITY",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 285,
+          "y": 566,
+          "width": 81,
+          "height": 8
+        },
+        {
+          "text": "01 / THE CONVERSATION",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 58,
+          "y": 584,
+          "width": 122,
+          "height": 8
+        },
+        {
+          "text": "02 / PUBLISHED KNOWLEDGE",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 234,
+          "y": 833,
+          "width": 132,
+          "height": 8
+        },
+        {
+          "text": "CONTEXT",
+          "fontSize": "5px",
+          "lineHeight": "normal",
+          "x": 161,
+          "y": 762,
+          "width": 79,
+          "height": 6
+        },
+        {
+          "text": "CONNECTED",
+          "fontSize": "5px",
+          "lineHeight": "normal",
+          "x": 161,
+          "y": 772,
+          "width": 79,
+          "height": 6
+        },
+        {
+          "text": "THE INTELLIGENCE IS ASSISTED.",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 86,
+          "y": 925,
+          "width": 168,
+          "height": 8
+        },
+        {
+          "text": "Two sources. One clearer next step.",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 86,
+          "y": 965,
+          "width": 168,
+          "height": 14
+        },
+        {
+          "text": "EVIDENCE IN.",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 109,
+          "y": 1015,
+          "width": 55,
+          "height": 8
+        },
+        {
+          "text": "HUMAN JUDGMENT OUT.",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 193,
+          "y": 1015,
+          "width": 87,
+          "height": 8
+        },
+        {
+          "text": "01",
+          "fontSize": "10px",
+          "lineHeight": "normal",
+          "x": 24,
+          "y": 1208,
+          "width": 34,
+          "height": 34
+        },
+        {
+          "text": "THE QUESTION",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 24,
+          "y": 1490,
+          "width": 52,
+          "height": 8
+        },
+        {
+          "text": "THE EVIDENCE",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 175,
+          "y": 1490,
+          "width": 52,
+          "height": 8
+        },
+        {
+          "text": "YOUR CALL",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 327,
+          "y": 1490,
+          "width": 39,
+          "height": 8
+        },
+        {
+          "text": "01\u201403",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 26,
+          "y": 1539,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "text": "Choose a case",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 70,
+          "y": 1547,
+          "width": 85,
+          "height": 15
+        },
+        {
+          "text": "handled / acme-cloud",
+          "fontSize": "8px",
+          "lineHeight": "12px",
+          "x": 156,
+          "y": 1712,
+          "width": 100,
+          "height": 12
+        },
+        {
+          "text": "/",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 116,
+          "y": 1763,
+          "width": 6,
+          "height": 13
+        },
+        {
+          "text": "Awaiting review",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 54,
+          "y": 1789,
+          "width": 95,
+          "height": 20
+        }
+      ],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/product",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "Less searching for context. More room to help.Less searchingfor context.More room to help.",
+        "fontSize": "49.6px",
+        "lineHeight": "50.592px",
+        "x": 24,
+        "y": 221,
+        "width": 342,
+        "height": 202
+      },
+      "sections": [],
+      "smallText": [
+        {
+          "text": "01",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 24,
+          "y": 696,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "ACCOUNT CONTEXT",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 57,
+          "y": 696,
+          "width": 276,
+          "height": 15
+        },
+        {
+          "text": "02",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 24,
+          "y": 744,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "PUBLISHED KNOWLEDGE",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 57,
+          "y": 744,
+          "width": 276,
+          "height": 15
+        },
+        {
+          "text": "03",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 24,
+          "y": 792,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "YOUR DECISION",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 57,
+          "y": 792,
+          "width": 276,
+          "height": 15
+        },
+        {
+          "text": "THE WORKSPACE / A CLOSER LOOK",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 24,
+          "y": 945,
+          "width": 152,
+          "height": 14
+        },
+        {
+          "text": "01\u201403",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 26,
+          "y": 1021,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "text": "Choose a case",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 70,
+          "y": 1029,
+          "width": 85,
+          "height": 15
+        },
+        {
+          "text": "handled / acme-cloud",
+          "fontSize": "8px",
+          "lineHeight": "12px",
+          "x": 156,
+          "y": 1194,
+          "width": 100,
+          "height": 12
+        },
+        {
+          "text": "/",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 116,
+          "y": 1245,
+          "width": 6,
+          "height": 13
+        },
+        {
+          "text": "Awaiting review",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 54,
+          "y": 1271,
+          "width": 95,
+          "height": 20
+        },
+        {
+          "text": "MR",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 54,
+          "y": 1317,
+          "width": 36,
+          "height": 36
+        },
+        {
+          "text": "\u00b7",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 180,
+          "y": 1316,
+          "width": 3,
+          "height": 12
+        },
+        {
+          "text": "PAY-9001 / PAY-9002",
+          "fontSize": "9px",
+          "lineHeight": "12.8571px",
+          "x": 69,
+          "y": 1515,
+          "width": 252,
+          "height": 13
+        },
+        {
+          "text": "KB-REFUND-v1",
+          "fontSize": "9px",
+          "lineHeight": "12.8571px",
+          "x": 69,
+          "y": 1618,
+          "width": 252,
+          "height": 13
+        },
+        {
+          "text": "01",
+          "fontSize": "8px",
+          "lineHeight": "11.4286px",
+          "x": 80,
+          "y": 2791,
+          "width": 10,
+          "height": 11
+        },
+        {
+          "text": "02",
+          "fontSize": "8px",
+          "lineHeight": "11.4286px",
+          "x": 80,
+          "y": 2845,
+          "width": 10,
+          "height": 11
+        }
+      ],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/how-it-works",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "From \u201cwhat happened?\u201d to a thoughtful next step.From \u201cwhat happened?\u201dto a thoughtful next ",
+        "fontSize": "44.8px",
+        "lineHeight": "45.696px",
+        "x": 24,
+        "y": 205,
+        "width": 342,
+        "height": 183
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/login",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "A clearer day starts here.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 33,
+        "y": 186,
+        "width": 324,
+        "height": 89
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/signup",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "Put clarity on your team.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 33,
+        "y": 186,
+        "width": 324,
+        "height": 89
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/forgot-password",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "A fresh start.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 33,
+        "y": 242,
+        "width": 324,
+        "height": 45
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/dashboard",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "A clear view of what\u2019s next.",
+        "fontSize": "32px",
+        "lineHeight": "35.84px",
+        "x": 20,
+        "y": 223,
+        "width": 350,
+        "height": 36
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/tickets",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "One queue. The whole picture.",
+        "fontSize": "32px",
+        "lineHeight": "35.84px",
+        "x": 20,
+        "y": 223,
+        "width": 350,
+        "height": 72
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/knowledge",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "Start with a source you can trust.",
+        "fontSize": "32px",
+        "lineHeight": "35.84px",
+        "x": 20,
+        "y": 223,
+        "width": 350,
+        "height": 72
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/activity",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "A record of what really happened.",
+        "fontSize": "32px",
+        "lineHeight": "35.84px",
+        "x": 20,
+        "y": 223,
+        "width": 350,
+        "height": 72
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/settings",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "Make a little room for your way.",
+        "fontSize": "32px",
+        "lineHeight": "35.84px",
+        "x": 20,
+        "y": 223,
+        "width": 350,
+        "height": 72
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 390,
+      "overflow": 0,
+      "heading": {
+        "text": "I was charged twice for my Pro plan.",
+        "fontSize": "30px",
+        "lineHeight": "37.5px",
+        "x": 20,
+        "y": 274,
+        "width": 350,
+        "height": 75
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "Every answer. In good hands.Every answer.In good hands.",
+        "fontSize": "55.8px",
+        "lineHeight": "54.684px",
+        "x": 48,
+        "y": 296,
+        "width": 305,
+        "height": 109
+      },
+      "sections": [],
+      "smallText": [
+        {
+          "text": "CONTEXT TO CLARITY",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 771,
+          "y": 227,
+          "width": 81,
+          "height": 8
+        },
+        {
+          "text": "01 / THE CONVERSATION",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 499,
+          "y": 244,
+          "width": 122,
+          "height": 8
+        },
+        {
+          "text": "02 / PUBLISHED KNOWLEDGE",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 720,
+          "y": 494,
+          "width": 132,
+          "height": 8
+        },
+        {
+          "text": "CONTEXT",
+          "fontSize": "5px",
+          "lineHeight": "normal",
+          "x": 620,
+          "y": 426,
+          "width": 89,
+          "height": 6
+        },
+        {
+          "text": "CONNECTED",
+          "fontSize": "5px",
+          "lineHeight": "normal",
+          "x": 620,
+          "y": 436,
+          "width": 89,
+          "height": 6
+        },
+        {
+          "text": "THE INTELLIGENCE IS ASSISTED.",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 527,
+          "y": 586,
+          "width": 168,
+          "height": 8
+        },
+        {
+          "text": "Two sources. One clearer next step.",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 527,
+          "y": 626,
+          "width": 168,
+          "height": 14
+        },
+        {
+          "text": "EVIDENCE IN.",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 573,
+          "y": 676,
+          "width": 55,
+          "height": 8
+        },
+        {
+          "text": "HUMAN JUDGMENT OUT.",
+          "fontSize": "6px",
+          "lineHeight": "normal",
+          "x": 657,
+          "y": 676,
+          "width": 87,
+          "height": 8
+        },
+        {
+          "text": "01",
+          "fontSize": "10px",
+          "lineHeight": "normal",
+          "x": 48,
+          "y": 1015,
+          "width": 34,
+          "height": 34
+        },
+        {
+          "text": "THE QUESTION",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 155,
+          "y": 1250,
+          "width": 74,
+          "height": 10
+        },
+        {
+          "text": "THE EVIDENCE",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 422,
+          "y": 1250,
+          "width": 74,
+          "height": 10
+        },
+        {
+          "text": "YOUR CALL",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 689,
+          "y": 1250,
+          "width": 56,
+          "height": 10
+        },
+        {
+          "text": "01\u201403",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 50,
+          "y": 1322,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "text": "Choose a case",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 94,
+          "y": 1331,
+          "width": 85,
+          "height": 15
+        },
+        {
+          "text": "handled / acme-cloud",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 411,
+          "y": 1446,
+          "width": 100,
+          "height": 14
+        },
+        {
+          "text": "3",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 207,
+          "y": 1557,
+          "width": 6,
+          "height": 14
+        },
+        {
+          "text": "/",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 330,
+          "y": 1508,
+          "width": 6,
+          "height": 13
+        }
+      ],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/product",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "Less searching for context. More room to help.Less searchingfor context.More room to help.",
+        "fontSize": "88px",
+        "lineHeight": "89.76px",
+        "x": 48,
+        "y": 237,
+        "width": 804,
+        "height": 269
+      },
+      "sections": [],
+      "smallText": [
+        {
+          "text": "01",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 508,
+          "y": 571,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "ACCOUNT CONTEXT",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 541,
+          "y": 571,
+          "width": 277,
+          "height": 15
+        },
+        {
+          "text": "02",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 508,
+          "y": 619,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "PUBLISHED KNOWLEDGE",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 541,
+          "y": 619,
+          "width": 277,
+          "height": 15
+        },
+        {
+          "text": "03",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 508,
+          "y": 667,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "YOUR DECISION",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 541,
+          "y": 667,
+          "width": 277,
+          "height": 15
+        },
+        {
+          "text": "THE WORKSPACE / A CLOSER LOOK",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 48,
+          "y": 924,
+          "width": 152,
+          "height": 14
+        },
+        {
+          "text": "01\u201403",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 50,
+          "y": 1012,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "text": "Choose a case",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 94,
+          "y": 1021,
+          "width": 85,
+          "height": 15
+        },
+        {
+          "text": "handled / acme-cloud",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 411,
+          "y": 1136,
+          "width": 100,
+          "height": 14
+        },
+        {
+          "text": "3",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 207,
+          "y": 1247,
+          "width": 6,
+          "height": 14
+        },
+        {
+          "text": "/",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 330,
+          "y": 1198,
+          "width": 6,
+          "height": 13
+        },
+        {
+          "text": "Awaiting review",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 713,
+          "y": 1195,
+          "width": 95,
+          "height": 20
+        },
+        {
+          "text": "MR",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 268,
+          "y": 1241,
+          "width": 36,
+          "height": 36
+        },
+        {
+          "text": "\u00b7",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 394,
+          "y": 1240,
+          "width": 3,
+          "height": 12
+        },
+        {
+          "text": "PAY-9001 / PAY-9002",
+          "fontSize": "9px",
+          "lineHeight": "12.8571px",
+          "x": 283,
+          "y": 1457,
+          "width": 510,
+          "height": 13
+        },
+        {
+          "text": "KB-REFUND-v1",
+          "fontSize": "9px",
+          "lineHeight": "12.8571px",
+          "x": 283,
+          "y": 1560,
+          "width": 510,
+          "height": 13
+        },
+        {
+          "text": "01",
+          "fontSize": "8px",
+          "lineHeight": "11.4286px",
+          "x": 112,
+          "y": 2667,
+          "width": 10,
+          "height": 11
+        }
+      ],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/how-it-works",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "From \u201cwhat happened?\u201d to a thoughtful next step.From \u201cwhat happened?\u201dto a thoughtful next ",
+        "fontSize": "59.4px",
+        "lineHeight": "60.588px",
+        "x": 48,
+        "y": 237,
+        "width": 804,
+        "height": 121
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/login",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "A clearer day starts here.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 249,
+        "y": 198,
+        "width": 402,
+        "height": 89
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/signup",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "Put clarity on your team.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 249,
+        "y": 198,
+        "width": 402,
+        "height": 89
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/forgot-password",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "A fresh start.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 249,
+        "y": 253,
+        "width": 402,
+        "height": 45
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/dashboard",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "A clear view of what\u2019s next.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 32,
+        "y": 191,
+        "width": 640,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/tickets",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "One queue. The whole picture.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 32,
+        "y": 191,
+        "width": 640,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/knowledge",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "Start with a source you can trust.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 32,
+        "y": 191,
+        "width": 547,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/activity",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "A record of what really happened.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 32,
+        "y": 191,
+        "width": 580,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/settings",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "Make a little room for your way.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 32,
+        "y": 191,
+        "width": 533,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 900,
+      "overflow": 0,
+      "heading": {
+        "text": "I was charged twice for my Pro plan.",
+        "fontSize": "36px",
+        "lineHeight": "45px",
+        "x": 32,
+        "y": 242,
+        "width": 768,
+        "height": 45
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "Every answer. In good hands.Every answer.In good hands.",
+        "fontSize": "94.32px",
+        "lineHeight": "92.4336px",
+        "x": 112,
+        "y": 289,
+        "width": 520,
+        "height": 185
+      },
+      "sections": [],
+      "smallText": [
+        {
+          "text": "CONTEXT TO CLARITY",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 1203,
+          "y": 176,
+          "width": 107,
+          "height": 10
+        },
+        {
+          "text": "01 / THE CONVERSATION",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 786,
+          "y": 220,
+          "width": 146,
+          "height": 10
+        },
+        {
+          "text": "02 / PUBLISHED KNOWLEDGE",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 1168,
+          "y": 551,
+          "width": 160,
+          "height": 10
+        },
+        {
+          "text": "CONTEXT",
+          "fontSize": "7px",
+          "lineHeight": "normal",
+          "x": 977,
+          "y": 475,
+          "width": 134,
+          "height": 9
+        },
+        {
+          "text": "CONNECTED",
+          "fontSize": "7px",
+          "lineHeight": "normal",
+          "x": 977,
+          "y": 488,
+          "width": 134,
+          "height": 9
+        },
+        {
+          "text": "THE INTELLIGENCE IS ASSISTED.",
+          "fontSize": "7px",
+          "lineHeight": "normal",
+          "x": 855,
+          "y": 686,
+          "width": 190,
+          "height": 9
+        },
+        {
+          "text": "Two sources. One clearer next step.",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 855,
+          "y": 729,
+          "width": 190,
+          "height": 15
+        },
+        {
+          "text": "EVIDENCE IN.",
+          "fontSize": "7px",
+          "lineHeight": "normal",
+          "x": 941,
+          "y": 786,
+          "width": 56,
+          "height": 9
+        },
+        {
+          "text": "HUMAN JUDGMENT OUT.",
+          "fontSize": "7px",
+          "lineHeight": "normal",
+          "x": 1041,
+          "y": 786,
+          "width": 89,
+          "height": 9
+        },
+        {
+          "text": "01",
+          "fontSize": "10px",
+          "lineHeight": "normal",
+          "x": 112,
+          "y": 1075,
+          "width": 34,
+          "height": 34
+        },
+        {
+          "text": "THE QUESTION",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 425,
+          "y": 1369,
+          "width": 74,
+          "height": 10
+        },
+        {
+          "text": "THE EVIDENCE",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 692,
+          "y": 1369,
+          "width": 74,
+          "height": 10
+        },
+        {
+          "text": "YOUR CALL",
+          "fontSize": "8px",
+          "lineHeight": "normal",
+          "x": 959,
+          "y": 1369,
+          "width": 56,
+          "height": 10
+        },
+        {
+          "text": "01\u201403",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 114,
+          "y": 1441,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "text": "Choose a case",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 158,
+          "y": 1449,
+          "width": 85,
+          "height": 15
+        },
+        {
+          "text": "handled / acme-cloud",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 681,
+          "y": 1564,
+          "width": 100,
+          "height": 14
+        },
+        {
+          "text": "3",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 283,
+          "y": 1679,
+          "width": 6,
+          "height": 14
+        },
+        {
+          "text": "/",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 418,
+          "y": 1634,
+          "width": 6,
+          "height": 13
+        }
+      ],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/product",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "Less searching for context. More room to help.Less searchingfor context.More room to help.",
+        "fontSize": "102.4px",
+        "lineHeight": "104.448px",
+        "x": 112,
+        "y": 237,
+        "width": 1024,
+        "height": 313
+      },
+      "sections": [],
+      "smallText": [
+        {
+          "text": "01",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 788,
+          "y": 615,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "ACCOUNT CONTEXT",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 821,
+          "y": 615,
+          "width": 382,
+          "height": 15
+        },
+        {
+          "text": "02",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 788,
+          "y": 663,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "PUBLISHED KNOWLEDGE",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 821,
+          "y": 663,
+          "width": 382,
+          "height": 15
+        },
+        {
+          "text": "03",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 788,
+          "y": 711,
+          "width": 13,
+          "height": 15
+        },
+        {
+          "text": "YOUR DECISION",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 821,
+          "y": 711,
+          "width": 382,
+          "height": 15
+        },
+        {
+          "text": "THE WORKSPACE / A CLOSER LOOK",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 112,
+          "y": 939,
+          "width": 152,
+          "height": 14
+        },
+        {
+          "text": "01\u201403",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 114,
+          "y": 1027,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "text": "Choose a case",
+          "fontSize": "10px",
+          "lineHeight": "15px",
+          "x": 158,
+          "y": 1036,
+          "width": 85,
+          "height": 15
+        },
+        {
+          "text": "handled / acme-cloud",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 681,
+          "y": 1151,
+          "width": 100,
+          "height": 14
+        },
+        {
+          "text": "3",
+          "fontSize": "9px",
+          "lineHeight": "13.5px",
+          "x": 283,
+          "y": 1266,
+          "width": 6,
+          "height": 14
+        },
+        {
+          "text": "/",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 418,
+          "y": 1221,
+          "width": 6,
+          "height": 13
+        },
+        {
+          "text": "Awaiting review",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 1181,
+          "y": 1218,
+          "width": 95,
+          "height": 20
+        },
+        {
+          "text": "MR",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 356,
+          "y": 1264,
+          "width": 36,
+          "height": 36
+        },
+        {
+          "text": "\u00b7",
+          "fontSize": "10px",
+          "lineHeight": "14.2857px",
+          "x": 482,
+          "y": 1263,
+          "width": 3,
+          "height": 12
+        },
+        {
+          "text": "PAY-9001 / PAY-9002",
+          "fontSize": "9px",
+          "lineHeight": "12.8571px",
+          "x": 373,
+          "y": 1495,
+          "width": 442,
+          "height": 13
+        },
+        {
+          "text": "KB-REFUND-v1",
+          "fontSize": "9px",
+          "lineHeight": "12.8571px",
+          "x": 373,
+          "y": 1601,
+          "width": 442,
+          "height": 13
+        },
+        {
+          "text": "01",
+          "fontSize": "8px",
+          "lineHeight": "11.4286px",
+          "x": 176,
+          "y": 2490,
+          "width": 10,
+          "height": 11
+        }
+      ],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/how-it-works",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "From \u201cwhat happened?\u201d to a thoughtful next step.From \u201cwhat happened?\u201dto a thoughtful next ",
+        "fontSize": "95.04px",
+        "lineHeight": "96.9408px",
+        "x": 112,
+        "y": 237,
+        "width": 1024,
+        "height": 194
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/login",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "A clearer day starts here.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 879,
+        "y": 198,
+        "width": 402,
+        "height": 89
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/signup",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "Put clarity on your team.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 879,
+        "y": 198,
+        "width": 402,
+        "height": 89
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/forgot-password",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "A fresh start.",
+        "fontSize": "42.4px",
+        "lineHeight": "44.52px",
+        "x": 879,
+        "y": 253,
+        "width": 402,
+        "height": 45
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": false
+    },
+    {
+      "route": "/dashboard",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "A clear view of what\u2019s next.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 304,
+        "y": 191,
+        "width": 640,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/tickets",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "One queue. The whole picture.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 304,
+        "y": 191,
+        "width": 640,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/knowledge",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "Start with a source you can trust.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 304,
+        "y": 191,
+        "width": 547,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/activity",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "A record of what really happened.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 304,
+        "y": 191,
+        "width": 580,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/settings",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "Make a little room for your way.",
+        "fontSize": "42.4px",
+        "lineHeight": "47.488px",
+        "x": 304,
+        "y": 191,
+        "width": 533,
+        "height": 47
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 1440,
+      "overflow": 0,
+      "heading": {
+        "text": "I was charged twice for my Pro plan.",
+        "fontSize": "36px",
+        "lineHeight": "45px",
+        "x": 304,
+        "y": 242,
+        "width": 768,
+        "height": 45
+      },
+      "sections": [],
+      "smallText": [],
+      "sampleMentions": 0,
+      "workspaceNotice": true
+    }
+  ],
+  "workflowAtPoint8": [
+    {
+      "layer": "ticket",
+      "opacity": "0",
+      "top": 74,
+      "bottom": 337
+    },
+    {
+      "layer": "records",
+      "opacity": "0",
+      "top": 184,
+      "bottom": 352
+    },
+    {
+      "layer": "knowledge",
+      "opacity": "0",
+      "top": 390,
+      "bottom": 549
+    },
+    {
+      "layer": "decision",
+      "opacity": "0.745916",
+      "top": 227,
+      "bottom": 487
+    },
+    {
+      "layer": "receipt",
+      "opacity": "0",
+      "top": 293,
+      "bottom": 643
+    }
+  ],
+  "pageErrors": [],
+  "captureNotes": [
+    "Isolated section screenshots hide the sticky marketing header and skip link only during capture, to exclude fixed-element screenshot artifacts. Normal viewport screenshots preserve the real UI.",
+    "Most screenshots use reduced motion for stable layouts. The explicit workflow .8 screenshot uses normal motion.",
+    "Ratings are editorial design judgments, not usability-study results or production-integration scores."
+  ]
+}

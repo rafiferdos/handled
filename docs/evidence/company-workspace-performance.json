@@ -1,0 +1,82 @@
+{
+  "baselineCommit": "450112e2d42dcd0414f3fa2ac4e189860b8e720e",
+  "method": "Local production Chromium. Three cold contexts each,390x844,dark,4x CPU,caching disabled,network idle+fonts+1s,120 rAF whole-page scroll. Script bytes include automatic route prefetch. Long is total duration above50ms for long tasks; gaps count frame intervals above34ms. No other browser/build work ran concurrently. Not field performance.",
+  "before": {
+    "route": "/dashboard",
+    "viewport": "390x844",
+    "cpuThrottle": 4,
+    "runs": [
+      {
+        "lcp": 80,
+        "cls": 0,
+        "long": 34,
+        "gaps": 0,
+        "scripts": 393595,
+        "external": 0
+      },
+      {
+        "lcp": 68,
+        "cls": 0,
+        "long": 34,
+        "gaps": 0,
+        "scripts": 393595,
+        "external": 0
+      },
+      {
+        "lcp": 68,
+        "cls": 0,
+        "long": 34,
+        "gaps": 0,
+        "scripts": 393595,
+        "external": 0
+      }
+    ],
+    "median": {
+      "lcp": 68,
+      "cls": 0,
+      "long": 34,
+      "gaps": 0,
+      "scripts": 393595,
+      "external": 0
+    }
+  },
+  "after": {
+    "route": "/dashboard",
+    "viewport": "390x844",
+    "cpuThrottle": 4,
+    "runs": [
+      {
+        "lcp": 76,
+        "cls": 0,
+        "long": 15,
+        "gaps": 0,
+        "scripts": 390219,
+        "external": 0
+      },
+      {
+        "lcp": 64,
+        "cls": 0,
+        "long": 33,
+        "gaps": 0,
+        "scripts": 390219,
+        "external": 0
+      },
+      {
+        "lcp": 68,
+        "cls": 0,
+        "long": 35,
+        "gaps": 0,
+        "scripts": 390219,
+        "external": 0
+      }
+    ],
+    "median": {
+      "lcp": 68,
+      "cls": 0,
+      "long": 33,
+      "gaps": 0,
+      "scripts": 390219,
+      "external": 0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+/* Transform-only editorial motion. The untouched server rendering stays readable. */
+.scroll-heading-line {
+  display: block;
+}
+.scroll-word-mask {
+  display: inline-block;
+  overflow: clip;
+  margin-top: -0.08em;
+  margin-bottom: -0.18em;
+  padding-top: 0.08em;
+  padding-bottom: 0.18em;
+  vertical-align: bottom;
+  perspective: 700px;
+}
+.scroll-word {
+  display: inline-block;
+  transform-origin: 0 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-word,
+  .scroll-word > span {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

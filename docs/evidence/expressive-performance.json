@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "a4035085a598201614a5046157363a5c3993b397",
+  "comparison": "Graphite + luminous mint refinement",
+  "method": "Three cold local production loads plus 120-frame full-page scroll, Chromium desktop 1440x960, 4x CPU, no network throttling. Lab observations only; not field Web Vitals.",
+  "limits": [
+    "Same machine and production runtime; probes run separately from builds/tests.",
+    "Local no-network-throttle timing is not field Web Vitals. Script resources include route prefetch.",
+    "Frame-gap counts describe the controlled browser scroll only, not every device."
+  ],
+  "before": {
+    "label": "expressive-scroll-before",
+    "method": "Three cold local production loads plus 120-frame full-page scroll, Chromium desktop 1440x960, 4x CPU, no network throttling. Lab observations only; not field Web Vitals.",
+    "runs": [
+      {
+        "lcp": 144,
+        "cls": 0,
+        "longTaskMs": 22,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 36,
+        "scriptEncodedBytes": 420133,
+        "scriptDecodedBytes": 1257526,
+        "externalResources": []
+      },
+      {
+        "lcp": 120,
+        "cls": 0,
+        "longTaskMs": 35,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 36,
+        "scriptEncodedBytes": 420133,
+        "scriptDecodedBytes": 1257526,
+        "externalResources": []
+      },
+      {
+        "lcp": 120,
+        "cls": 0,
+        "longTaskMs": 41,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 36,
+        "scriptEncodedBytes": 420133,
+        "scriptDecodedBytes": 1257526,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 120,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 420133,
+    "medianScriptDecodedBytes": 1257526,
+    "medianLongTaskMs": 35,
+    "medianScrollFrameGapsOver34Ms": 0
+  },
+  "after": {
+    "label": "expressive-scroll-after",
+    "method": "Three cold local production loads plus 120-frame full-page scroll, Chromium desktop 1440x960, 4x CPU, no network throttling. Lab observations only; not field Web Vitals.",
+    "runs": [
+      {
+        "lcp": 144,
+        "cls": 0,
+        "longTaskMs": 36,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415910,
+        "scriptDecodedBytes": 1248938,
+        "externalResources": []
+      },
+      {
+        "lcp": 140,
+        "cls": 0,
+        "longTaskMs": 38,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415910,
+        "scriptDecodedBytes": 1248938,
+        "externalResources": []
+      },
+      {
+        "lcp": 132,
+        "cls": 0,
+        "longTaskMs": 35,
+        "scrollFrameGapsOver34Ms": 0,
+        "scriptCount": 35,
+        "scriptEncodedBytes": 415910,
+        "scriptDecodedBytes": 1248938,
+        "externalResources": []
+      }
+    ],
+    "medianLcpMs": 140,
+    "medianCls": 0,
+    "medianScriptEncodedBytes": 415910,
+    "medianScriptDecodedBytes": 1248938,
+    "medianLongTaskMs": 36,
+    "medianScrollFrameGapsOver34Ms": 0
+  }
+}

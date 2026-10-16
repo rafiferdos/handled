@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-16",
+  "baselineCommit": "6005ea83c57008ea6badee24eefa17ea910757ed",
+  "homepage": {
+    "before": {
+      "label": "usability-before",
+      "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+      "runs": [
+        {
+          "lcp": 204,
+          "cls": 0,
+          "longTaskMs": 93,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 32,
+          "scriptEncodedBytes": 414791,
+          "externalResources": []
+        },
+        {
+          "lcp": 176,
+          "cls": 0,
+          "longTaskMs": 85,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 32,
+          "scriptEncodedBytes": 414791,
+          "externalResources": []
+        },
+        {
+          "lcp": 184,
+          "cls": 0,
+          "longTaskMs": 84,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 32,
+          "scriptEncodedBytes": 414791,
+          "externalResources": []
+        }
+      ],
+      "medianLcpMs": 184,
+      "medianCls": 0,
+      "medianScriptEncodedBytes": 414791,
+      "medianLongTaskMs": 85,
+      "medianScrollFrameGapsOver34Ms": 0
+    },
+    "after": {
+      "label": "usability-after",
+      "method": "Three cold local production loads, Chromium 1440x960 dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+      "runs": [
+        {
+          "lcp": 184,
+          "cls": 1.7723625088915413e-05,
+          "longTaskMs": 97,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 32,
+          "scriptEncodedBytes": 414469,
+          "externalResources": []
+        },
+        {
+          "lcp": 176,
+          "cls": 0,
+          "longTaskMs": 78,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 32,
+          "scriptEncodedBytes": 414469,
+          "externalResources": []
+        },
+        {
+          "lcp": 176,
+          "cls": 0,
+          "longTaskMs": 79,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 32,
+          "scriptEncodedBytes": 414469,
+          "externalResources": []
+        }
+      ],
+      "medianLcpMs": 176,
+      "medianCls": 0,
+      "medianScriptEncodedBytes": 414469,
+      "medianLongTaskMs": 79,
+      "medianScrollFrameGapsOver34Ms": 0
+    }
+  },
+  "mobileDashboard": {
+    "before": {
+      "label": "dashboard-before",
+      "method": "Three cold local production loads, Chromium 390x844 dashboard dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+      "runs": [
+        {
+          "lcp": 108,
+          "cls": 0,
+          "longTaskMs": 38,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 29,
+          "scriptEncodedBytes": 388475,
+          "externalResources": []
+        },
+        {
+          "lcp": 72,
+          "cls": 0,
+          "longTaskMs": 36,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 29,
+          "scriptEncodedBytes": 388475,
+          "externalResources": []
+        },
+        {
+          "lcp": 72,
+          "cls": 0,
+          "longTaskMs": 37,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 29,
+          "scriptEncodedBytes": 388475,
+          "externalResources": []
+        }
+      ],
+      "medianLcpMs": 72,
+      "medianCls": 0,
+      "medianScriptEncodedBytes": 388475,
+      "medianLongTaskMs": 37,
+      "medianScrollFrameGapsOver34Ms": 0
+    },
+    "after": {
+      "label": "dashboard-after",
+      "method": "Three cold local production loads, Chromium 390x844 dashboard dark, 4x CPU, no network throttle, cache disabled, 120-frame full-page scroll. Script resources include prefetch.",
+      "runs": [
+        {
+          "lcp": 104,
+          "cls": 0,
+          "longTaskMs": 38,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 30,
+          "scriptEncodedBytes": 393595,
+          "externalResources": []
+        },
+        {
+          "lcp": 72,
+          "cls": 0,
+          "longTaskMs": 40,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 30,
+          "scriptEncodedBytes": 393595,
+          "externalResources": []
+        },
+        {
+          "lcp": 76,
+          "cls": 0,
+          "longTaskMs": 37,
+          "scrollFrameGapsOver34Ms": 0,
+          "scriptCount": 30,
+          "scriptEncodedBytes": 393595,
+          "externalResources": []
+        }
+      ],
+      "medianLcpMs": 76,
+      "medianCls": 0,
+      "medianScriptEncodedBytes": 393595,
+      "medianLongTaskMs": 38,
+      "medianScrollFrameGapsOver34Ms": 0
+    }
+  },
+  "limits": [
+    "Three same-session local production loads per route/version; 4\u00d7CPU and no network throttle.",
+    "Encoded loaded scripts include automatic route prefetch; these totals do not isolate component bundle size.",
+    "Localhost omits real network/provider latency; timing differences of a few milliseconds do not establish field improvement.",
+    "Homepage median CLS is zero; one after run observed0.000017724. Dashboard CLS is zero in all runs.",
+    "Long-task excess sums max(duration minus50ms,0). Controlled scroll frame gaps are not a guarantee for every device."
+  ]
+}

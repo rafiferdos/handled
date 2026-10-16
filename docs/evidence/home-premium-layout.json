@@ -1,0 +1,135 @@
+{
+  "pageErrors": [],
+  "noJavaScript": true,
+  "widths": 7,
+  "checkpoints": [
+    {
+      "width": 1024,
+      "fraction": 0,
+      "height": 556,
+      "active": [
+        {
+          "layer": "ticket",
+          "top": 144.0838623046875,
+          "bottom": 182.0733642578125,
+          "footerGap": 126.0733642578125
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "fraction": 0.32,
+      "height": 556,
+      "active": [
+        {
+          "layer": "records",
+          "top": 106.36676025390625,
+          "bottom": 268.2793273925781,
+          "footerGap": 212.27932739257812
+        },
+        {
+          "layer": "knowledge",
+          "top": 303.2985534667969,
+          "bottom": 75.73388671875,
+          "footerGap": 19.73388671875
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "fraction": 0.58,
+      "height": 556,
+      "active": [
+        {
+          "layer": "decision",
+          "top": 123.5113525390625,
+          "bottom": 183.7926025390625,
+          "footerGap": 127.7926025390625
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "fraction": 0.8,
+      "height": 556,
+      "active": []
+    },
+    {
+      "width": 1024,
+      "fraction": 1,
+      "height": 556,
+      "active": [
+        {
+          "layer": "receipt",
+          "top": 84.09375,
+          "bottom": 162.90625,
+          "footerGap": 106.90625
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "fraction": 0,
+      "height": 556,
+      "active": [
+        {
+          "layer": "ticket",
+          "top": 141.343505859375,
+          "bottom": 163.4862060546875,
+          "footerGap": 107.4862060546875
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "fraction": 0.32,
+      "height": 556,
+      "active": [
+        {
+          "layer": "records",
+          "top": 104.29312133789062,
+          "bottom": 266.4307861328125,
+          "footerGap": 210.4307861328125
+        },
+        {
+          "layer": "knowledge",
+          "top": 300.5408630371094,
+          "bottom": 73.2174072265625,
+          "footerGap": 17.2174072265625
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "fraction": 0.58,
+      "height": 556,
+      "active": [
+        {
+          "layer": "decision",
+          "top": 123.57275390625,
+          "bottom": 163.51025390625,
+          "footerGap": 107.51025390625
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "fraction": 0.8,
+      "height": 556,
+      "active": []
+    },
+    {
+      "width": 1440,
+      "fraction": 1,
+      "height": 556,
+      "active": [
+        {
+          "layer": "receipt",
+          "top": 84.09375,
+          "bottom": 162.90625,
+          "footerGap": 106.90625
+        }
+      ]
+    }
+  ]
+}

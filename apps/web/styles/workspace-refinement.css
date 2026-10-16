@@ -1,0 +1,94 @@
+.workspace-shell {
+  --workspace-line: color-mix(in oklch, var(--signal) 12%, var(--border));
+}
+.workspace-rail {
+  border-color: var(--workspace-line);
+}
+.workspace-panel {
+  box-shadow: 0 3px 18px -12px
+    color-mix(in oklch, var(--foreground) 16%, transparent);
+}
+.workspace-nav-link[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 30%;
+  bottom: 30%;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--signal);
+}
+.workspace-picker {
+  border-color: var(--workspace-line);
+}
+.workspace-header button[aria-label="Toggle color theme"] {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+.workspace-metric-card {
+  min-height: 10rem;
+  gap: 0.75rem;
+  padding-block: 1rem;
+}
+.workspace-row {
+  transition: background-color 180ms var(--motion-ease);
+}
+.workspace-row:hover {
+  background: color-mix(in oklch, var(--signal-surface) 45%, var(--background));
+}
+@media (min-width: 1200px) {
+  .ticket-review-layout {
+    grid-template-columns: minmax(0, 1.25fr) minmax(350px, 0.9fr);
+  }
+}
+@media (max-width: 639px) {
+  .workspace-metric-card {
+    display: grid;
+    min-height: 4rem;
+    grid-template-columns: 2.5rem minmax(0, 1fr) 2rem;
+    grid-template-areas: "value label icon";
+    align-content: center;
+    align-items: center;
+    gap: 0.125rem 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  .workspace-metric-header,
+  .workspace-metric-content {
+    display: contents;
+  }
+  .workspace-metric-label {
+    grid-area: label;
+  }
+  .workspace-metric-icon {
+    grid-area: icon;
+    width: 2rem;
+    height: 2rem;
+  }
+  .workspace-metric-value {
+    grid-area: value;
+    font-size: 2rem;
+  }
+  .workspace-metric-note {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .workspace-shell input,
+  .workspace-shell textarea {
+    font-size: 0.8125rem;
+  }
+}
+.auth-composition {
+  background:
+    radial-gradient(ellipse at 70% 30%, #274d3638, transparent 70%), #14211a;
+}
+@media (max-width: 767px) {
+  .workspace-shell input,
+  .workspace-shell textarea {
+    font-size: 1rem;
+  }
+  .workspace-header {
+    background: var(--background);
+    backdrop-filter: none;
+  }
+}
