@@ -18,14 +18,17 @@ export default function AuthLayout({
         <div className="surface-grid pointer-events-none absolute inset-0 opacity-[0.035]" />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-40 -right-40 size-[680px] rounded-full border border-white/5 shadow-[0_0_0_90px_rgb(255_255_255/0.015),0_0_0_180px_rgb(255_255_255/0.01)]"
+          className="auth-orbit pointer-events-none absolute -top-40 -right-40 size-[680px] rounded-full border border-white/5 shadow-[0_0_0_90px_rgb(255_255_255/0.015),0_0_0_180px_rgb(255_255_255/0.01)]"
         />
         <BrandMark
           aria-hidden="true"
-          className="pointer-events-none absolute top-[20%] -right-20 size-[400px] rotate-[-12deg] text-white/[0.025]"
+          className="auth-brand-echo pointer-events-none absolute top-[20%] -right-20 size-[400px] rotate-[-12deg] text-white/[0.025]"
         />
-        <div className="relative my-auto py-16">
-          <div aria-hidden="true" className="mb-12 flex items-center gap-3">
+        <div className="auth-introduction relative my-auto py-16">
+          <div
+            aria-hidden="true"
+            className="auth-context-icons mb-12 flex items-center gap-3"
+          >
             {[MessageSquare, BookOpen, ShieldCheck].map((Icon, index) => (
               <div key={index} className="flex items-center gap-3">
                 <div
@@ -58,7 +61,7 @@ export default function AuthLayout({
         </p>
       </aside>
       <div className="auth-form-scene relative flex min-h-svh flex-col">
-        <header className="flex items-center justify-between px-6 py-6 md:px-10">
+        <header className="auth-header flex items-center justify-between px-6 py-6 md:px-10">
           <Link
             href="/"
             className="flex items-center gap-2 rounded-md text-xs text-muted-foreground hover:text-foreground focus-visible:outline-2"
@@ -70,13 +73,13 @@ export default function AuthLayout({
         </header>
         <main
           id="main-content"
-          className="mx-auto flex w-full max-w-[548px] flex-1 flex-col justify-center px-3 py-12 sm:px-6 md:px-10"
+          className="auth-main mx-auto flex w-full max-w-[548px] flex-1 flex-col justify-center px-3 py-12 sm:px-6 md:px-10"
         >
           <div className="auth-glass-panel glass-panel rounded-[1.75rem] border p-6 sm:p-8">
             {children}
           </div>
         </main>
-        <footer className="px-6 py-6 text-center text-[10px] text-muted-foreground">
+        <footer className="px-6 py-6 text-center text-[11px] text-muted-foreground">
           © 2026 Handled · Your next step, thoughtfully considered.
         </footer>
       </div>

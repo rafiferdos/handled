@@ -17,34 +17,109 @@ const steps = [
     text: "A ticket is the starting point. The account and workspace establish the boundary for every piece of context that follows.",
     label: "01 / Intake",
     icon: MessageSquare,
-    sample: "The question comes with its account and workspace.",
   },
   {
     title: "Bring the evidence together.",
     text: "Review account facts alongside published policies. Follow the source references and see what supports the recommendation, with uncertainty kept in view.",
     label: "02 / Investigate",
     icon: BookOpen,
-    sample: "A published policy. A recorded payment. A source to check.",
   },
   {
     title: "Make a deliberate decision.",
     text: "A person reviews the proposal and its sources, adjusts the reply, or rejects or escalates the case. When evidence is incomplete or conflicting, manual review comes first.",
     label: "03 / Human review",
     icon: ShieldCheck,
-    sample: "Your judgment stays between a suggestion and an action.",
   },
   {
     title: "Act safely. Keep the record.",
     text: "The workflow is designed to keep the evidence, decision and outcome together, so the reasoning behind a next step stays clear.",
     label: "04 / Outcome & record",
     icon: FileCheck2,
-    sample: "A clear record of what was reviewed and what came next.",
   },
 ]
 
+function StageEvidence({ stage }: { stage: number }) {
+  if (stage === 0) {
+    return (
+      <div className="secondary-process-evidence secondary-process-ticket">
+        <div className="secondary-evidence-caption">
+          <span>TKT-1001</span>
+          <span>AcmeCloud / Maya Rahman</span>
+        </div>
+        <blockquote>
+          “I noticed two charges of $29.00 for my Pro plan this month.”
+        </blockquote>
+        <p>A specific question, connected to the right account.</p>
+      </div>
+    )
+  }
+  if (stage === 1) {
+    return (
+      <div className="secondary-process-evidence secondary-process-sources">
+        <div>
+          <span className="secondary-evidence-label">Account record</span>
+          <strong>Two settled payments</strong>
+          <p>
+            PAY-9001 + PAY-9002
+            <br />
+            $29.00 each · October
+          </p>
+        </div>
+        <span aria-hidden="true" className="secondary-source-connector">
+          +
+        </span>
+        <div>
+          <span className="secondary-evidence-label">Published policy</span>
+          <strong>Duplicate charges</strong>
+          <p>
+            KB-REFUND-v1
+            <br />
+            Eligible for human review
+          </p>
+        </div>
+      </div>
+    )
+  }
+  if (stage === 2) {
+    return (
+      <div className="secondary-process-evidence secondary-process-review">
+        <p className="secondary-evidence-label">
+          Suggested reply / before a decision
+        </p>
+        <blockquote>
+          “The records support reviewing the extra $29.00 payment for a refund.”
+        </blockquote>
+        <p className="secondary-review-checkpoint">
+          <ShieldCheck aria-hidden="true" className="size-4" />
+          An agent checks the evidence and chooses the next step.
+        </p>
+      </div>
+    )
+  }
+  return (
+    <div className="secondary-process-evidence secondary-process-outcome">
+      <ol>
+        <li>
+          <span>Proposed target</span>
+          <strong>PAY-9002 / $29.00</strong>
+        </li>
+        <li>
+          <span>Human decision</span>
+          <strong>Required before action</strong>
+        </li>
+        <li>
+          <span>Connected record</span>
+          <strong>Reason + next step</strong>
+        </li>
+      </ol>
+      <p>Keep the decision connected to the evidence that informed it.</p>
+    </div>
+  )
+}
+
 export default function HowItWorksPage() {
   return (
-    <div className="page-container py-20 md:py-28">
+    <div className="secondary-process-page page-container py-20 md:py-28">
       <Reveal preset="left">
         <p className="eyebrow mb-7 flex items-center gap-3 text-muted-foreground">
           <span
@@ -67,10 +142,10 @@ export default function HowItWorksPage() {
           Four connected stages. Clear evidence. A human decision at the center.
         </p>
       </Reveal>
-      <div className="mt-16 border-b md:mt-24">
+      <div className="secondary-process-chapters mt-16 border-b md:mt-24">
         {steps.map((step, index) => (
           <Reveal key={step.label} preset={index % 2 === 0 ? "left" : "right"}>
-            <section className="process-chapter grid gap-8 border-t py-10 md:grid-cols-[0.75fr_1.25fr] md:gap-16 md:py-16">
+            <section className="process-chapter secondary-process-chapter grid gap-8 border-t py-10 md:gap-16 md:py-16">
               <div className="flex items-center gap-5 md:flex-col md:items-start md:gap-8">
                 <span
                   aria-hidden="true"
@@ -79,7 +154,10 @@ export default function HowItWorksPage() {
                   0{index + 1}
                 </span>
                 <p className="eyebrow flex items-center gap-3 text-muted-foreground">
-                  <step.icon className="size-4 text-signal" />
+                  <step.icon
+                    aria-hidden="true"
+                    className="size-4 text-signal"
+                  />
                   {step.label}
                 </p>
               </div>
@@ -89,17 +167,10 @@ export default function HowItWorksPage() {
                   mode="highlight"
                   className="max-w-xl font-heading text-[2rem] leading-[1.1] font-medium tracking-[-0.04em] md:text-[2.75rem]"
                 />
-                <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
                   {step.text}
                 </p>
-                <div className="process-visual mt-7 flex max-w-xl items-start gap-4 rounded-xl border border-signal/15 p-5">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-signal/20 bg-background">
-                    <step.icon className="size-4 text-signal" />
-                  </span>
-                  <p className="pt-1 text-xs leading-relaxed text-muted-foreground">
-                    {step.sample}
-                  </p>
-                </div>
+                <StageEvidence stage={index} />
               </div>
             </section>
           </Reveal>

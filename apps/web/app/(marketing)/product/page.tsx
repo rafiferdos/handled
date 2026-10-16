@@ -2,9 +2,10 @@ import type { Metadata } from "next"
 import {
   ArrowUpRight,
   BookOpen,
-  Check,
+  FileText,
   Fingerprint,
   Inbox,
+  ShieldCheck,
   Sparkles,
 } from "lucide-react"
 import { SectionHeading } from "@/components/shared/section-heading"
@@ -24,11 +25,6 @@ const features = [
     href: "/tickets",
     action: "Open ticket inbox",
     label: "The starting point",
-    detail: [
-      "TKT-1001 · Duplicate payment",
-      "TKT-1002 · Cancellation",
-      "TKT-1003 · Missing access",
-    ],
   },
   {
     icon: Sparkles,
@@ -37,11 +33,6 @@ const features = [
     href: "/tickets/10000000-0000-4000-8000-000000001001",
     action: "Review proposal",
     label: "The human checkpoint",
-    detail: [
-      "Source references attached",
-      "Reply open for editing",
-      "Human decision required",
-    ],
   },
   {
     icon: BookOpen,
@@ -50,11 +41,6 @@ const features = [
     href: "/knowledge",
     action: "Browse knowledge",
     label: "The source of truth",
-    detail: [
-      "Duplicate charges / v1",
-      "Period-end cancellation / v1",
-      "Product access / v1",
-    ],
   },
   {
     icon: Fingerprint,
@@ -63,7 +49,6 @@ const features = [
     href: "/activity",
     action: "View activity",
     label: "The connected record",
-    detail: ["Evidence reviewed", "Decision explained", "Outcome traceable"],
   },
 ]
 
@@ -76,45 +61,125 @@ function FeaturePreview({
 }) {
   return (
     <div
-      aria-hidden="true"
-      className="story-feature-preview mt-8 overflow-hidden rounded-xl border bg-background/80"
+      className={`story-feature-preview secondary-feature-artifact secondary-feature-artifact-${index + 1} mt-7 overflow-hidden rounded-xl border`}
     >
-      <div className="flex items-center justify-between gap-3 border-b bg-muted/25 px-4 py-3">
-        <p className="flex items-center gap-2 font-mono text-[8px] tracking-wider text-muted-foreground uppercase">
-          <feature.icon className="size-3 text-signal" />
-          {feature.label}
-        </p>
+      <div className="secondary-artifact-heading">
+        <feature.icon aria-hidden="true" className="size-3.5 text-signal" />
+        <span>
+          {
+            [
+              "Ticket inbox",
+              "Reply draft",
+              "Published knowledge",
+              "Case relationship",
+            ][index]
+          }
+        </span>
+        <span className="secondary-artifact-reference">
+          {index === 2 ? "v1" : "TKT-1001"}
+        </span>
       </div>
-      <div className={index === 3 ? "relative space-y-0 p-4" : "space-y-2 p-3"}>
-        {feature.detail.map((detail, detailIndex) => (
-          <div
-            key={detail}
-            className={
-              index === 3
-                ? "relative flex items-center gap-3 py-3 text-[11px]"
-                : detailIndex === 0
-                  ? "flex items-center gap-3 rounded-lg border border-signal/20 bg-signal-surface px-3 py-3 text-[11px]"
-                  : "flex items-center gap-3 rounded-lg border border-transparent px-3 py-3 text-[11px] text-muted-foreground"
-            }
-          >
-            <span className="relative flex size-5 shrink-0 items-center justify-center rounded-full border border-signal/20 bg-background text-signal">
-              {index === 3 ? (
-                <Check className="size-2.5" />
-              ) : (
-                <span className="font-mono text-[8px]">0{detailIndex + 1}</span>
-              )}
-            </span>
-            <span className="flex-1">{detail}</span>
-            {detailIndex === 0 && (
-              <ArrowUpRight className="size-3 text-signal" />
-            )}
-          </div>
-        ))}
-      </div>
+      {index === 0 && (
+        <ul className="secondary-inbox-list">
+          {[
+            {
+              reference: "1001",
+              initials: "MR",
+              title: "Duplicate payment",
+              status: "Awaiting approval",
+            },
+            {
+              reference: "1002",
+              initials: "DL",
+              title: "Period-end cancellation",
+              status: "New",
+            },
+            {
+              reference: "1003",
+              initials: "SK",
+              title: "Missing product access",
+              status: "Needs review",
+            },
+          ].map((ticket) => (
+            <li key={ticket.reference}>
+              <span aria-hidden="true" className="secondary-ticket-avatar">
+                {ticket.initials}
+              </span>
+              <span className="secondary-ticket-subject">
+                <strong>{ticket.title}</strong>
+                <span>TKT-{ticket.reference} · AcmeCloud</span>
+              </span>
+              <span className="secondary-ticket-status">{ticket.status}</span>
+            </li>
+          ))}
+        </ul>
+      )}
       {index === 1 && (
-        <div className="flex items-center justify-between border-t px-4 py-3 font-mono text-[8px] text-signal uppercase">
-          <span>Ready for a closer look</span>
-          <span className="size-1.5 rounded-full bg-signal" />
+        <div className="secondary-reply-preview">
+          <div className="secondary-source-chips">
+            <span>PAY-9001 / PAY-9002</span>
+            <span>KB-REFUND-v1</span>
+          </div>
+          <blockquote>
+            Hi Maya, your account shows two settled $29.00 payments for October.
+            The duplicate-charge policy supports reviewing the extra payment for
+            a refund.
+          </blockquote>
+          <p>
+            <ShieldCheck aria-hidden="true" className="size-3.5" />
+            Human review required
+          </p>
+        </div>
+      )}
+      {index === 2 && (
+        <div className="secondary-policy-preview">
+          <div className="secondary-policy-title">
+            <FileText aria-hidden="true" className="size-5 text-signal" />
+            <div>
+              <span>Billing policy</span>
+              <strong>Duplicate charges</strong>
+            </div>
+            <span className="secondary-published-label">Published</span>
+          </div>
+          <p>
+            An additional settled charge for the same subscription and billing
+            period is eligible for review.
+          </p>
+          <dl>
+            <div>
+              <dt>Source</dt>
+              <dd>KB-REFUND</dd>
+            </div>
+            <div>
+              <dt>Version</dt>
+              <dd>v1</dd>
+            </div>
+          </dl>
+        </div>
+      )}
+      {index === 3 && (
+        <div className="secondary-record-preview">
+          <ol>
+            <li>
+              <FileText aria-hidden="true" className="size-4" />
+              <span>
+                Evidence<strong>Account + policy</strong>
+              </span>
+            </li>
+            <li>
+              <ShieldCheck aria-hidden="true" className="size-4" />
+              <span>
+                Human checkpoint<strong>Awaiting approval</strong>
+              </span>
+            </li>
+            <li>
+              <Fingerprint aria-hidden="true" className="size-4" />
+              <span>
+                Linked record<strong>Decision + next step</strong>
+              </span>
+            </li>
+          </ol>
+          <p>A clear path from a proposed action to the reason behind it.</p>
         </div>
       )}
     </div>
@@ -144,7 +209,7 @@ export default function ProductPage() {
               },
             ]}
           />
-          <div className="mt-10 grid gap-9 md:mt-12 md:grid-cols-[1.05fr_0.95fr] md:gap-20">
+          <div className="secondary-product-intro mt-10 grid gap-9 md:mt-12 md:grid-cols-[1.05fr_0.95fr] md:gap-20">
             <Reveal preset="rise" delay={0.08}>
               <p className="max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
                 Handled brings a customer&apos;s question, verified account
@@ -159,7 +224,7 @@ export default function ProductPage() {
               </ButtonLink>
             </Reveal>
             <Reveal preset="left" delay={0.12}>
-              <div className="max-w-md border-t font-mono text-[10px] tracking-wide">
+              <div className="secondary-product-context max-w-md border-t font-mono text-[11px] tracking-wide">
                 {[
                   "ACCOUNT CONTEXT",
                   "PUBLISHED KNOWLEDGE",
@@ -183,7 +248,7 @@ export default function ProductPage() {
       </section>
       <section className="story-ink overflow-hidden py-10 md:py-16">
         <div className="page-container">
-          <div className="mb-7 flex items-center justify-between gap-4 border-b border-white/15 pb-4 font-mono text-[9px] tracking-wide text-white/50">
+          <div className="secondary-workspace-caption mb-7 flex items-center justify-between gap-4 border-b border-white/15 pb-4 font-mono text-[11px] tracking-wide text-white/60">
             <span>THE WORKSPACE / A CLOSER LOOK</span>
             <span className="flex items-center gap-2">
               <span className="story-mint-dot size-1.5 rounded-full" />
@@ -193,7 +258,7 @@ export default function ProductPage() {
           <ProductPreview />
         </div>
       </section>
-      <section className="page-container py-20 md:py-28">
+      <section className="secondary-product-features page-container py-20 md:py-28">
         <Reveal
           preset="rise"
           className="grid gap-7 md:grid-cols-[1fr_auto] md:items-end"
@@ -236,14 +301,14 @@ export default function ProductPage() {
                     text={feature.title}
                     className="max-w-md font-heading text-[1.9rem] leading-[1.08] font-medium tracking-[-0.04em] sm:text-4xl md:text-[clamp(1.7rem,2.8vw,2.25rem)]"
                   />
-                  <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground">
                     {feature.body}
                   </p>
                   <FeaturePreview feature={feature} index={index} />
                   <ButtonLink
                     href={feature.href}
                     variant="link"
-                    className="mt-6 h-auto p-0 text-xs"
+                    className="mt-6 h-auto p-0 text-sm"
                   >
                     {feature.action}{" "}
                     <ArrowUpRight className="ml-3 size-3.5 text-signal" />

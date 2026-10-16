@@ -9,7 +9,6 @@ import { z } from "zod"
 import { toast } from "sonner"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import {
   Field,
   FieldError,
@@ -82,8 +81,8 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
   })
   const errors = form.formState.errors
   return (
-    <>
-      <p className="eyebrow mb-5 flex items-center gap-3 text-muted-foreground">
+    <div className="auth-form-content" data-auth-mode={mode}>
+      <p className="auth-eyebrow eyebrow mb-5 flex items-center gap-3 text-muted-foreground">
         <span aria-hidden="true" className="h-px w-6 bg-signal" />
         {copy.eyebrow}
       </p>
@@ -93,18 +92,16 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
       <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
         {copy.description}
       </p>
-      <Alert className="mt-8 border-signal/15 bg-signal-surface/35">
-        <Info className="size-4" />
-        <AlertTitle className="text-xs">
-          Account access is being connected
-        </AlertTitle>
-        <AlertDescription className="text-[11px] leading-relaxed">
-          Sign-in is not available yet. Use test details only, or explore the
-          workspace without signing in.
-        </AlertDescription>
-      </Alert>
+      <p id="auth-access-notice" className="auth-access-notice">
+        <Info aria-hidden="true" className="size-4 shrink-0" />
+        <span>
+          Account access is not connected yet. Use test details only. No
+          sessions, accounts or reset emails are created.
+        </span>
+      </p>
       <form
         noValidate
+        aria-describedby="auth-access-notice"
         className="mt-8"
         onSubmit={form.handleSubmit(() => {
           setSubmitted(true)
@@ -205,7 +202,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
               Create an account
             </Link>
           </>
-        ) : (
+        ) : mode === "signup" ? (
           <>
             Already have an account?{" "}
             <Link
@@ -215,6 +212,13 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
               Sign in
             </Link>
           </>
+        ) : (
+          <Link
+            href="/login"
+            className="font-medium text-foreground underline-offset-4 hover:underline"
+          >
+            Back to sign in
+          </Link>
         )}
       </p>
       <div className="mt-7 border-t pt-6">
@@ -227,6 +231,6 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
           <ArrowUpRight className="ml-auto size-3.5" />
         </ButtonLink>
       </div>
-    </>
+    </div>
   )
 }
