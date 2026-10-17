@@ -84,6 +84,7 @@ function WorkspacePicker() {
 
 function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname()
+  const { user, mode, signOut } = useWorkspace()
   return (
     <div className="flex h-full flex-col overflow-y-auto px-5 py-6">
       <Brand className="mb-8 px-2" />
@@ -131,12 +132,23 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
             </AvatarFallback>
           </Avatar>
           <div>
-            <p className="text-[13px] font-medium">Workspace visitor</p>
+            <p className="max-w-40 truncate text-[13px] font-medium">
+              {user?.email || "Workspace visitor"}
+            </p>
             <p className="mt-0.5 text-xs text-muted-foreground">
-              Browsing without sign-in
+              {mode === "live" ? "Signed in" : "Browsing without sign-in"}
             </p>
           </div>
         </div>
+        {mode === "live" && (
+          <Button
+            variant="ghost"
+            className="mt-3 w-full"
+            onClick={() => void signOut()}
+          >
+            Sign out
+          </Button>
+        )}
       </div>
     </div>
   )
@@ -145,7 +157,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 export function DashboardShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
-  const { workspace } = useWorkspace()
+  const { workspace, mode } = useWorkspace()
   useEffect(() => {
     const desktop = window.matchMedia("(min-width: 1024px)")
     const closeOnDesktop = () => {
@@ -223,10 +235,12 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b bg-muted/25 px-5 py-2.5 text-xs leading-relaxed text-muted-foreground md:px-8">
           <p>
             <span className="font-medium text-foreground">
-              Workspace preview
+              {mode === "live" ? "Connected workspace" : "Workspace preview"}
             </span>
-            <span className="mx-2">/</span>Example data. Accounts are not
-            connected and actions stay local.
+            <span className="mx-2">/</span>
+            {mode === "live"
+              ? "Live API · Synthetic test data · Simulated actions · Free service may sleep."
+              : "Example data. Accounts are not connected and actions stay local."}
           </p>
           <Link href="/how-it-works" className="underline underline-offset-3">
             How it works

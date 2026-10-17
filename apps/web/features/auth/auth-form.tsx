@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { ArrowRight, ArrowUpRight, Info } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -16,6 +17,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { ButtonLink } from "@/components/shared/button-link"
+import { ApiError } from "@/lib/api/client"
 
 type AuthMode = "login" | "signup" | "forgot-password"
 const content = {
@@ -42,8 +44,16 @@ const content = {
   },
 }
 
-export function AuthForm({ mode }: { mode: AuthMode }) {
+export function AuthForm({
+  mode,
+  live = false,
+}: {
+  mode: AuthMode
+  live?: boolean
+}) {
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState("")
+  const router = useRouter()
   const copy = content[mode]
   const schema = z
     .object({
@@ -95,18 +105,54 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
       <p id="auth-access-notice" className="auth-access-notice">
         <Info aria-hidden="true" className="size-4 shrink-0" />
         <span>
-          Account access is not connected yet. Use test details only. No
-          sessions, accounts or reset emails are created.
+          {live
+            ? mode === "login"
+              ? "Use your verified workspace account. Your session is stored in a protected cookie."
+              : "This preview uses administrator-provisioned accounts. Contact your workspace administrator for account access or password recovery."
+            : "Account access is not connected yet. Use test details only. No sessions, accounts or reset emails are created."}
         </span>
       </p>
       <form
         noValidate
         aria-describedby="auth-access-notice"
         className="mt-8"
-        onSubmit={form.handleSubmit(() => {
-          setSubmitted(true)
-          form.resetField("password")
-          toast.info(copy.result)
+        onSubmit={form.handleSubmit(async (values) => {
+          if (!live) {
+            setSubmitted(true)
+            form.resetField("password")
+            toast.info(copy.result)
+            return
+          }
+          if (mode !== "login") return
+          setError("")
+          try {
+            const response = await fetch("/api/session", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: values.email,
+                password: values.password,
+              }),
+            })
+            if (!response.ok)
+              throw new ApiError(
+                response.status === 401
+                  ? "INVALID_CREDENTIALS"
+                  : response.status === 429
+                    ? "RATE_LIMITED"
+                    : "DEPENDENCY_UNAVAILABLE",
+                response.status
+              )
+            form.resetField("password")
+            router.replace("/dashboard")
+            router.refresh()
+          } catch (error) {
+            setError(
+              error instanceof Error
+                ? error.message
+                : "Sign-in could not be completed."
+            )
+          }
         })}
       >
         <FieldGroup className="gap-5">
@@ -176,13 +222,18 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
           <Button
             type="submit"
             className="mt-1 h-11 w-full rounded-xl text-xs"
-            disabled={form.formState.isSubmitting}
+            disabled={form.formState.isSubmitting || (live && mode !== "login")}
           >
-            {copy.action}
+            {form.formState.isSubmitting ? "Signing in…" : copy.action}
             <ArrowRight className="ml-auto size-3.5" />
           </Button>
         </FieldGroup>
       </form>
+      {error && (
+        <p role="alert" className="mt-4 text-sm text-destructive">
+          {error}
+        </p>
+      )}
       {submitted && (
         <p
           role="status"
@@ -227,7 +278,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
           variant="outline"
           className="h-11 w-full rounded-xl text-xs"
         >
-          Explore the workspace
+          {live ? "Open your workspace" : "Explore the workspace"}
           <ArrowUpRight className="ml-auto size-3.5" />
         </ButtonLink>
       </div>

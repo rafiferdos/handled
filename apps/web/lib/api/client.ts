@@ -18,6 +18,11 @@ const safeMessages: Record<string, string> = {
   DEPENDENCY_UNAVAILABLE:
     "The service is currently unavailable. Please try again.",
   INVALID_RESPONSE: "The service returned an unexpected response.",
+  INVALID_STATE_TRANSITION: "This item changed. Refresh before trying again.",
+  BUSINESS_RULE_FAILED:
+    "This action is not eligible. Review the current evidence.",
+  PUBLIC_INTAKE_DISABLED: "This support form is currently unavailable.",
+  INVALID_CREDENTIALS: "The email or password was not accepted.",
 }
 
 export class ApiError extends Error {
@@ -42,14 +47,24 @@ interface ClientConfig {
   accessToken?: () => string | undefined | Promise<string | undefined>
   timeoutMs?: number
   fetcher?: typeof fetch
+  apiPath?: "/api/v1" | "/api/handled"
+  credentials?: RequestCredentials
+  onUnauthenticated?: () => void
 }
 
-/** Read-only REST transport. Live authentication/writes are owner integration work. */
+interface WriteOptions {
+  idempotencyKey?: string
+}
+
+/** Validated REST transport; session cookies are used only by the same-origin proxy. */
 export function createApiClient({
   baseUrl,
   accessToken,
   timeoutMs = 10_000,
   fetcher = fetch,
+  apiPath = "/api/v1",
+  credentials = "omit",
+  onUnauthenticated,
 }: ClientConfig) {
   const origin = new URL(baseUrl)
   const local = ["localhost", "127.0.0.1", "[::1]"].includes(origin.hostname)
@@ -68,7 +83,13 @@ export function createApiClient({
   if (!Number.isFinite(timeoutMs) || timeoutMs <= 0)
     throw new Error("API timeout must be positive.")
 
-  async function request<T>(path: string, schema: z.ZodType<T>): Promise<T> {
+  async function request<T>(
+    path: string,
+    schema: z.ZodType<T>,
+    method = "GET",
+    body?: unknown,
+    options?: WriteOptions
+  ): Promise<T> {
     if (
       !path.startsWith("/") ||
       path.startsWith("//") ||
@@ -76,8 +97,8 @@ export function createApiClient({
       path.includes("#")
     )
       throw new ApiError("INVALID_RESPONSE")
-    const url = new URL(`/api/v1${path}`, origin)
-    if (url.origin !== origin.origin || !url.pathname.startsWith("/api/v1/"))
+    const url = new URL(`${apiPath}${path}`, origin)
+    if (url.origin !== origin.origin || !url.pathname.startsWith(`${apiPath}/`))
       throw new ApiError("INVALID_RESPONSE")
     const controller = new AbortController()
     let timer: ReturnType<typeof setTimeout> | undefined
@@ -97,20 +118,25 @@ export function createApiClient({
         "X-Request-Id": crypto.randomUUID(),
       }
       if (token) headers.Authorization = `Bearer ${token}`
+      if (body !== undefined) headers["Content-Type"] = "application/json"
+      if (options?.idempotencyKey)
+        headers["Idempotency-Key"] = options.idempotencyKey
       const response = await fetcher(url, {
-        method: "GET",
+        method,
+        body: body === undefined ? undefined : JSON.stringify(body),
         headers,
         signal: controller.signal,
         cache: "no-store",
         redirect: "error",
-        credentials: "omit",
+        credentials,
       })
       const requestId = response.headers.get("X-Request-Id") ?? undefined
-      const body: unknown = await response.json().catch(() => {
+      const responseBody: unknown = await response.json().catch(() => {
         throw new ApiError("INVALID_RESPONSE", response.status, requestId)
       })
       if (!response.ok) {
-        const parsed = errorEnvelopeSchema.safeParse(body)
+        if (response.status === 401) onUnauthenticated?.()
+        const parsed = errorEnvelopeSchema.safeParse(responseBody)
         const fallbackCode =
           response.status === 401
             ? "UNAUTHENTICATED"
@@ -123,7 +149,7 @@ export function createApiClient({
           parsed.success ? parsed.data.requestId : requestId
         )
       }
-      const parsed = schema.safeParse(body)
+      const parsed = schema.safeParse(responseBody)
       if (!parsed.success)
         throw new ApiError("INVALID_RESPONSE", response.status, requestId)
       return parsed.data
@@ -143,6 +169,34 @@ export function createApiClient({
   }
 
   return {
+    post<T>(
+      path: string,
+      body: unknown,
+      schema: z.ZodType<T>,
+      options?: WriteOptions
+    ): Promise<ApiResponse<T>> {
+      return request(
+        path,
+        z.object({ data: schema, requestId: z.string().min(1) }),
+        "POST",
+        body,
+        options
+      )
+    },
+    patch<T>(
+      path: string,
+      body: unknown,
+      schema: z.ZodType<T>,
+      options?: WriteOptions
+    ): Promise<ApiResponse<T>> {
+      return request(
+        path,
+        z.object({ data: schema, requestId: z.string().min(1) }),
+        "PATCH",
+        body,
+        options
+      )
+    },
     get<T>(path: string, schema: z.ZodType<T>): Promise<ApiResponse<T>> {
       return request(
         path,

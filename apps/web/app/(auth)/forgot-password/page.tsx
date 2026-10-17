@@ -2,5 +2,10 @@ import type { Metadata } from "next"
 import { AuthForm } from "@/features/auth/auth-form"
 export const metadata: Metadata = { title: "Reset password" }
 export default function ForgotPasswordPage() {
-  return <AuthForm mode="forgot-password" />
+  return (
+    <AuthForm
+      mode="forgot-password"
+      live={Boolean(process.env.HANDLED_API_URL)}
+    />
+  )
 }

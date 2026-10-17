@@ -4,14 +4,13 @@ import { DashboardShell } from "@/components/dashboard/dashboard-shell"
 
 export const metadata: Metadata = { robots: { index: false, follow: false } }
 
-/** Public sample shell only. Production authentication must be integrated before live data. */
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <WorkspaceProvider>
+    <WorkspaceProvider live={Boolean(process.env.HANDLED_API_URL)}>
       <DashboardShell>{children}</DashboardShell>
     </WorkspaceProvider>
   )

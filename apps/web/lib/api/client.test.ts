@@ -129,3 +129,35 @@ test("malformed list metadata is rejected", async () => {
   })
   await assert.rejects(client.list("/workspaces/w/tickets", resultSchema))
 })
+
+test("authenticated writes retain their idempotency key through the same-origin session proxy", async () => {
+  let received: RequestInit | undefined
+  let address = ""
+  const client = createApiClient({
+    baseUrl: "https://handled.example.test",
+    apiPath: "/api/handled",
+    credentials: "same-origin",
+    fetcher: async (url, init) => {
+      address = String(url)
+      received = init
+      return json({ data: { id: "action" }, requestId: "queued" }, 202)
+    },
+  })
+  await client.post(
+    "/workspaces/w/proposals/p/approve",
+    { expectedVersion: 2 },
+    resultSchema,
+    { idempotencyKey: "stable-decision" }
+  )
+  assert.equal(
+    address,
+    "https://handled.example.test/api/handled/workspaces/w/proposals/p/approve"
+  )
+  assert.equal(received?.method, "POST")
+  assert.equal(received?.credentials, "same-origin")
+  assert.equal(
+    new Headers(received?.headers).get("Idempotency-Key"),
+    "stable-decision"
+  )
+  assert.deepEqual(JSON.parse(String(received?.body)), { expectedVersion: 2 })
+})
