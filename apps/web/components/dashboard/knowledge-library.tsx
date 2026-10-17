@@ -18,8 +18,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { LiveKnowledgeLibrary } from "./live-knowledge-library"
 
 export function KnowledgeLibrary() {
+  const { mode } = useWorkspace()
+  return mode === "live" ? <LiveKnowledgeLibrary /> : <SampleKnowledgeLibrary />
+}
+
+function SampleKnowledgeLibrary() {
   const [search, setSearch] = useState("")
   const { workspace } = useWorkspace()
   const policies = sampleTickets

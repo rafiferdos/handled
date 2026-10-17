@@ -33,8 +33,9 @@ export function TicketInbox() {
   const [search, setSearch] = useState("")
   const [status, setStatus] = useState<TicketStatus | "ALL">("ALL")
   const [priority, setPriority] = useState<TicketPriority | "ALL">("ALL")
-  const { workspace, profile } = useWorkspace()
-  const tickets = useTickets({ search, status, priority })
+  const [page, setPage] = useState(1)
+  const { workspace, profile, mode } = useWorkspace()
+  const tickets = useTickets({ search, status, priority }, page)
   const shortDate = new Intl.DateTimeFormat("en", {
     month: "short",
     day: "numeric",
@@ -50,6 +51,7 @@ export function TicketInbox() {
     setSearch("")
     setStatus("ALL")
     setPriority("ALL")
+    setPage(1)
   }
   return (
     <>
@@ -63,9 +65,12 @@ export function TicketInbox() {
           <Search className="pointer-events-none absolute top-3.5 left-3.5 size-4 text-muted-foreground" />
           <Input
             value={search}
-            onChange={(event) => setSearch(event.target.value)}
+            onChange={(event) => {
+              setSearch(event.target.value)
+              setPage(1)
+            }}
             aria-label="Search tickets"
-            placeholder="Search tickets or customers…"
+            placeholder="Search subject or reference…"
             className="workspace-control h-11 rounded-xl border-transparent bg-muted/45 pl-10"
           />
         </div>
@@ -73,7 +78,10 @@ export function TicketInbox() {
           <ListFilter className="mx-1 hidden size-4 text-muted-foreground sm:block" />
           <Select
             value={status}
-            onValueChange={(value) => setStatus(value ?? "ALL")}
+            onValueChange={(value) => {
+              setStatus(value ?? "ALL")
+              setPage(1)
+            }}
             items={[
               { value: "ALL", label: "All statuses" },
               ...ticketStatuses.map((value) => ({
@@ -101,7 +109,10 @@ export function TicketInbox() {
           </Select>
           <Select
             value={priority}
-            onValueChange={(value) => setPriority(value ?? "ALL")}
+            onValueChange={(value) => {
+              setPriority(value ?? "ALL")
+              setPage(1)
+            }}
             items={[
               { value: "ALL", label: "All priorities" },
               ...ticketPriorities.map((value) => ({
@@ -146,7 +157,14 @@ export function TicketInbox() {
             ? `${tickets.data.meta.total} ${tickets.data.meta.total === 1 ? "ticket" : "tickets"}`
             : "Loading tickets…"}
         </p>
-        <span className="text-xs text-muted-foreground">Workspace queue</span>
+        <Button
+          variant="ghost"
+          size="sm"
+          disabled={tickets.isFetching}
+          onClick={() => void tickets.refetch()}
+        >
+          Refresh queue
+        </Button>
       </div>
       {tickets.isPending ? (
         <LoadingState />
@@ -229,6 +247,30 @@ export function TicketInbox() {
           ))}
         </section>
       )}
+      {mode === "live" &&
+        tickets.data &&
+        (page > 1 || tickets.data.meta.hasNext) && (
+          <nav
+            aria-label="Ticket pages"
+            className="mt-5 flex items-center justify-end gap-3"
+          >
+            <Button
+              variant="outline"
+              disabled={page === 1 || tickets.isFetching}
+              onClick={() => setPage((value) => value - 1)}
+            >
+              Previous
+            </Button>
+            <span className="text-sm text-muted-foreground">Page {page}</span>
+            <Button
+              variant="outline"
+              disabled={!tickets.data.meta.hasNext || tickets.isFetching}
+              onClick={() => setPage((value) => value + 1)}
+            >
+              Next
+            </Button>
+          </nav>
+        )}
     </>
   )
 }

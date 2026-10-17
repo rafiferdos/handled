@@ -27,8 +27,19 @@ import { ErrorState, LoadingState } from "@/components/dashboard/data-state"
 import { useTicket } from "./use-tickets"
 import { StatusBadge, PriorityBadge } from "./ticket-status"
 import { ProposalPanel } from "./proposal-panel"
+import { useWorkspace } from "@/components/dashboard/workspace-provider"
+import { LiveTicketDetail } from "./live-ticket-detail"
 
 export function TicketDetail({ ticketId }: { ticketId: string }) {
+  const { mode } = useWorkspace()
+  return mode === "live" ? (
+    <LiveTicketDetail ticketId={ticketId} />
+  ) : (
+    <SampleTicketDetail ticketId={ticketId} />
+  )
+}
+
+function SampleTicketDetail({ ticketId }: { ticketId: string }) {
   const ticket = useTicket(ticketId)
   if (ticket.isPending) return <LoadingState />
   if (ticket.isError)

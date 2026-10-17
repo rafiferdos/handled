@@ -23,16 +23,16 @@ import { useTickets } from "@/features/tickets/use-tickets"
 import { StatusBadge } from "@/features/tickets/ticket-status"
 
 export function Overview() {
-  const { workspace, profile } = useWorkspace()
+  const { workspace, profile, mode } = useWorkspace()
   const tickets = useTickets()
+  const ready = useTickets({ status: "AWAITING_APPROVAL" })
+  const needsReview = useTickets({ status: "NEEDS_REVIEW" })
   const data = tickets.data?.data ?? []
-  const nextReview = data.find(
-    (ticket) => ticket.status === "AWAITING_APPROVAL"
-  )
+  const nextReview = ready.data?.data[0]
   const stats = [
     {
       label: "Tickets",
-      value: data.length,
+      value: tickets.data?.meta.total ?? 0,
       icon: Inbox,
       note: data.length
         ? "Conversations in this workspace"
@@ -42,18 +42,21 @@ export function Overview() {
     },
     {
       label: "Ready for review",
-      value: data.filter((ticket) => ticket.status === "AWAITING_APPROVAL")
-        .length,
+      value: ready.isError ? "—" : (ready.data?.meta.total ?? "…"),
       icon: Clock3,
-      note: "A human decision comes next",
+      note: ready.isError
+        ? "Count unavailable; refresh the inbox"
+        : "A human decision comes next",
       tone: "border-success/20",
       iconTone: "border-success/20 bg-success-surface/60 text-success",
     },
     {
       label: "Needs a closer look",
-      value: data.filter((ticket) => ticket.status === "NEEDS_REVIEW").length,
+      value: needsReview.isError ? "—" : (needsReview.data?.meta.total ?? "…"),
       icon: CircleHelp,
-      note: "Incomplete evidence stays in review",
+      note: needsReview.isError
+        ? "Count unavailable; refresh the inbox"
+        : "Incomplete evidence stays in review",
       tone: "border-warning/20",
       iconTone: "border-warning/20 bg-warning-surface/60 text-warning",
     },
@@ -116,7 +119,9 @@ export function Overview() {
                     The next conversation
                   </h2>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Conversations that need attention
+                    {mode === "live"
+                      ? "Latest conversations in this workspace"
+                      : "Conversations that need attention"}
                   </p>
                 </div>
                 <Link
@@ -186,7 +191,6 @@ export function Overview() {
                 <CardContent>
                   <p className="text-[13px] leading-relaxed text-muted-foreground">
                     Keep your company identity and support details together.
-                    Connections and subscriptions are not active yet.
                   </p>
                   <ButtonLink
                     variant="outline"
@@ -221,17 +225,8 @@ export function Overview() {
                   Start with the source
                 </div>
                 <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-                  {
-                    new Set(
-                      data.flatMap((ticket) =>
-                        ticket.evidence
-                          .filter((source) => source.kind === "policy")
-                          .map((source) => source.reference)
-                      )
-                    ).size
-                  }{" "}
-                  policies available in this workspace. Review the source before
-                  making a decision.
+                  Review published policies and their sources before making a
+                  decision.
                 </p>
                 <Link
                   href="/knowledge"
