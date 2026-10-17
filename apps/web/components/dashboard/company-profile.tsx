@@ -19,6 +19,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { z } from "zod"
+import { useQueryClient } from "@tanstack/react-query"
 import {
   normalizeCompanyProfile,
   readCompanyLogo,
@@ -85,6 +87,122 @@ const commonTimeZones = [
 ]
 
 export function CompanyProfileView() {
+  const { mode } = useWorkspace()
+  return mode === "live" ? (
+    <LiveCompanyProfileView />
+  ) : (
+    <SampleCompanyProfileView />
+  )
+}
+
+function LiveCompanyProfileView() {
+  const { workspace, profile, api } = useWorkspace()
+  const cache = useQueryClient()
+  const [name, setName] = useState(workspace.name)
+  const [pending, setPending] = useState(false)
+  const [message, setMessage] = useState("")
+  return (
+    <div className="company-page">
+      <PageHeading
+        eyebrow={`${workspace.name} / Company`}
+        title="Your company, in focus."
+        description="Your workspace identity is shared with your team."
+      />
+      <section className="company-identity mb-6 flex flex-wrap items-center gap-5 rounded-3xl border p-7">
+        <CompanyMark profile={profile} className="company-identity-mark" />
+        <div>
+          <h2 className="font-heading text-3xl">{workspace.name}</h2>
+          <p className="mt-2 font-mono text-xs">{workspace.slug}</p>
+        </div>
+      </section>
+      <Card className="workspace-panel">
+        <CardHeader>
+          <CardTitle className="font-heading text-xl">
+            Company details
+          </CardTitle>
+          <p className="text-sm text-muted-foreground">
+            The company name is saved to your workspace. Additional branding
+            fields are not available in the API yet.
+          </p>
+        </CardHeader>
+        <CardContent>
+          <form
+            className="space-y-5"
+            onSubmit={async (event) => {
+              event.preventDefault()
+              setPending(true)
+              setMessage("")
+              try {
+                await api!.patch(
+                  `/workspaces/${workspace.id}`,
+                  { name: name.trim(), expectedVersion: workspace.version },
+                  z.object({
+                    id: z.uuid(),
+                    name: z.string(),
+                    version: z.number(),
+                  })
+                )
+                await cache.invalidateQueries({
+                  queryKey: ["live", "workspaces"],
+                })
+                setMessage("Company name saved.")
+              } catch (error) {
+                setMessage(
+                  error instanceof Error
+                    ? error.message
+                    : "The company name could not be saved."
+                )
+              } finally {
+                setPending(false)
+              }
+            }}
+          >
+            <Label htmlFor="live-company-name">Company name</Label>
+            <Input
+              id="live-company-name"
+              required
+              minLength={1}
+              maxLength={100}
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              readOnly={workspace.role !== "ADMIN"}
+            />
+            <Button
+              disabled={
+                pending ||
+                workspace.role !== "ADMIN" ||
+                name.trim() === workspace.name
+              }
+            >
+              Save company name
+            </Button>
+            {workspace.role !== "ADMIN" && (
+              <p className="text-sm text-muted-foreground">
+                An administrator can update the company name.
+              </p>
+            )}
+            <p role="status" className="text-sm">
+              {message}
+            </p>
+          </form>
+          <Link
+            href={`/support/${workspace.slug}`}
+            className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm underline"
+          >
+            Open customer support form
+            <ArrowUpRight className="size-4" />
+          </Link>
+          <p className="mt-2 text-xs text-muted-foreground">
+            A support form accepts requests after an administrator enables it
+            for this company.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+function SampleCompanyProfileView() {
   const { workspace, profile, updateProfile } = useWorkspace()
   const [draft, setDraft] = useState<CompanyProfile>(profile)
   const [errors, setErrors] = useState<ProfileErrors>({})
