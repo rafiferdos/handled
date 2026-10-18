@@ -746,12 +746,34 @@ export function LiveTicketDetail({ ticketId }: { ticketId: string }) {
           </p>
         </div>
         {proposal ? (
-          <LiveProposalPanel
-            key={`${proposal.id}:${proposal.version}`}
-            proposal={proposal}
-            writable={writable}
-            onChanged={refresh}
-          />
+          <div className="min-w-0 space-y-4">
+            <LiveProposalPanel
+              key={`${proposal.id}:${proposal.version}`}
+              proposal={proposal}
+              writable={writable}
+              onChanged={refresh}
+            />
+            {canStart && data.status === "REJECTED" && (
+              <section className="rounded-2xl border p-5">
+                <p className="text-sm text-muted-foreground">
+                  Review the case again with current evidence. Your previous
+                  decision remains recorded.
+                </p>
+                <Button
+                  className="mt-4 h-11 w-full"
+                  disabled={mutation.isPending}
+                  onClick={() => mutation.mutate("start")}
+                >
+                  {mutation.isPending ? "Starting…" : "Start new investigation"}
+                </Button>
+                {mutation.isError && (
+                  <p role="alert" className="mt-3 text-sm text-destructive">
+                    {mutation.error.message}
+                  </p>
+                )}
+              </section>
+            )}
+          </div>
         ) : (
           <section
             aria-label="Recommendation"

@@ -292,6 +292,11 @@ export function LiveProposalPanel({
                     </p>
                   </div>
                 )}
+                {mutation.isError && mutation.variables === "approve" && (
+                  <p role="alert" className="text-sm text-destructive">
+                    {mutation.error.message}
+                  </p>
+                )}
                 <AlertDialogFooter>
                   <AlertDialogCancel className="h-11">
                     Keep reviewing
