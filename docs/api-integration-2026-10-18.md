@@ -17,7 +17,9 @@ Password login uses Supabase Auth. Access and refresh tokens stay in HttpOnly,
 SameSite cookies, with Secure enabled on HTTPS. API requests renew an expired
 session once and preserve the original decision body and idempotency key.
 Logout clears private query data. Workspace changes cancel and remove tenant
-queries. Account creation and password recovery are explicitly administrator
+queries. The selected workspace is stored per account/tab as a non-secret ID and
+revalidated against current memberships before children request tenant data.
+Account creation and password recovery are explicitly administrator
 managed in this preview; those forms do not pretend to send email.
 
 Business screens read actual ticket messages, verified customer context,
@@ -46,7 +48,64 @@ The form retains its idempotency key for retries of the same payload. Its receip
 does not authorize private reads or customer identity. An agent must record a
 separate customer verification before AI investigation.
 
-## Required hosted proof
+Approval errors appear inside the confirmation dialog. A verified, rejected case
+can start a fresh investigation while preserving the prior proposal and decision.
+
+## Hosted proof completed on 18 October 2026
+
+Acceptance ran on frontend commit `83655c168e020f74202472bd88cad3a5b5d10992`,
+Vercel production `dpl_Bb3oWjXPFAhELjH16DEEwuVK9iHU`, and backend `testing`
+commit `51943d71a1a9adf41ef23042479eaaeb280b0736`, Render live deployment
+`dep-dba9f5eq1p3s73ar399g`. Both resource plans stayed Hobby/Free.
+
+The [actual public form](https://handled-rafiferdos.vercel.app/support/acme-cloud-301fad4d)
+created TKT-1004 without login. Through the browser, an authenticated administrator
+verified synthetic Maya Rahman / CUS-1001, investigated with real
+`gemini-3.5-flash-lite` / `handled-core-v2`, reviewed cited customer/payment/policy
+evidence and approved refund of PAY-9002. The worker persisted a successful
+simulated refund, before/after state and completion audit. Reload restored the
+correct workspace and refetched the RESOLVED ticket and saved result.
+
+- Ticket: `b9e0ca12-6497-43a1-a666-2e1bd4926878`.
+- Investigation: `de372dab-9334-43a7-838a-5492f9810d0f`.
+- Proposal: `97691eac-49ac-4472-960a-6d9567ba7eae`.
+- Action: `54b02b30-aa0f-4be4-9d6d-33677b06b34a`, SUCCEEDED, simulation true,
+  one attempt; payment SETTLED → REFUNDED, confirmed by fresh account read.
+
+All three independent API acceptance cases also passed: refund, period-end
+cancellation and product-access restoration, each with real AI/RAG, approved
+action, persisted effect/audit and RESOLVED refetch. The probe verified public
+idempotency/replay conflict, stale approval denial, duplicate approval returning
+the same action, successful-action retry denial and cross-tenant denial.
+The browser exercised the refund case; the other two were real HTTP/worker tests.
+
+Deployed session checks verified password login, HttpOnly/Secure/SameSite cookies,
+refresh after invalid access, account switching, scoped workspaces, logout revoke/
+cookie clearing and subsequent private 401. Viewer approval and foreign action
+access were denied. Public intake rejected lookalike origin, missing form token,
+missing/forged/stale proxy signature and spoofed forwarded IP, all with 403.
+
+An earlier malformed AI proposal was safely blocked at approval with no action
+and explicitly rejected. Backend schema/grounding fixes and a new investigation
+produced the final valid proposal; no model content was edited to force a pass.
+See [backend evidence](https://github.com/rafiferdos/handled-api/blob/testing/docs/hosted-deployment-verification.md)
+for the full case IDs, changes and limits.
+
+Final monorepo check passed lint, types, 39 web tests, 111 embedded API tests and
+both builds. Backend separately passed 165 unit/process, 37 HTTP and 93 disposable
+local database/queue tests. Local tests are separate from the hosted proof above.
+
+## Remaining operational limits
+
+Render Free sleeps both processes while idle and Redis is volatile. Controlled
+idle/wake, in-flight restart and real Redis-data-loss recovery were not exercised.
+No continuous queue guarantee or external payment/subscription/product action is
+claimed. Replies remain drafts; signup/password recovery are administrator
+managed. Gemini Free quotas can stop generation; no paid fallback was enabled.
+Synthetic form tokens expire 25 October 2026 at 02:35 UTC and must be renewed with
+the server-only Vercel mapping before expiry.
+
+The acceptance gate remains:
 
 - Real browser login and HttpOnly session; anonymous private denial.
 - Public customer form, persisted ticket, explicit customer verification.
@@ -56,6 +115,5 @@ separate customer verification before AI investigation.
 - Reload/refetch, duplicate approval/intake, retry safety, cross-tenant denial.
 
 Health checks, local provider probes, unit tests, and mocked browser tests do not
-fulfil this acceptance gate. Hosted evidence will be recorded after execution.
-Render Free sleeps while idle and Redis is volatile; this preview cannot promise
-continuous queue processing.
+fulfil this acceptance gate; the real hosted evidence above establishes the
+recorded synthetic flows only.
