@@ -289,13 +289,28 @@ export function createBusinessApi(
         },
         proposalSchema
       ),
-    approveProposal: (proposal: LiveProposal, idempotencyKey: string) =>
-      api.post(
+    approveProposal: (
+      proposal: LiveProposal,
+      idempotencyKey: string,
+      reason?: string
+    ) => {
+      const humanReason = reason?.trim()
+      if (proposal.confidence === "MEDIUM" && !humanReason)
+        throw new Error(
+          "Add an approval reason for medium-confidence evidence."
+        )
+      if (humanReason && humanReason.length > 2000)
+        throw new Error("Keep the approval reason under 2000 characters.")
+      return api.post(
         `${base}/proposals/${z.uuid().parse(proposal.id)}/approve`,
-        { expectedVersion: proposal.version },
+        {
+          expectedVersion: proposal.version,
+          ...(humanReason ? { reason: humanReason } : {}),
+        },
         z.object({ actionExecutionId: z.uuid(), status: z.literal("QUEUED") }),
         { idempotencyKey }
-      ),
+      )
+    },
     decideProposal: (
       proposal: LiveProposal,
       decision: "reject" | "escalate",

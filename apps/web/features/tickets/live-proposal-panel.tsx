@@ -61,6 +61,7 @@ export function LiveProposalPanel({
   const [decisionOpen, setDecisionOpen] = useState(false)
   const [decision, setDecision] = useState<"reject" | "escalate">("escalate")
   const [reason, setReason] = useState("")
+  const [approvalReason, setApprovalReason] = useState("")
   const [approvalKey] = useState(() => crypto.randomUUID())
   const low = proposal.confidence === "LOW"
   const editable = writable && ["READY", "DRAFT"].includes(proposal.status)
@@ -74,7 +75,7 @@ export function LiveProposalPanel({
       if (kind === "edit")
         return business.editProposal(proposal, summary.trim(), reply.trim())
       if (kind === "approve")
-        return business.approveProposal(proposal, approvalKey)
+        return business.approveProposal(proposal, approvalKey, approvalReason)
       return business.decideProposal(proposal, decision, reason.trim())
     },
     onSuccess: async (_result, kind) => {
@@ -270,13 +271,38 @@ export function LiveProposalPanel({
                     actions run in simulation.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
+                {proposal.confidence === "MEDIUM" && (
+                  <div className="space-y-2">
+                    <Label htmlFor="approval-reason">
+                      Approval reason (required)
+                    </Label>
+                    <Textarea
+                      id="approval-reason"
+                      required
+                      maxLength={2000}
+                      value={approvalReason}
+                      onChange={(event) =>
+                        setApprovalReason(event.target.value)
+                      }
+                      placeholder="Explain why the evidence supports this action."
+                    />
+                    <p className="text-xs text-muted-foreground">
+                      Medium-confidence evidence requires your recorded
+                      justification.
+                    </p>
+                  </div>
+                )}
                 <AlertDialogFooter>
                   <AlertDialogCancel className="h-11">
                     Keep reviewing
                   </AlertDialogCancel>
                   <AlertDialogAction
                     className="h-11"
-                    disabled={mutation.isPending}
+                    disabled={
+                      mutation.isPending ||
+                      (proposal.confidence === "MEDIUM" &&
+                        !approvalReason.trim())
+                    }
                     onClick={() => mutation.mutate("approve")}
                   >
                     Confirm approval

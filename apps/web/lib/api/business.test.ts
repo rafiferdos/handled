@@ -67,6 +67,39 @@ test("approval sends the exact version and stable idempotency key", async () => 
   assert.equal(key, "stable-approval-key")
   assert.equal(result.data.status, "QUEUED")
 })
+test("medium-confidence approval requires a human reason and sends it with the exact version", async () => {
+  let body: unknown
+  let calls = 0
+  const business = createBusinessApi(
+    createApiClient({
+      baseUrl: "https://api.example.com",
+      fetcher: async (_url, options) => {
+        calls++
+        body = JSON.parse(String(options?.body))
+        return Response.json(
+          { data: { actionExecutionId: id, status: "QUEUED" }, requestId: "r" },
+          { status: 202 }
+        )
+      },
+    }),
+    id
+  )
+  const medium = { ...proposal, confidence: "MEDIUM" as const }
+  assert.throws(
+    () => business.approveProposal(medium, "decision-key"),
+    /reason/
+  )
+  assert.equal(calls, 0)
+  await business.approveProposal(
+    medium,
+    "decision-key",
+    " I checked the cited policy and account records. "
+  )
+  assert.deepEqual(body, {
+    expectedVersion: 7,
+    reason: "I checked the cited policy and account records.",
+  })
+})
 test("editing sends full content while retaining validated action parameters", async () => {
   let body: unknown
   const business = createBusinessApi(
