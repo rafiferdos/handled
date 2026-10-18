@@ -118,6 +118,8 @@ async function refresh(
     { method: "POST", body: JSON.stringify({ refresh_token: token }) },
     fetcher
   )
+  if (response.status >= 500 || response.status === 429)
+    throw new Error("Authentication is temporarily unavailable")
   if (!response.ok) return null
   const parsed = tokensSchema.safeParse(await response.json())
   return parsed.success ? parsed.data : null
@@ -148,14 +150,25 @@ export async function handleSession(
   try {
     configuration(env)
     if (request.method === "DELETE") {
-      const token = cookie(request, "handled_access")
-      if (token)
-        await authRequest(
+      let token = cookie(request, "handled_access")
+      let renewed = token ? null : await refresh(request, env, fetcher)
+      token ||= renewed?.access_token
+      const revoke = (access: string) =>
+        authRequest(
           env,
           "logout?scope=local",
-          { method: "POST", headers: { Authorization: `Bearer ${token}` } },
+          { method: "POST", headers: { Authorization: `Bearer ${access}` } },
           fetcher
-        ).catch(() => undefined)
+        )
+      if (token) {
+        let result = await revoke(token)
+        if ((result.status === 401 || result.status === 403) && !renewed) {
+          renewed = await refresh(request, env, fetcher)
+          if (renewed) result = await revoke(renewed.access_token)
+        }
+        if (!result.ok && result.status !== 401 && result.status !== 403)
+          return failure("DEPENDENCY_UNAVAILABLE", 503)
+      }
       const response = Response.json(
         { data: { user: null }, requestId: crypto.randomUUID() },
         { headers: noStore }
@@ -177,6 +190,7 @@ export async function handleSession(
         { method: "POST", body: JSON.stringify(parsed.data) },
         fetcher
       )
+      if (upstream.status >= 500) return failure("DEPENDENCY_UNAVAILABLE", 503)
       if (!upstream.ok)
         return failure(
           upstream.status === 429 ? "RATE_LIMITED" : "INVALID_CREDENTIALS",

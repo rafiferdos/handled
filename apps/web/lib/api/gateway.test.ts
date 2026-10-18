@@ -63,6 +63,66 @@ test("session writes reject cross-origin requests before contacting auth", async
   assert.equal(response.status, 403)
   assert.equal(calls, 0)
 })
+
+test("sign-out revokes a refresh-only session after its access cookie expired", async () => {
+  const calls: { url: string; authorization: string | null }[] = []
+  const response = await handleSession(
+    new Request("https://app.example.test/api/session", {
+      method: "DELETE",
+      headers: {
+        Origin: "https://app.example.test",
+        Cookie: "handled_refresh=still-active",
+      },
+    }),
+    env,
+    async (url, init) => {
+      calls.push({
+        url: String(url),
+        authorization: new Headers(init?.headers).get("Authorization"),
+      })
+      if (String(url).includes("/token?"))
+        return json({
+          access_token: "renewed-for-revocation",
+          refresh_token: "new-refresh",
+          expires_in: 3600,
+          user: { id: "user-id" },
+        })
+      return new Response(null, { status: 204 })
+    }
+  )
+  assert.equal(response.status, 200)
+  assert.equal(calls.length, 2)
+  assert.ok(calls[1].url.endsWith("logout?scope=local"))
+  assert.equal(calls[1].authorization, "Bearer renewed-for-revocation")
+  assert.ok(
+    response.headers
+      .getSetCookie()
+      .every((cookie) => cookie.includes("Max-Age=0"))
+  )
+})
+
+test("an auth outage does not masquerade as wrong credentials or successful provider sign-out", async () => {
+  for (const method of ["POST", "DELETE"]) {
+    const response = await handleSession(
+      new Request("https://app.example.test/api/session", {
+        method,
+        headers: {
+          Origin: "https://app.example.test",
+          Cookie: "handled_refresh=active",
+          "Content-Type": "application/json",
+        },
+        body:
+          method === "POST"
+            ? JSON.stringify({ email: "a@example.test", password: "password" })
+            : undefined,
+      }),
+      env,
+      async () => json({}, 503)
+    )
+    assert.equal(response.status, 503)
+    assert.equal(response.headers.getSetCookie().length, 0)
+  }
+})
 test("expired API session refreshes once and retries the identical idempotent decision", async () => {
   const calls: { url: string; headers: Headers; body: string | undefined }[] =
     []

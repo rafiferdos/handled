@@ -17,7 +17,8 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { ButtonLink } from "@/components/shared/button-link"
-import { ApiError } from "@/lib/api/client"
+import { useQueryClient } from "@tanstack/react-query"
+import { signIn } from "@/lib/api/session"
 
 type AuthMode = "login" | "signup" | "forgot-password"
 const content = {
@@ -54,6 +55,7 @@ export function AuthForm({
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState("")
   const router = useRouter()
+  const cache = useQueryClient()
   const copy = content[mode]
   const schema = z
     .object({
@@ -126,23 +128,10 @@ export function AuthForm({
           if (mode !== "login") return
           setError("")
           try {
-            const response = await fetch("/api/session", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                email: values.email,
-                password: values.password,
-              }),
-            })
-            if (!response.ok)
-              throw new ApiError(
-                response.status === 401
-                  ? "INVALID_CREDENTIALS"
-                  : response.status === 429
-                    ? "RATE_LIMITED"
-                    : "DEPENDENCY_UNAVAILABLE",
-                response.status
-              )
+            await signIn(
+              { email: values.email, password: values.password },
+              cache
+            )
             form.resetField("password")
             router.replace("/dashboard")
             router.refresh()

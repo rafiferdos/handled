@@ -7,6 +7,8 @@ import { z } from "zod"
 import { ApiError, createApiClient } from "@/lib/api/client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { toast } from "sonner"
+import { announceSessionChange } from "@/lib/api/session"
 import { createSampleAdapter, sampleWorkspaces } from "@/lib/api/sample-adapter"
 import {
   companyInitials,
@@ -141,7 +143,22 @@ function LiveWorkspaceProvider({ children }: { children: React.ReactNode }) {
       router.replace("/login")
     }
     window.addEventListener("handled:unauthenticated", redirect)
-    return () => window.removeEventListener("handled:unauthenticated", redirect)
+    const channel =
+      typeof BroadcastChannel === "undefined"
+        ? null
+        : new BroadcastChannel("handled-session")
+    if (channel)
+      channel.onmessage = (event) => {
+        if (event.data !== "changed") return
+        void cache.cancelQueries().then(() => {
+          cache.clear()
+          window.location.reload()
+        })
+      }
+    return () => {
+      window.removeEventListener("handled:unauthenticated", redirect)
+      channel?.close()
+    }
   }, [cache, router])
   const session = useQuery({
     queryKey: ["session"],
@@ -214,8 +231,15 @@ function LiveWorkspaceProvider({ children }: { children: React.ReactNode }) {
   }, [expired, cache, router])
   async function signOut() {
     await cache.cancelQueries()
-    await fetch("/api/session", { method: "DELETE" })
+    const result = await fetch("/api/session", { method: "DELETE" }).catch(
+      () => null
+    )
+    if (!result?.ok) {
+      toast.error("Sign-out could not be completed. Please try again.")
+      return
+    }
     cache.clear()
+    announceSessionChange()
     router.replace("/login")
     router.refresh()
   }
