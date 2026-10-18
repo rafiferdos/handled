@@ -9,6 +9,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
 import { announceSessionChange } from "@/lib/api/session"
+import {
+  readWorkspaceSelection,
+  resolveWorkspaceSelection,
+  saveWorkspaceSelection,
+  workspaceSelectionKey,
+} from "@/lib/workspace/workspace-selection"
 import { createSampleAdapter, sampleWorkspaces } from "@/lib/api/sample-adapter"
 import {
   companyInitials,
@@ -119,7 +125,13 @@ function SampleWorkspaceProvider({ children }: { children: React.ReactNode }) {
 function LiveWorkspaceProvider({ children }: { children: React.ReactNode }) {
   const router = useRouter()
   const cache = useQueryClient()
-  const [workspaceId, setWorkspaceId] = useState("")
+  const [selection, setSelection] = useState(() =>
+    readWorkspaceSelection(() =>
+      typeof window === "undefined"
+        ? null
+        : window.sessionStorage.getItem(workspaceSelectionKey)
+    )
+  )
   const [newCompany, setNewCompany] = useState("")
   const [newSlug, setNewSlug] = useState("")
   const [creating, setCreating] = useState(false)
@@ -203,8 +215,11 @@ function LiveWorkspaceProvider({ children }: { children: React.ReactNode }) {
     (error) => error instanceof ApiError && error.status === 401
   )
   const workspaces = companies.data || []
-  const selected =
-    workspaces.find((item) => item.id === workspaceId) || workspaces[0]
+  const selected = resolveWorkspaceSelection(
+    workspaces,
+    session.data?.id,
+    selection
+  )
   const membership = useQuery({
     queryKey: ["live", selected?.id, "membership", session.data?.id],
     enabled: !!selected && !!session.data,
@@ -360,7 +375,11 @@ function LiveWorkspaceProvider({ children }: { children: React.ReactNode }) {
               query.queryKey[0] !== "session" &&
               query.queryKey[1] !== "workspaces",
           })
-          setWorkspaceId(id)
+          const next = { userId: session.data!.id, workspaceId: id }
+          saveWorkspaceSelection(next, (value) =>
+            window.sessionStorage.setItem(workspaceSelectionKey, value)
+          )
+          setSelection(next)
         },
       }}
     >
