@@ -1,0 +1,1096 @@
+{
+  "date": "2026-10-16",
+  "method": "Local production Chromium; 84 route/width containment checks; dark/light/reduced-motion captures; normal motion workflow at 1024\u00d7700 and1440\u00d7700; no Chrome control.",
+  "dashboard390x844": {
+    "queueHeadingBottom": 667.59375,
+    "firstTicketTop": 708.59375,
+    "firstTicketBottom": 829.84375,
+    "metricHeights": [
+      64,
+      64,
+      64
+    ]
+  },
+  "laptop1200": {
+    "x": 809.984375,
+    "y": 345,
+    "width": 350,
+    "position": "static"
+  },
+  "settingsControl": {
+    "height": 44,
+    "fontSize": "14px"
+  },
+  "layouts": [
+    {
+      "route": "/",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "42.4px",
+      "heroHeight": 1000.625,
+      "closingHeight": 370
+    },
+    {
+      "route": "/product",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "49.6px",
+      "closingHeight": 370
+    },
+    {
+      "route": "/how-it-works",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "44.8px",
+      "closingHeight": 370
+    },
+    {
+      "route": "/login",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "38.4px"
+    },
+    {
+      "route": "/signup",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "38.4px"
+    },
+    {
+      "route": "/forgot-password",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "38.4px"
+    },
+    {
+      "route": "/dashboard",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/tickets",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/knowledge",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/activity",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/settings",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 320,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "43.68px",
+      "heroHeight": 979.25,
+      "closingHeight": 370
+    },
+    {
+      "route": "/product",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "49.6px",
+      "closingHeight": 370
+    },
+    {
+      "route": "/how-it-works",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "44.8px",
+      "closingHeight": 370
+    },
+    {
+      "route": "/login",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "38.4px"
+    },
+    {
+      "route": "/signup",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "38.4px"
+    },
+    {
+      "route": "/forgot-password",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "38.4px"
+    },
+    {
+      "route": "/dashboard",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/tickets",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/knowledge",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/activity",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/settings",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 390,
+      "overflow": 0,
+      "h1Size": "30px"
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "47.616px",
+      "heroHeight": 790,
+      "closingHeight": 480
+    },
+    {
+      "route": "/product",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "88px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/how-it-works",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "50.688px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/login",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/signup",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/forgot-password",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/dashboard",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/knowledge",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/activity",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/settings",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 768,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "55.8px",
+      "heroHeight": 790,
+      "closingHeight": 480
+    },
+    {
+      "route": "/product",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "88px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/how-it-works",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "59.4px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/login",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/signup",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/forgot-password",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/dashboard",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/knowledge",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/activity",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/settings",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 900,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "63.488px",
+      "heroHeight": 850,
+      "closingHeight": 480
+    },
+    {
+      "route": "/product",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "102.4px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/how-it-works",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "67.584px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/login",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/signup",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/forgot-password",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/dashboard",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/knowledge",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/activity",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/settings",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 1024,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "78.6px",
+      "heroHeight": 850,
+      "closingHeight": 480
+    },
+    {
+      "route": "/product",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "102.4px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/how-it-works",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "79.2px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/login",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/signup",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/forgot-password",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/dashboard",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/knowledge",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/activity",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/settings",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 1200,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "94.32px",
+      "heroHeight": 850,
+      "closingHeight": 480
+    },
+    {
+      "route": "/product",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "102.4px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/how-it-works",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "95.04px",
+      "closingHeight": 480
+    },
+    {
+      "route": "/login",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/signup",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/forgot-password",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "42.4px"
+    },
+    {
+      "route": "/dashboard",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/knowledge",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/activity",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/settings",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "36px"
+    },
+    {
+      "route": "/tickets/10000000-0000-4000-8000-000000001001",
+      "width": 1440,
+      "overflow": 0,
+      "h1Size": "36px"
+    }
+  ],
+  "scenes": [
+    {
+      "width": 1024,
+      "fraction": 0,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 471.828125,
+        "right": 976
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 1,
+          "top": 235.33811950683594,
+          "bottom": 461.0362854003906,
+          "left": 503.4432678222656,
+          "right": 911.2806396484375
+        },
+        {
+          "name": "records",
+          "opacity": 0,
+          "top": 238.99099731445312,
+          "bottom": 445.2433776855469,
+          "left": 667.6215209960938,
+          "right": 1036.58154296875
+        },
+        {
+          "name": "knowledge",
+          "opacity": 0,
+          "top": 432.851806640625,
+          "bottom": 631.163818359375,
+          "left": 411.7339782714844,
+          "right": 779.7191162109375
+        },
+        {
+          "name": "decision",
+          "opacity": 0,
+          "top": 342.5179748535156,
+          "bottom": 570.0914306640625,
+          "left": 534.0906372070312,
+          "right": 913.7218627929688
+        },
+        {
+          "name": "receipt",
+          "opacity": 0,
+          "top": 298.4725646972656,
+          "bottom": 630.3868408203125,
+          "left": 525.7137451171875,
+          "right": 922.0987548828125
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1024,
+      "fraction": 0.32,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 471.828125,
+        "right": 976
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 0.0800272,
+          "top": 121.44721221923828,
+          "bottom": 351.0648880004883,
+          "left": 500.6637878417969,
+          "right": 873.5963745117188
+        },
+        {
+          "name": "records",
+          "opacity": 1,
+          "top": 213.71038818359375,
+          "bottom": 389.0953369140625,
+          "left": 587.7783203125,
+          "right": 944.1962280273438
+        },
+        {
+          "name": "knowledge",
+          "opacity": 1,
+          "top": 410.62744140625,
+          "bottom": 578.90478515625,
+          "left": 504.83349609375,
+          "right": 861.3779296875
+        },
+        {
+          "name": "decision",
+          "opacity": 0,
+          "top": 342.5179748535156,
+          "bottom": 570.0914306640625,
+          "left": 534.0906372070312,
+          "right": 913.7218627929688
+        },
+        {
+          "name": "receipt",
+          "opacity": 0,
+          "top": 298.4725646972656,
+          "bottom": 630.3868408203125,
+          "left": 525.7137451171875,
+          "right": 922.0987548828125
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1024,
+      "fraction": 0.58,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 471.828125,
+        "right": 976
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 0,
+          "top": 85.44741821289062,
+          "bottom": 314.11187744140625,
+          "left": 495.3194274902344,
+          "right": 856.4774169921875
+        },
+        {
+          "name": "records",
+          "opacity": 0.114574,
+          "top": 187.18911743164062,
+          "bottom": 353.05767822265625,
+          "left": 602.4545288085938,
+          "right": 954.5435791015625
+        },
+        {
+          "name": "knowledge",
+          "opacity": 0.114574,
+          "top": 392.0604248046875,
+          "bottom": 550.03125,
+          "left": 495.1923828125,
+          "right": 847.2987670898438
+        },
+        {
+          "name": "decision",
+          "opacity": 1,
+          "top": 234.97512817382812,
+          "bottom": 487.6342468261719,
+          "left": 513.1670532226562,
+          "right": 934.6454467773438
+        },
+        {
+          "name": "receipt",
+          "opacity": 0,
+          "top": 298.4725646972656,
+          "bottom": 630.3868408203125,
+          "left": 525.7137451171875,
+          "right": 922.0987548828125
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1024,
+      "fraction": 0.8,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 471.828125,
+        "right": 976
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 0,
+          "top": 80.2451171875,
+          "bottom": 308.9095764160156,
+          "left": 495.3194274902344,
+          "right": 856.4774169921875
+        },
+        {
+          "name": "records",
+          "opacity": 0,
+          "top": 183.796875,
+          "bottom": 348.4375,
+          "left": 604.34375,
+          "right": 955.859375
+        },
+        {
+          "name": "knowledge",
+          "opacity": 0,
+          "top": 389.6875,
+          "bottom": 546.328125,
+          "left": 493.96875,
+          "right": 845.484375
+        },
+        {
+          "name": "decision",
+          "opacity": 0.855252,
+          "top": 232.16390991210938,
+          "bottom": 476.0533447265625,
+          "left": 520.481689453125,
+          "right": 927.330810546875
+        },
+        {
+          "name": "receipt",
+          "opacity": 0,
+          "top": 298.4725646972656,
+          "bottom": 630.3868408203125,
+          "left": 525.7137451171875,
+          "right": 922.0987548828125
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1024,
+      "fraction": 1,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 471.828125,
+        "right": 976
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 0,
+          "top": 75.59698486328125,
+          "bottom": 304.2614440917969,
+          "left": 495.3194274902344,
+          "right": 856.4774169921875
+        },
+        {
+          "name": "records",
+          "opacity": 0,
+          "top": 183.796875,
+          "bottom": 348.4375,
+          "left": 604.34375,
+          "right": 955.859375
+        },
+        {
+          "name": "knowledge",
+          "opacity": 0,
+          "top": 389.6875,
+          "bottom": 546.328125,
+          "left": 493.96875,
+          "right": 845.484375
+        },
+        {
+          "name": "decision",
+          "opacity": 0,
+          "top": 184.46078491210938,
+          "bottom": 422.1485900878906,
+          "left": 525.6543579101562,
+          "right": 922.1581420898438
+        },
+        {
+          "name": "receipt",
+          "opacity": 1,
+          "top": 217.4334716796875,
+          "bottom": 524.84521484375,
+          "left": 535.393310546875,
+          "right": 912.419189453125
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1440,
+      "fraction": 0,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 670.1875,
+        "right": 1328
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 1,
+          "top": 233.25509643554688,
+          "bottom": 479.1798095703125,
+          "left": 717.2633666992188,
+          "right": 1248.012939453125
+        },
+        {
+          "name": "records",
+          "opacity": 0,
+          "top": 232.43765258789062,
+          "bottom": 451.7967224121094,
+          "left": 901.7098388671875,
+          "right": 1377.4151611328125
+        },
+        {
+          "name": "knowledge",
+          "opacity": 0,
+          "top": 426.2984619140625,
+          "bottom": 637.7171630859375,
+          "left": 621.259765625,
+          "right": 1095.990234375
+        },
+        {
+          "name": "decision",
+          "opacity": 0,
+          "top": 343.53515625,
+          "bottom": 589.41796875,
+          "left": 751.1843872070312,
+          "right": 1246.971923828125
+        },
+        {
+          "name": "receipt",
+          "opacity": 0,
+          "top": 293.51763916015625,
+          "bottom": 635.3417358398438,
+          "left": 744.2581787109375,
+          "right": 1253.91357421875
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1440,
+      "fraction": 0.32,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 670.1875,
+        "right": 1328
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 0.0802163,
+          "top": 115.63629150390625,
+          "bottom": 372.9311218261719,
+          "left": 721.5714721679688,
+          "right": 1203.100830078125
+        },
+        {
+          "name": "records",
+          "opacity": 1,
+          "top": 212.07505798339844,
+          "bottom": 390.7810974121094,
+          "left": 821.4796142578125,
+          "right": 1285.396728515625
+        },
+        {
+          "name": "knowledge",
+          "opacity": 1,
+          "top": 408.84765625,
+          "bottom": 580.7227783203125,
+          "left": 713.996337890625,
+          "right": 1178.0311279296875
+        },
+        {
+          "name": "decision",
+          "opacity": 0,
+          "top": 343.53515625,
+          "bottom": 589.41796875,
+          "left": 751.1843872070312,
+          "right": 1246.971923828125
+        },
+        {
+          "name": "receipt",
+          "opacity": 0,
+          "top": 293.51763916015625,
+          "bottom": 635.3417358398438,
+          "left": 744.2581787109375,
+          "right": 1253.91357421875
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1440,
+      "fraction": 0.58,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 670.1875,
+        "right": 1328
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 0,
+          "top": 78.73782348632812,
+          "bottom": 336.6976623535156,
+          "left": 718.4808959960938,
+          "right": 1183.69091796875
+        },
+        {
+          "name": "records",
+          "opacity": 0.118436,
+          "top": 187.0676727294922,
+          "bottom": 353.3454895019531,
+          "left": 836.1031494140625,
+          "right": 1295.750244140625
+        },
+        {
+          "name": "knowledge",
+          "opacity": 0.118436,
+          "top": 391.9018249511719,
+          "bottom": 550.3160400390625,
+          "left": 704.34326171875,
+          "right": 1164.0079345703125
+        },
+        {
+          "name": "decision",
+          "opacity": 1,
+          "top": 234.96839904785156,
+          "bottom": 507.98475646972656,
+          "left": 723.8289794921875,
+          "right": 1274.3272705078125
+        },
+        {
+          "name": "receipt",
+          "opacity": 0,
+          "top": 293.51763916015625,
+          "bottom": 635.3417358398438,
+          "left": 744.2581787109375,
+          "right": 1253.91357421875
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1440,
+      "fraction": 0.8,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 670.1875,
+        "right": 1328
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 0,
+          "top": 73.54071044921875,
+          "bottom": 331.50054931640625,
+          "left": 718.4808959960938,
+          "right": 1183.69091796875
+        },
+        {
+          "name": "records",
+          "opacity": 0,
+          "top": 183.796875,
+          "bottom": 348.4375,
+          "left": 838.03125,
+          "right": 1297.09375
+        },
+        {
+          "name": "knowledge",
+          "opacity": 0,
+          "top": 389.6875,
+          "bottom": 546.328125,
+          "left": 703.09375,
+          "right": 1162.15625
+        },
+        {
+          "name": "decision",
+          "opacity": 0.861198,
+          "top": 232.8008575439453,
+          "bottom": 496.3513946533203,
+          "left": 733.3721923828125,
+          "right": 1264.7840576171875
+        },
+        {
+          "name": "receipt",
+          "opacity": 0,
+          "top": 293.51763916015625,
+          "bottom": 635.3417358398438,
+          "left": 744.2581787109375,
+          "right": 1253.91357421875
+        }
+      ],
+      "progressTop": 612
+    },
+    {
+      "width": 1440,
+      "fraction": 1,
+      "scene": {
+        "top": 112,
+        "bottom": 668,
+        "left": 670.1875,
+        "right": 1328
+      },
+      "layers": [
+        {
+          "name": "ticket",
+          "opacity": 0,
+          "top": 68.89271545410156,
+          "bottom": 326.85255432128906,
+          "left": 718.4808959960938,
+          "right": 1183.69091796875
+        },
+        {
+          "name": "records",
+          "opacity": 0,
+          "top": 183.796875,
+          "bottom": 348.4375,
+          "left": 838.03125,
+          "right": 1297.09375
+        },
+        {
+          "name": "knowledge",
+          "opacity": 0,
+          "top": 389.6875,
+          "bottom": 546.328125,
+          "left": 703.09375,
+          "right": 1162.15625
+        },
+        {
+          "name": "decision",
+          "opacity": 0,
+          "top": 185.0710906982422,
+          "bottom": 441.8820037841797,
+          "left": 740.1668701171875,
+          "right": 1257.9893798828125
+        },
+        {
+          "name": "receipt",
+          "opacity": 1,
+          "top": 216.7818603515625,
+          "bottom": 526.4382934570312,
+          "left": 753.68017578125,
+          "right": 1244.49169921875
+        }
+      ],
+      "progressTop": 612
+    }
+  ],
+  "pageErrors": [],
+  "captureNotes": [
+    "Isolated marketing section captures hide fixed navbar/skip-link overlays only while taking the screenshot. Normal viewport screenshots preserve the real UI.",
+    "Static captures use reduced motion; the ten short-height workflow observations use normal motion.",
+    "No-JavaScript, coarse-pointer, reduced-motion and focus preservation remain covered by existing browser checks."
+  ]
+}

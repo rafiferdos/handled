@@ -1,0 +1,10 @@
+node_modules/
+# Real environment settings remain local; only the template is shared.
+.env*
+!.env.example
+src/generated/
+dist/
+coverage/
+*.tsbuildinfo
+*.log
+.DS_Store

@@ -1,0 +1,22 @@
+{
+  "name": "handled-workspace",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=22.13.0 <23",
+    "pnpm": "11.25.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @handled/web dev",
+    "dev:api": "pnpm --filter handled-api start:dev",
+    "build": "pnpm -r build",
+    "start": "pnpm --filter @handled/web start",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "test:e2e": "pnpm --filter @handled/web test:e2e",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "format": "pnpm --filter @handled/web format"
+  }
+}

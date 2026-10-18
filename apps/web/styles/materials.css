@@ -1,0 +1,254 @@
+/* Additive materials and motion. The installed Mist palette is the source. */
+:root {
+  --glass-fill: oklch(1 0 0 / 76%);
+  --glass-line: oklch(0.7 0.012 214 / 24%);
+  --glass-glint: oklch(1 0 0 / 94%);
+  --material-shadow: 0 12px 40px -22px oklch(0.25 0.02 214 / 24%);
+  --scene-light: oklch(0.86 0.018 214 / 52%);
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.dark {
+  --glass-fill: oklch(0.2 0.009 214 / 80%);
+  --glass-line: oklch(0.85 0.014 214 / 18%);
+  --glass-glint: oklch(0.95 0.008 214 / 32%);
+  --material-shadow: 0 16px 48px -24px oklch(0.04 0.01 214 / 70%);
+  --scene-light: oklch(0.7 0.028 214 / 18%);
+}
+.glass-surface {
+  border: 1px solid var(--glass-line);
+  background: var(--background);
+  box-shadow:
+    inset 0 1px 0 var(--glass-glint),
+    var(--material-shadow);
+}
+.material-nav {
+  background: var(--background);
+}
+@supports (backdrop-filter: blur(12px)) {
+  @media (min-width: 768px) {
+    .glass-surface {
+      background: var(--glass-fill);
+      backdrop-filter: blur(12px);
+    }
+    .material-nav {
+      background: color-mix(in oklch, var(--background) 86%, transparent);
+      backdrop-filter: blur(16px);
+    }
+  }
+}
+.nav-link {
+  position: relative;
+  padding-block: 0.75rem;
+}
+.nav-link::after {
+  position: absolute;
+  inset: auto 0 0.3rem;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--motion-ease);
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+.nav-link[aria-current="page"] {
+  color: var(--foreground);
+}
+.hero-stage {
+  isolation: isolate;
+  overflow: clip;
+}
+.hero-stage::before {
+  position: absolute;
+  z-index: -1;
+  inset: 9% -2% 3%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 55% 48%,
+    var(--scene-light),
+    transparent 64%
+  );
+  content: "";
+}
+.hero-orbit {
+  position: absolute;
+  inset: 10% 4% 9%;
+  border: 1px solid color-mix(in oklch, var(--foreground) 11%, transparent);
+  border-radius: 50%;
+  transform: rotate(-28deg) scaleX(0.85);
+}
+.hero-orbit::after {
+  position: absolute;
+  top: 16%;
+  left: 9%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--foreground);
+  opacity: 0.4;
+  content: "";
+}
+.hero-orbit-secondary {
+  inset: 15% 2% 17%;
+  border-style: dashed;
+  opacity: 0.45;
+  transform: rotate(24deg) scaleX(0.9);
+}
+.hero-crosshair {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  color: var(--muted-foreground);
+  opacity: 0.5;
+}
+.hero-crosshair::before,
+.hero-crosshair::after {
+  position: absolute;
+  background: currentColor;
+  content: "";
+}
+.hero-crosshair::before {
+  inset: 7px 0 auto;
+  height: 1px;
+}
+.hero-crosshair::after {
+  inset: 0 auto 0 7px;
+  width: 1px;
+}
+.hero-annotation {
+  transition: transform 400ms var(--motion-ease);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero-stage:hover .hero-annotation {
+    transform: translateY(-4px);
+  }
+}
+.precision-link svg:last-child {
+  transition: transform 220ms var(--motion-ease);
+}
+.precision-link:hover svg:last-child {
+  transform: translate(2px, -2px);
+}
+.material-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  background: var(--card);
+  box-shadow: inset 0 1px 0
+    color-mix(in oklch, var(--foreground) 3%, transparent);
+}
+.material-panel::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 80% 0%,
+    color-mix(in oklch, var(--muted-foreground) 7%, transparent),
+    transparent 65%
+  );
+  pointer-events: none;
+  content: "";
+}
+.case-stage {
+  position: relative;
+  border: 1px solid rgb(255 255 255 / 17%);
+  border-radius: 1.75rem;
+  background: linear-gradient(
+    145deg,
+    rgb(255 255 255 / 12%),
+    rgb(255 255 255 / 2%) 55%
+  );
+  box-shadow:
+    0 40px 100px -45px rgb(0 0 0 / 70%),
+    inset 0 1px 0 rgb(255 255 255 / 24%);
+}
+.case-stage::before {
+  position: absolute;
+  inset: -1px 12% auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 70%),
+    transparent
+  );
+  content: "";
+}
+.case-panel {
+  animation: case-arrive 320ms var(--motion-ease);
+}
+/* Hide the outgoing Base UI panel immediately; only the incoming case moves. */
+.case-panel[data-ending-style] {
+  display: none;
+  animation: none;
+}
+.sample-tabs [role="tab"] {
+  color: #b5c1c7;
+  background: transparent;
+}
+.sample-tabs [role="tab"]:hover {
+  color: #fff;
+}
+.sample-tabs [role="tab"][data-active] {
+  background: #edf1ef;
+  color: #182126;
+}
+@keyframes case-arrive {
+  from {
+    opacity: 0.65;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.workflow-connector {
+  background: linear-gradient(
+    90deg,
+    var(--border),
+    var(--muted-foreground),
+    var(--border)
+  );
+}
+.closing-orbit {
+  position: absolute;
+  right: -7rem;
+  bottom: -16rem;
+  width: 42rem;
+  height: 42rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4rem color-mix(in oklch, var(--muted) 35%, transparent),
+    0 0 0 8rem color-mix(in oklch, var(--muted) 18%, transparent);
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  .hero-orbit-secondary,
+  .hero-crosshair {
+    display: none;
+  }
+  .closing-orbit {
+    right: -25rem;
+    bottom: -19rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .precision-link:hover svg:last-child {
+    transform: none;
+  }
+  .case-panel {
+    animation: none;
+  }
+  .hero-annotation,
+  .nav-link::after,
+  .precision-link svg:last-child {
+    transition: none;
+  }
+}

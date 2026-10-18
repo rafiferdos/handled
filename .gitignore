@@ -1,0 +1,22 @@
+# Generated dependencies and builds in every application
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+playwright-report/
+test-results/
+.superpowers/
+
+# Local environment and credentials
+.env*
+!.env.example
+*.pem
+.DS_Store
+.vercel/
+
+# Tool caches and logs
+*.tsbuildinfo
+next-env.d.ts
+*.log
